@@ -105,7 +105,8 @@ build/vcs-report: $(src_files) $(test_files)
 # Generate Verilog Files
 #-----------------------------------------------------------------------
 $(vlsi_gen_dir)/$(verilog_file): $(src_files)
-	sbt "run-main $(project_main) $(PROJ) $(MODULE) $(CONFIG) --target-dir $(vlsi_gen_dir)  -frsq -c:$(MODULE):-o:$(vlsi_gen_dir)/mem.conf -o $@"
+	sbt "run-main $(project_main) $(PROJ) $(MODULE) $(CONFIG) --target-dir $(vlsi_gen_dir)  -frsq -c:$(MODULE):-o:$(vlsi_gen_dir)/$(MODULE).$(CONFIG).conf -o $@"
+	if [ -a $(vlsi_gen_dir)/$(MODULE).$(CONFIG).conf ]; build/vlsi/src/vlsi_mem_gen $(vlsi_gen_dir)/$(MODULE).$(CONFIG).conf >> $@; fi
 
 verilog: $(vlsi_gen_dir)/$(verilog_file)
 

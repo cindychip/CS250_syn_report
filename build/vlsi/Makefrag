@@ -14,18 +14,6 @@ TOP = $(MODULE)
 #  should have defined base_dir, build_dir
 #  should have included $(base_dir)/Makefrag
 
-#$(build_dir)/generated-src/$(TOP).v: $(base_dir)/src/*.scala $(base_dir)/riscv-rocket/src/*.scala $(base_dir)/uncore/src/*.scala $(base_dir)/riscv-hwacha/src/*.scala $(base_dir)/chisel/src/main/scala/*.scala 
-	#cd $(base_dir)/sbt && $(SBT) "project referencechip" "elaborate $(TOP) --backend referencechip.ReferenceChipBackend --targetDir $(build_dir)/generated-src --noInlineMem"
-	#cd $(build_dir)/generated-src && \
-	#if [ -a $(TOP).conf ]; then \
-		#sed -i 's*^*$(vlsi_dir)/src/vlsi_mem_gen *' $(TOP).conf && \
-		#sed -i 's*$$* >> $(TOP).v*' $(TOP).conf && \
-		#sh $(TOP).conf; \
-	#fi
-
-#$(build_dir)/generated-src/memdessertMemDessert.v: $(base_dir)/src/*.scala $(base_dir)/riscv-rocket/src/*.scala $(base_dir)/uncore/src/*.scala $(base_dir)/riscv-hwacha/src/*.scala $(base_dir)/chisel/src/main/scala/*.scala
-	#cd $(base_dir)/sbt && $(SBT) "project referencechip" "elaborate MemDessert --backend v --targetDir $(build_dir)/generated-src --moduleNamePrefix memdessert"
-
 UCB_STDCELLS = synopsys-32nm/multi_vt
 
 clock_period = 0.75
@@ -51,22 +39,17 @@ cells_v = \
   $(cells_v_dir)/cells_lvt.v \
 
 cells_db = \
-	$(cells_db_dir)/cells_hvt.db \
-	$(cells_db_dir)/cells_rvt.db \
-	$(cells_db_dir)/cells_lvt.db \
+  $(cells_db_dir)/cells_hvt.db \
+  $(cells_db_dir)/cells_rvt.db \
+  $(cells_db_dir)/cells_lvt.db \
 
 cells_mw = \
   $(cells_mw_dir)/cells_hvt.mw \
   $(cells_mw_dir)/cells_rvt.mw \
   $(cells_mw_dir)/cells_lvt.mw \
 
-test:
-	echo $(cells_db) 
-
-sram_conf_dir = $(build_dir)/generated-rams
+sram_conf_dir = $(vlsi_dir)/src
 srams = $(notdir $(basename $(wildcard $(sram_conf_dir)/*.conf)))
-#available_srams = $(notdir $(basename $(wildcard $(sram_conf_dir)/*.conf)))
-	# convenience target for projects that do not want manually list all srams
 
 sram_dir = $(build_dir)/generated-rams
 srams_dir = $(sram_dir)
@@ -79,19 +62,20 @@ srams_mw = $(foreach sram,$(srams),$(sram_dir)/$(sram).mw)
 $(srams_db): %.db: %.pd.log
 $(srams_mw): %.mw: %.pd.log
 
-cacti = $(base_dir)/ucbsc/cacti65/cacti
-#$(cacti):
-#	cd $(base_dir)/ucbsc/cacti65; make -j
+cacti = $(build_dir)/ucbsc/cacti65/cacti
+$(cacti):
+	cd $(build_dir)/ucbsc/cacti65; make -j
 
-#$(srams_v):  $(sram_dir)/%.v:  $(vlsi_dir)/sram/%.conf $(cacti)
-#	mkdir -p $(sram_dir)
-#	cd $(sram_dir) && $(base_dir)/ucbsc/ucbsc --v  $(vlsi_dir)/sram/$*.conf
+$(sram_dir):
+	mkdir -p $(sram_dir)
 
-#$(srams_pd_log): $(sram_dir)/%.pd.log: $(vlsi_dir)/sram/%.conf $(cacti)
-#	mkdir -p $(sram_dir)
-#	rm -f $(sram_dir)/$*.pd.log $(sram_dir)/$*.lef $(sram_dir)/$*.lib $(sram_dir)/$*.db
-#	rm -rf $(sram_dir)/$*.mw $(sram_dir)/$*.pd.tmp
-#	cd $(sram_dir) && $(base_dir)/ucbsc/ucbsc --pd $(vlsi_dir)/sram/$*.conf 2>&1 | tee $@
+$(srams_v):  $(sram_dir)/%.v: $(sram_dir)  $(vlsi_dir)/sram/%.conf $(cacti)
+	cd $(sram_dir) && $(base_dir)/ucbsc/ucbsc --v  $(vlsi_dir)/sram/$*.conf
+
+$(srams_pd_log): $(sram_dir)/%.pd.log: $(sram_dir) $(vlsi_dir)/sram/%.conf $(cacti)
+	rm -f $(sram_dir)/$*.pd.log $(sram_dir)/$*.lef $(sram_dir)/$*.lib $(sram_dir)/$*.db
+	rm -rf $(sram_dir)/$*.mw $(sram_dir)/$*.pd.tmp
+	cd $(sram_dir) && $(base_dir)/ucbsc/ucbsc --pd $(vlsi_dir)/sram/$*.conf 2>&1 | tee $@
 
 techfile_dir = $(stdcells_dir)/techfile
 tluplus_dir  = $(stdcells_dir)/tluplus

@@ -7,7 +7,6 @@
 sim_vsrcs = \
 	$(build_dir)/generated-src/$(TOP).$(CONFIG).v \
     $(build_dir)/generated-src/$(CONFIG)/$(TOP)-harness.v \
-	#$(build_dir)/generated-src/memdessertMemDessert.v \
 	#$(vlsi_dir)/testbench/riscvInst.vh \
 	#$(vlsi_dir)/testbench/rocketConst.vh \
 	#$(vlsi_dir)/testbench/rocketTestHarness.v \
