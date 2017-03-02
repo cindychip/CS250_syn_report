@@ -1,0 +1,6 @@
+[submodule "context-dependent-environments"]
+	path = context-dependent-environments
+	url = git@github.com:ucberkeley-cs250/context-dependent-environments.git
+[submodule "jackhammer"]
+	path = jackhammer
+	url = git@github.com:ucberkeley-cs250/jackhammer.git
