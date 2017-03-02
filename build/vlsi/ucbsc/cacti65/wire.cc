@@ -570,7 +570,7 @@ Wire::init_wire(){
 void Wire::update_fullswing()
 {
   list<Component>::iterator citer;
-  double del[3];
+  double del[4];
   del[3] = this->global.delay + this->global.delay*.3;
   del[2] = global.delay + global.delay*.2;
   del[1] = global.delay + global.delay*.1;
