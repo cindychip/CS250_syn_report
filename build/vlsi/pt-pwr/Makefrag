@@ -1,0 +1,95 @@
+#--------------------------------------------------------------------
+# Sources
+#--------------------------------------------------------------------
+
+# Specify what the toplevel verilog module is
+
+pt_toplevel = $(TOP)
+pt_testharness = sumAccelTestHarness
+pt_toplevelinst = accel
+
+#--------------------------------------------------------------------
+# Build rules
+#--------------------------------------------------------------------
+
+pt_dir = $(build_dir)/pt-pwr
+
+pt_exec = pt_shell -64bit
+pt_build_suffix = $(shell date +%Y-%m-%d_%H-%M)
+pt_build_dir = $(pt_dir)/build-pt-$(pt_build_suffix)
+pt_cur_build_dir = $(pt_dir)/current-pt
+pt_reports_dir = reports
+pt_results_dir = results
+pt_log_dir = log
+
+pt_timestamp = $(pt_cur_build_dir)/timestamp
+
+pt_setup_dir = $(pt_dir)/setup
+pt_scripts_dir = $(pt_dir)/pt_scripts
+
+pt_vars_tcl = $(pt_setup_dir)/common_setup.tcl $(pt_setup_dir)/pt_setup.tcl
+pt_makegen_tcl = make_generated_vars.tcl
+
+pt_avg_tcl = $(pt_scripts_dir)/pt.avg.tcl
+
+tests = vcdplus 
+pt_avg_min_rpt = $(addprefix $(pt_cur_build_dir)/$(pt_reports_dir)/, $(addsuffix .power.avg.min.report, $(tests)))
+pt_avg_max_rpt = $(addprefix $(pt_cur_build_dir)/$(pt_reports_dir)/, $(addsuffix .power.avg.max.report, $(tests)))
+
+pt_vars = \
+	set DESIGN_NAME                 "$(pt_toplevel)";\n \
+	set ADDITIONAL_SEARCH_PATH      "$(cells_db_dir) $(srams_dir) $(icc_cur_build_dir)/$(icc_results_dir)";\n \
+	set MW_REFERENCE_LIB_DIRS       "$(cells_mw) $(srams_mw))";\n \
+	set MIN_LIBRARY_FILES           "$(min_library)";\n \
+	set REPORTS_DIR                 "$(pt_reports_dir)";\n \
+	set NETLIST_FILES               "$(notdir $(icc_v))";\n \
+	set CONSTRAINT_FILES            "$(icc_sdc)";\n \
+
+pt_vars_avg = \
+	set STRIP_PATH                  "$(pt_testharness)/$(pt_toplevelinst)";\n \
+	set PT_METHOD                   "avg";\n \
+
+pt_vars_min = \
+	set TARGET_LIBRARY_FILES        "$(cells_db) $(srams_db)";\n \
+	set PARASITIC_PATHS             "$(pt_toplevel)";\n \
+	set PARASITIC_FILES             "$(icc_sbpf_min)";\n \
+	set PT_PARASITIC                "min";\n \
+
+pt_vars_max = \
+	set TARGET_LIBRARY_FILES        "$(cells_db) $(srams_db)";\n \
+	set PARASITIC_PATHS             "$(pt_toplevel)";\n \
+	set PARASITIC_FILES             "$(icc_sbpf_max)";\n \
+	set PT_PARASITIC                "max";\n \
+
+$(pt_timestamp): $(icc_timestamp) $(pt_vars_tcl) $(pt_avg_tcl)
+	mkdir $(pt_build_dir)
+	rm -f $(pt_cur_build_dir)
+	ln -s $(pt_build_dir) $(pt_cur_build_dir)
+	cp $(icc_timestamp) $(pt_cur_build_dir)/timestamp-icc
+	date > $(pt_timestamp)
+
+$(pt_avg_min_rpt): $(pt_cur_build_dir)/$(pt_reports_dir)/%.power.avg.min.report: $(sim_dir)/%.saif $(pt_timestamp)
+	cp $(pt_avg_tcl) $(pt_vars_tcl) $(pt_cur_build_dir)
+	echo -e '$(pt_vars)' > $(pt_cur_build_dir)/$(pt_makegen_tcl)
+	echo -e '$(pt_vars_avg)' >> $(pt_cur_build_dir)/$(pt_makegen_tcl)
+	echo -e '$(pt_vars_min)' >> $(pt_cur_build_dir)/$(pt_makegen_tcl)
+	echo -e 'set ACTIVITY_FILE "$<";\n' >> $(pt_cur_build_dir)/$(pt_makegen_tcl)
+	echo -e 'set PT_EXEC "$(notdir $(patsubst %.saif, %, $<))";\n' >> $(pt_cur_build_dir)/$(pt_makegen_tcl)
+	cd $(pt_cur_build_dir); \
+	mkdir -p $(pt_log_dir); \
+	$(pt_exec) -f $(notdir $(pt_avg_tcl)) | tee $(pt_log_dir)/$(notdir $(patsubst %.saif, %, $<)).pt.avg.min.log; \
+	cd ..
+
+$(pt_avg_max_rpt): $(pt_cur_build_dir)/$(pt_reports_dir)/%.power.avg.max.report: $(sim_dir)/%.saif $(pt_timestamp)
+	cp $(pt_avg_tcl) $(pt_vars_tcl) $(pt_cur_build_dir)
+	echo -e '$(pt_vars)' > $(pt_cur_build_dir)/$(pt_makegen_tcl)
+	echo -e '$(pt_vars_avg)' >> $(pt_cur_build_dir)/$(pt_makegen_tcl)
+	echo -e '$(pt_vars_max)' >> $(pt_cur_build_dir)/$(pt_makegen_tcl)
+	echo -e 'set ACTIVITY_FILE "$<";\n' >> $(pt_cur_build_dir)/$(pt_makegen_tcl)
+	echo -e 'set PT_EXEC "$(notdir $(patsubst %.saif, %, $<))";\n' >> $(pt_cur_build_dir)/$(pt_makegen_tcl)
+	cd $(pt_cur_build_dir); \
+	mkdir -p $(pt_log_dir); \
+	$(pt_exec) -f $(notdir $(pt_avg_tcl)) | tee $(pt_log_dir)/$(notdir $(patsubst %.saif, %, $<)).pt.avg.max.log; \
+	cd ..
+
+pt: $(pt_avg_max_rpt)

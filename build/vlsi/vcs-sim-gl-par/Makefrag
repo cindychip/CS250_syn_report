@@ -1,0 +1,97 @@
+#=======================================================================
+# UCB VLSI Makefile for vcs-sim-gl-par
+#-----------------------------------------------------------------------
+# Yunsup Lee (yunsup@cs.berkeley.edu)
+#
+# This makefile will build a rtl simulator and run various tests to
+# verify proper functionality.
+#
+
+#--------------------------------------------------------------------
+# Sources
+#--------------------------------------------------------------------
+
+# Verilog sources
+
+vsrcs = \
+  $(cells_v) \
+  $(icc_v) \
+  $(build_dir)/generated-src/$(CONFIG)/$(TOP)-harness.v \
+
+vpi_obj = $(build_dir)/generated-src/$(CONFIG)/$(TOP).csrc/vpi.o
+
+vpi_tab = $(build_dir)/generated-src/$(CONFIG)/vpi.tab
+
+#--------------------------------------------------------------------
+# Build rules
+#--------------------------------------------------------------------
+
+VCS      = vcs -full64
+#VCS_OPTS = -notice -PP -line +lint=all,noVCDE,noTFIPC,noIWU,noOUDPE +v2k -timescale=10ns/10ps \
+	#-P ../icc-par/current-icc/access.tab -debug_pp \
+
+vcs_clock_period = 120
+
+VCS_OPTS = -notice -PP -line +lint=all,noVCDE,noTFIPC,noIWU,noOUDPE,noVNGS,noONGS,noUI -timescale=1ns/1ps \
+  +rad +v2k +vcs+initreg+random +vcs+lic+wait +udpsched +evalorder +vpi \
+  +define+CLOCK_PERIOD=$(vcs_clock_period) \
+  +define+GATE_LEVEL \
+  -P $(icc_access_tab) \
+  -P $(vpi_tab) \
+  -debug \
+  +delay_mode_zero \
+  #+neg_tchk +sdfverbose -negdelay -sdf max:Sha3Accel:$(icc_sdf) \
+
+#  +neg_tchk +sdfverbose -negdelay -sdf typ:SumAccel:$(icc_sdf) \
+
+#--------------------------------------------------------------------
+# Build the simulator
+#--------------------------------------------------------------------
+
+vcs_sim = simv
+$(vcs_sim) : Makefile $(vsrcs) $(srams_v)
+	$(VCS) $(VCS_OPTS) +incdir+$(srcdir) -o $(vcs_sim) $(srams_v) $(vpi_obj) \
+	       +define+CLOCK_PERIOD=$(vcs_clock_period) \
+	       +incdir+$(vclibdir) $(addprefix -v ,$(vclibsrcs)) -v $(vsrcs)
+
+time : Makefile
+	$(VCS) $(VCS_OPTS) +incdir+$(srcdir) -o $(vcs_sim) $(vpi-obj) \
+	       +define+CLOCK_PERIOD=$(vcs_clock_period) \
+	       +incdir+$(vclibdir) $(addprefix -v ,$(vclibsrcs)) -v $(vsrcs)
+
+#--------------------------------------------------------------------
+# Run
+#--------------------------------------------------------------------
+
+vpd = vcdplus.vpd
+$(vpd): $(vcs_sim)
+	./simv -ucli -do run.tcl +verbose=1
+	date > timestamp
+
+run: $(vpd)
+
+#--------------------------------------------------------------------
+# Convert
+#--------------------------------------------------------------------
+
+convert_saif = vcdplus.saif
+
+$(convert_saif): %.saif: %.vpd
+	vpd2vcd $(patsubst %.saif,%.vpd,$@) $(patsubst %.saif, %.vcd, $@)
+	vcd2saif -input $(patsubst %.saif, %.vcd, $@) -output $@
+	date > timestamp
+
+convert: $(convert_saif)
+
+#--------------------------------------------------------------------
+# Default make target
+#--------------------------------------------------------------------
+
+.PHONY: run convert
+
+all : $(vcs_sim)
+
+#--------------------------------------------------------------------
+# Clean up
+#--------------------------------------------------------------------
+

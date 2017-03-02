@@ -1,0 +1,78 @@
+#--------------------------------------------------------------------
+# Sources
+#--------------------------------------------------------------------
+
+# Verilog sources
+
+sim_vsrcs = \
+	$(cells_v) \
+	$(dc_v) \
+    $(build_dir)/generated-src/$(CONFIG)/$(TOP)-harness.v \
+	#$(build_dir)/generated-src/memdessertMemDessert.v \
+	#$(vlsi_dir)/testbench/riscvInst.vh \
+	#$(vlsi_dir)/testbench/rocketConst.vh \
+	#$(vlsi_dir)/testbench/rocketTestHarness.v \
+	#$(vlsi_dir)/testbench/bram_mem.v \
+
+# C sources
+
+sim_csrcs = \
+	#$(base_dir)/csrc/htif_main.cc \
+	#$(base_dir)/csrc/mm.cc \
+	#$(base_dir)/csrc/mm_dramsim2.cc \
+	#$(base_dir)/csrc/disasm.cc \
+	#$(base_dir)/csrc/disasm-vcs.cc \
+
+vpi_obj = $(build_dir)/generated-src/$(CONFIG)/$(TOP).csrc/vpi.o
+
+vpi_tab = $(build_dir)/generated-src/$(CONFIG)/vpi.tab
+
+#--------------------------------------------------------------------
+# Build rules
+#--------------------------------------------------------------------
+
+VCS = vcs -full64
+VCS_OPTS = -notice -PP -line +lint=all,noVCDE,noTFIPC,noIWU,noOUDPE,noVNGS,noONGS,noUI -timescale=10ns/10ps \
+	+rad +v2k +vcs+initreg+random +vcs+lic+wait +evalorder +udpsched +vpi \
+	+vc+list \
+    -CC "-I$(VCS_HOME)/include" \
+	-CC "-I$(RISCV)/include" \
+	-CC "-I$(realpath $(base_dir))/dramsim2" \
+	-CC "-std=c++11" \
+    -CC "-Wl,-rpath,$(RISCV)/lib" \
+	$(RISCV)/lib/libfesvr.so \
+	 +delay_mode_zero +no_notifier \
+	-P $(dc_access_tab) \
+    -P $(vpi_tab) \
+    -debug \
+	\ #$(sim_dir)/libdramsim.a \+notimingcheck
+
+#--------------------------------------------------------------------
+# Build the simulator
+#--------------------------------------------------------------------
+
+vcs_clock_period = 120
+simv = $(sim_dir)/simv
+$(simv) : $(sim_vsrcs) $(srams_v) $(sim_csrcs) #$(sim_dir)/libdramsim.a
+	cd $(sim_dir) && \
+	$(VCS) $(VCS_OPTS) -o $(simv) $(sim_vsrcs) $(srams_v) $(sim_csrcs) $(vpi_obj) \
+	+define+CLOCK_PERIOD=$(vcs_clock_period) \
+	+define+GATE_LEVEL=1 \
+	+define+DEBUG=0 \
+	-lz
+
+simv_debug = $(sim_dir)/simv-debug
+$(simv_debug) : $(sim_vsrcs) $(srams_v) $(sim_csrcs) #$(sim_dir)/libdramsim.a
+	cd $(sim_dir) && \
+	$(VCS) $(VCS_OPTS) -o $(simv_debug) $(sim_vsrcs) $(srams_v) $(sim_csrcs) $(vpi_obj) \
+	+define+CLOCK_PERIOD=$(vcs_clock_period) \
+	+define+GATE_LEVEL=1 \
+	+define+DEBUG=1 -debug_pp \
+	-lz
+
+#--------------------------------------------------------------------
+# Run
+#--------------------------------------------------------------------
+
+exec_simv = $(simv)
+exec_simv_debug = $(simv_debug)

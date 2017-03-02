@@ -1,7 +1,17 @@
-*.class
-*.log
+# Matlab Files
+*.asv
+*.m~
+*.mex*
+slprj/
+octave-workspace
+.autosave
 
-# sbt specific
+# Scala
+target
+*.log
+*.class
+
+# sbt
 .cache
 .history
 .lib/
@@ -12,6 +22,18 @@ src_managed/
 project/boot/
 project/plugins/project/
 
-# Scala-IDE specific
-.scala_dependencies
-.worksheet
+# Chisel
+test_run_dir
+
+# ASIC Tools
+black_box_verilog_files.f
+DVEfiles
+command.log
+icc_output.txt
+
+# Project based
+generated-src
+ucli.key
+bash.sh
+*~
+*.o

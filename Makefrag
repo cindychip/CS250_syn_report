@@ -1,0 +1,31 @@
+src_path = src/main/scala
+mem_gen = build/vlsi/src/vlsi_mem_gen
+test_path = src/test/scala
+
+# What could possibly effect the top level interface
+top_level_defn_files =
+    src/main/scala/sha3/sha3.scala \
+    src/main/scala/sha3/test_infrastructure.scala \
+    src/test/scala/sha3/sha3.scala
+
+# Name of the function that executes
+MODEL := Sha3AccelMain
+# Name of the top level module
+MODULE := Sha3Accel
+# Name of the scala projects
+PROJ := sha3
+
+# Name of the function that executes the top level test
+TEST_MODEL := sha3Tester
+
+# Name of the function that generates the config files
+CONFIG_FUNC := Sha3AccelConfigCollect
+
+# Default configuration
+DCONFIG := DefaultConfig
+# Use the default configuration unless otherwise specified
+CONFIG ?= DefaultConfig
+
+# Jackhammer settings
+JSETTINGS = IclusterSettings
+JSETTINGS ?= DefaultSettings

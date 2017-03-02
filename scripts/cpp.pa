@@ -1,0 +1,11 @@
+#echo $PBS_JOBID
+#echo $PBS_JOBNAME
+#echo $PBS_ARRAYID
+#echo $PBS_O_HOST
+echo $CONFIG
+echo `whoami`
+#echo $HOST
+echo `hostname`
+
+cat ../build/verilator-report
+grep -r -A5 $CONFIG ../src/main/scala/config/*

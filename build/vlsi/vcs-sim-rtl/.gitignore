@@ -1,0 +1,15 @@
+simv*
+csrc
+*.vpd
+*.key
+DVE*
+.vcs*
+timestamp
+*.out
+*.h
+*.log
+*.cmd
+*.daidir
+kernel
+*.a
+Sha3Accel
