@@ -1,11 +1,7 @@
-    //see LICENSE for license
-//authors: Liheng Zhu
 package dfe3
 
-import math._
 // Allows you to use Chisel Module, Bundle, etc.
 import chisel3._
-import dsptools._
 // Allows you to use FixedPoint
 import chisel3.experimental.FixedPoint
 // If you want to take advantage of type classes >> Data:RealBits (i.e. pass in FixedPoint or DspReal)
@@ -20,37 +16,54 @@ import dsptools.{DspTester, DspTesterOptionsManager, DspTesterOptions}
 import iotesters.TesterOptions
 // Scala unit testing style
 import org.scalatest.{FlatSpec, Matchers}
+import math._
 import dsptools.numbers._
 
 
-class DFE_decision(val W: Int = 32, val R: Int = 15) extends Module {
-  val io = IO(new Bundle {
-    val input_real = Input(FixedPoint(32.W,16.BP))
-    val input_img  = Input(FixedPoint(32.W,16.BP)) 
-    val output_real = Output(FixedPoint(32.W,16.BP))
-    val output_img = Output(FixedPoint(32.W,16.BP))  
-    })
 
-val positive = DspContext.withBinaryPoint(16) { ConvertableTo[FixedPoint].fromDouble(sqrt(2.toDouble)) }
-val negative = DspContext.withBinaryPoint(16) { ConvertableTo[FixedPoint].fromDouble(-sqrt(2.toDouble)) }
+// IO Bundle. Note that when you parameterize the bundle, you MUST override cloneType.
+// This also creates x, y, z inputs/outputs (direction must be specified at some IO hierarchy level)
+// of the type you specify via gen (must be Data:RealBits = UInt, SInt, FixedPoint, DspReal)
+class DFE_decisionIo[T <: Data:RealBits](gen: T) extends Bundle {
+  val input_real = Input(gen.cloneType)
+  val input_img  = Input(gen.cloneType)
+  val output_real = Output(gen.cloneType)
+  val output_img  = Output(gen.cloneType)
+  override def cloneType: this.type = new DFE_decisionIo(gen).asInstanceOf[this.type]
+}
 
-when(io.input_real(31.U)){
-	when(io.input_img(31.U)){
-		io.output_real := negative
-		io.output_img := negative
-	}
-	.otherwise{
-		io.output_real := negative
-		io.output_img := positive
-	}
-}.otherwise {
-	when(io.input_img(31.U)){
-		io.output_real := positive
-		io.output_img := negative
-	}
-	.otherwise{
-		io.output_real := positive
-		io.output_img := positive
-	}
- }
+// Parameterized Chisel Module; takes in type parameters as explained above
+class DFE_decision[T <: Data:RealBits](gen: T) extends Module {
+  // This is how you declare an IO with parameters
+  val io = IO(new DFE_decisionIo(gen))
+  // Output will be current x + y addPipes clock cycles later
+  // Note that this relies on the fact that type classes have a special + that
+  // add addPipes # of ShiftRegister after the sum. If you don't wrap the sum in 
+  // DspContext.withNumAddPipes(addPipes), the default # of addPipes is used.
+  //DspContext.withNumAddPipes(addPipes) { 
+  //  io.z := io.x + io.y
+  //}
+  val positive = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(sqrt(0.5.toDouble)) }
+  val negative = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(-sqrt(0.5.toDouble)) }
+
+  when(io.input_real<0){
+   when(io.input_img<0){
+      io.output_real := negative
+      io.output_img := negative
+    }
+    .otherwise{
+      io.output_real := negative
+      io.output_img := positive
+    }
+  }.otherwise {
+    when(io.input_img<0){
+      io.output_real := positive
+      io.output_img := negative
+    }
+    .otherwise{
+      io.output_real := positive
+      io.output_img := positive
+    }
+  }
+
 }
