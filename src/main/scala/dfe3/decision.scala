@@ -25,14 +25,14 @@ import dsptools.numbers._
 
 class DFE_decision(val W: Int = 32, val R: Int = 15) extends Module {
   val io = IO(new Bundle {
-    val input_real = Input(FixedPoint(32.W,4.BP))
-    val input_img  = Input(FixedPoint(32.W,4.BP)) 
-    val output_real = Output(FixedPoint(32.W,4.BP))
-    val output_img = Output(FixedPoint(32.W,4.BP))  
+    val input_real = Input(FixedPoint(32.W,16.BP))
+    val input_img  = Input(FixedPoint(32.W,16.BP)) 
+    val output_real = Output(FixedPoint(32.W,16.BP))
+    val output_img = Output(FixedPoint(32.W,16.BP))  
     })
 
-val positive = DspContext.withBinaryPoint(8) { ConvertableTo[FixedPoint].fromDouble(sqrt(2.toDouble)) }
-val negative = DspContext.withBinaryPoint(8) { ConvertableTo[FixedPoint].fromDouble(-sqrt(2.toDouble)) }
+val positive = DspContext.withBinaryPoint(16) { ConvertableTo[FixedPoint].fromDouble(sqrt(2.toDouble)) }
+val negative = DspContext.withBinaryPoint(16) { ConvertableTo[FixedPoint].fromDouble(-sqrt(2.toDouble)) }
 
 when(io.input_real(31.U)){
 	when(io.input_img(31.U)){

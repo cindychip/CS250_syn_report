@@ -33,8 +33,8 @@ class DecisionBlockTests(c: DFE_decision) extends PeekPokeTester(c) {
   val real = Seq.fill(len)(Random.nextInt)
   val img = Seq.fill(len)(Random.nextInt)
 
-  val positive = DspContext.withBinaryPoint(8) { ConvertableTo[FixedPoint].fromDouble(sqrt(2.toDouble)) }
-  val negative = DspContext.withBinaryPoint(8) { ConvertableTo[FixedPoint].fromDouble(-sqrt(2.toDouble)) }
+  val positive = DspContext.withBinaryPoint(16) { ConvertableTo[FixedPoint].fromDouble(sqrt(2.toDouble)) }
+  val negative = DspContext.withBinaryPoint(16) { ConvertableTo[FixedPoint].fromDouble(-sqrt(2.toDouble)) }
 
 
   for (i <- 0 until len) {
@@ -68,11 +68,11 @@ class decisionTester extends ChiselFlatSpec {
     behavior of "DFE_decision"
     backends foreach {backend =>
         it should s"do the dfe decision function in $backend" in {
-            Driver(() => new DFE_decision(32,4), backend)(c => new DecisionBlockTests(c)) should be (true)
+            Driver(() => new DFE_decision(32,16), backend)(c => new DecisionBlockTests(c)) should be (true)
         }
     }
 }
 
 object decisionTester extends App {
-    Driver.execute(args, () => new DFE_decision(32,4)){ c => new DecisionBlockTests(c) }
+    Driver.execute(args, () => new DFE_decision(32,16)){ c => new DecisionBlockTests(c) }
 }
