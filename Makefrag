@@ -15,7 +15,7 @@ MODULE := DFE_decision
 PROJ := dfe3
 
 # Name of the function that executes the top level test
-TEST_MODEL := sha3Tester
+TEST_MODEL := DecisionBlockTests
 
 # Name of the function that generates the config files
 CONFIG_FUNC := Sha3AccelConfigCollect

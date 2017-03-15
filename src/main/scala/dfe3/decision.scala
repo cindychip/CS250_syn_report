@@ -1,6 +1,6 @@
     //see LICENSE for license
 //authors: Liheng Zhu
-package sha3
+package dfe3
 
 import math._
 // Allows you to use Chisel Module, Bundle, etc.
@@ -20,6 +20,7 @@ import dsptools.{DspTester, DspTesterOptionsManager, DspTesterOptions}
 import iotesters.TesterOptions
 // Scala unit testing style
 import org.scalatest.{FlatSpec, Matchers}
+import dsptools.numbers._
 
 
 class DFE_decision(val W: Int = 32, val R: Int = 15) extends Module {
@@ -30,25 +31,26 @@ class DFE_decision(val W: Int = 32, val R: Int = 15) extends Module {
     val output_img = Output(FixedPoint(32.W,4.BP))  
     })
 
-val constant = DspContext.withBinaryPoint(8) { ConvertableTo[FixedPoint].fromDouble(sqrt(2.toDouble)) }
+val positive = DspContext.withBinaryPoint(8) { ConvertableTo[FixedPoint].fromDouble(sqrt(2.toDouble)) }
+val negative = DspContext.withBinaryPoint(8) { ConvertableTo[FixedPoint].fromDouble(-sqrt(2.toDouble)) }
 
 when(io.input_real(31.U)){
 	when(io.input_img(31.U)){
-		io.output_real := constant
-		io.output_img := constant
+		io.output_real := negative
+		io.output_img := negative
 	}
 	.otherwise{
-		io.output_real := constant
-		io.output_img := constant
+		io.output_real := negative
+		io.output_img := positive
 	}
 }.otherwise {
 	when(io.input_img(31.U)){
-		io.output_real := constant
-		io.output_img := constant
+		io.output_real := positive
+		io.output_img := negative
 	}
 	.otherwise{
-		io.output_real := constant
-		io.output_img := constant
+		io.output_real := positive
+		io.output_img := positive
 	}
  }
 }
