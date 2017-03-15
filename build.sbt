@@ -16,17 +16,20 @@ lazy val commonSettings = Seq(
       "org.scalatest" %% "scalatest" % "2.2.5",
       "org.scalacheck" %% "scalacheck" % "1.12.4",
       "org.scala-lang" % "scala-reflect" % scalaVersion.value
+
     )
   )
 
 // Provide a managed dependency on X if -DXVersion="" is supplied on the command line.
 val defaultVersions = Map(
-  "chisel3" -> "3.0-SNAPSHOT",
-  "chisel-iotesters" -> "1.1-SNAPSHOT"
+  "chisel3" -> "3.1-SNAPSHOT",
+  "chisel-iotesters" -> "1.2-SNAPSHOT",
+  "dsptools" -> "1.0"
   )
 
 lazy val cde        = (project in file("context-dependent-environments")).
   settings(commonSettings: _*)
+
 
 lazy val jackhammer = (project in file("jackhammer")).
   settings(commonSettings: _*).
@@ -35,7 +38,7 @@ lazy val jackhammer = (project in file("jackhammer")).
 lazy val sha3       = (project in file(".")).
   settings(commonSettings: _*).
   settings(Seq(
-    libraryDependencies ++= (Seq("chisel3","chisel-iotesters").map {
+    libraryDependencies ++= (Seq("chisel3","chisel-iotesters","dsptools").map {
       dep: String => "edu.berkeley.cs" %% dep % sys.props.getOrElse(dep + "Version", defaultVersions(dep)) })
   )).
   dependsOn(cde, jackhammer)
