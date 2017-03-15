@@ -35,7 +35,7 @@ lazy val jackhammer = (project in file("jackhammer")).
   settings(commonSettings: _*).
   dependsOn(cde)
 
-lazy val sha3       = (project in file(".")).
+lazy val dfe3       = (project in file(".")).
   settings(commonSettings: _*).
   settings(Seq(
     libraryDependencies ++= (Seq("chisel3","chisel-iotesters","dsptools").map {
