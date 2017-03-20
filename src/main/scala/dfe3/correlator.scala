@@ -65,7 +65,8 @@ class correlator[T <: Data:RealBits](gen: T, val n: Int ,val preamble: Seq[DspCo
           //sum(i+1) := Multi(i).cout
           sum(i) := Multi(i).out+sum(i-1)
         }
-        io.output_complex := sum(n).divj()
+        io.fbf_coeff := sum(n).divj()
+        io.output_complex := delays(n-1)
         shiftState := shift
       }
      is(shift){
