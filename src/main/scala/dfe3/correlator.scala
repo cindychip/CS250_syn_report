@@ -21,7 +21,7 @@ class correlatorIo[T <: Data:RealBits](gen: T) extends Bundle {
   override def cloneType: this.type = new correlatorIo(gen).asInstanceOf[this.type]
 }
 class correlator[T <: Data:RealBits](gen: T, val n: Int ,val preamble: Seq[DspComplex[T]]) extends Module {
-// shift preamble reference 
+// Calculate preamble reference 
   val io = IO(new correlatorIo(gen))
   val preambleConj: Seq[DspComplex[T]] = preamble.map(tap => tap.conj())
   val product_ref : Seq[DspComplex[T]] = preamble.map{sl =>  DspContext.withComplexUse4Muls(true) { sl * sl.conj()}}
@@ -32,7 +32,7 @@ class correlator[T <: Data:RealBits](gen: T, val n: Int ,val preamble: Seq[DspCo
     reg + right  
   }
   //state machine
-   val endSignal = Reg(init = 0.U) 
+   val endSignal = Reg(init = 0.U) // for testing shift two signals
    val initial :: calculate :: shift :: Nil = Enum(3)
    val shiftState = Reg(init=initial)
    val counter = Reg(init = 0.U)
