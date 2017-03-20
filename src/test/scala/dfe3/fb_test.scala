@@ -2,23 +2,25 @@ package dfe3
 
 import chisel3._
 import scala.util.Random
-import chisel3.core._
-import chisel3.iotesters.{Backend}
-import chisel3.{Bundle, Module}
-import dsptools.{DspContext, DspTester}
-import dsptools.numbers.{FixedPointRing, DspComplexRing, DspComplex}
+import chisel3.experimental.FixedPoint
+import dsptools.numbers.{RealBits}
 import dsptools.numbers.implicits._
-import org.scalatest.{Matchers, FlatSpec}
-import spire.algebra.Ring
+import dsptools.DspContext
 import dsptools.{DspTester, DspTesterOptionsManager, DspTesterOptions}
 import iotesters.TesterOptions
+import org.scalatest.{FlatSpec, Matchers}
+import math._
+import dsptools.numbers._
+import breeze.math.Complex
+import breeze.signal._
 
 
-class fir_feedbackTests(c: fir_feedback) extends DspTester(c) {
+class fir_feedbackTests[T <: Data:RealBits](c: fir_feedback[T]) extends DspTester(c) {
   //var len = Random.nextInt(2000)
   var len = 2
   val real = Array.fill(len)(Random.nextDouble*2-1)
   val img = Array.fill(len)(Random.nextDouble*2-1)
+
   val size = 2
   val tap_real = Array.fill(size)(Random.nextDouble*2-1)
   val tap_img = Array.fill(size)(Random.nextDouble*2-1)
@@ -33,9 +35,9 @@ class fir_feedbackTests(c: fir_feedback) extends DspTester(c) {
        poke (c.io.tap_coeff_complex.imag, tap_img(i)) 
 
      }
+   step(1)
    expect (c.io.output_complex.real, expect_real(i))
    expect (c.io.output_complex.imag, expect_img(i))
-  step(1)
   }//end for
 }
 
@@ -56,8 +58,8 @@ class fir_feedbackSpec extends FlatSpec with Matchers {
   behavior of "simple dsp module"
 
   it should "properly add fixed point types" in {
-    dsptools.Driver.execute(() => new fir_feedback(2), testOptions) { c =>
-      new fir_feedbackTests(c)
+dsptools.Driver.execute(() => new fir_feedback(FixedPoint(32.W, 12.BP),2), testOptions) { c =>      
+  new fir_feedbackTests(c)
     } should be (true)
   }
 }
@@ -76,7 +78,7 @@ object fir_filter {
       val tmp_img2 = signal_real.map(_*coef_img(i))
       //NOT SURE:
       for (j <- i until sig_len+i) {
-        out_real(j) = out_real(j) + tmp_real1(j-i) + tmp_real2(j-i)
+        out_real(j) = out_real(j) + tmp_real1(j-i) - tmp_real2(j-i)
         out_img(j) = out_img(j) + tmp_img1(j-i) + tmp_img2(j-i)
       }
     }//end for loop

@@ -11,26 +11,27 @@ import dsptools.numbers.{FixedPointRing, DspComplexRing, DspComplex}
 import dsptools.numbers.implicits._
 import org.scalatest.{Matchers, FlatSpec}
 import spire.algebra.Ring
+import dsptools.numbers.{RealBits}
 
-class fir_feedbackIo extends Bundle {
-  val input_complex = Input(DspComplex(FixedPoint(16.W, 12.BP), FixedPoint(16.W, 12.BP)))
-  val tap_coeff_complex = Input(DspComplex(FixedPoint(16.W, 12.BP), FixedPoint(16.W, 12.BP)))
-  val output_complex = Output(DspComplex(FixedPoint(16.W, 12.BP), FixedPoint(16.W, 12.BP)))
-  override def cloneType: this.type = new fir_feedbackIo().asInstanceOf[this.type]
+class fir_feedbackIo[T <: Data:RealBits](gen: T) extends Bundle {
+  val input_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
+  val tap_coeff_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
+  val output_complex = Output(DspComplex(gen.cloneType, gen.cloneType))
+  override def cloneType: this.type = new fir_feedbackIo(gen).asInstanceOf[this.type]
 }
 
-class fir_feedback(var window_size: Int) extends Module {
-  val io = IO(new fir_feedbackIo())
+class fir_feedback[T <: Data:RealBits](gen: => T,var window_size: Int) extends Module {
+  val io = IO(new fir_feedbackIo(gen))
 
-  val delays = Reg(Vec(2, DspComplex(FixedPoint(16.W, 12.BP), FixedPoint(16.W, 12.BP))))
-  val coef = Reg(Vec(2, DspComplex(FixedPoint(16.W, 12.BP), FixedPoint(16.W, 12.BP))))
+  val delays = Reg(Vec(2, DspComplex(gen, gen)))
+  val coef = Reg(Vec(2, DspComplex(gen, gen)))
   delays(0) := io.input_complex
  
   for (i<- 1 until window_size) {
   	delays(i) := delays(i-1)
   }
   val coeff_count = Reg(init = 0.U(16.W)) //max 512 in darpa
-  val buffer_complex = Reg(Vec(window_size, DspComplex(FixedPoint(16.W, 12.BP), FixedPoint(16.W, 12.BP)))) //vector of reg
+  val buffer_complex = Reg(Vec(window_size, DspComplex(gen, gen))) //vector of reg
   when (coeff_count < window_size.asUInt) {
   	buffer_complex(coeff_count) := io.tap_coeff_complex
   	coeff_count := coeff_count + 1.U
@@ -40,7 +41,6 @@ class fir_feedback(var window_size: Int) extends Module {
   }
   //delays.zip(buffer_complex).map{case(x,y) =>x*y}
   io.output_complex := delays(0) * buffer_complex(0) + delays(1) * buffer_complex(1)
-
   
 }
 
