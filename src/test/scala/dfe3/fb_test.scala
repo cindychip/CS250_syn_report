@@ -17,11 +17,11 @@ import breeze.signal._
 
 class fir_feedbackTests[T <: Data:RealBits](c: fir_feedback[T]) extends DspTester(c) {
   //var len = Random.nextInt(2000)
-  var len = 2
+  var len = 5
   val real = Array.fill(len)(Random.nextDouble*2-1)
   val img = Array.fill(len)(Random.nextDouble*2-1)
 
-  val size = 2
+  val size = 5
   val tap_real = Array.fill(size)(Random.nextDouble*2-1)
   val tap_img = Array.fill(size)(Random.nextDouble*2-1)
   val (expect_real,expect_img) = fir_filter(real, img, tap_real, tap_img,
@@ -58,7 +58,7 @@ class fir_feedbackSpec extends FlatSpec with Matchers {
   behavior of "simple dsp module"
 
   it should "properly add fixed point types" in {
-dsptools.Driver.execute(() => new fir_feedback(FixedPoint(32.W, 12.BP),2), testOptions) { c =>      
+dsptools.Driver.execute(() => new fir_feedback(FixedPoint(32.W, 12.BP),5), testOptions) { c =>      
   new fir_feedbackTests(c)
     } should be (true)
   }
