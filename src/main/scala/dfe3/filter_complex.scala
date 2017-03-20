@@ -35,9 +35,6 @@ class fir_feedback[T <: Data:RealBits](gen: => T,var window_size: Int) extends M
   when (coeff_count < window_size.asUInt) {
   	buffer_complex(coeff_count) := io.tap_coeff_complex
   	coeff_count := coeff_count + 1.U
-  }.otherwise {
-  	coeff_count := 0.U
-  	buffer_complex(coeff_count) := io.tap_coeff_complex
   }
   sum(0) := delays(0) * buffer_complex(0)
   for (i <- 1 until window_size) {

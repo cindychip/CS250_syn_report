@@ -17,7 +17,7 @@ import breeze.signal._
 
 class fir_feedbackTests[T <: Data:RealBits](c: fir_feedback[T]) extends DspTester(c) {
   //var len = Random.nextInt(2000)
-  var len = 5
+  var len = 10
   val real = Array.fill(len)(Random.nextDouble*2-1)
   val img = Array.fill(len)(Random.nextDouble*2-1)
 
