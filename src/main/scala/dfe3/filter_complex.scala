@@ -23,8 +23,7 @@ class fir_feedbackIo[T <: Data:RealBits](gen: T) extends Bundle {
 class fir_feedback[T <: Data:RealBits](gen: => T,var window_size: Int) extends Module {
   val io = IO(new fir_feedbackIo(gen))
 
-  val delays = Reg(Vec(2, DspComplex(gen, gen)))
-  val coef = Reg(Vec(2, DspComplex(gen, gen)))
+  val delays = Reg(Vec(window_size, DspComplex(gen, gen)))
   delays(0) := io.input_complex
  
   for (i<- 1 until window_size) {
@@ -32,15 +31,15 @@ class fir_feedback[T <: Data:RealBits](gen: => T,var window_size: Int) extends M
   }
   val coeff_count = Reg(init = 0.U(16.W)) //max 512 in darpa
   val buffer_complex = Reg(Vec(window_size, DspComplex(gen, gen))) //vector of reg
+  val sum = Wire(Vec(window_size, DspComplex(gen,gen)))
   when (coeff_count < window_size.asUInt) {
   	buffer_complex(coeff_count) := io.tap_coeff_complex
   	coeff_count := coeff_count + 1.U
-  }.otherwise {
-  	coeff_count := 0.U
-  	buffer_complex(coeff_count) := io.tap_coeff_complex
   }
-  //delays.zip(buffer_complex).map{case(x,y) =>x*y}
-  io.output_complex := delays(0) * buffer_complex(0) + delays(1) * buffer_complex(1)
-  
+  sum(0) := delays(0) * buffer_complex(0)
+  for (i <- 1 until window_size) {
+  	sum(i) := delays(i) * buffer_complex(i) + sum(i-1)
+  }
+  io.output_complex := sum(window_size-1)
 }
 
