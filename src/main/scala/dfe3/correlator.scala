@@ -49,9 +49,8 @@ class correlator[T <: Data:RealBits](gen: T, val n: Int) extends Module {
    val sum  = Wire(Vec(n, DspComplex(gen, gen)))
    val init = Reg(init = true.B)
    val ref = Reg(DspComplex(gen, gen))
-   switch(shiftState) {
-     is(initial) {      
-        for (i<- 1 until n) {
+
+   for (i<- 1 until n) {
           delays(i) := delays(i-1)
         }
         when(preambleEn){
@@ -63,6 +62,9 @@ class correlator[T <: Data:RealBits](gen: T, val n: Int) extends Module {
 	          preamble(i) := preamble(i)
 	        }
         }
+
+   switch(shiftState) {
+     is(initial) {      
         when (counter < n) {
           delays(0) := io.input_complex
           when(preambleEn){
@@ -85,10 +87,11 @@ class correlator[T <: Data:RealBits](gen: T, val n: Int) extends Module {
           sum(i) := Multi(i).out+sum(i-1)
         }
         when (init){
-        	ref:= sum(n-1).conj().div2(DspContext.withComplexUse4Muls(true) { sum(n-1)*sum(n-1).conj()})
+        	ref:= sum(n-1).conj()
+        	//ref:= sum(n-1).conj().div2(DspContext.withComplexUse4Muls(true) { sum(n-1)*sum(n-1).conj()})
         	init := false.B
         }
-        io.fbf_coeff := sum(n-1)/ref
+        io.fbf_coeff := sum(n-1) //divide by ref
         io.output_complex := delays(n-1)
         shiftState := shift
       }
