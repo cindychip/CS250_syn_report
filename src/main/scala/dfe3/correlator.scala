@@ -28,35 +28,33 @@ class correlator[T <: Data:RealBits](gen: T, val n: Int) extends Module {
    val initial :: calculate :: shift :: Nil = Enum(3)
    val shiftState = Reg(init=initial)
    val counter = Reg(init = 0.U)
-   //ShiftRegister
-   val preamble = Vec(n, Reg(DspComplex(gen, gen)))
+   //ShiftRegister initialization
+   val preamble = Reg(Vec(n, DspComplex(gen, gen)))
    val preambleEn = Reg(init = true.B)
-   val delays = Vec(n, Reg(DspComplex(gen, gen)))
+   val delays = Reg(Vec(n, DspComplex(gen, gen)))
    val Multi   = Array.fill(n)(Module(new Multiply(gen)).io)
    val sum  = Wire(Vec(n, DspComplex(gen, gen)))
    val init = Reg(init = true.B)
    val ref = Reg(DspComplex(gen, gen))
-   
+   // Set up ShiftRegister
+   delays(0) := io.input_complex
    for (i<- 1 until n) {
           delays(i) := delays(i-1)
+    }
+    when(preambleEn){
+    	preamble(0):=io.input_complex
+        for (i<- 1 until n) {
+          preamble(i) := preamble(i-1)
         }
-        when(preambleEn){
-	        for (i<- 1 until n) {
-	          preamble(i) := preamble(i-1)
-	        }
-        }.otherwise{
-        	for (i<- 0 until n) {
-	          preamble(i) := preamble(i)
-	        }
+    }.otherwise{
+    	for (i<- 0 until n) {
+          preamble(i) := preamble(i)
         }
+    }
 
    switch(shiftState) {
-     is(initial) {      
-        when (counter < n) {
-          delays(0) := io.input_complex
-          when(preambleEn){
-          	preamble(0):=io.input_complex
-     	  }
+     is(initial) {    
+     	when (counter < n){  
           counter := counter + 1.U
         }.otherwise{
           preambleEn := false.B
@@ -84,7 +82,6 @@ class correlator[T <: Data:RealBits](gen: T, val n: Int) extends Module {
       }
      is(shift){
       when (counter < 1.U) {
-          delays(0) := io.input_complex
           counter := counter + 1.U
           endSignal := endSignal + 1.U
         }.otherwise{
@@ -95,10 +92,9 @@ class correlator[T <: Data:RealBits](gen: T, val n: Int) extends Module {
             shiftState := calculate
           }          
         }
-
       }
     }
-  }
+}
 
 
 
