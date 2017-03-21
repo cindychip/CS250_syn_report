@@ -20,11 +20,11 @@ class correlatorIo[T <: Data:RealBits](gen: T) extends Bundle {
   val fbf_coeff = Output(DspComplex(gen.cloneType, gen.cloneType))
   override def cloneType: this.type = new correlatorIo(gen).asInstanceOf[this.type]
 }
-class correlator[T <: Data:RealBits](gen: T, val n: Int ,val preamble: Seq[DspComplex[T]]) extends Module {
+class correlator[T <: Data:RealBits](gen: T, val n: Int ,val preamble: Array[DspComplex[T]]) extends Module {
 // Calculate preamble reference j
   val io = IO(new correlatorIo(gen))
-  val preambleConj: Seq[DspComplex[T]] = preamble.map(tap => tap.conj())
-  val product_ref : Seq[DspComplex[T]] = preamble.map{sl =>  DspContext.withComplexUse4Muls(true) { sl * sl.conj()}}
+  val preambleConj: Array[DspComplex[T]] = preamble.map(tap => tap.conj())
+  val product_ref : Array[DspComplex[T]] = preamble.map{sl =>  DspContext.withComplexUse4Muls(true) { sl * sl.conj()}}
   val j = product_ref.reduceLeft{
     (left: DspComplex[T], right: DspComplex[T]) =>
     val reg = Reg(left.cloneType)
@@ -40,7 +40,7 @@ class correlator[T <: Data:RealBits](gen: T, val n: Int ,val preamble: Seq[DspCo
    val delays = Vec(n, Reg(DspComplex(gen, gen)))
    val buffer_complex = Vec(n, Reg(DspComplex(gen, gen)))
    val Multi   = Array.fill(n)(Module(new Multiply(gen)).io)
-   val sum  = Wire(Vec(n+1, DspComplex(gen, gen)))
+   val sum  = Wire(Vec(n, DspComplex(gen, gen)))
    switch(shiftState) {
      is(initial) {      
         for (i<- 1 until n) {
@@ -61,11 +61,9 @@ class correlator[T <: Data:RealBits](gen: T, val n: Int ,val preamble: Seq[DspCo
         for (i <- 1 until n) {
           Multi(i).cx := preambleConj(i)
           Multi(i).cy := delays(i)
-          //Multi(i).cin := sum(i)
-          //sum(i+1) := Multi(i).cout
           sum(i) := Multi(i).out+sum(i-1)
         }
-        io.fbf_coeff := sum(n).divj()
+        io.fbf_coeff := sum(n-1).divj()
         io.output_complex := delays(n-1)
         shiftState := shift
       }
@@ -75,7 +73,7 @@ class correlator[T <: Data:RealBits](gen: T, val n: Int ,val preamble: Seq[DspCo
           counter := counter + 1.U
           endSignal := endSignal + 1.U
         }.otherwise{
-          when (endSignal === 2.U){
+          when (endSignal === 2.U){ //testing two input signals
             shiftState := initial
           }.otherwise{
             counter := 0.U
