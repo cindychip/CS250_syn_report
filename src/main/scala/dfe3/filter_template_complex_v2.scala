@@ -13,15 +13,15 @@ import org.scalatest.{Matchers, FlatSpec}
 import spire.algebra.Ring
 import dsptools.numbers.{RealBits}
 
-class fir_feedbackIo[T <: Data:RealBits](gen: T) extends Bundle {
+class fir_Io[T <: Data:RealBits](gen: T) extends Bundle {
   val input_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
   val tap_coeff_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
   val output_complex = Output(DspComplex(gen.cloneType, gen.cloneType))
-  override def cloneType: this.type = new fir_feedbackIo(gen).asInstanceOf[this.type]
+  override def cloneType: this.type = new firIo(gen).asInstanceOf[this.type]
 }
 
-class fir_feedback[T <: Data:RealBits](gen: => T,var window_size: Int) extends Module {
-  val io = IO(new fir_feedbackIo(gen))
+class fir[T <: Data:RealBits](gen: => T,var window_size: Int) extends Module {
+  val io = IO(new firIo(gen))
 
   val delays = Reg(Vec(window_size, DspComplex(gen, gen)))
   delays(0) := io.input_complex
