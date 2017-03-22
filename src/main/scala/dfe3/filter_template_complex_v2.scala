@@ -17,11 +17,11 @@ class fir_Io[T <: Data:RealBits](gen: T) extends Bundle {
   val input_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
   val tap_coeff_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
   val output_complex = Output(DspComplex(gen.cloneType, gen.cloneType))
-  override def cloneType: this.type = new firIo(gen).asInstanceOf[this.type]
+  override def cloneType: this.type = new fir_Io(gen).asInstanceOf[this.type]
 }
 
 class fir[T <: Data:RealBits](gen: => T,var window_size: Int) extends Module {
-  val io = IO(new firIo(gen))
+  val io = IO(new fir_Io(gen))
 
   val delays = Reg(Vec(window_size, DspComplex(gen, gen)))
   delays(0) := io.input_complex
