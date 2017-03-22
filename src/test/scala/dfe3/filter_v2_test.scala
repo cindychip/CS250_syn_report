@@ -15,7 +15,7 @@ import breeze.math.Complex
 import breeze.signal._
 
 
-class fir_feedbackTests[T <: Data:RealBits](c: fir_feedback[T]) extends DspTester(c) {
+class firTests[T <: Data:RealBits](c: fir[T]) extends DspTester(c) {
   //var len = Random.nextInt(2000)
   var len = 10
   val real = Array.fill(len)(Random.nextDouble*2-1)
@@ -42,7 +42,7 @@ class fir_feedbackTests[T <: Data:RealBits](c: fir_feedback[T]) extends DspTeste
 }
 
 // Scala style testing
-class fir_feedbackSpec extends FlatSpec with Matchers {
+class firSpec extends FlatSpec with Matchers {
   
   val testOptions = new DspTesterOptionsManager {
     dspTesterOptions = DspTesterOptions(
@@ -58,8 +58,8 @@ class fir_feedbackSpec extends FlatSpec with Matchers {
   behavior of "simple dsp module"
 
   it should "properly add fixed point types" in {
-dsptools.Driver.execute(() => new fir_feedback(FixedPoint(32.W, 12.BP),5), testOptions) { c =>      
-  new fir_feedbackTests(c)
+dsptools.Driver.execute(() => new fir(FixedPoint(32.W, 12.BP),5), testOptions) { c =>      
+  new firTests(c)
     } should be (true)
   }
 }
