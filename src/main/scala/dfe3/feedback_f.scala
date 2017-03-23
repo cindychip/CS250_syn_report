@@ -30,7 +30,6 @@ class fir_feedback[T <: Data:RealBits](gen: T,var window_size: Int, var step_siz
   val io = IO(new fir_feedbackIo(gen))
 
   val delays = Reg(Vec(window_size, DspComplex(gen, gen)))
-  val coeff_count = Reg(init = 0.U(10.W)) //max 512 in darpa
   val index_count = Reg(init = 0.U(2.W))
   val buffer_complex = Reg(Vec(3, DspComplex(gen, gen))) //vector of reg
   val index = Reg(Vec(3,0.U(10.W)))
@@ -43,14 +42,13 @@ class fir_feedback[T <: Data:RealBits](gen: T,var window_size: Int, var step_siz
 
 //update non-zero coef while count the index
   when (io.coef_en) {
-    when(io.tap_coeff_complex.imag > 0 && io.tap_coeff_complex.real > 0 &&
-          io.tap_coeff_complex.imag < 0 && io.tap_coeff_complex.real < 0) {
+    when(io.tap_coeff_complex.imag > 0 || io.tap_coeff_complex.real > 0 ||
+          io.tap_coeff_complex.imag < 0 || io.tap_coeff_complex.real < 0) {
       index(index_count) := io.tap_index
-      buffer_complex := io.tap_coeff_complex
-      index_count := index_count + 1.U
+      buffer_complex(index_count) := io.tap_coeff_complex
+      index_count := index_count + 1.U    
     }
   }
-  index_count := 0.U
   
 //update lms
   when (io.lms_en) {
@@ -58,7 +56,8 @@ class fir_feedback[T <: Data:RealBits](gen: T,var window_size: Int, var step_siz
    buffer_complex(1) := io.error * step_size * delays(index(1))
    buffer_complex(2) := io.error * step_size * delays(index(2))
 }
-  io.output_complex := delays(index(0))* buffer_complex(index(0)) + 
-                        delays(index(1))* buffer_complex(index(1)) + 
-                         delays(index(2))* buffer_complex(index(2))
+  io.output_complex := delays(index(0))* buffer_complex(0) + 
+                        delays(index(1))* buffer_complex(1) + 
+                         delays(index(2))* buffer_complex(2)
+
 }
