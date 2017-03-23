@@ -17,7 +17,7 @@ import breeze.signal._
 
 class feedbackfirTests[T <: Data:RealBits](c: fir_feedback[T]) extends DspTester(c) {
   //var len = Random.nextInt(2000)
-  var len = 6
+  var len = 10
   val real = Array.fill(len)(Random.nextDouble*2-1)
   val img = Array.fill(len)(Random.nextDouble*2-1)
   //val real = Array(0.0,0.1,0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7)
@@ -44,10 +44,16 @@ class feedbackfirTests[T <: Data:RealBits](c: fir_feedback[T]) extends DspTester
        poke (c.io.tap_coeff_complex.real,tap_real(i))
        poke (c.io.tap_coeff_complex.imag, tap_img(i)) 
        poke (c.io.tap_index, i)
+       poke(c.io.lms_en, false)
+       poke(c.io.error.real, tap_real(i)/10)
+       poke(c.io.error.imag, tap_real(i)/10)
+       peek(c.io.tap_coeff_complex.real)
+       peek(c.io.tap_coeff_complex.imag)
      }
    step(1)
    expect (c.io.output_complex.real, expect_real(i))
    expect (c.io.output_complex.imag, expect_img(i))
+
   }//end for
 }
 

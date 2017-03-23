@@ -52,9 +52,12 @@ class fir_feedback[T <: Data:RealBits](gen: T,var window_size: Int, var step_siz
   
 //update lms
   when (io.lms_en) {
-   buffer_complex(0) := io.error * step_size * delays(index(0))
-   buffer_complex(1) := io.error * step_size * delays(index(1))
-   buffer_complex(2) := io.error * step_size * delays(index(2))
+   buffer_complex(0).real := buffer_complex(0).real + delays(index(0)).real * io.error.real >> step_size 
+   buffer_complex(0).imag := buffer_complex(0).imag + delays(index(0)).imag * io.error.imag >> step_size
+   buffer_complex(1).real := buffer_complex(1).real + delays(index(1)).real * io.error.real >> step_size 
+   buffer_complex(1).imag := buffer_complex(1).imag + delays(index(1)).imag * io.error.imag >> step_size
+   buffer_complex(2).real := buffer_complex(2).real + delays(index(2)).real * io.error.real >> step_size 
+   buffer_complex(2).imag := buffer_complex(2).imag + delays(index(2)).imag * io.error.imag >> step_size
 }
   io.output_complex := delays(index(0))* buffer_complex(0) + 
                         delays(index(1))* buffer_complex(1) + 
