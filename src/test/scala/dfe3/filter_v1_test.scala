@@ -63,7 +63,7 @@ class fir_feedbackSpec extends FlatSpec with Matchers {
 }
 
 
-object fir_filter {
+object fir_filter1 {
   def apply(signal_real:Array[Double], signal_img: Array[Double], 
             coef_real:Array[Double], coef_img:Array[Double], 
             sig_len:Int , coef_len:Int) : (Array[Double], Array[Double])={
