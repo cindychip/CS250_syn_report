@@ -28,21 +28,34 @@ class correlatorTests[T <: Data:RealBits](c: correlator[T]) extends DspTester(c)
   //val expect_real = new Array[Double](len-size+1)
   val (expect_real, expect_img) = Adder(real, img, preamble_real, preamble_img,
                                      len, size)
-  for (i<-0 until size){
+ //s for (i<-0 until len){
     
-    println("expect_real --> " + expect_real(i))
-  //  poke (c.io.input_complex.real,real(i))
-    //  poke (c.io.input_complex.imag, img(i))
-    //  step(1)
-    //  expect (c.io.output_complex.real, expect_real)
-    //  expect (c.io.output_complex.imag, expect_img)
-  }//end for
+    
+    poke (c.io.input_complex.real,real(0))
+    poke (c.io.input_complex.imag, img(0))
+
+    step(1)
+    println("Real -----------> " + peek(c.io.fbf_coeff.real))
+    poke (c.io.input_complex.real,real(1))
+    poke (c.io.input_complex.imag, img(1))
+    step(1)
+
+    println("Real -----------> " + peek(c.io.fbf_coeff.real))
+    println("expect_real --> " + expect_real(0))
+   // println("Imag -----------> " + peek(c.io.fbf_coeff.imag))
+    // if (i>=size-1){
+    //   println("expect_real --> " + expect_real(i-size+1))
+    //   println("expect_imag --> " + expect_img(i-size+1))
+    //   expect (c.io.fbf_coeff.real, expect_real(i-size+1))
+    //   expect (c.io.fbf_coeff.imag, expect_img(i-size+1))
+    // }
+ // }//end for
 }
 
 // Scala style testing
 class correlatorSpec extends FlatSpec with Matchers {
-  val real = Array(1.0, 2.0, 3.0, 4.0)
-  val img = Array(1.0, 2.0, 3.0, 4.0)
+  val real = Array(1.0, 2.0)
+  val img = Array(1.0, 2.0)
 
   val testOptions = new DspTesterOptionsManager {
     dspTesterOptions = DspTesterOptions(
@@ -58,7 +71,7 @@ class correlatorSpec extends FlatSpec with Matchers {
   behavior of "correlator module"
 
   it should "properly add fixed point types" in {
-dsptools.Driver.execute(() => new correlator(FixedPoint(32.W, 12.BP),4, real, img), testOptions) { c =>      
+dsptools.Driver.execute(() => new correlator(FixedPoint(32.W, 12.BP),2, real, img), testOptions) { c =>      
   new correlatorTests(c)
     } should be (true)
   }
@@ -74,8 +87,8 @@ object Adder {
    val outIm = new Array[Double](sig_len-preamble_len+1)
    for(j<-0 until (sig_len-preamble_len+1)){
       for (i<-0 until preamble_len){
-      tmp_Re(i) = preamble_real(i)*signal_real(i+j)+preamble_img(i)*signal_img(i+j)
-      tmp_Im(i) = preamble_real(i)*preamble_img(i)-preamble_img(i)*preamble_img(i)
+      tmp_Re(i) = preamble_real(i)*signal_real(i+j)-(-preamble_img(i))*signal_img(i+j)
+      tmp_Im(i) = preamble_real(i)*signal_img(i+j)+(-preamble_img(i))*signal_real(i+j)
       }
       outRe(j) = tmp_Re.reduceLeft( _ + _ )
       outIm(j) = tmp_Im.reduceLeft( _ + _ )
