@@ -29,6 +29,9 @@ class correlatorTests[T <: Data:RealBits](c: correlator[T]) extends DspTester(c)
     if (i>=size-1){
       expect (c.io.fbf_coeff.real, expect_real(i-size+1))
       expect (c.io.fbf_coeff.imag, expect_img(i-size+1))
+      expect (c.io.output_complex.real, real(i-size+1))
+      expect (c.io.output_complex.imag, img(i-size+1))
+
     }
   }//end for
 }
@@ -77,4 +80,3 @@ object Adder {
    return (outRe, outIm)
    }
  }
-
