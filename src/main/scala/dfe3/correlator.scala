@@ -26,8 +26,8 @@ class correlator[T <: Data:RealBits](gen: T) extends Module {
 val io = IO(new correlatorIo(gen))
 //Set up constant 
 val n = 7
-val W = List(-1, -1, -1, -1, 1, -1, -1)
-val Dk = List(1, 8, 2, 4, 16, 32, 64)
+val W = Array(-1, -1, -1, -1, 1, -1, -1)
+val Dk = Array(1, 8, 2, 4, 16, 32, 64)
 val D1 = Reg(Vec(Dk(0), DspComplex(gen, gen)))
 val D2 = Reg(Vec(Dk(1), DspComplex(gen, gen)))
 val D3 = Reg(Vec(Dk(2), DspComplex(gen, gen)))
@@ -112,13 +112,13 @@ for (i <- 0 until n){
   if (i == 0){
     rb(i) := -io.input_complex-DW(i)
   }else if (i == 4){
-    rb(i) := rb(i-1)-DW(i)
+    rb(i) := ra(i-1)-DW(i)
   }else{
-    rb(i) := -rb(i-1)-DW(i)
+    rb(i) := -ra(i-1)-DW(i)
   }
 }
-io.ra_out := ra(6) 
-io.rb_out := rb(6)
+io.ra_out := ra(6).real 
+io.rb_out := rb(6).real
 
 
 
