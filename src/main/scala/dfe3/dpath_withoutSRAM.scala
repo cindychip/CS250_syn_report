@@ -23,11 +23,12 @@ val lms_en = Input(Bool())
 
 class dpathlWithoutSRAM[T <: Data:RealBits](gen: T) extends Module {
  val io = IO(new fir_feedbackIo(gen))
- 
+ val window_size = 512.U
+ val step_size = 5.U
  //import submodule 
  val corr = Module(new correlator(T)).io
  val dec = Module(new decision_device(T)).io
- val fbf = Module(new fir_feedback(T)).io
+ val fbf = Module(new fir_feedback(T,window_size,step_size).io
  
  if (state == 0.U) {
     //reset
