@@ -46,7 +46,7 @@ DW(0) := D1(0)
 //D2
 for (i<- 0 until Dk(1)) {
   if(i == 0){
-    D2(0) := rb(0) /////////////////////
+    D2(0) := rb(0) 
   }else{
     D2(i) := D2(i-1)
   }
@@ -55,7 +55,7 @@ DW(1) := D2(Dk(1)-1)
 //D3
 for (i<- 0 until Dk(2)) {
   if(i == 0){
-    D3(0) := rb(1)///////////////////////////
+    D3(0) := rb(1)
   }else{
     D3(i) := D3(i-1)
   }
@@ -64,34 +64,34 @@ DW(2) := D3(Dk(2)-1)
 //D4
 for (i<- 0 until Dk(3)) {
   if(i == 0){
-    D4(0) := rb(2) ///////////////////
+    D4(0) := rb(2)
   }else{
     D4(i) := D4(i-1)
   }
 }
 DW(3) := D4(Dk(3)-1)
 //D5
-for (i<- 0 until Dk(3)) {
+for (i<- 0 until Dk(4)) {
   if(i == 0){
-    D5(0) := rb(3)///////////////////////
+    D5(0) := rb(3)
   }else{
     D5(i) := D5(i-1)
   }
 }
 DW(4) := D5(Dk(4)-1)
 //D6
-for (i<- 0 until Dk(3)) {
+for (i<- 0 until Dk(5)) {
   if(i == 0){
-    D6(0) := rb(4)////////////
+    D6(0) := rb(4)
   }else{
     D6(i) := D6(i-1)
   }
 }
 DW(5) := D6(Dk(5)-1)
 //D7
-for (i<- 0 until Dk(3)) {
+for (i<- 0 until Dk(6)) {
   if(i == 0){
-    D7(0) := rb(5)///////////////
+    D7(0) := rb(5)
   }else{
     D7(i) := D7(i-1)
   }
@@ -117,36 +117,7 @@ for (i <- 0 until n){
     rb(i) := -ra(i-1)-DW(i)
   }
 }
-io.ra_out := ra(6).real 
-io.rb_out := rb(6).real
-
-
-
-
-
-
-
-
-
-
-// // Calculate preamble reference j
-//   val io = IO(new correlatorIo(gen))
-//   val preambleReFix = preambleRe.map(tap => ConvertableTo[T].fromDouble(tap))
-//   val preambleImFix = preambleIm.map ( tap =>ConvertableTo[T].fromDouble(tap))
-//   //ShiftRegister initialization
-//   val delays = Reg(Vec(n, DspComplex(gen, gen)))
-//   val sum  = Wire(Vec(n, DspComplex(gen, gen)))
-//   // Set up ShiftRegister
-//   delays(0) := io.input_complex
-//   for (i<- 1 until n) {
-//   	delays(i) := delays(i-1)
-//   }
-//   sum(0).real := delays(0).real * preambleReFix(n-1) + delays(0).imag * preambleImFix(n-1)
-//   sum(0).imag := delays(0).imag * preambleReFix(n-1) - delays(0).real * preambleImFix(n-1)
-//   for (i <- 1 until n) {
-//   	sum(i).real := sum(i-1).real + delays(i).real * preambleReFix(n-i-1) + delays(i).imag * preambleImFix(n-i-1)
-// 	sum(i).imag := sum(i-1).imag + delays(i).imag * preambleReFix(n-i-1) - delays(i).real * preambleImFix(n-i-1)
-//     }
-//   io.fbf_coeff := sum(n-1) 	 
-//   io.output_complex := delays(n-1)
+//io.ra_out := ra(6)
+io.ra_out := ra(6)
+io.rb_out := rb(6)
 }
