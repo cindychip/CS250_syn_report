@@ -14,11 +14,13 @@ import spire.algebra.Ring
 import dsptools.numbers.{RealBits}
 
 class dpathlWithoutSRAM_feedbackIo[T <: Data:RealBits](gen: T) extends Bundle {
-val signal_in = Input(DspComplex(gen.cloneType, gen.cloneType))
-val signal_out = Output(DspComplex(gen.cloneType, gen.cloneType))
-val stage = Input(UInt(2.W))
-val count = Input(UInt(12.W))
-val lms_en = Input(Bool())
+	val signal_in = Input(DspComplex(gen.cloneType, gen.cloneType))
+	val signal_out = Output(DspComplex(gen.cloneType, gen.cloneType))
+	val fbf_coeff = Output(DspComplex(gen.cloneType, gen.cloneType))
+	val stage = Input(UInt(2.W))
+	val count = Input(UInt(12.W))
+	val lms_en = Input(Bool())
+	val tap_en = Input(Bool())
 }
 
 class dpathlWithoutSRAM[T <: Data:RealBits](gen: T) extends Module {
@@ -45,8 +47,9 @@ class dpathlWithoutSRAM[T <: Data:RealBits](gen: T) extends Module {
  	dec.input_complex := corr.output_complex - fbf.output_complex
  	dec.output_complex <> fbf.input_complex
  	dec.error_complex <> fbf.error
- 	fbf.tap_coeff_complex <> corr.output_coeff
+ 	fbf.tap_coeff_complex := io.fbf_coeff
  	fbf.tap_index := io.count
  	fbf.lms_en := io.lms_en
+ 	fbf.tap_en := io.tap_en
  	io.signal_out := dec.output_complex
  }
