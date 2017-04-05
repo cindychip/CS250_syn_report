@@ -4,27 +4,27 @@ test_path = src/test/scala
 
 # What could possibly effect the top level interface
 top_level_defn_files = \
-    src/main/scala/dfe3/decision.scala
+    src/main/scala/dfe3/filter_sram.scala
 
 
 # Name of the function that executes
-MODEL := Sha3AccelMain
+MODEL := FirSramMain
 # Name of the top level module
-MODULE := DFE_decision
+MODULE := fir
 # Name of the scala projects
 PROJ := dfe3
 
 # Name of the function that executes the top level test
-TEST_MODEL := DecisionBlockTests
+TEST_MODEL := firTester
 
 # Name of the function that generates the config files
-CONFIG_FUNC := Sha3AccelConfigCollect
+#CONFIG_FUNC := Sha3AccelConfigCollect
 
 # Default configuration
-DCONFIG := DefaultConfig
+#DCONFIG := DefaultConfig
 # Use the default configuration unless otherwise specified
-CONFIG ?= DefaultConfig
+#CONFIG ?= DefaultConfig
 
 # Jackhammer settings
-JSETTINGS = IclusterSettings
-JSETTINGS ?= DefaultSettings
+#JSETTINGS = IclusterSettings
+#JSETTINGS ?= DefaultSettings
