@@ -80,3 +80,25 @@ dsptools.Driver.execute(() => new fir_feedback(FixedPoint(16.W, 12.BP),5,3), tes
   }
 }
 
+
+object fir_filter1 {
+  def apply(signal_real:Array[Double], signal_img: Array[Double], 
+            coef_real:Array[Double], coef_img:Array[Double], 
+            sig_len:Int , coef_len:Int) : (Array[Double], Array[Double])={
+   val out_real = new Array[Double](sig_len+coef_len)
+   val out_img = new Array[Double](sig_len+coef_len)
+   for (i <- 0 until coef_len) {
+      val tmp_real1 = signal_real.map(_*coef_real(i)) 
+      val tmp_real2 = signal_img.map(_*coef_img(i))
+      val tmp_img1 = signal_img.map(_*coef_real(i)) 
+      val tmp_img2 = signal_real.map(_*coef_img(i))
+      //NOT SURE:
+      for (j <- i until sig_len+i) {
+        out_real(j) = out_real(j) + tmp_real1(j-i) + tmp_real2(j-i)
+        out_img(j) = out_img(j) + tmp_img1(j-i) + tmp_img2(j-i)
+      }
+    }//end for loop
+    return (out_real,out_img)
+  } 
+
+}
