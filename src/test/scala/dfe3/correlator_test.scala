@@ -22,9 +22,10 @@ for (i<-0 until n){
     poke (c.io.input_complex.real,gb128(i))
     poke (c.io.input_complex.imag, 0)
     step(1)
-    println("ra ==================================> " + peek(c.io.ra_out.real))
-    println("rb ==================================> " + peek(c.io.rb_out.real))
   }
+ // expect (c.io.ra_out.real, 128)
+  expect (c.io.rb_out.real, 128)
+  expect (c.io.output_complex.real, gb128(127))
 
 }
 

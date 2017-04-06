@@ -16,7 +16,7 @@ class decision_deviceIo[T <: Data:RealBits](gen: T) extends Bundle {
   val input_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
   val output_complex = Output(DspComplex(gen.cloneType, gen.cloneType))
   val error_complex = Output(DspComplex(gen.cloneType, gen.cloneType))
-  override def cloneType: this.type = new DFE_decisionIo(gen).asInstanceOf[this.type]
+  override def cloneType: this.type = new decision_deviceIo(gen).asInstanceOf[this.type]
 }
 
 class decision_device[T <: Data:RealBits](gen: T) extends Module {
