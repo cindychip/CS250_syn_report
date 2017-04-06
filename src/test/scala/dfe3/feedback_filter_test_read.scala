@@ -13,13 +13,15 @@ import math._
 import dsptools.numbers._
 import breeze.math.Complex
 import breeze.signal._
-import scala.io.Source
+import scala.io.Source  // Added
 
 
 class feedbackfirTestsRead[T <: Data:RealBits](c: fir_feedback[T]) extends DspTester(c) {
+  //Modification starts
   val real = Source.fromFile("/scratch/cs250-aab/dspProject/src/test/scala/dfe3/withoutNoiseReal2filter.txt").getLines.toArray.map(x => x.toDouble)
   val img = Source.fromFile("/scratch/cs250-aab/dspProject/src/test/scala/dfe3/withoutNoiseImg2filter.txt").getLines.toArray.map(x => x.toDouble)
   val len = real.size
+  //Modification ends
   val size = 5
   val tap_real = Array.fill(size)(Random.nextDouble*2-1)
   val tap_img = Array.fill(size)(Random.nextDouble*2-1)
