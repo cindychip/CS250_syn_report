@@ -1,16 +1,15 @@
 package dfe3
 
 import chisel3._
-//import chisel3.core._
 import chisel3.experimental.FixedPoint
-import chisel3.iotesters.{Backend}
-import chisel3.{Bundle, Module}
-import dsptools.{DspContext, DspTester}
-import dsptools.numbers.{FixedPointRing, DspComplexRing, DspComplex}
-import dsptools.numbers.implicits._
-import org.scalatest.{Matchers, FlatSpec}
-import spire.algebra.Ring
 import dsptools.numbers.{RealBits}
+import dsptools.numbers.implicits._
+import dsptools.DspContext
+import dsptools.{DspTester, DspTesterOptionsManager, DspTesterOptions}
+import iotesters.TesterOptions
+import org.scalatest.{FlatSpec, Matchers}
+import math._
+import dsptools.numbers._
 
 
 class decision_deviceIo[T <: Data:RealBits](gen: T) extends Bundle {
@@ -21,7 +20,7 @@ class decision_deviceIo[T <: Data:RealBits](gen: T) extends Bundle {
 }
 
 class decision_device[T <: Data:RealBits](gen: T) extends Module {
-  val io = IO(new DFE_decisionIo(gen))
+  val io = IO(new decision_deviceIo(gen))
   
   val positive = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(sqrt(0.5.toDouble)) }
   val negative = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(-sqrt(0.5.toDouble)) }
@@ -45,5 +44,5 @@ class decision_device[T <: Data:RealBits](gen: T) extends Module {
       io.output_complex.imag := positive
     }
   }
- io.error_complex = io.output_complex - io.input_complex
+ io.error_complex := io.output_complex - io.input_complex
 }
