@@ -28,6 +28,7 @@ val io = IO(new correlatorIo(gen))
 val n = 7
 val W = Array(-1, -1, -1, -1, 1, -1, -1)
 val Dk = Array(1, 8, 2, 4, 16, 32, 64)
+val output = Reg(Vec(Dk.sum, DspComplex(gen, gen)))
 val D1 = Reg(Vec(Dk(0), DspComplex(gen, gen)))
 val D2 = Reg(Vec(Dk(1), DspComplex(gen, gen)))
 val D3 = Reg(Vec(Dk(2), DspComplex(gen, gen)))
@@ -38,8 +39,14 @@ val D7 = Reg(Vec(Dk(6), DspComplex(gen, gen)))
 val DW = Wire(Vec(n, DspComplex(gen, gen)))
 val ra  = Wire(Vec(n, DspComplex(gen, gen)))
 val rb  = Wire(Vec(n, DspComplex(gen, gen)))
+//set up ShiftRegister for output Complex
+output(0) := io.input_complex
+for (i<-1 until Dk.sum){
+  output(i) := output(i-1)
+}
+io.output_complex := output(Dk.sum-1)
 
-// Set up ShiftRegister
+// Set up ShiftRegister for delay
 //D1
 D1(0) := io.input_complex
 DW(0) := D1(0)
