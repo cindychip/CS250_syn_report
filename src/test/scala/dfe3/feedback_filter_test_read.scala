@@ -13,16 +13,15 @@ import math._
 import dsptools.numbers._
 import breeze.math.Complex
 import breeze.signal._
+import scala.io.Source  // Added
 
 
-class feedbackfirTests[T <: Data:RealBits](c: fir_feedback[T]) extends DspTester(c) {
-  //var len = Random.nextInt(2000)
-  var len = 10
-  val real = Array.fill(len)(Random.nextDouble*2-1)
-  val img = Array.fill(len)(Random.nextDouble*2-1)
-  //val real = Array(0.0,0.1,0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7)
-  //val img = Array(0.0,0.1,0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7)
-
+class feedbackfirTestsRead[T <: Data:RealBits](c: fir_feedback[T]) extends DspTester(c) {
+  //Modification starts
+  val real = Source.fromFile("/scratch/cs250-aab/dspProject/src/test/scala/dfe3/withoutNoiseReal2filter.txt").getLines.toArray.map(x => x.toDouble)
+  val img = Source.fromFile("/scratch/cs250-aab/dspProject/src/test/scala/dfe3/withoutNoiseImg2filter.txt").getLines.toArray.map(x => x.toDouble)
+  val len = real.size
+  //Modification ends
   val size = 5
   val tap_real = Array.fill(size)(Random.nextDouble*2-1)
   val tap_img = Array.fill(size)(Random.nextDouble*2-1)
@@ -58,7 +57,7 @@ class feedbackfirTests[T <: Data:RealBits](c: fir_feedback[T]) extends DspTester
 }
 
 // Scala style testing
-class feedbackfirSpec extends FlatSpec with Matchers {
+class feedbackfirReadSpec extends FlatSpec with Matchers {
   
   val testOptions = new DspTesterOptionsManager {
     dspTesterOptions = DspTesterOptions(
@@ -75,13 +74,12 @@ class feedbackfirSpec extends FlatSpec with Matchers {
 
   it should "properly add fixed point types" in {
 dsptools.Driver.execute(() => new fir_feedback(FixedPoint(16.W, 12.BP),5,3), testOptions) { c =>      
-  new feedbackfirTests(c)
+  new feedbackfirTestsRead(c)
     } should be (true)
   }
 }
 
-
-object fir_filter1 {
+object fir_filter {
   def apply(signal_real:Array[Double], signal_img: Array[Double], 
             coef_real:Array[Double], coef_img:Array[Double], 
             sig_len:Int , coef_len:Int) : (Array[Double], Array[Double])={
@@ -102,3 +100,5 @@ object fir_filter1 {
   } 
 
 }
+
+
