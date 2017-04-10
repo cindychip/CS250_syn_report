@@ -46,17 +46,14 @@ class fir[T <: Data:RealBits](gen: => T,var window_size: Int, var step_size: Int
   val buffer_mem1 = SyncReadMem(DspComplex(gen.cloneType, gen.cloneType), 512)
   val buffer_wen = Wire(Bool()); buffer_wen := true.B //Default value  
   val buffer_raddr1 = Wire(UInt(log2Ceil(sram_depth).W)); buffer_raddr1 := 0.U
+  val buffer_raddr2 = Wire(UInt(log2Ceil(sram_depth).W)); buffer_raddr2 := 0.U
   val buffer_waddr = Wire(UInt(log2Ceil(sram_depth).W)); buffer_waddr := 0.U
   val buffer_wdata = Wire(DspComplex(gen.cloneType, gen.cloneType)); 
   val buffer_rdata1 = Wire(DspComplex(gen.cloneType, gen.cloneType));  
-
-  // instantiated 2nd SRAM
-  val buffer_mem2 = SyncReadMem(DspComplex(gen.cloneType, gen.cloneType), 512) 
-  val buffer_raddr2 = Wire(UInt(log2Ceil(sram_depth).W)); buffer_raddr2 := 0.U
   val buffer_rdata2 = Wire(DspComplex(gen.cloneType, gen.cloneType));
 
   // Instantiated 3rd SRAM
-  val buffer_mem3 = SyncReadMem(DspComplex(gen.cloneType, gen.cloneType), 512) 
+  val buffer_mem2 = SyncReadMem(DspComplex(gen.cloneType, gen.cloneType), 512) 
   val buffer_raddr3 = Wire(UInt(log2Ceil(sram_depth).W)); buffer_raddr3 := 0.U
   val buffer_rdata3 = Wire(DspComplex(gen.cloneType, gen.cloneType));
 
@@ -66,12 +63,9 @@ class fir[T <: Data:RealBits](gen: => T,var window_size: Int, var step_size: Int
   }
 
   when(buffer_wen) {
-  buffer_mem2.write(buffer_waddr, buffer_wdata)
+    buffer_mem2.write(buffer_waddr, buffer_wdata)
   }
 
-  when(buffer_wen) {
-    buffer_mem3.write(buffer_waddr, buffer_wdata) 
-  }
 
   val index_count = Reg(init = 0.U(2.W))
   //val index = Reg(Vec(3,0.U(10.W)))
@@ -98,14 +92,13 @@ class fir[T <: Data:RealBits](gen: => T,var window_size: Int, var step_size: Int
   buffer_waddr := io.counter
   buffer_wdata := io.input_complex
 
-  buffer_raddr1 := io.raddr1//counter-index(0)
-  buffer_raddr2 := io.raddr2//counter-index(1)
-  buffer_raddr3 := io.raddr3//counter-index(2)
+  buffer_raddr1 := io.counter-index(0)
+  buffer_raddr2 := io.counter-index(1)
+  buffer_raddr3 := io.counter-index(2)
 
   when(buffer_raddr1===io.counter){
     buffer_rdata1 := io.input_complex
   }
-
   .otherwise{
     buffer_rdata1 := buffer_mem1(buffer_raddr1)
   }
@@ -113,26 +106,25 @@ class fir[T <: Data:RealBits](gen: => T,var window_size: Int, var step_size: Int
   when(buffer_raddr2===io.counter){
     buffer_rdata2 := io.input_complex
   }
-
   .otherwise{
-    buffer_rdata2 := buffer_mem2(buffer_raddr2)
+    buffer_rdata2 := buffer_mem1(buffer_raddr2)
   }
 
   when(buffer_raddr3===io.counter){
     buffer_rdata3 := io.input_complex
   }
   .otherwise{
-    buffer_rdata3 := buffer_mem3(buffer_raddr3)
+    buffer_rdata3 := buffer_mem2(buffer_raddr3)
   }
 
 
   // For testing
-  io.buffer_rdata1_test := buffer_complex(0)//buffer_rdata1
-  io.buffer_rdata2_test := buffer_complex(1)//buffer_rdata2
-  io.buffer_rdata3_test := buffer_complex(2)//buffer_rdata3
-  io.index0 := index(0)//buffer_raddr1
-  io.index1 := index(1)//buffer_raddr2
-  io.index2 := index(2)//buffer_raddr3
+  io.buffer_rdata1_test := buffer_rdata1
+  io.buffer_rdata2_test := buffer_rdata2
+  io.buffer_rdata3_test := buffer_rdata3
+  io.index0 := buffer_raddr1
+  io.index1 := buffer_raddr2
+  io.index2 := buffer_raddr3
 
 
   // final sum result 
