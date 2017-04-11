@@ -25,10 +25,12 @@ for (i<-0 until n){
     if (i == 126){
       expect (c.io.ra_out.real, 126)
       expect (c.io.output_complex.real, gab128(0))
+      peek(c.io.output_coefficient.real)
     }
     if (i == 127*2){
       expect (c.io.rb_out.real, 126)
       expect (c.io.output_complex.real, gab128((i*0.5+1).toInt))
+      expect(c.io.output_coefficient.real,1)
     }
   }
 }
