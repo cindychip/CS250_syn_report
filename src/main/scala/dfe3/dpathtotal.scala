@@ -32,17 +32,20 @@ class dpathtotal[T <: Data:RealBits](gen: T) extends Module {
  val dec = Module(new decision_device(gen)).io
  val fbf = Module(new fir_feedback(gen,window_size,step_size)).io
  
- if (io.stage == 0.U) {
+ when (io.stage === 0.U) {
+   println(s"stage0")
     //IDLE state
  }
 //only correlator is working
- if (io.stage == 1.U) {
+ when (io.stage === 1.U) {
     corr.input_complex := io.signal_in
     io.signal_out := corr.output_complex
+    println(s"stage1")
+
  }
 
  //dfe is working
- if (io.stage == 2.U) {
+ when (io.stage === 2.U) {
   corr.input_complex := io.signal_in
   dec.input_complex := corr.output_complex - fbf.output_complex
   dec.output_complex <> fbf.input_complex
@@ -52,6 +55,7 @@ class dpathtotal[T <: Data:RealBits](gen: T) extends Module {
   fbf.lms_en := io.lms_en
   fbf.coef_en := io.tap_en
   io.signal_out := dec.output_complex
+   println(s"stage2")
  }
 
 }
