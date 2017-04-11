@@ -32,7 +32,7 @@ class dpathdecision_feedback[T <: Data:RealBits](gen: T) extends Module {
  	io.output_complex := dec.output_complex
  	io.error_complex := dec.error_complex
  	dec.output_complex <> fbf.input_complex
-	dec.lms_en := false.B
-	dec.coef_en := io.coef_en
-	dec.tap_coeff_complex := io.tap_coeff_complex
+	fbf.lms_en := false.B
+	fbf.coef_en := io.coef_en
+	fbf.tap_coeff_complex := io.tap_coeff_complex
 }
