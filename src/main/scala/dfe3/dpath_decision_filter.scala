@@ -16,6 +16,8 @@ class dpathdecision_feedbackIo[T <: Data:RealBits](gen: T) extends Bundle {
   val input_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
   val output_complex = Output(DspComplex(gen.cloneType, gen.cloneType))
   val error_complex = Output(DspComplex(gen.cloneType, gen.cloneType))
+  val coef_en = Input(Bool())
+  val tap_coeff_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
   override def cloneType: this.type = new decision_deviceIo(gen).asInstanceOf[this.type]
 }
 
@@ -30,5 +32,7 @@ class dpathdecision_feedback[T <: Data:RealBits](gen: T) extends Module {
  	io.output_complex := dec.output_complex
  	io.error_complex := dec.error_complex
  	dec.output_complex <> fbf.input_complex
-
+	dec.lms_en := false
+	dec.coef_en := io.coef_en
+	dec.tap_coeff_complex := io.tap_coeff_complex
 }
