@@ -28,7 +28,8 @@ class dpathdecision_feedback[T <: Data:RealBits](gen: T) extends Module {
 	val dec = Module(new decision_device(gen)).io
  	val fbf = Module(new fir_feedback(gen,512,4)).io  	
 
- 	(io.input_complex-fbf.output_complex) := dec.input_complex
+ 	//(io.input_complex-fbf.output_complex) := dec.input_complex
+	dec.input_complex := (io.input_complex-fbf.output_complex)
  	io.output_complex := dec.output_complex
  	io.error_complex := dec.error_complex
  	dec.output_complex <> fbf.input_complex
