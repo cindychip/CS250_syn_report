@@ -1,0 +1,66 @@
+package dfe3
+import chisel3._
+import scala.util.Random
+import chisel3.experimental.FixedPoint
+import dsptools.numbers.{RealBits}
+import dsptools.numbers.implicits._
+import dsptools.DspContext
+import dsptools.{DspTester, DspTesterOptionsManager, DspTesterOptions}
+import iotesters.TesterOptions
+import org.scalatest.{FlatSpec, Matchers}
+import math._
+import dsptools.numbers._
+import breeze.math.Complex
+import breeze.signal._
+
+class dpath_decisionTests[T <: Data:RealBits](c: dpathdecision_feedback[T]) extends DspTester(c) {
+var input_real = Array(0.7071,-0.1414,0.5657,-0.2828,-1.1314,-0.0000,-0.8485,0.2828,0.4243,0.1414,0.2828)
+var input_imag = Array( 0.7071 ,   1.2728,    0.2828,   -0.5657,   -1.4142,-1.9799, 
+   -0.5657,    0.5657,    0.7071,    0.7071,    0.2828)
+for (i <- 0 until 11) {
+	poke (c.io.input_complex.real, input_real(i))
+	poke (c.io.input_complex.imag, input_imag(i))
+	poke (c.io.coef_en, true)
+	if (i == 1) {
+		poke (c.io.tap_coeff_complex.real , 0.8)
+		poke (c.io.tap_coeff_complex.imag , 0)
+	}
+	else if (i == 2){
+		poke (c.io.tap_coeff_complex.real , 0.6)
+		poke (c.io.tap_coeff_complex.imag , 0)
+	}
+	else if (i == 3) {
+		poke (c.io.tap_coeff_complex.real , 0.4)
+		poke (c.io.tap_coeff_complex.imag , 0) }
+	else {
+		poke (c.io.tap_coeff_complex.real , 0)
+		poke (c.io.tap_coeff_complex.imag , 0)	
+	}
+	peek (c.io.output_complex.real)
+	peek (c.io.output_complex.imag)
+	peek (c.io.error_complex.real)
+	step(1)
+}
+}
+
+class dpath_decisionSpec extends FlatSpec with Matchers {
+
+  val testOptions = new DspTesterOptionsManager {
+    dspTesterOptions = DspTesterOptions(
+        fixTolLSBs = 1,
+        genVerilogTb = true,
+        isVerbose = true)
+    testerOptions = TesterOptions(
+        isVerbose = false,
+        backendName = "verilator")
+    commonOptions = commonOptions.copy(targetDirName = "test_run_dir/decision_device_fix")
+  }
+
+  behavior of "dpath_decision module"
+
+  it should "properly add fixed point types" in {
+dsptools.Driver.execute(() => new dpathdecision_feedback(FixedPoint(32.W, 12.BP)), testOptions) { c =>      
+  new dpath_decisionTests(c)
+    } should be (true)
+  }
+}
