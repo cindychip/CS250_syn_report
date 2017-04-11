@@ -25,24 +25,24 @@ class dpathtotalIo[T <: Data:RealBits](gen: T) extends Bundle {
 
 class dpathtotal[T <: Data:RealBits](gen: T) extends Module {
  val io = IO(new dpathtotalIo(gen))
- val window_size = 512.U
- val step_size = 5.U
+ val window_size = 512
+ val step_size = 5
  //import submodule 
- val corr = Module(new correlator(T)).io
- val dec = Module(new decision_device(T)).io
- val fbf = Module(new fir_feedback(T,window_size,step_size)).io
+ val corr = Module(new correlator(gen)).io
+ val dec = Module(new decision_device(gen)).io
+ val fbf = Module(new fir_feedback(gen,window_size,step_size)).io
  
- if (state == 0.U) {
+ if (io.stage == 0.U) {
     //IDLE state
  }
 //only correlator is working
- if (state == 1.U) {
+ if (io.stage == 1.U) {
     corr.input_complex := io.signal_in
     io.signal_out := corr.output_complex
  }
 
  //dfe is working
- if (state == 2.U) {
+ if (io.stage == 2.U) {
   corr.input_complex := io.signal_in
   dec.input_complex := corr.output_complex - fbf.output_complex
   dec.output_complex <> fbf.input_complex
@@ -50,7 +50,7 @@ class dpathtotal[T <: Data:RealBits](gen: T) extends Module {
   fbf.tap_coeff_complex := corr.output_coefficient
   fbf.tap_index := io.count
   fbf.lms_en := io.lms_en
-  fbf.tap_en := io.tap_en
+  fbf.coef_en := io.tap_en
   io.signal_out := dec.output_complex
  }
 
