@@ -17,6 +17,7 @@ import dsptools.numbers._
 class correlatorIo[T <: Data:RealBits](gen: T) extends Bundle {
   val input_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
   val output_complex = Output(DspComplex(gen.cloneType, gen.cloneType))
+  val output_coefficient = Output(DspComplex(gen.cloneType, gen.cloneType))
   val ra_out = Output(DspComplex(gen.cloneType, gen.cloneType))
   val rb_out = Output(DspComplex(gen.cloneType, gen.cloneType))
   override def cloneType: this.type = new correlatorIo(gen).asInstanceOf[this.type]
@@ -25,6 +26,7 @@ class correlatorIo[T <: Data:RealBits](gen: T) extends Bundle {
 class correlator[T <: Data:RealBits](gen: T) extends Module {
 val io = IO(new correlatorIo(gen))
 //Set up constant 
+val delay_size = 128
 val n = 7
 val W = Array(-1, -1, -1, -1, 1, -1, -1)
 val Dk = Array(1, 8, 2, 4, 16, 32, 64)
@@ -39,12 +41,24 @@ val D7 = Reg(Vec(Dk(6), DspComplex(gen, gen)))
 val DW = Wire(Vec(n, DspComplex(gen, gen)))
 val ra  = Wire(Vec(n, DspComplex(gen, gen)))
 val rb  = Wire(Vec(n, DspComplex(gen, gen)))
+val delays = Reg(Vec(delay_size, DspComplex(gen, gen)))
+
+
 //set up ShiftRegister for output Complex
 output(0) := io.input_complex
 for (i<-1 until Dk.sum){
   output(i) := output(i-1)
 }
 io.output_complex := output(Dk.sum-1)
+//output the correct complex coefficient
+
+//delay modules 
+delays(0) := ra(6) 
+for (i <- 1 until delay_size) {
+    delays(i) := delays(i-1)
+}
+io.output_coefficient.real := (delays(127)+rb(6)).real>>7
+io.output_coefficient.imag := (delays(127)+rb(6)).imag>>7
 
 // Set up ShiftRegister for delay
 //D1
