@@ -12,22 +12,22 @@ import math._
 import dsptools.numbers._
 import breeze.math.Complex
 import breeze.signal._
+import scala.io.Source
 
 class dpathtotalTests[T <: Data:RealBits](c: dpathtotal[T]) extends DspTester(c) {
-var input_real = Array(0.7071,-0.1414,0.5657,-0.2828,-1.1314,-0.0000,-0.8485,0.2828,0.4243,0.1414,0.2828)
-var input_imag = Array( 0.7071 ,   1.2728,    0.2828,   -0.5657,   -1.4142,-1.9799, 
-   -0.5657,    0.5657,    0.7071,    0.7071,    0.2828)
+val input_real = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/filter_real.txt").getLines.toArray.map(x => x.toDouble)
+val input_imag = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/filter_imag.txt").getLines.toArray.map(x => x.toDouble)
+val n = input_real.length
 
-
-for (i <- 0 until 11) { 
-	poke (c.io.signal_in.real, input_real(i))
-	poke (c.io.signal_in.imag, input_imag(i))
-	poke (c.io.stage, 0.U)
-	poke (c.io.count, 0)
-	poke (c.io.lms_en, false)
-	poke (c.io.tap_en, true)
-	peek (c.io.signal_out)
-	step(1)
+for (i <- 0 until n/2) { 
+  poke (c.io.signal_in.real, input_real(i%10))
+  poke (c.io.signal_in.imag, input_imag(i%10))
+  poke (c.io.stage, 2)
+  poke (c.io.count, 0)
+  poke (c.io.lms_en, false)
+  poke (c.io.tap_en, true)
+  peek (c.io.signal_out)
+  step(1)
 }
 
 }
