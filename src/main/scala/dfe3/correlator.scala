@@ -63,7 +63,7 @@ for (i <- 1 until delay_size) {
 val temp1 = (delays(127)+rb(6)).real>>8
 val temp2 = (delays(127)+rb(6)).imag>>8
 
-when ((temp1>>10) >0) { //could not compare in dsp. so I right shift from 12 bits to only 2 bits left.
+when (((temp1*temp1+temp2*temp2)>>10) >0) { //could not compare in dsp. so I right shift from 12 bits to only 2 bits left.
   io.output_coefficient.real := temp1
   io.output_coefficient.imag := temp2
 }
