@@ -30,7 +30,7 @@ val delay_size = 128
 val n = 7
 val W = Array(-1, -1, -1, -1, 1, -1, -1)
 val Dk = Array(1, 8, 2, 4, 16, 32, 64)
-val output = Reg(Vec(Dk.sum, DspComplex(gen, gen)))
+val output = Reg(Vec(255, DspComplex(gen, gen)))
 val D1 = Reg(Vec(Dk(0), DspComplex(gen, gen)))
 val D2 = Reg(Vec(Dk(1), DspComplex(gen, gen)))
 val D3 = Reg(Vec(Dk(2), DspComplex(gen, gen)))
@@ -42,14 +42,14 @@ val DW = Wire(Vec(n, DspComplex(gen, gen)))
 val ra  = Wire(Vec(n, DspComplex(gen, gen)))
 val rb  = Wire(Vec(n, DspComplex(gen, gen)))
 val delays = Reg(Vec(delay_size, DspComplex(gen, gen)))
-
+val threshold = ConvertableTo[FixedPoint].fromDouble((0.5.toDouble))
 
 //set up ShiftRegister for output Complex
 output(0) := io.input_complex
-for (i<-1 until Dk.sum){
+for (i<-1 until 255){
   output(i) := output(i-1)
 }
-io.output_complex := output(Dk.sum-1)
+io.output_complex := output(Dk.sum-1+128)
 //output the correct complex coefficient
 
 //delay modules 
@@ -57,9 +57,18 @@ delays(0) := ra(6)
 for (i <- 1 until delay_size) {
     delays(i) := delays(i-1)
 }
-io.output_coefficient.real := (delays(127)+rb(6)).real>>7
-io.output_coefficient.imag := (delays(127)+rb(6)).imag>>7
-
+io.output_coefficient.real := (delays(127)+rb(6)).real>>8
+io.output_coefficient.imag := (delays(127)+rb(6)).imag>>8
+//val temp1 = (delays(127)+rb(6)).real>>8
+//val temp2 = (delays(127)+rb(6)).imag>>8
+//when (temp1>0) {
+//  io.output_coefficient.real := temp1
+//  io.output_coefficient.imag := temp2
+//}
+//.otherwise {
+//  io.output_coefficient.real := 0.U
+//  io.output_coefficient.imag := 0.U
+//}
 // Set up ShiftRegister for delay
 //D1
 D1(0) := io.input_complex
