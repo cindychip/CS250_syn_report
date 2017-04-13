@@ -18,13 +18,23 @@ var len = 100
 var input_real = Array.fill(len)(Random.nextDouble*2-1)
 var input_img = Array.fill(len)(Random.nextDouble*2-1)
 var (expect_real,expect_img)  = decisionDevice(input_real,input_img,len)
-for (i<-0 until len){
+var (expect_real2,expect_img2)  = decisionDevice2(input_real,input_img,len)
+
+for (i<-0 until len/2){
   poke (c.io.input_complex.real,input_real(i))
   poke (c.io.input_complex.imag, input_img(i))
+  poke (c.io.qpsk_en, false)
   step(1)
   expect (c.io.output_complex.real,expect_real(i))
   expect (c.io.output_complex.imag,expect_img(i))
 }
+for (i<- len/2 until len){
+  poke (c.io.input_complex.real,input_real2(i))
+  poke (c.io.input_complex.imag, input_img2(i))
+  poke (c.io.qpsk_en, true)
+  step(1)
+  expect (c.io.output_complex.real,expect_real2(i))
+  expect (c.io.output_complex.imag,expect_img2(i))  
 }
 
 // Scala style testing
@@ -72,6 +82,26 @@ object decisionDevice {
         }else{
           out_real(i) = positive
           out_img(i) = positive
+          }
+      }
+    }
+    return(out_real, out_img)
+  }
+} 
+
+object decisionDevice2 {
+  def apply(input_real:Array[Double], input_img: Array[Double], len: Int) : (Array[Double], Array[Double])={
+   val out_real = new Array[Double](len)
+   val out_img = new Array[Double](len)
+   var positive = 1.toDouble
+   var negative = -1.toDouble
+   var zero = 0.toDouble
+   for (i <- 0 until len) {
+     output_img = zero
+      if(input_real(i)<0){
+          out_real(i) = negative
+      }else{
+          out_real(i) = positive
           }
       }
     }
