@@ -50,11 +50,11 @@ class decision_device[T <: Data:RealBits](gen: T) extends Module {
    val positive = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(1.0.toDouble) }
    val negative = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(-1.0.toDouble) }
    val zero = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(0.toDouble) }
-   io.input_complex.imag := zero
+   io.output_complex.imag := zero
    when(io.input_complex.real<0){
-        io.output_complex_real := negative
+        io.output_complex.real := negative
    }.otherwise {
-   io.output_complex_real := positive
+   io.output_complex.real := positive
    }
   }
  io.error_complex := io.output_complex - io.input_complex

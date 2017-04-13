@@ -23,18 +23,19 @@ var (expect_real2,expect_img2)  = decisionDevice2(input_real,input_img,len)
 for (i<-0 until len/2){
   poke (c.io.input_complex.real,input_real(i))
   poke (c.io.input_complex.imag, input_img(i))
-  poke (c.io.qpsk_en, false)
+  poke (c.io.qpsk_en, true)
   step(1)
   expect (c.io.output_complex.real,expect_real(i))
   expect (c.io.output_complex.imag,expect_img(i))
 }
 for (i<- len/2 until len){
-  poke (c.io.input_complex.real,input_real2(i))
-  poke (c.io.input_complex.imag, input_img2(i))
-  poke (c.io.qpsk_en, true)
+  poke (c.io.input_complex.real,input_real(i))
+  poke (c.io.input_complex.imag, input_img(i))
+  poke (c.io.qpsk_en, false)
   step(1)
   expect (c.io.output_complex.real,expect_real2(i))
   expect (c.io.output_complex.imag,expect_img2(i))  
+}
 }
 
 // Scala style testing
@@ -97,14 +98,13 @@ object decisionDevice2 {
    var negative = -1.toDouble
    var zero = 0.toDouble
    for (i <- 0 until len) {
-     output_img = zero
+     out_img(i) = zero
       if(input_real(i)<0){
           out_real(i) = negative
       }else{
           out_real(i) = positive
           }
       }
-    }
     return(out_real, out_img)
   }
 } 
