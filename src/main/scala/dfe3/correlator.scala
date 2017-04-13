@@ -30,7 +30,7 @@ val delay_size = 128
 val n = 7
 val W = Array(-1, -1, -1, -1, 1, -1, -1)
 val Dk = Array(1, 8, 2, 4, 16, 32, 64)
-val output = Reg(Vec(255, DspComplex(gen, gen)))
+val output = Reg(Vec(127, DspComplex(gen, gen)))
 val D1 = Reg(Vec(Dk(0), DspComplex(gen, gen)))
 val D2 = Reg(Vec(Dk(1), DspComplex(gen, gen)))
 val D3 = Reg(Vec(Dk(2), DspComplex(gen, gen)))
@@ -47,10 +47,10 @@ val zero = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble
 
 //set up ShiftRegister for output Complex
 output(0) := io.input_complex
-for (i<-1 until 255){
+for (i<-1 until 127){
   output(i) := output(i-1)
 }
-io.output_complex := output(Dk.sum-1+128)
+io.output_complex := output(Dk.sum-1)
 //output the correct complex coefficient
 
 //delay modules 
