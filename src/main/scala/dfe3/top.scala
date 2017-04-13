@@ -22,8 +22,8 @@ class dfe3Io[T <: Data:RealBits](gen: T) extends Bundle {
 class dfe3[T <: Data:RealBits](gen: T) extends Module {
  val io = IO(new dfe3Io(gen))
  
- val dpath = Module(new dpathtotal(T)).io
- val ctrl = Module(new ctrl(T)).io
+ val dpath = Module(new dpathtotal(gen)).io
+ val ctrl = Module(new ctrl(gen)).io
 
  ctrl.enable := io.enable
  ctrl.reset := io.reset  

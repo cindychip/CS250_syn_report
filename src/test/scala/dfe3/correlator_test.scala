@@ -25,7 +25,10 @@ for (i<-0 until 300){
     poke (c.io.input_complex.real,real(i))
     poke (c.io.input_complex.imag, imag(i))
     peek (c.io.output_complex)
-    peek(c.io.rb_out)
+    peek(c.io.output_coefficient)
+    peek(c.io.ga_bool)
+    peek(c.io.ra_out)
+
     step(1)
   }
 }
