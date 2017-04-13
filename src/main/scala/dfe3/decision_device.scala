@@ -14,6 +14,7 @@ import dsptools.numbers._
 
 class decision_deviceIo[T <: Data:RealBits](gen: T) extends Bundle {
   val input_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
+  val qpsk_en = Input(Bool()) 
   val output_complex = Output(DspComplex(gen.cloneType, gen.cloneType))
   val error_complex = Output(DspComplex(gen.cloneType, gen.cloneType))
   override def cloneType: this.type = new decision_deviceIo(gen).asInstanceOf[this.type]
@@ -22,6 +23,7 @@ class decision_deviceIo[T <: Data:RealBits](gen: T) extends Bundle {
 class decision_device[T <: Data:RealBits](gen: T) extends Module {
   val io = IO(new decision_deviceIo(gen))
   
+  when (io.qpsk_en) {
   val positive = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(sqrt(0.5.toDouble)) }
   val negative = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(-sqrt(0.5.toDouble)) }
  
@@ -43,6 +45,17 @@ class decision_device[T <: Data:RealBits](gen: T) extends Module {
       io.output_complex.real := positive
       io.output_complex.imag := positive
     }
+  }
+ }.otherwise{
+   val positive = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(1.0.toDouble) }
+   val negative = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(-1.0.toDouble) }
+   val zero = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(0.toDouble) }
+   io.input_complex.imag := zero
+   when(io.input_complex.real<0){
+        io.output_complex_real := negative
+   }.otherwise {
+   io.output_complex_real := positive
+   }
   }
  io.error_complex := io.output_complex - io.input_complex
 }
