@@ -34,42 +34,47 @@ class ctrl[T <: Data:RealBits](gen: T) extends Module {
  val io = IO(new ctrlIo(gen))
  
  //import submodule 
- val count = Reg(init = 0.U)
- val s_idle :: s_correlator :: s_dfe_bpsk :: s_def_qpsk :: Nil = Enum(4)
+ val count = Reg(init = 0.U(12.W))
+ val s_idle :: s_correlator :: s_dfe_bpsk :: s_dfe_qpsk :: Nil = Enum(4)
  val stage = Reg(init = s_idle)
 
  io.lms_en := false.B
+ io.tap_en := false.B
 
  switch (stage) {
   is (s_idle) {
   	count := 0.U
-  	if (io.enable == true) {
+  	when (io.enable) {
   		  stage := s_correlator
     }
   }
   is (s_correlator) {
-    if (io.ga_coeff == true) {
+    when (io.ga_coeff) {
     	count := count + 1.U
     	stage := s_dfe_bpsk
     }
   }
   is (s_dfe_bpsk) {
     count := count +1.U
+    io.coeff_output := io.fbf_coeff //NOT SURE
   	if (count == 1.U) {
   		io.coeff_output := 0.U
   		io.tap_en := true.B
   	}
-    if (count == 128.U) {
+    if (count == 127.U) { //Golay B is coming out
         when (io.fbf_coeff.real > 0 || io.fbf_coeff.real < 0 || io.fbf_coeff.imag > 0 || io.fbf_coeff.imag < 0) {
-        stage := s_def_qpsk 
+        //stage := s_dfe_qpsk 
         }.otherwise {
           stage := s_correlator
           count := 0.U //does that conflict with count := count +1
         }
+    if (count == 256.U) {  //Golay B finished coming out in the correlator
+      stage := s_dfe_qpsk
+    }
     }
   }
-  is (s_def_qpsk) {
-  	count := count +1 
+  is (s_dfe_qpsk) {
+  	count := count +1.U 
     io.coeff_output := io.fbf_coeff
   	if (count == 513.U) {
   		io.tap_en := false.B

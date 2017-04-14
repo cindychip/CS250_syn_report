@@ -44,6 +44,7 @@ class dpathtotal[T <: Data:RealBits](gen: T) extends Module {
  when (io.stage === 1.U) {
     corr.input_complex := io.signal_in
     io.signal_out := corr.output_complex
+    io.ga_coeff :=corr.ga_bool 
  }
 
  //dfe is working
@@ -58,6 +59,7 @@ class dpathtotal[T <: Data:RealBits](gen: T) extends Module {
   fbf.coef_en := io.tap_en
   io.signal_out := dec.output_complex
   dec.qpsk_en := false.B
+  io.ga_coeff :=corr.ga_bool 
  }
 
   when (io.stage === 3.U) {
@@ -71,6 +73,8 @@ class dpathtotal[T <: Data:RealBits](gen: T) extends Module {
   fbf.coef_en := io.tap_en
   io.signal_out := dec.output_complex
   dec.qpsk_en := true.B
+  io.ga_coeff :=corr.ga_bool 
+
  }
  io.coeff_out := corr.output_coefficient
 
