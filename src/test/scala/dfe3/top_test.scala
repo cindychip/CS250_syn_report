@@ -20,14 +20,21 @@ class dfeTests[T <: Data:RealBits](c: dfe3[T]) extends DspTester(c) {
 //val gb128 = Array(-1, -1, 1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, -1, 1, 1, 1, 1, -1, 1, -1, 1, -1, 1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1)
 val real = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/filter_real.txt").getLines.toArray.map(x => x.toDouble)
 val imag = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/filter_imag.txt").getLines.toArray.map(x => x.toDouble)
+val test_real = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/test_real.txt").getLines.toArray.map(x => x.toDouble)
+
 val n = real.length
 for (i<-0 until n){
     poke (c.io.signal_in.real,real(i))
     poke (c.io.signal_in.imag, imag(i))
     poke (c.io.enable, true)
     poke (c.io.reset, false)
-    peek (c.io.signal_out)
+    //peek (c.io.signal_out)
+    peek (c.io.count)
+    peek (c.io.ga)
     step(1)
+    if(i>=126) {
+      expect(c.io.signal_out.real,test_real(i-126))
+    }
   }
 }
 

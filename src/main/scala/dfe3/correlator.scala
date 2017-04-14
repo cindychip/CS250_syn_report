@@ -43,8 +43,6 @@ val DW = Wire(Vec(n, DspComplex(gen, gen)))
 val ra  = Wire(Vec(n, DspComplex(gen, gen)))
 val rb  = Wire(Vec(n, DspComplex(gen, gen)))
 val delays = Reg(Vec(delay_size, DspComplex(gen, gen)))
-val threshold = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble((0.25.toDouble)) }
-val zero = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble((0.toDouble)) }
 
 //set up ShiftRegister for output Complex
 output(0) := io.input_complex
@@ -68,8 +66,7 @@ when (((temp1*temp1+temp2*temp2)>>10) >0) { //could not compare in dsp. so I rig
   io.output_coefficient.imag := temp2
 }
 .otherwise {
-  io.output_coefficient.real := zero
-  io.output_coefficient.imag := zero
+  io.output_coefficient := DspComplex[T](Complex(0.0,0.0))
 }
 // Set up ShiftRegister for delay
 //D1

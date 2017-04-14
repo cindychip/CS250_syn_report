@@ -1,21 +1,20 @@
 //Cindy Chen
 package dfe3
-
 import chisel3._
-import chisel3.util._
-
 import chisel3.experimental.FixedPoint
-import chisel3.iotesters.{Backend}
-import chisel3.{Bundle, Module}
-import dsptools.{DspContext, DspTester}
-import dsptools.numbers.{FixedPointRing, DspComplexRing, DspComplex}
-import dsptools.numbers.implicits._
-import org.scalatest.{Matchers, FlatSpec}
-import spire.algebra.Ring
 import dsptools.numbers.{RealBits}
+import dsptools.numbers.implicits._
+import dsptools.DspContext
+import dsptools.{DspTester, DspTesterOptionsManager, DspTesterOptions}
+import iotesters.TesterOptions
+import org.scalatest.{FlatSpec, Matchers}
+import math._
+import dsptools.numbers._
 import scala.collection.mutable.HashMap
 import scala.collection.mutable.ArrayBuffer
-
+import spire.algebra.Ring
+import chisel3.util._
+import breeze.math.Complex
 
 
 class ctrlIo[T <: Data:RealBits](gen: T) extends Bundle {
@@ -37,6 +36,7 @@ class ctrl[T <: Data:RealBits](gen: T) extends Module {
  val count = Reg(init = 0.U(12.W))
  val s_idle :: s_correlator :: s_dfe_bpsk :: s_dfe_qpsk :: Nil = Enum(4)
  val stage = Reg(init = s_idle)
+ //val zero = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(0.toDouble) }
 
  io.lms_en := false.B
  io.tap_en := false.B
@@ -57,22 +57,22 @@ class ctrl[T <: Data:RealBits](gen: T) extends Module {
   is (s_dfe_bpsk) {
     count := count +1.U
     io.coeff_output := io.fbf_coeff //NOT SURE
-  	if (count == 1.U) {
-  		io.coeff_output := 0.U
+  	when  (count === 1.U) {
+  		io.coeff_output := DspComplex[T](Complex(0.0,0.0))
   		io.tap_en := true.B
-  	}
-    if (count == 127.U) { //Golay B is coming out
+  	}.elsewhen (count === 128.U) { //Golay B is coming out
         when (io.fbf_coeff.real > 0 || io.fbf_coeff.real < 0 || io.fbf_coeff.imag > 0 || io.fbf_coeff.imag < 0) {
         //stage := s_dfe_qpsk 
         }.otherwise {
           stage := s_correlator
           count := 0.U //does that conflict with count := count +1
         }
-    if (count == 256.U) {  //Golay B finished coming out in the correlator
+      }
+    when (count === 255.U) {  //Golay B finished coming out in the correlator
       stage := s_dfe_qpsk
     }
-    }
   }
+  
   is (s_dfe_qpsk) {
   	count := count +1.U 
     io.coeff_output := io.fbf_coeff
