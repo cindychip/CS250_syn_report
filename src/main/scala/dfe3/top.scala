@@ -18,7 +18,7 @@ class dfe3Io[T <: Data:RealBits](gen: T) extends Bundle {
   val enable = Input(Bool())
   val reset = Input(Bool())
   val count = Output(UInt(12.W)) //debugging output
-  val ga = Output(UInt(2.W)) //debug
+  val ga = Output(DspComplex(gen.cloneType, gen.cloneType)) //debug
 
 }
 
@@ -31,7 +31,7 @@ class dfe3[T <: Data:RealBits](gen: T) extends Module {
  ctrl.enable := io.enable
  ctrl.reset := io.reset  
  io.count := ctrl.count
- io.ga := ctrl.stage
+ io.ga := ctrl.coeff_output
 
  // input and output connection
  dpath.signal_in := io.signal_in

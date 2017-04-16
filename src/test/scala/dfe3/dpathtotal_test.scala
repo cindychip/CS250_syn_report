@@ -19,7 +19,17 @@ val input_real = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/fil
 val input_imag = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/filter_imag.txt").getLines.toArray.map(x => x.toDouble)
 val n = input_real.length
 
-for (i <- 0 until n/2) { 
+for (i <- 0 until 256) { 
+  poke (c.io.signal_in.real, input_real(i%10))
+  poke (c.io.signal_in.imag, input_imag(i%10))
+  poke (c.io.stage, 1)
+  poke (c.io.count, 0)
+  poke (c.io.lms_en, false)
+  poke (c.io.tap_en, true)
+  peek (c.io.signal_out)
+  step(1)
+}
+for (i<- 256 until n) {
   poke (c.io.signal_in.real, input_real(i%10))
   poke (c.io.signal_in.imag, input_imag(i%10))
   poke (c.io.stage, 2)

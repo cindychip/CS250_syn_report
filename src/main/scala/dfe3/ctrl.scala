@@ -23,7 +23,7 @@ class ctrlIo[T <: Data:RealBits](gen: T) extends Bundle {
 	val stage = Output(UInt(2.W))
 	val count = Output(UInt(12.W))
 	val fbf_coeff = Input(DspComplex(gen.cloneType, gen.cloneType))
-  val ga_coeff = Input(Bool())
+  val ga_coeff = Input(Bool()) //might needed
   val coeff_output = Output(DspComplex(gen.cloneType, gen.cloneType))
 	val tap_en = Output(Bool())
   val lms_en = Output(Bool())
@@ -36,7 +36,6 @@ class ctrl[T <: Data:RealBits](gen: T) extends Module {
  val count = Reg(init = 0.U(12.W))
  val s_idle :: s_correlator :: s_dfe_bpsk :: s_dfe_qpsk :: Nil = Enum(4)
  val stage = Reg(init = s_idle)
- //val zero = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(0.toDouble) }
 
  io.lms_en := false.B
  io.tap_en := false.B
@@ -49,7 +48,7 @@ class ctrl[T <: Data:RealBits](gen: T) extends Module {
     }
   }
   is (s_correlator) {
-    when (io.ga_coeff) {
+    when (io.fbf_coeff.real > 0 || io.fbf_coeff.real < 0 || io.fbf_coeff.imag > 0 || io.fbf_coeff.imag < 0) {
     	count := count + 1.U
     	stage := s_dfe_bpsk
     }
@@ -60,14 +59,7 @@ class ctrl[T <: Data:RealBits](gen: T) extends Module {
   	when  (count === 1.U) {
   		io.coeff_output := DspComplex[T](Complex(0.0,0.0))
   		io.tap_en := true.B
-  	}.elsewhen (count === 128.U) { //Golay B is coming out
-        when (io.fbf_coeff.real > 0 || io.fbf_coeff.real < 0 || io.fbf_coeff.imag > 0 || io.fbf_coeff.imag < 0) {
-        //stage := s_dfe_qpsk 
-        }.otherwise {
-          stage := s_correlator
-          count := 0.U //does that conflict with count := count +1
-        }
-      }
+  	}
     when (count === 255.U) {  //Golay B finished coming out in the correlator
       stage := s_dfe_qpsk
     }
