@@ -42,3 +42,16 @@ class dfe3[T <: Data:RealBits](gen: T) extends Module {
  ctrl.lms_en <> dpath.lms_en
 
 }
+
+
+
+object dfeMain extends App {
+  /** Fetch the configuration parameters.
+    * We will look for a class with the name projectName.configClassName
+    * @param projectName
+    * @param topModuleName
+    * @param configClassName
+    * @return
+    */
+  Driver.execute(args.drop(4), () => new dfe3(FixedPoint(18.W, 8.BP)))
+}
