@@ -36,7 +36,6 @@ class dpathtotal[T <: Data:RealBits](gen: T) extends Module {
  val fbf = Module(new fir_feedback(gen,window_size,step_size)).io
  
 
-
  when (io.stage === 0.U) {
     //IDLE state
  }

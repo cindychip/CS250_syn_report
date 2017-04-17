@@ -38,7 +38,7 @@ class ctrl[T <: Data:RealBits](gen: T) extends Module {
  val stage = Reg(init = s_idle)
 
  io.lms_en := false.B
- io.tap_en := false.B
+ io.tap_en := true.B
 
  switch (stage) {
   is (s_idle) {
@@ -51,15 +51,13 @@ class ctrl[T <: Data:RealBits](gen: T) extends Module {
     when (io.fbf_coeff.real > 0 || io.fbf_coeff.real < 0 || io.fbf_coeff.imag > 0 || io.fbf_coeff.imag < 0) {
     	count := count + 1.U
     	stage := s_dfe_bpsk
+      io.tap_en := true.B
+      io.coeff_output := DspComplex[T](Complex(0.0,0.0))
     }
   }
   is (s_dfe_bpsk) {
     count := count +1.U
     io.coeff_output := io.fbf_coeff //NOT SURE
-  	when  (count === 1.U) {
-  		io.coeff_output := DspComplex[T](Complex(0.0,0.0))
-  		io.tap_en := true.B
-  	}
     when (count === 255.U) {  //Golay B finished coming out in the correlator
       stage := s_dfe_qpsk
     }
