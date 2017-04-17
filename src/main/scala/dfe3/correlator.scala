@@ -18,9 +18,8 @@ class correlatorIo[T <: Data:RealBits](gen: T) extends Bundle {
   val input_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
   val output_complex = Output(DspComplex(gen.cloneType, gen.cloneType))
   val output_coefficient = Output(DspComplex(gen.cloneType, gen.cloneType))
-  val ra_out = Output(DspComplex(gen.cloneType, gen.cloneType))
-  val rb_out = Output(DspComplex(gen.cloneType, gen.cloneType))
-  val ga_bool = Output(Bool())
+  //val ra_out = Output(DspComplex(gen.cloneType, gen.cloneType))
+  //val rb_out = Output(DspComplex(gen.cloneType, gen.cloneType))
   override def cloneType: this.type = new correlatorIo(gen).asInstanceOf[this.type]
 }
 
@@ -61,7 +60,7 @@ for (i <- 1 until delay_size) {
 val temp1 = (delays(127)+rb(6)).real>>8
 val temp2 = (delays(127)+rb(6)).imag>>8
 
-when (((temp1*temp1+temp2*temp2)>>10) >0) { //could not compare in dsp. so I right shift from 12 bits to only 2 bits left.
+when (((temp1*temp1+temp2*temp2)>>6) >0) { //could not compare in dsp. so I right shift from 12 bits to only 2 bits left.
   io.output_coefficient.real := temp1
   io.output_coefficient.imag := temp2
 }
@@ -147,13 +146,6 @@ for (i <- 0 until n){
   }
 }
 //io.ra_out := ra(6)
-io.ra_out := ra(6)
-io.rb_out := rb(6)
-val ra_real = ra(6).real >>8
-val ra_imag = ra(6).imag >>8
-when (((ra_real*ra_real + ra_imag*ra_imag)>>8)>0) {
-  io.ga_bool := true.B
-}.otherwise {
-  io.ga_bool := false.B
-}
+//io.ra_out := ra(6)
+//io.rb_out := rb(6)
 }

@@ -37,7 +37,6 @@ class dfe3[T <: Data:RealBits](gen: T) extends Module {
  ctrl.stage <> dpath.stage
  ctrl.count	<> dpath.count
  ctrl.fbf_coeff <> dpath.coeff_out
- ctrl.ga_coeff <> dpath.ga_coeff
  ctrl.coeff_output <> dpath.coeff_in
  ctrl.tap_en <> dpath.tap_en
  ctrl.lms_en <> dpath.lms_en

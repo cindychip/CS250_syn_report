@@ -23,7 +23,6 @@ class ctrlIo[T <: Data:RealBits](gen: T) extends Bundle {
 	val stage = Output(UInt(2.W))
 	val count = Output(UInt(12.W))
 	val fbf_coeff = Input(DspComplex(gen.cloneType, gen.cloneType))
-  val ga_coeff = Input(Bool()) //might needed
   val coeff_output = Output(DspComplex(gen.cloneType, gen.cloneType))
 	val tap_en = Output(Bool())
   val lms_en = Output(Bool())

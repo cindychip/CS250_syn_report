@@ -26,8 +26,8 @@ for (i<-0 until n){
     poke (c.io.input_complex.imag, imag(i))
     peek (c.io.output_complex)
     peek(c.io.output_coefficient)
-    peek(c.io.ga_bool)
-    peek(c.io.ra_out)
+   // peek(c.io.ga_bool)
+  //peek(c.io.ra_out)
     if(i == 127+128) {
     expect(c.io.output_coefficient.real, 1) }
     if (i == 255+3) {

@@ -29,7 +29,7 @@ for (i<-0 until n){
     poke (c.io.signal_in.imag, imag(i))
     poke (c.io.enable, true)
     poke (c.io.reset, false)
-    if(i > 254) { ///correct
+    if(i > 255) { ///correct
       expect(c.io.signal_out.real,test_real(i-255))
       expect(c.io.signal_out.imag,test_imag(i-255))
     }
@@ -55,7 +55,7 @@ class dfeSpec extends FlatSpec with Matchers {
   behavior of "correlator module"
 
   it should "properly add fixed point types" in {
-dsptools.Driver.execute(() => new dfe3(FixedPoint(32.W, 12.BP)), testOptions) { c =>      
+dsptools.Driver.execute(() => new dfe3(FixedPoint(18.W, 8.BP)), testOptions) { c =>      
   new dfeTests(c)
     } should be (true)
   }
