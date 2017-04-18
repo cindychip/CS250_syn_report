@@ -22,6 +22,11 @@ class dpathtotalIo[T <: Data:RealBits](gen: T) extends Bundle {
   val count = Input(UInt(12.W))
   val lms_en = Input(Bool())
   val tap_en = Input(Bool())
+  val output_debug1 = Output(DspComplex(gen.cloneType, gen.cloneType))
+  val output_debug2 = Output(DspComplex(gen.cloneType, gen.cloneType))
+  val output_debug3 = Output(DspComplex(gen.cloneType, gen.cloneType))
+  val output_debug4 = Output(UInt(2.W))
+
   override def cloneType: this.type = new dpathtotalIo(gen).asInstanceOf[this.type]
 }
 
@@ -35,14 +40,20 @@ class dpathtotal[T <: Data:RealBits](gen: T) extends Module {
  val dec = Module(new decision_device(gen)).io
  val fbf = Module(new fir_feedback(gen,window_size,step_size)).io
  
+  io.output_debug1 := fbf.output_debug1
+  io.output_debug2 := fbf.output_debug2
+  io.output_debug3 := fbf.output_debug3
+  io.output_debug4 := fbf.output_debug4
 
  when (io.stage === 0.U) {
     //IDLE state
-   // fbf.rst := true
+    fbf.rst := true.B
+    corr.rst := true.B
  }
 //only correlator is working
  when (io.stage === 1.U) {
-    //fbf.rst := false
+    fbf.rst := false.B
+    corr.rst := false.B
     corr.input_complex := io.signal_in
     io.signal_out := corr.output_complex
     io.ga_coeff :=corr.ga_bool 
@@ -50,6 +61,8 @@ class dpathtotal[T <: Data:RealBits](gen: T) extends Module {
 
  //dfe is working
  when (io.stage === 2.U) {
+  fbf.rst := false.B
+  corr.rst := false.B
   corr.input_complex := io.signal_in
   dec.input_complex := corr.output_complex - fbf.output_complex
   dec.output_complex <> fbf.input_complex
@@ -64,6 +77,8 @@ class dpathtotal[T <: Data:RealBits](gen: T) extends Module {
  }
 
   when (io.stage === 3.U) {
+  fbf.rst := false.B
+  corr.rst := false.B
   corr.input_complex := io.signal_in
   dec.input_complex := corr.output_complex - fbf.output_complex
   dec.output_complex <> fbf.input_complex
