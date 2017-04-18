@@ -1,4 +1,3 @@
-// DFEE correlator
 package dfe3
 
 import chisel3._
@@ -18,10 +17,9 @@ class correlatorIo[T <: Data:RealBits](gen: T) extends Bundle {
   val input_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
   val output_complex = Output(DspComplex(gen.cloneType, gen.cloneType))
   val output_coefficient = Output(DspComplex(gen.cloneType, gen.cloneType))
-  val rst = Input(Bool())
-
-  //val ra_out = Output(DspComplex(gen.cloneType, gen.cloneType))
-  //val rb_out = Output(DspComplex(gen.cloneType, gen.cloneType))
+  val ra_out = Output(DspComplex(gen.cloneType, gen.cloneType))
+  val rb_out = Output(DspComplex(gen.cloneType, gen.cloneType))
+  val ga_bool = Output(Bool())
   override def cloneType: this.type = new correlatorIo(gen).asInstanceOf[this.type]
 }
 
@@ -45,46 +43,6 @@ val ra  = Wire(Vec(n, DspComplex(gen, gen)))
 val rb  = Wire(Vec(n, DspComplex(gen, gen)))
 val delays = Reg(Vec(delay_size, DspComplex(gen, gen)))
 
-when(io.rst){
-  for (i <-0 until 127) {
-    output(i) := DspComplex[T](Complex(0.0, 0.0))
-  }
-  for (i <-0 until Dk(0)){
-    D1(i) := DspComplex[T](Complex(0.0, 0.0))
-  }
-  for (i <-0 until Dk(1)){
-    D2(i) := DspComplex[T](Complex(0.0, 0.0))
-  }
-  for (i <-0 until Dk(2)){
-    D3(i) := DspComplex[T](Complex(0.0, 0.0))
-  }
-  for (i <-0 until Dk(3)){
-    D4(i) := DspComplex[T](Complex(0.0, 0.0))
-  }
-  for (i <-0 until Dk(4)){
-    D5(i) := DspComplex[T](Complex(0.0, 0.0))
-  }
-  for (i <-0 until Dk(5)){
-    D6(i) := DspComplex[T](Complex(0.0, 0.0))
-  }
-  for (i <-0 until Dk(6)){
-    D7(i) := DspComplex[T](Complex(0.0, 0.0))
-  }
-  for (i <-0 until n){
-    DW(i) := DspComplex[T](Complex(0.0, 0.0))
-  }
-  for (i <-0 until n){
-    ra(i) := DspComplex[T](Complex(0.0, 0.0))
-  }
-  for (i <-0 until n){
-    rb(i) := DspComplex[T](Complex(0.0, 0.0))
-  }
-  for (i <-0 until delay_size){
-    delays(i) := DspComplex[T](Complex(0.0, 0.0))
-  } 
-
-  }
-  .otherwise {
 //set up ShiftRegister for output Complex
 output(0) := io.input_complex
 for (i<-1 until 127+128){
@@ -102,7 +60,7 @@ for (i <- 1 until delay_size) {
 val temp1 = (delays(127)+rb(6)).real>>8
 val temp2 = (delays(127)+rb(6)).imag>>8
 
-when (((temp1*temp1+temp2*temp2)>>6) >0) { //could not compare in dsp. so I right shift from 12 bits to only 2 bits left.
+when (((temp1*temp1+temp2*temp2)>>10) >0) { //could not compare in dsp. so I right shift from 12 bits to only 2 bits left.
   io.output_coefficient.real := temp1
   io.output_coefficient.imag := temp2
 }
@@ -188,7 +146,13 @@ for (i <- 0 until n){
   }
 }
 //io.ra_out := ra(6)
-//io.ra_out := ra(6)
-//io.rb_out := rb(6)
+io.ra_out := ra(6)
+io.rb_out := rb(6)
+val ra_real = ra(6).real >>8
+val ra_imag = ra(6).imag >>8
+when (((ra_real*ra_real + ra_imag*ra_imag)>>8)>0) {
+  io.ga_bool := true.B
+}.otherwise {
+  io.ga_bool := false.B
 }
 }

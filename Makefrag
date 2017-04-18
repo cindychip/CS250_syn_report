@@ -4,18 +4,18 @@ test_path = src/test/scala
 
 # What could possibly effect the top level interface
 top_level_defn_files = \
-    src/main/scala/dfe3/filter_sram.scala
+    src/main/scala/dfe3/dfe3.scala
 
 
 # Name of the function that executes
-MODEL := FirSramMain
+MODEL := dfeMain
 # Name of the top level module
-MODULE := fir
+MODULE := dfe3
 # Name of the scala projects
 PROJ := dfe3
 
 # Name of the function that executes the top level test
-TEST_MODEL := firTester
+TEST_MODEL := dfeTester
 
 # Name of the function that generates the config files
 #CONFIG_FUNC := Sha3AccelConfigCollect
