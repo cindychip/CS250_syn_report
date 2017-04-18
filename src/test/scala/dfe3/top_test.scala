@@ -1,12 +1,13 @@
 package dfe3
-import chisel3._
+import chisel3.Data
+import chisel3.iotesters._
 import scala.util.Random
 import chisel3.experimental.FixedPoint
 import dsptools.numbers.{RealBits}
 import dsptools.numbers.implicits._
 import dsptools.DspContext
 import dsptools.{DspTester, DspTesterOptionsManager, DspTesterOptions}
-import iotesters.TesterOptions
+import chisel3.iotesters.TesterOptions
 import org.scalatest.{FlatSpec, Matchers}
 import math._
 import dsptools.numbers._
@@ -66,8 +67,19 @@ class dfeSpec extends FlatSpec with Matchers {
   behavior of "correlator module"
 
   it should "properly add fixed point types" in {
-dsptools.Driver.execute(() => new dfe3(FixedPoint(22.W, 12.BP)), testOptions) { c =>      
+dsptools.Driver.execute(() => new dfe3(FixedPoint(22, 12)), testOptions) { c =>      
   new dfeTests(c)
     } should be (true)
   }
 }
+
+
+object dfeTester extends App {
+  //We pass in some positional arguments to make things easier
+  //This should be integrated with the CLI flags at some point
+  //but is how rocket-chip accomplishes this
+  //val paramsFromConfig = Sha3AccelMain.getParamsFromConfig(projectName = args(0), topModuleName = args(1), configClassName = args(2))
+  Driver.execute(args.drop(4),() => new dfe3(FixedPoint(22, 12))){ c => new dfeTests(c) }
+}
+
+

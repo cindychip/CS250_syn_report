@@ -37,7 +37,6 @@ class dfe3[T <: Data:RealBits](gen: T) extends Module {
  ctrl.enable := io.enable
  ctrl.reset := io.reset  
  io.debug := dpath.coeff_out
- //io.count := ctrl.count 
   io.output_debug1 := dpath.output_debug1
   io.output_debug2 := dpath.output_debug2
   io.output_debug3 := dpath.output_debug3 
@@ -51,7 +50,6 @@ class dfe3[T <: Data:RealBits](gen: T) extends Module {
  ctrl.stage <> dpath.stage
  ctrl.count <> dpath.count
  ctrl.fbf_coeff <> dpath.coeff_out
- ctrl.ga_coeff <> dpath.ga_coeff
  ctrl.coeff_output <> dpath.coeff_in
  ctrl.tap_en <> dpath.tap_en
  ctrl.lms_en <> dpath.lms_en

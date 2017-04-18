@@ -1,3 +1,4 @@
+//kate Du
 package dfe3
 
 import chisel3._
@@ -17,9 +18,9 @@ class correlatorIo[T <: Data:RealBits](gen: T) extends Bundle {
   val input_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
   val output_complex = Output(DspComplex(gen.cloneType, gen.cloneType))
   val output_coefficient = Output(DspComplex(gen.cloneType, gen.cloneType))
-  val ra_out = Output(DspComplex(gen.cloneType, gen.cloneType))
-  val rb_out = Output(DspComplex(gen.cloneType, gen.cloneType))
-  val ga_bool = Output(Bool())
+  //val ra_out = Output(DspComplex(gen.cloneType, gen.cloneType))
+  //val rb_out = Output(DspComplex(gen.cloneType, gen.cloneType))
+  //val ga_bool = Output(Bool())
   val rst = Input(Bool())
   override def cloneType: this.type = new correlatorIo(gen).asInstanceOf[this.type]
 }
