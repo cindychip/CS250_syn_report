@@ -4,7 +4,7 @@ test_path = src/test/scala
 
 # What could possibly effect the top level interface
 top_level_defn_files = \
-    src/main/scala/dfe3/top.scala
+    src/main/scala/dfe3/dfe3.scala
 
 
 # Name of the function that executes
