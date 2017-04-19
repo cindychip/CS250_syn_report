@@ -23,7 +23,7 @@ TEST_MODEL := dfeTester
 # Default configuration
 #DCONFIG := DefaultConfig
 # Use the default configuration unless otherwise specified
-#CONFIG ?= DefaultConfig
+CONFIG ?= DefaultConfig
 
 # Jackhammer settings
 #JSETTINGS = IclusterSettings

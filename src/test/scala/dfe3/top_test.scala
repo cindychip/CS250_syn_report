@@ -79,7 +79,7 @@ object dfeTester extends App {
   //This should be integrated with the CLI flags at some point
   //but is how rocket-chip accomplishes this
   //val paramsFromConfig = Sha3AccelMain.getParamsFromConfig(projectName = args(0), topModuleName = args(1), configClassName = args(2))
-  Driver.execute(args.drop(4),() => new dfe3(FixedPoint(22, 12))){ c => new dfeTests(c) }
+  Driver.execute(args.drop(3),() => new dfe3(FixedPoint(22, 12))){ c => new dfeTests(c) }
 }
 
 
