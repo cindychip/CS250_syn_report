@@ -20,7 +20,7 @@ class fir_feedbackIo[T <: Data:RealBits](gen: T) extends Bundle {
   val input_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
   val tap_coeff_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
   val error = Input(DspComplex(gen.cloneType, gen.cloneType))
-  val tap_index = Input(UInt(10.W))
+  val tap_index = Input(UInt(12.W))
   val coef_en = Input(Bool())
   val lms_en = Input(Bool())
   val output_complex = Output(DspComplex(gen.cloneType, gen.cloneType))
@@ -40,7 +40,7 @@ class fir_feedback[T <: Data:RealBits](gen: T,var window_size: Int, var step_siz
   val delays = Reg(Vec(window_size, DspComplex(gen, gen)))
   val index_count = Reg(init = 0.U(2.W))
   val buffer_complex = Reg(Vec(3, DspComplex(gen, gen))) //vector of reg
-  val index = Reg(Vec(3,0.U(10.W)))
+  val index = Reg(Vec(3,0.U(12.W)))
   io.output_debug1 := buffer_complex(0)
   io.output_debug2 := buffer_complex(1)
   io.output_debug3 := buffer_complex(2)
