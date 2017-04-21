@@ -10,6 +10,7 @@ import iotesters.TesterOptions
 import org.scalatest.{FlatSpec, Matchers}
 import math._
 import dsptools.numbers._
+import breeze.math.Complex
 
 
 class decision_deviceIo[T <: Data:RealBits](gen: T) extends Bundle {
@@ -24,37 +25,33 @@ class decision_device[T <: Data:RealBits](gen: T) extends Module {
   val io = IO(new decision_deviceIo(gen))
   
   when (io.qpsk_en) {
-  val positive = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(sqrt(0.5.toDouble)) }
-  val negative = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(-sqrt(0.5.toDouble)) }
+    val positive1 = DspComplex[T](Complex(sqrt(0.5), sqrt(0.5)))
+    val positive2 = DspComplex[T](Complex(-sqrt(0.5), sqrt(0.5)))
+    val positive3 = DspComplex[T](Complex(sqrt(0.5), -sqrt(0.5)))
+    val positive4 = DspComplex[T](Complex(-sqrt(0.5), -sqrt(0.5)))
  
   when(io.input_complex.real<0){
    when(io.input_complex.imag<0){
-      io.output_complex.real := negative
-      io.output_complex.imag := negative
+      io.output_complex := positive4
     }
     .otherwise{
-      io.output_complex.real := negative
-      io.output_complex.imag := positive
+      io.output_complex := positive2
     }
   }.otherwise {
     when(io.input_complex.imag<0){
-      io.output_complex.real := positive
-      io.output_complex.imag := negative
+      io.output_complex := positive3
     }
     .otherwise{
-      io.output_complex.real := positive
-      io.output_complex.imag := positive
+      io.output_complex := positive1
     }
   }
  }.otherwise{
-   val positive = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(1.0.toDouble) }
-   val negative = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(-1.0.toDouble) }
-   val zero = DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(0.toDouble) }
-   io.output_complex.imag := zero
+ val positive = DspComplex[T](Complex(1.0, 0.0))
+ val negative = DspComplex[T](Complex(-1.0, 0.0))
    when(io.input_complex.real<0){
-        io.output_complex.real := negative
+        io.output_complex := negative
    }.otherwise {
-   io.output_complex.real := positive
+   io.output_complex := positive
    }
   }
  io.error_complex := io.output_complex - io.input_complex
