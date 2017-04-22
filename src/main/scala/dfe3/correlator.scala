@@ -93,7 +93,7 @@ output(0) := io.input_complex
 for (i<-1 until 128+128){
   output(i) := output(i-1)
 }
-io.output_complex := output(Dk.sum +128)
+io.output_complex := output(255)
 //output the correct complex coefficient
 
 //delay modules 
