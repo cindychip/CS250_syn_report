@@ -8,7 +8,9 @@
 #
 #
 
-TOP = $(MODULE)
+TOP = dfe3Main
+
+CONFIG ?= DefaultConfig
 
 # Assumptions: The Makefile that includes this Makefrag
 #  should have defined base_dir, build_dir
