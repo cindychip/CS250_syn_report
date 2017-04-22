@@ -66,7 +66,7 @@ class fir_feedback[T <: Data:RealBits](gen: T,var window_size: Int, var step_siz
   when (io.coef_en && (index_count < 3.U )) {
     when(io.tap_coeff_complex.imag > 0 || io.tap_coeff_complex.real > 0 ||
           io.tap_coeff_complex.imag < 0 || io.tap_coeff_complex.real < 0) {
-      index(index_count) := io.tap_index 
+      index(index_count) := io.tap_index -1.U
       buffer_complex(index_count) := io.tap_coeff_complex
       index_count := index_count + 1.U  
     }
