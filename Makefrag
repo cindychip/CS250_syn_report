@@ -8,9 +8,9 @@ top_level_defn_files = \
 
 
 # Name of the function that executes
-MODEL := dfeMain
+MODEL := dfe3MainTest
 # Name of the top level module
-MODULE := dfe3
+MODULE := dfe3Main
 # Name of the scala projects
 PROJ := dfe3
 
