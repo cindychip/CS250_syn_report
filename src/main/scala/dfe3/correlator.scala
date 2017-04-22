@@ -90,10 +90,10 @@ when(io.rst){
 .otherwise {
 //set up ShiftRegister for output Complex
 output(0) := io.input_complex
-for (i<-1 until 127+128){
+for (i<-1 until 128+128){
   output(i) := output(i-1)
 }
-io.output_complex := output(Dk.sum-1+128)
+io.output_complex := output(Dk.sum +128)
 //output the correct complex coefficient
 
 //delay modules 
