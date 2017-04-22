@@ -41,7 +41,7 @@ for (i<-0 until 300){
     peek (c.io.output_debug5)
 
 
-    if(i > 254) { ///correct
+    if(i > 255) { ///correct
       expect(c.io.signal_out.real,test_real(i-255))
       expect(c.io.signal_out.imag,test_imag(i-255))
     }
