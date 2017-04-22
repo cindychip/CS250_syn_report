@@ -36,11 +36,18 @@ class fir_feedbackIo[T <: Data:RealBits](gen: T) extends Bundle {
 //step_size: int indicate how much left shift the user want to input, min:0
 class fir_feedback[T <: Data:RealBits](gen: T,var window_size: Int, var step_size: Int) extends Module {
   val io = IO(new fir_feedbackIo(gen))
+  val Multi_0 = Module(new SimpMulti(gen)).io
+  val Multi_1 = Module(new SimpMulti(gen)).io
+  val Multi_2 = Module(new SimpMulti(gen)).io
 
   val delays = Reg(Vec(window_size, DspComplex(gen, gen)))
   val index_count = Reg(init = 0.U(2.W))
   val buffer_complex = Reg(Vec(3, DspComplex(gen, gen))) //vector of reg
   val index = Reg(Vec(3,0.U(12.W)))
+  // val MultiResult_0 = DspComplex(gen, gen)
+  // val MultiResult_1 = DspComplex(gen, gen)
+  // val MultiResult_2 = DspComplex(gen, gen)
+
   io.output_debug1 := buffer_complex(0)
   io.output_debug2 := buffer_complex(1)
   io.output_debug3 := buffer_complex(2)
@@ -63,7 +70,7 @@ class fir_feedback[T <: Data:RealBits](gen: T,var window_size: Int, var step_siz
   }
   
 //update non-zero coef while count the index
-  when (io.coef_en && (index_count < 3.U )) {
+  when (io.coef_en) {
     when(io.tap_coeff_complex.imag > 0 || io.tap_coeff_complex.real > 0 ||
           io.tap_coeff_complex.imag < 0 || io.tap_coeff_complex.real < 0) {
       index(index_count) := io.tap_index -1.U
@@ -75,25 +82,31 @@ class fir_feedback[T <: Data:RealBits](gen: T,var window_size: Int, var step_siz
 //update lms
   when (io.lms_en) {
     // io.error needs to be conjugated
-   buffer_complex(0).real := buffer_complex(0).real + (delays(index(0)).real * io.error.real +delays(index(0)).imag * io.error.imag)>> step_size 
-   buffer_complex(0).imag := buffer_complex(0).imag + (delays(index(0)).imag * io.error.real -delays(index(0)).real * io.error.imag)>> step_size
-   buffer_complex(1).real := buffer_complex(1).real + (delays(index(1)).real * io.error.real +delays(index(1)).imag * io.error.imag)>> step_size 
-   buffer_complex(1).imag := buffer_complex(1).imag + (delays(index(1)).imag * io.error.imag -delays(index(1)).real * io.error.imag)>> step_size
-   buffer_complex(2).real := buffer_complex(2).real + (delays(index(2)).real * io.error.real +delays(index(2)).imag * io.error.imag)>> step_size 
-   buffer_complex(2).imag := buffer_complex(2).imag + (delays(index(2)).imag * io.error.imag -delays(index(2)).real * io.error.imag)>> step_size
+    Multi_0.input_complex := delays(index(0))
+    Multi_0.DecisionOut_complex := io.error
+   // MultiResult_0 := Multi_0.output_complex
+    buffer_complex(0) := buffer_complex(0) + Multi_0.output_complex
+    
+    Multi_1.input_complex := delays(index(1))
+    Multi_1.DecisionOut_complex := io.error
+    //MultiResult_1 := Multi_1.output_complex
+    buffer_complex(1) := buffer_complex(1) + Multi_1.output_complex
+
+    Multi_2.input_complex := delays(index(2))
+    Multi_2.DecisionOut_complex := io.error
+    //MultiResult_2 := Multi_2.output_complex
+    buffer_complex(2) := buffer_complex(2) + Multi_2.output_complex
+
+  // buffer_complex(0).real := buffer_complex(0).real + (delays(index(0)).real * io.error.real +delays(index(0)).imag * io.error.imag)>> step_size 
+  // buffer_complex(0).imag := buffer_complex(0).imag + (delays(index(0)).imag * io.error.real -delays(index(0)).real * io.error.imag)>> step_size
+  // buffer_complex(1).real := buffer_complex(1).real + (delays(index(1)).real * io.error.real +delays(index(1)).imag * io.error.imag)>> step_size 
+  // buffer_complex(1).imag := buffer_complex(1).imag + (delays(index(1)).imag * io.error.imag -delays(index(1)).real * io.error.imag)>> step_size
+  // buffer_complex(2).real := buffer_complex(2).real + (delays(index(2)).real * io.error.real +delays(index(2)).imag * io.error.imag)>> step_size 
+  // buffer_complex(2).imag := buffer_complex(2).imag + (delays(index(2)).imag * io.error.imag -delays(index(2)).real * io.error.imag)>> step_size
 }
-  when (index_count === 0.U) {
-  io.output_complex := DspComplex[T](Complex(0.0, 0.0)) 
-  } .elsewhen (index_count === 1.U) {
-  io.output_complex := delays(index(0))* buffer_complex(0) 
-  } .elsewhen (index_count === 2.U) {
-  io.output_complex := delays(index(0))* buffer_complex(0) + 
-                        delays(index(1))* buffer_complex(1)
-  } .otherwise {
   io.output_complex := delays(index(0))* buffer_complex(0) + 
                         delays(index(1))* buffer_complex(1) + 
-                         delays(index(2))* buffer_complex(2) 
-  }
+                         delays(index(2))* buffer_complex(2)
 
 
 }
