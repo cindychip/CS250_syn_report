@@ -28,7 +28,7 @@ poke (c.io.enable, true)
 poke (c.io.reset, false)
 step (1)
 
-for (i<-0 until 300){
+for (i<-0 until n){
     poke (c.io.signal_in.real,real(i))
     poke (c.io.signal_in.imag, imag(i))
     poke (c.io.enable, true)
