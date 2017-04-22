@@ -42,8 +42,8 @@ for (i<-0 until 300){
 
 
     if(i > 255) { ///correct
-      expect(c.io.signal_out.real,test_real(i-255))
-      expect(c.io.signal_out.imag,test_imag(i-255))
+      expect(c.io.signal_out.real,test_real(i-254))
+      expect(c.io.signal_out.imag,test_imag(i-254))
     }
     step(1)
 
