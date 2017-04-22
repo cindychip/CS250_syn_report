@@ -58,3 +58,5 @@ class dfe3Main[T <: Data:RealBits](gen: T) extends Module {
 object dfe3MainTest extends App {
 	  Driver.execute(args.drop(3),() => new dfe3Main(FixedPoint(22, 12)))
 }
+
+class DefaultConfig() extends Config {}
