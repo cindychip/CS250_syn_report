@@ -57,6 +57,9 @@ class dpathtotal[T <: Data:RealBits](gen: T) extends Module {
     corr.input_complex := io.signal_in
     dec.input_complex := corr.output_complex
     io.signal_out := dec.output_complex
+   when (io.tap_en) {
+   fbf.input_complex <> dec.output_complex
+   }
  }
 
  //dfe is working
