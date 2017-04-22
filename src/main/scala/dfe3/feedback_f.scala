@@ -63,7 +63,7 @@ class fir_feedback[T <: Data:RealBits](gen: T,var window_size: Int, var step_siz
   }
   
 //update non-zero coef while count the index
-  when (io.coef_en) {
+  when (io.coef_en && (index_count < 3.U )) {
     when(io.tap_coeff_complex.imag > 0 || io.tap_coeff_complex.real > 0 ||
           io.tap_coeff_complex.imag < 0 || io.tap_coeff_complex.real < 0) {
       index(index_count) := io.tap_index -1.U
@@ -82,9 +82,18 @@ class fir_feedback[T <: Data:RealBits](gen: T,var window_size: Int, var step_siz
    buffer_complex(2).real := buffer_complex(2).real + (delays(index(2)).real * io.error.real +delays(index(2)).imag * io.error.imag)>> step_size 
    buffer_complex(2).imag := buffer_complex(2).imag + (delays(index(2)).imag * io.error.imag -delays(index(2)).real * io.error.imag)>> step_size
 }
+  when (index_count === 0.U) {
+  io.output_complex := DspComplex[T](Complex(0.0, 0.0)) 
+  } .elsewhen (index_count === 1.U) {
+  io.output_complex := delays(index(0))* buffer_complex(0) 
+  } .elsewhen (index_count === 2.U) {
+  io.output_complex := delays(index(0))* buffer_complex(0) + 
+                        delays(index(1))* buffer_complex(1)
+  } .otherwise {
   io.output_complex := delays(index(0))* buffer_complex(0) + 
                         delays(index(1))* buffer_complex(1) + 
-                         delays(index(2))* buffer_complex(2)
+                         delays(index(2))* buffer_complex(2) 
+  }
 
 
 }
