@@ -11,8 +11,7 @@ import dsptools.numbers.implicits._
 import org.scalatest.{Matchers, FlatSpec}
 import spire.algebra.Ring
 import dsptools.numbers.{RealBits}
-import cde.{Collector, Config, Dump, Ex, Field, Knob, ParameterDump, Parameters, ViewSym, World}
-import cde.Implicits._
+
 
 class dfe3Io[T <: Data:RealBits](gen: T) extends Bundle {
   val signal_in = Input(DspComplex(gen.cloneType, gen.cloneType))
@@ -57,8 +56,16 @@ class dfe3Main[T <: Data:RealBits](gen: T) extends Module {
  ctrl.lms_en <> dpath.lms_en
 }
 
-object dfe3MainTest extends App {
-	  Driver.execute(args.drop(3),() => new dfe3Main(FixedPoint(22, 12)))
+class DefaultConfig() extends Config {
+
 }
 
-class DefaultConfig() extends Config {}
+object Sha3AccelConfigCollect extends App with FileSystemUtilities{
+
+}
+
+object dfe3MainTest extends App {
+  
+  Driver.execute(args.drop(3), () => new dfe3(FixedPoint(22, 12)))
+
+}
