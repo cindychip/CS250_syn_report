@@ -1,6 +1,4 @@
 package dfe3
-import chisel3._
-import chisel3.util._
 import chisel3.Data
 import chisel3.iotesters._
 import scala.util.Random
