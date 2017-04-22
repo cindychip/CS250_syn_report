@@ -32,7 +32,7 @@ val delay_size = 128
 val n = 7
 val W = Array(-1, -1, -1, -1, 1, -1, -1)
 val Dk = Array(1, 8, 2, 4, 16, 32, 64)
-val output = Reg(Vec(127+128, DspComplex(gen, gen)))
+val output = Reg(Vec(128+128, DspComplex(gen, gen)))
 val D1 = Reg(Vec(Dk(0), DspComplex(gen, gen)))
 val D2 = Reg(Vec(Dk(1), DspComplex(gen, gen)))
 val D3 = Reg(Vec(Dk(2), DspComplex(gen, gen)))
@@ -90,10 +90,10 @@ when(io.rst){
 .otherwise {
 //set up ShiftRegister for output Complex
 output(0) := io.input_complex
-for (i<-1 until 127+128){
+for (i<-1 until 128+128){
   output(i) := output(i-1)
 }
-io.output_complex := output(Dk.sum-1+128)
+io.output_complex := output(255)
 //output the correct complex coefficient
 
 //delay modules 

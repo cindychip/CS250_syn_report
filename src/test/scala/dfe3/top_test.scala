@@ -15,11 +15,11 @@ import breeze.math.Complex
 import breeze.signal._
 import scala.io.Source  // Added
 
-class dfeTests[T <: Data:RealBits](c: dfe3[T]) extends DspTester(c) {
-val real = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/filter_real1.txt").getLines.toArray.map(x => x.toDouble)
-val imag = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/filter_imag1.txt").getLines.toArray.map(x => x.toDouble)
-val test_real = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/test_real1.txt").getLines.toArray.map(x => x.toDouble)
-val test_imag = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/test_imag1.txt").getLines.toArray.map(x => x.toDouble)
+class dfeTests[T <: Data:RealBits](c: dfe3Main[T]) extends DspTester(c) {
+val real = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/filter_real2.txt").getLines.toArray.map(x => x.toDouble)
+val imag = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/filter_imag2.txt").getLines.toArray.map(x => x.toDouble)
+val test_real = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/test_real2.txt").getLines.toArray.map(x => x.toDouble)
+val test_imag = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/test_imag2.txt").getLines.toArray.map(x => x.toDouble)
 
 val n = real.length
 poke (c.io.reset, true)
@@ -41,9 +41,9 @@ for (i<-0 until n){
     peek (c.io.output_debug5)
 
 
-    if(i > 254) { ///correct
-      expect(c.io.signal_out.real,test_real(i-255))
-      expect(c.io.signal_out.imag,test_imag(i-255))
+    if(i > 255) { ///correct
+      expect(c.io.signal_out.real,test_real(i-256))
+      expect(c.io.signal_out.imag,test_imag(i-256))
     }
     step(1)
 
@@ -67,7 +67,7 @@ class dfeSpec extends FlatSpec with Matchers {
   behavior of "correlator module"
 
   it should "properly add fixed point types" in {
-dsptools.Driver.execute(() => new dfe3(FixedPoint(22, 12)), testOptions) { c =>      
+dsptools.Driver.execute(() => new dfe3Main(FixedPoint(22, 12)), testOptions) { c =>      
   new dfeTests(c)
     } should be (true)
   }
@@ -79,7 +79,7 @@ object dfeTester extends App {
   //This should be integrated with the CLI flags at some point
   //but is how rocket-chip accomplishes this
   //val paramsFromConfig = Sha3AccelMain.getParamsFromConfig(projectName = args(0), topModuleName = args(1), configClassName = args(2))
-  Driver.execute(args.drop(3),() => new dfe3(FixedPoint(22, 12))){ c => new dfeTests(c) }
+  Driver.execute(args.drop(3),() => new dfe3Main(FixedPoint(22, 12))){ c => new dfeTests(c) }
 }
 
 

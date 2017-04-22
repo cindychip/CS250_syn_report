@@ -69,7 +69,7 @@ class ctrl[T <: Data:RealBits](gen: T) extends Module {
     .otherwise {
     count := count +1.U
     io.coeff_output := io.fbf_coeff //NOT SURE
-    when (count === 255.U) {  //Golay B finished coming out in the correlator
+    when (count === 256.U) {  //Golay B finished coming out in the correlator
       stage := s_dfe_qpsk
       io.tap_en := false.B
     }
