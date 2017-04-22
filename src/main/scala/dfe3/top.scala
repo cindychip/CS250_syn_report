@@ -60,12 +60,10 @@ class DefaultConfig() extends Config {
 
 }
 
-object Sha3AccelConfigCollect extends App with FileSystemUtilities{
 
-}
 
 object dfe3MainTest extends App {
   
-  Driver.execute(args.drop(3), () => new dfe3(FixedPoint(22, 12)))
+  Driver.execute(args.drop(3), () => new dfe3Main(FixedPoint(22, 12)))
 
 }
