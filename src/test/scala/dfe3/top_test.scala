@@ -73,9 +73,6 @@ dsptools.Driver.execute(() => new dfe3Main(FixedPoint(22, 12)), testOptions) { c
   }
 }
 
-class DefaultConfig() extends Config {
-
-}
 
 object dfeTester extends App {
   //We pass in some positional arguments to make things easier
