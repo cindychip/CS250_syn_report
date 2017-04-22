@@ -21,7 +21,7 @@ TEST_MODEL := dfeTester
 #CONFIG_FUNC := Sha3AccelConfigCollect
 
 # Default configuration
-#DCONFIG := DefaultConfig
+DCONFIG := DefaultConfig
 # Use the default configuration unless otherwise specified
 CONFIG ?= DefaultConfig
 
