@@ -54,7 +54,7 @@ class dfe3Main[T <: Data:RealBits](gen: T) extends Module {
  ctrl.tap_en <> dpath.tap_en
  ctrl.lms_en <> dpath.lms_en
 }
-class DefaultConfig() extends Config {}
+
 object dfe3MainTest extends App {
 	  Driver.execute(args.drop(3),() => new dfe3Main(FixedPoint(22, 12)))
 }
