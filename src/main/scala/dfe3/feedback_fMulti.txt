@@ -16,7 +16,7 @@ import breeze.math.Complex
 
 
 //tap_coeff_complex only allows three non-zero inputs
-class fir_feedbackIo[T <: Data:RealBits](gen: T) extends Bundle {
+class fir_feedbackMultiIo[T <: Data:RealBits](gen: T) extends Bundle {
   val input_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
   val tap_coeff_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
   val error = Input(DspComplex(gen.cloneType, gen.cloneType))
@@ -30,12 +30,12 @@ class fir_feedbackIo[T <: Data:RealBits](gen: T) extends Bundle {
   val rst = Input(Bool())
   val output_debug4 = Output(UInt(2.W))
 
-  override def cloneType: this.type = new fir_feedbackIo(gen).asInstanceOf[this.type]
+  override def cloneType: this.type = new fir_feedbackMultiIo(gen).asInstanceOf[this.type]
 }
 
 //step_size: int indicate how much left shift the user want to input, min:0
-class fir_feedback[T <: Data:RealBits](gen: T,var window_size: Int, var step_size: Int) extends Module {
-  val io = IO(new fir_feedbackIo(gen))
+class fir_feedbackMulti[T <: Data:RealBits](gen: T,var window_size: Int, var step_size: Int) extends Module {
+  val io = IO(new fir_feedbackMultiIo(gen))
   val Multi_0 = Module(new SimpMulti(gen)).io
   val Multi_1 = Module(new SimpMulti(gen)).io
   val Multi_2 = Module(new SimpMulti(gen)).io
@@ -82,31 +82,44 @@ class fir_feedback[T <: Data:RealBits](gen: T,var window_size: Int, var step_siz
 //update lms
   when (io.lms_en) {
     // io.error needs to be conjugated
-    Multi_0.input_complex := delays(index(0))
-    Multi_0.DecisionOut_complex := io.error
-   // MultiResult_0 := Multi_0.output_complex
-    buffer_complex(0) := buffer_complex(0) + Multi_0.output_complex
+   //  Multi_0.input_complex := delays(index(0))
+   //  Multi_0.DecisionOut_complex := io.error
+   // // MultiResult_0 := Multi_0.output_complex
+   //  buffer_complex(0) := buffer_complex(0) + Multi_0.output_complex
     
-    Multi_1.input_complex := delays(index(1))
-    Multi_1.DecisionOut_complex := io.error
-    //MultiResult_1 := Multi_1.output_complex
-    buffer_complex(1) := buffer_complex(1) + Multi_1.output_complex
+   //  Multi_1.input_complex := delays(index(1))
+   //  Multi_1.DecisionOut_complex := io.error
+   //  //MultiResult_1 := Multi_1.output_complex
+   //  buffer_complex(1) := buffer_complex(1) + Multi_1.output_complex
 
-    Multi_2.input_complex := delays(index(2))
-    Multi_2.DecisionOut_complex := io.error
-    //MultiResult_2 := Multi_2.output_complex
-    buffer_complex(2) := buffer_complex(2) + Multi_2.output_complex
+   //  Multi_2.input_complex := delays(index(2))
+   //  Multi_2.DecisionOut_complex := io.error
+   //  //MultiResult_2 := Multi_2.output_complex
+   //  buffer_complex(2) := buffer_complex(2) + Multi_2.output_complex
 
-  // buffer_complex(0).real := buffer_complex(0).real + (delays(index(0)).real * io.error.real +delays(index(0)).imag * io.error.imag)>> step_size 
-  // buffer_complex(0).imag := buffer_complex(0).imag + (delays(index(0)).imag * io.error.real -delays(index(0)).real * io.error.imag)>> step_size
-  // buffer_complex(1).real := buffer_complex(1).real + (delays(index(1)).real * io.error.real +delays(index(1)).imag * io.error.imag)>> step_size 
-  // buffer_complex(1).imag := buffer_complex(1).imag + (delays(index(1)).imag * io.error.imag -delays(index(1)).real * io.error.imag)>> step_size
-  // buffer_complex(2).real := buffer_complex(2).real + (delays(index(2)).real * io.error.real +delays(index(2)).imag * io.error.imag)>> step_size 
-  // buffer_complex(2).imag := buffer_complex(2).imag + (delays(index(2)).imag * io.error.imag -delays(index(2)).real * io.error.imag)>> step_size
+  buffer_complex(0).real := buffer_complex(0).real + (delays(index(0)).real * io.error.real +delays(index(0)).imag * io.error.imag)>> step_size 
+  buffer_complex(0).imag := buffer_complex(0).imag + (delays(index(0)).imag * io.error.real -delays(index(0)).real * io.error.imag)>> step_size
+  buffer_complex(1).real := buffer_complex(1).real + (delays(index(1)).real * io.error.real +delays(index(1)).imag * io.error.imag)>> step_size 
+  buffer_complex(1).imag := buffer_complex(1).imag + (delays(index(1)).imag * io.error.imag -delays(index(1)).real * io.error.imag)>> step_size
+  buffer_complex(2).real := buffer_complex(2).real + (delays(index(2)).real * io.error.real +delays(index(2)).imag * io.error.imag)>> step_size 
+  buffer_complex(2).imag := buffer_complex(2).imag + (delays(index(2)).imag * io.error.imag -delays(index(2)).real * io.error.imag)>> step_size
 }
-  io.output_complex := delays(index(0))* buffer_complex(0) + 
-                        delays(index(1))* buffer_complex(1) + 
-                         delays(index(2))* buffer_complex(2)
+    Multi_0.input_complex := buffer_complex(0) 
+    Multi_0.DecisionOut_complex := delays(index(0))
+    
+    Multi_1.input_complex := buffer_complex(1) 
+    Multi_1.DecisionOut_complex := delays(index(1))
+    
+    Multi_2.input_complex := buffer_complex(2) 
+    Multi_2.DecisionOut_complex := delays(index(2))
+    
+    io.output_complex := Multi_0.output_complex+Multi_1.output_complex+Multi_2.output_complex
+   // MultiResult_0 := Multi_0.output_complex
+   //  buffer_complex(0) := buffer_complex(0) + Multi_0.output_complex
+
+  // io.output_complex := delays(index(0))* buffer_complex(0) + 
+  //                       delays(index(1))* buffer_complex(1) + 
+  //                        delays(index(2))* buffer_complex(2)
 
 
 }
