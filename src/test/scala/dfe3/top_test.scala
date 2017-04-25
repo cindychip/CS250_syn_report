@@ -16,19 +16,20 @@ import breeze.signal._
 import scala.io.Source  // Added
 
 class dfeTests[T <: Data:RealBits](c: dfe3Main[T]) extends DspTester(c) {
-val real = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/filter_real2.txt").getLines.toArray.map(x => x.toDouble)
-val imag = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/filter_imag2.txt").getLines.toArray.map(x => x.toDouble)
-val test_real = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/test_real2.txt").getLines.toArray.map(x => x.toDouble)
-val test_imag = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/test_imag2.txt").getLines.toArray.map(x => x.toDouble)
+val real = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/testing/filter_real15.txt").getLines.toArray.map(x => x.toDouble)
+val imag = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/testing/filter_imag15.txt").getLines.toArray.map(x => x.toDouble)
+val test_real = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/testing/test_real15.txt").getLines.toArray.map(x => x.toDouble)
+val test_imag = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/testing/test_imag15.txt").getLines.toArray.map(x => x.toDouble)
 
 val n = real.length
+    
 poke (c.io.reset, true)
 step(1)
 poke (c.io.enable, true)
 poke (c.io.reset, false)
 step (1)
 
-for (i<-0 until n){
+for (i<-0 until n) {
     poke (c.io.signal_in.real,real(i))
     poke (c.io.signal_in.imag, imag(i))
     poke (c.io.enable, true)
@@ -46,8 +47,7 @@ for (i<-0 until n){
       expect(c.io.signal_out.imag,test_imag(i-256))
     }
     step(1)
-
-  }
+    }
 }
 
 // Scala style testing

@@ -56,9 +56,9 @@ class dfe3Main[T <: Data:RealBits](gen: T) extends Module {
  ctrl.lms_en <> dpath.lms_en
 }
 
-class DefaultConfig() extends Config {
+//class DefaultConfig() extends Config {
 
-}
+//}
 
 
 
