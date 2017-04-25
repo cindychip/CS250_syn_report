@@ -42,7 +42,7 @@ class firFeedbackNoMulti[T <: Data:RealBits](gen: T,var window_size: Int, var st
   val Multi_2 = Module(new SimpMulti(gen)).io
   //Added+++++++++++++++++++
   val delays = Reg(Vec(window_size, DspComplex(gen, gen)))
-  val sign_delays = Reg(Vec(window_size, UInt(3.W)))
+  //val sign_delays = Reg(Vec(window_size, UInt(3.W)))
   val index_count = Reg(init = 0.U(2.W))
   val buffer_complex = Reg(Vec(3, DspComplex(gen, gen))) //vector of reg
   val index = Reg(Vec(3,0.U(12.W)))
@@ -51,26 +51,26 @@ class firFeedbackNoMulti[T <: Data:RealBits](gen: T,var window_size: Int, var st
   io.output_debug3 := buffer_complex(2)
   io.output_debug4 := index_count
 // mapping function 3 bits--BPSK 0_ _; QPSK 1_ _
-  val sign = UInt (3.W)
-  when (io.input_complex.imag > 0){
-    when (io.input_complex.real >= 0){
-      sign := 4.U
-    }.otherwise{
-      sign := 6.U
-    }
-  } .elsewhen(io.input_complex.imag < 0){
-    when (io.input_complex.real >= 0){
-      sign := 5.U
-    }.otherwise{
-      sign := 7.U
-    }
-  }.otherwise{
-    when(io.input_complex.real >= 0){
-      sign := 0.U
-    } .otherwise{
-      sign := 2.U
-    }
-  }
+  // val sign = UInt (3.W)
+  // when (io.input_complex.imag > 0){
+  //   when (io.input_complex.real >= 0){
+  //     sign := 4.U
+  //   }.otherwise{
+  //     sign := 6.U
+  //   }
+  // } .elsewhen(io.input_complex.imag < 0){
+  //   when (io.input_complex.real >= 0){
+  //     sign := 5.U
+  //   }.otherwise{
+  //     sign := 7.U
+  //   }
+  // }.otherwise{
+  //   when(io.input_complex.real >= 0){
+  //     sign := 0.U
+  //   } .otherwise{
+  //     sign := 2.U
+  //   }
+  // }
     
   when(io.rst){
     buffer_complex(0) := DspComplex[T](Complex(0.0, 0.0))
@@ -86,10 +86,10 @@ class firFeedbackNoMulti[T <: Data:RealBits](gen: T,var window_size: Int, var st
   for (i <- 1 until window_size) {
     delays(i) := delays(i-1)
   }
-  sign_delays(0) := sign
-  for (i <- 1 until window_size) {
-    sign_delays(i) := sign_delays(i-1)
-  }
+  // sign_delays(0) := sign
+  // for (i <- 1 until window_size) {
+  //   sign_delays(i) := sign_delays(i-1)
+  // }
 //update non-zero coef while count the index
   when (io.coef_en){ //&& (index_count < 3.U )) {
     when(io.tap_coeff_complex.imag > 0 || io.tap_coeff_complex.real > 0 ||
