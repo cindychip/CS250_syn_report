@@ -22,23 +22,25 @@ val test_real = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/test
 val test_imag = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/test_imag2.txt").getLines.toArray.map(x => x.toDouble)
 
 val n = real.length
+    
+for (j<-0 until 2) {
 poke (c.io.reset, true)
 step(1)
 poke (c.io.enable, true)
 poke (c.io.reset, false)
 step (1)
 
-for (i<-0 until n){
+for (i<-0 until n) {
     poke (c.io.signal_in.real,real(i))
     poke (c.io.signal_in.imag, imag(i))
     poke (c.io.enable, true)
     poke (c.io.reset, false)
-    peek (c.io.debug)
-    peek (c.io.output_debug1)
-    peek (c.io.output_debug2)
-    peek (c.io.output_debug3)
-    peek (c.io.output_debug4)
-    peek (c.io.output_debug5)
+    //peek (c.io.debug)
+    //peek (c.io.output_debug1)
+    //peek (c.io.output_debug2)
+    //peek (c.io.output_debug3)
+    //peek (c.io.output_debug4)
+    //peek (c.io.output_debug5)
 
 
     if(i > 255) { ///correct
@@ -46,7 +48,7 @@ for (i<-0 until n){
       expect(c.io.signal_out.imag,test_imag(i-256))
     }
     step(1)
-
+    }
   }
 }
 
