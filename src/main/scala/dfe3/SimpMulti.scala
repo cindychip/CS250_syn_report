@@ -15,7 +15,8 @@ import breeze.math.Complex
 
 class SimpMultiIo[T <: Data:RealBits](gen: T) extends Bundle {
   val input_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
-  val DecisionOut_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
+  //val DecisionOut_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
+  val sign = Input(UInt(3.W))
   val output_complex = Output(DspComplex(gen.cloneType, gen.cloneType))
 
   override def cloneType: this.type = new SimpMultiIo(gen).asInstanceOf[this.type]
@@ -23,36 +24,35 @@ class SimpMultiIo[T <: Data:RealBits](gen: T) extends Bundle {
 
 class SimpMulti[T <: Data:RealBits](gen: T) extends Module {
   val io = IO(new SimpMultiIo(gen))
-  // val Rd = UInt(1.W)
-  // val Id = UInt(1.W)
-  // when (io.DecisionOut_complex.real >= 0){
-  //   Rd := 0.U
-  // } .otherwise{
-  //   Rd := 1.U
-  // }
-  // when (io.DecisionOut_complex.imag >= 0){
-  //   Id := 0.U
-  // } .otherwise{
-  //   Id := 1.U
-  // }
- // val Rd = io.DecisionOut_complex.real(1)
- // val Id = io.DecisionOut_complex.imag(1)
- // when(Rd === Id){
-  when(io.DecisionOut_complex.real === io.DecisionOut_complex.imag){
-    when (io.DecisionOut_complex.real>= 0){
-      io.output_complex.real :=  io.input_complex.real - io.input_complex.imag
-      io.output_complex.imag :=  io.input_complex.real + io.input_complex.imag
+
+  //BPSK
+  when (io.sign(2) === 0.U){
+    when (io.sign(1) === 0.U){
+      io.output_complex.real :=  io.input_complex.real
+      io.output_complex.imag :=  io.input_complex.imag
     } .otherwise{
-      io.output_complex.real :=  -io.input_complex.real + io.input_complex.imag
-      io.output_complex.imag :=  -io.input_complex.real - io.input_complex.imag
+      io.output_complex.real :=  -io.input_complex.real
+      io.output_complex.imag :=  -io.input_complex.imag
     }
   } .otherwise{
-    when (io.DecisionOut_complex.real>= 0){
-      io.output_complex.real :=  io.input_complex.real + io.input_complex.imag
-      io.output_complex.imag :=  -io.input_complex.real + io.input_complex.imag
+    //QPSK
+    when(io.sign(1) === io.sign(0)){
+      when (io.sign(1)=== 0.U){
+        io.output_complex.real :=  io.input_complex.real - io.input_complex.imag
+        io.output_complex.imag :=  io.input_complex.real + io.input_complex.imag
+      } .otherwise{
+        io.output_complex.real :=  -io.input_complex.real + io.input_complex.imag
+        io.output_complex.imag :=  -io.input_complex.real - io.input_complex.imag
+      }
     } .otherwise{
-      io.output_complex.real :=  -io.input_complex.real - io.input_complex.imag
-      io.output_complex.imag :=  io.input_complex.real - io.input_complex.imag
+      when (io.sign(1) === 0.U){
+        io.output_complex.real :=  io.input_complex.real + io.input_complex.imag
+        io.output_complex.imag :=  -io.input_complex.real + io.input_complex.imag
+      } .otherwise{
+        io.output_complex.real :=  -io.input_complex.real - io.input_complex.imag
+        io.output_complex.imag :=  io.input_complex.real - io.input_complex.imag
+      }
     }
   }
+ 
 }
