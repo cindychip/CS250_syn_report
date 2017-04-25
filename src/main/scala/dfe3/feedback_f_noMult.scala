@@ -41,8 +41,8 @@ class firFeedbackNoMulti[T <: Data:RealBits](gen: T,var window_size: Int, var st
   val Multi_1 = Module(new SimpMulti(gen)).io
   val Multi_2 = Module(new SimpMulti(gen)).io
   //Added+++++++++++++++++++
-  val delays = Reg(Vec(window_size, DspComplex(gen, gen)))
-  //val sign_delays = Reg(Vec(window_size, UInt(3.W)))
+  //val delays = Reg(Vec(window_size, DspComplex(gen, gen)))
+  val delays = Reg(Vec(window_size, UInt(3.W)))
   val index_count = Reg(init = 0.U(2.W))
   val buffer_complex = Reg(Vec(3, DspComplex(gen, gen))) //vector of reg
   val index = Reg(Vec(3,0.U(12.W)))
@@ -71,25 +71,49 @@ class firFeedbackNoMulti[T <: Data:RealBits](gen: T,var window_size: Int, var st
   //     sign := 2.U
   //   }
   // }
-    
+  val sign = Wire(UInt (3.W))
+  when (io.input_complex.imag > 0){
+    //QPSK imag >0
+    when (io.input_complex.real >= 0){
+      sign := 4.U
+    }.otherwise{
+      sign := 6.U
+    }
+  } .elsewhen(io.input_complex.imag < 0){
+    //QPSK imag <0
+    when (io.input_complex.real >= 0){
+      sign := 5.U
+    }.otherwise{
+      sign := 7.U
+    }
+  }.otherwise{ 
+    //BPSK
+    when(io.input_complex.real >= 0){
+      sign := 0.U
+    } .otherwise{
+      sign := 2.U
+    }
+  }
+  
   when(io.rst){
     buffer_complex(0) := DspComplex[T](Complex(0.0, 0.0))
     buffer_complex(1) := DspComplex[T](Complex(0.0, 0.0))
     buffer_complex(2) := DspComplex[T](Complex(0.0, 0.0))
     for (i <- 0 until window_size) {
-      delays(i) := DspComplex[T](Complex(0.0, 0.0))
+      //delays(i) := DspComplex[T](Complex(0.0, 0.0))
+      delays(i) := 0.U
     }
   }
   .otherwise{
 //input in a shift register  512 registers input needs to be changed --> 2 bits 
-  delays(0) := io.input_complex
+  // delays(0) := io.input_complex
+  // for (i <- 1 until window_size) {
+  //   delays(i) := delays(i-1)
+  // }
+  delays(0) := sign
   for (i <- 1 until window_size) {
     delays(i) := delays(i-1)
   }
-  // sign_delays(0) := sign
-  // for (i <- 1 until window_size) {
-  //   sign_delays(i) := sign_delays(i-1)
-  // }
 //update non-zero coef while count the index
   when (io.coef_en){ //&& (index_count < 3.U )) {
     when(io.tap_coeff_complex.imag > 0 || io.tap_coeff_complex.real > 0 ||
@@ -101,15 +125,40 @@ class firFeedbackNoMulti[T <: Data:RealBits](gen: T,var window_size: Int, var st
   }
   }
 //update lms
+
   when (io.lms_en) {
     // io.error needs to be conjugated
-   buffer_complex(0).real := buffer_complex(0).real + (delays(index(0)).real * io.error.real +delays(index(0)).imag * io.error.imag)>> step_size 
-   buffer_complex(0).imag := buffer_complex(0).imag + (delays(index(0)).imag * io.error.real -delays(index(0)).real * io.error.imag)>> step_size
-   buffer_complex(1).real := buffer_complex(1).real + (delays(index(1)).real * io.error.real +delays(index(1)).imag * io.error.imag)>> step_size 
-   buffer_complex(1).imag := buffer_complex(1).imag + (delays(index(1)).imag * io.error.imag -delays(index(1)).real * io.error.imag)>> step_size
-   buffer_complex(2).real := buffer_complex(2).real + (delays(index(2)).real * io.error.real +delays(index(2)).imag * io.error.imag)>> step_size 
-   buffer_complex(2).imag := buffer_complex(2).imag + (delays(index(2)).imag * io.error.imag -delays(index(2)).real * io.error.imag)>> step_size
+    val error = Reg(DspComplex(gen,gen))
+    error.real := io.error.real >> step_size
+    error.imag := io.error.imag >> step_size
+
+    val Multi_3 = Module(new SimpMulti(gen)).io
+    val Multi_4 = Module(new SimpMulti(gen)).io
+    val Multi_5 = Module(new SimpMulti(gen)).io
+    
+    Multi_3.input_complex := error
+    Multi_3.sign := delays(index(0))
+
+    Multi_4.input_complex := error
+    Multi_4.sign := delays(index(1))
+
+    Multi_5.input_complex := error
+    Multi_5.sign := delays(index(2))
+
+    buffer_complex(0) := buffer_complex(0) - Multi_3.output_complex
+    buffer_complex(1) := buffer_complex(1) - Multi_4.output_complex
+    buffer_complex(2) := buffer_complex(2) - Multi_5.output_complex
+
+
+   // buffer_complex(0).real := buffer_complex(0).real + (delays(index(0)) * io.error.real +delays(index(0)) * io.error.imag)>> step_size 
+   // buffer_complex(0).imag := buffer_complex(0).imag + (delays(index(0)) * io.error.real -delays(index(0)) * io.error.imag)>> step_size
+   // buffer_complex(1).real := buffer_complex(1).real + (delays(index(1)) * io.error.real +delays(index(1)) * io.error.imag)>> step_size 
+   // buffer_complex(1).imag := buffer_complex(1).imag + (delays(index(1)) * io.error.imag -delays(index(1)) * io.error.imag)>> step_size
+   // buffer_complex(2).real := buffer_complex(2).real + (delays(index(2)) * io.error.real +delays(index(2)) * io.error.imag)>> step_size 
+   // buffer_complex(2).imag := buffer_complex(2).imag + (delays(index(2)) * io.error.imag -delays(index(2)) * io.error.imag)>> step_size
+
 }
+
 /*
   when (index_count === 0.U) {
   io.output_complex := DspComplex[T](Complex(0.0, 0.0)) 
@@ -126,13 +175,13 @@ class firFeedbackNoMulti[T <: Data:RealBits](gen: T,var window_size: Int, var st
 */
 //Added+++++++++++++++++++
 Multi_0.input_complex := buffer_complex(0) 
-Multi_0.DecisionOut_complex := delays(index(0))
+Multi_0.sign := delays(index(0))
 
 Multi_1.input_complex := buffer_complex(1) 
-Multi_1.DecisionOut_complex := delays(index(1))
+Multi_1.sign := delays(index(1))
 
 Multi_2.input_complex := buffer_complex(2) 
-Multi_2.DecisionOut_complex := delays(index(2))
+Multi_2.sign := delays(index(2))
 
 io.output_complex := Multi_0.output_complex+Multi_1.output_complex+Multi_2.output_complex
 //Added+++++++++++++++++++

@@ -22,6 +22,7 @@ class firFeedbackNoMultiTests[T <: Data:RealBits](c: firFeedbackNoMulti[T]) exte
   //val img = Array.fill(len)(Random.nextDouble*2-1)
   val real = Array(1.0,-1.0,1.0,-1.0,1.0,-1.0,1.0,-1.0,1.0,-1.0,1.0,-1.0, 1.0, -1.0)   //0.1,0.2,0.3,0.4,0.5,0.6,0.7)
   val img = Array(1.0,1.0,-1.0,-1.0,1.0,-1.0,1.0,-1.0,1.0,-1.0,1.0,-1.0,0.0, 0.0)
+  //val img = Array(0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0, 0.0)
 
   val size = 3
   val tap_real = Array.fill(size)(Random.nextDouble*2-1) //(1.0,1.0)
