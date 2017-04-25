@@ -34,6 +34,12 @@ for (i<-0 until n) {
     poke (c.io.signal_in.imag, imag(i))
     poke (c.io.enable, true)
     poke (c.io.reset, false)
+    peek (c.io.debug)
+    peek (c.io.output_debug1)
+    peek (c.io.output_debug2)
+    peek (c.io.output_debug3)
+    peek (c.io.output_debug4)
+    peek (c.io.output_debug5)
 
 
     if(i > 255) { ///correct
