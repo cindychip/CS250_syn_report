@@ -16,7 +16,7 @@ import breeze.math.Complex
 
 
 //tap_coeff_complex only allows three non-zero inputs
-class fir_feedback_noMultiIo[T <: Data:RealBits](gen: T) extends Bundle {
+class firFeedbackNoMultiIo[T <: Data:RealBits](gen: T) extends Bundle {
   val input_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
   val tap_coeff_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
   val error = Input(DspComplex(gen.cloneType, gen.cloneType))
@@ -30,17 +30,19 @@ class fir_feedback_noMultiIo[T <: Data:RealBits](gen: T) extends Bundle {
   val rst = Input(Bool())
   val output_debug4 = Output(UInt(2.W))
 
-  override def cloneType: this.type = new fir_feedback_noMultiIo(gen).asInstanceOf[this.type]
+  override def cloneType: this.type = new firFeedbackNoMultiIo(gen).asInstanceOf[this.type]
 }
 
 //step_size: int indicate how much left shift the user want to input, min:0
-class fir_feedback[T <: Data:RealBits](gen: T,var window_size: Int, var step_size: Int) extends Module {
-  val io = IO(new fir_feedbackIo(gen))
+class firFeedbackNoMulti[T <: Data:RealBits](gen: T,var window_size: Int, var step_size: Int) extends Module {
+  val io = IO(new firFeedbackNoMultiIo(gen))
+  // Added+++++++++++++++++++
   val Multi_0 = Module(new SimpMulti(gen)).io
   val Multi_1 = Module(new SimpMulti(gen)).io
   val Multi_2 = Module(new SimpMulti(gen)).io
-
+  //Added+++++++++++++++++++
   val delays = Reg(Vec(window_size, DspComplex(gen, gen)))
+  val sign_delays = Reg(Vec(window_size, UInt(3.W)))
   val index_count = Reg(init = 0.U(2.W))
   val buffer_complex = Reg(Vec(3, DspComplex(gen, gen))) //vector of reg
   val index = Reg(Vec(3,0.U(12.W)))
@@ -48,8 +50,28 @@ class fir_feedback[T <: Data:RealBits](gen: T,var window_size: Int, var step_siz
   io.output_debug2 := buffer_complex(1)
   io.output_debug3 := buffer_complex(2)
   io.output_debug4 := index_count
-
-
+// mapping function 3 bits--BPSK 0_ _; QPSK 1_ _
+  val sign = UInt (3.W)
+  when (io.input_complex.imag > 0){
+    when (io.input_complex.real >= 0){
+      sign := 4.U
+    }.otherwise{
+      sign := 6.U
+    }
+  } .elsewhen(io.input_complex.imag < 0){
+    when (io.input_complex.real >= 0){
+      sign := 5.U
+    }.otherwise{
+      sign := 7.U
+    }
+  }.otherwise{
+    when(io.input_complex.real >= 0){
+      sign := 0.U
+    } .otherwise{
+      sign := 2.U
+    }
+  }
+    
   when(io.rst){
     buffer_complex(0) := DspComplex[T](Complex(0.0, 0.0))
     buffer_complex(1) := DspComplex[T](Complex(0.0, 0.0))
@@ -59,12 +81,15 @@ class fir_feedback[T <: Data:RealBits](gen: T,var window_size: Int, var step_siz
     }
   }
   .otherwise{
-//input in a shift register
+//input in a shift register  512 registers input needs to be changed --> 2 bits 
   delays(0) := io.input_complex
   for (i <- 1 until window_size) {
     delays(i) := delays(i-1)
   }
-  
+  sign_delays(0) := sign
+  for (i <- 1 until window_size) {
+    sign_delays(i) := sign_delays(i-1)
+  }
 //update non-zero coef while count the index
   when (io.coef_en){ //&& (index_count < 3.U )) {
     when(io.tap_coeff_complex.imag > 0 || io.tap_coeff_complex.real > 0 ||
@@ -99,7 +124,7 @@ class fir_feedback[T <: Data:RealBits](gen: T,var window_size: Int, var step_siz
                          delays(index(2))* buffer_complex(2) 
   }
 */
-
+//Added+++++++++++++++++++
 Multi_0.input_complex := buffer_complex(0) 
 Multi_0.DecisionOut_complex := delays(index(0))
 
@@ -110,7 +135,7 @@ Multi_2.input_complex := buffer_complex(2)
 Multi_2.DecisionOut_complex := delays(index(2))
 
 io.output_complex := Multi_0.output_complex+Multi_1.output_complex+Multi_2.output_complex
-
+//Added+++++++++++++++++++
 
 
 

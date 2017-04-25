@@ -15,7 +15,7 @@ import breeze.math.Complex
 import breeze.signal._
 
 
-class feedbackfirTests[T <: Data:RealBits](c: fir_feedback[T]) extends DspTester(c) {
+class firFeedbackNoMultiTests[T <: Data:RealBits](c: firFeedbackNoMulti[T]) extends DspTester(c) {
   //var len = Random.nextInt(2000)
   var len = 12
   //val real = Array.fill(len)(Random.nextDouble*2-1)
@@ -31,7 +31,7 @@ class feedbackfirTests[T <: Data:RealBits](c: fir_feedback[T]) extends DspTester
    tap_real(4) = 0.0
    tap_img(4) = 0.0
   */
-  val (expect_real,expect_img) = fir_filter(real, img, tap_real, tap_img,
+  val (expect_real,expect_img) = fir_filter2(real, img, tap_real, tap_img,
                                       len, size)
 
   for (i <- 0 until len) {
@@ -58,7 +58,7 @@ class feedbackfirTests[T <: Data:RealBits](c: fir_feedback[T]) extends DspTester
 }
 
 // Scala style testing
-class feedbackfirSpec extends FlatSpec with Matchers {
+class firFeedbackNoMultiSpec extends FlatSpec with Matchers {
   
   val testOptions = new DspTesterOptionsManager {
     dspTesterOptions = DspTesterOptions(
@@ -68,14 +68,14 @@ class feedbackfirSpec extends FlatSpec with Matchers {
     testerOptions = TesterOptions(
         isVerbose = false,
         backendName = "verilator")
-    commonOptions = commonOptions.copy(targetDirName = "test_run_dir/feedbackfir_dsp_fix")
+    commonOptions = commonOptions.copy(targetDirName = "test_run_dir/firFeedbackNoMulti_dsp_fix")
   }
 
-  behavior of "feedbackfir dsp module"
+  behavior of "firFeedbackNoMulti dsp module"
 
   it should "properly add fixed point types" in {
-dsptools.Driver.execute(() => new fir_feedback(FixedPoint(16.W, 12.BP),3,3), testOptions) { c =>      
-  new feedbackfirTests(c)
+dsptools.Driver.execute(() => new firFeedbackNoMulti(FixedPoint(16.W, 12.BP),3,3), testOptions) { c =>      
+  new firFeedbackNoMultiTests(c)
     } should be (true)
   }
 }
@@ -84,7 +84,7 @@ dsptools.Driver.execute(() => new fir_feedback(FixedPoint(16.W, 12.BP),3,3), tes
 
 
 
-object fir_filter {
+object fir_filter2 {
   def apply(signal_real:Array[Double], signal_img: Array[Double], 
             coef_real:Array[Double], coef_img:Array[Double], 
             sig_len:Int , coef_len:Int) : (Array[Double], Array[Double])={

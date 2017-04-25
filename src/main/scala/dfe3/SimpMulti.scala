@@ -23,17 +23,17 @@ class SimpMultiIo[T <: Data:RealBits](gen: T) extends Bundle {
 
 class SimpMulti[T <: Data:RealBits](gen: T) extends Module {
   val io = IO(new SimpMultiIo(gen))
-  // val Rd = UInt(1.W)
-  // val Id = UInt(1.W)
+  // val Rd = UInt(width = 1)
+  // val Id = UInt(width = 1)
   // when (io.DecisionOut_complex.real >= 0){
-  //   Rd := 0.U
+  //  val Rd = 0.U
   // } .otherwise{
-  //   Rd := 1.U
+  //   val Rd = 1.U
   // }
   // when (io.DecisionOut_complex.imag >= 0){
-  //   Id := 0.U
+  //   val Id = 0.U
   // } .otherwise{
-  //   Id := 1.U
+  //   val Id = 1.U
   // }
  // val Rd = io.DecisionOut_complex.real(1)
  // val Id = io.DecisionOut_complex.imag(1)
