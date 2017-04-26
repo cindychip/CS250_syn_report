@@ -31,7 +31,7 @@ class dfe3Io[T <: Data:RealBits](gen: T) extends Bundle {
   val output_debug8 = Output(DspComplex(gen.cloneType, gen.cloneType))
 }
 
-class dfe3[T <: Data:RealBits](gen: T) extends Module {
+class dfe3Main[T <: Data:RealBits](gen: T) extends Module {
  val io = IO(new dfe3Io(gen))
  
  val dpath = Module(new dpathtotal(gen)).io
@@ -61,5 +61,11 @@ class dfe3[T <: Data:RealBits](gen: T) extends Module {
  ctrl.coeff_output <> dpath.coeff_in
  ctrl.tap_en <> dpath.tap_en
  ctrl.lms_en <> dpath.lms_en
+
+}
+
+object dfe3MainTest extends App {
+  
+  Driver.execute(args.drop(3), () => new dfe3Main(FixedPoint(22, 12)))
 
 }
