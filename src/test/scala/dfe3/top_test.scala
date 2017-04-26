@@ -16,10 +16,10 @@ import breeze.signal._
 import scala.io.Source  // Added
 
 class dfeTests[T <: Data:RealBits](c: dfe3Main[T]) extends DspTester(c) {
-val real = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/testing/filter_real15.txt").getLines.toArray.map(x => x.toDouble)
-val imag = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/testing/filter_imag15.txt").getLines.toArray.map(x => x.toDouble)
-val test_real = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/testing/test_real15.txt").getLines.toArray.map(x => x.toDouble)
-val test_imag = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/testing/test_imag15.txt").getLines.toArray.map(x => x.toDouble)
+val real = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/testing/filter_real_15.txt").getLines.toArray.map(x => x.toDouble)
+val imag = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/testing/filter_imag_15.txt").getLines.toArray.map(x => x.toDouble)
+val test_real = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/testing/test_real_15.txt").getLines.toArray.map(x => x.toDouble)
+val test_imag = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/testing/test_imag_15.txt").getLines.toArray.map(x => x.toDouble)
 
 val n = real.length
     
