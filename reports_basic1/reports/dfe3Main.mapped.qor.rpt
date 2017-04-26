@@ -1,0 +1,113 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'dfe3Main' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : qor
+Design : dfe3Main
+Version: G-2012.06-SP3
+Date   : Tue Apr 25 20:29:54 2017
+****************************************
+
+
+  Timing Path Group 'FEEDTHROUGH'
+  -----------------------------------
+  Levels of Logic:              47.00
+  Critical Path Length:          1.48
+  Critical Path Slack:          -0.97
+  Critical Path Clk Period:      0.75
+  Total Negative Slack:        -41.55
+  No. of Violating Paths:       44.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'REGIN'
+  -----------------------------------
+  Levels of Logic:              49.00
+  Critical Path Length:          1.61
+  Critical Path Slack:          -1.07
+  Critical Path Clk Period:      0.75
+  Total Negative Slack:       -188.93
+  No. of Violating Paths:      392.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'REGOUT'
+  -----------------------------------
+  Levels of Logic:              63.00
+  Critical Path Length:          2.03
+  Critical Path Slack:          -1.42
+  Critical Path Clk Period:      0.75
+  Total Negative Slack:       -116.37
+  No. of Violating Paths:       88.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'clock'
+  -----------------------------------
+  Levels of Logic:              63.00
+  Critical Path Length:          2.11
+  Critical Path Slack:          -1.42
+  Critical Path Clk Period:      0.75
+  Total Negative Slack:       -335.96
+  No. of Violating Paths:     2518.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:         13
+  Hierarchical Port Count:       1223
+  Leaf Cell Count:             230975
+  Buf/Inv Cell Count:           38667
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:    185862
+  Sequential Cell Count:        45113
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:   421224.116049
+  Noncombinational Area:
+                        299310.227097
+  Buf/Inv Area:          76316.647666
+  Net Area:                  0.000000
+  Net XLength        :     3099664.25
+  Net YLength        :     3342926.00
+  -----------------------------------
+  Cell Area:            720534.343146
+  Design Area:          720534.343146
+  Net Length        :      6442590.00
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:        233580
+  Nets With Violations:          1377
+  Max Trans Violations:            66
+  Max Cap Violations:            1377
+  -----------------------------------
+
+
+  Hostname: icluster1.EECS.Berkeley.EDU
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                   66.59
+  Logic Optimization:               2734.70
+  Mapping Optimization:             8287.61
+  -----------------------------------------
+  Overall Compile Time:            12533.60
+  Overall Compile Wall Clock Time:  5911.54
+
+1
