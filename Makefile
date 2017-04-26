@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------
 # James Martin
 #
-# This makefile will generate verilog files or an emulator from chisel code
+# This Makefile is written to be the top level makefile for a project
 
 include Makefrag
 
@@ -106,7 +106,7 @@ build/vcs-report: $(src_files) $(test_files)
 #-----------------------------------------------------------------------
 $(vlsi_gen_dir)/$(verilog_file): $(src_files)
 	sbt "run-main $(project_main) $(PROJ) $(MODULE) $(CONFIG) --target-dir $(vlsi_gen_dir)  -frsq -c:$(MODULE):-o:$(vlsi_gen_dir)/$(MODULE).$(CONFIG).conf -o $@"
-	if [ -a $(vlsi_gen_dir)/$(MODULE).$(CONFIG).conf ]; build/vlsi/src/vlsi_mem_gen $(vlsi_gen_dir)/$(MODULE).$(CONFIG).conf >> $@; fi
+	if [ -a $(vlsi_gen_dir)/$(MODULE).$(CONFIG).conf ]; then build/vlsi/src/vlsi_mem_gen $(vlsi_gen_dir)/$(MODULE).$(CONFIG).conf >> $@; fi
 
 verilog: $(vlsi_gen_dir)/$(verilog_file)
 
