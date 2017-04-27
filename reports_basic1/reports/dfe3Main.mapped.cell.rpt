@@ -3,7 +3,7 @@
 Report : cell
 Design : dfe3Main
 Version: G-2012.06-SP3
-Date   : Tue Apr 25 20:31:16 2017
+Date   : Tue Apr 25 22:42:27 2017
 ****************************************
 
 Attributes:
@@ -16,168 +16,144 @@ Attributes:
 
 Cell                      Reference       Library             Area  Attributes
 --------------------------------------------------------------------------------
-U1                        NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U2                        NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U3                        NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U4                        NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U5                        NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U6                        NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U7                        NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U8                        NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U9                        NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U10                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U11                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U12                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U13                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U14                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U15                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U16                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U17                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U18                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U19                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U20                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U21                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U22                       NBUFFX16_LVT    saed32lvt_tt1p05v25c 6.099456 so
-U23                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U24                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U25                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U26                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440
-U27                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U28                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U29                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U30                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U31                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U32                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U33                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U34                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U35                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U36                       NBUFFX16_LVT    saed32lvt_tt1p05v25c 6.099456 so
-U37                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U38                       NBUFFX16_LVT    saed32lvt_tt1p05v25c 6.099456 so
-U39                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U40                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U41                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U42                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U43                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U44                       NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160 so
-U45                       NBUFFX32_HVT    saed32hvt_tt1p05v25c 10.674048 so
-U46                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U47                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U48                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
-U49                       NBUFFX4_LVT     saed32lvt_tt1p05v25c 2.541440 so
-U50                       NBUFFX4_LVT     saed32lvt_tt1p05v25c 2.541440 so
-U51                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
-U52                       NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152 so
-U53                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
-U54                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
-U55                       NBUFFX32_HVT    saed32hvt_tt1p05v25c 10.674048 so
-U57                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U58                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U59                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U60                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U61                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U62                       NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160
-U63                       NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160
-U64                       NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160
-U65                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440
-U66                       INVX16_RVT      saed32rvt_tt1p05v25c 5.082880
-U67                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U68                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U69                       NBUFFX32_HVT    saed32hvt_tt1p05v25c 10.674048
-U70                       NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160
-U71                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440
-U72                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440
-U73                       NBUFFX4_RVT     saed32rvt_tt1p05v25c 2.541440
-U74                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440
-U75                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440
-U76                       INVX16_LVT      saed32lvt_tt1p05v25c 5.082880
-U77                       NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U78                       NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U79                       NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U80                       NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U81                       NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U82                       NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U83                       NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U84                       NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U85                       NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U86                       NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U87                       NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U88                       NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U89                       INVX8_LVT       saed32lvt_tt1p05v25c 3.049728
-U90                       INVX8_LVT       saed32lvt_tt1p05v25c 3.049728
-U91                       INVX2_LVT       saed32lvt_tt1p05v25c 1.524864
-U92                       INVX2_LVT       saed32lvt_tt1p05v25c 1.524864
-U96                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U97                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U98                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U99                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U100                      NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U101                      NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U102                      NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U103                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
-U104                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
-U105                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U1                        NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
+U2                        NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
+U3                        NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U4                        NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
+U5                        NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
+U6                        NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
+U7                        NBUFFX16_LVT    saed32lvt_tt1p05v25c 6.099456
+U8                        NBUFFX2_RVT     saed32rvt_tt1p05v25c 2.033152
+U9                        NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
+U10                       NBUFFX2_RVT     saed32rvt_tt1p05v25c 2.033152
+U11                       NBUFFX16_LVT    saed32lvt_tt1p05v25c 6.099456
+U12                       NBUFFX16_RVT    saed32rvt_tt1p05v25c 6.099456
+U13                       NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U14                       NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U15                       IBUFFX32_LVT    saed32lvt_tt1p05v25c 11.690624
+U16                       NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160
+U17                       NBUFFX2_RVT     saed32rvt_tt1p05v25c 2.033152
+U18                       NBUFFX2_RVT     saed32rvt_tt1p05v25c 2.033152
+U19                       IBUFFX32_LVT    saed32lvt_tt1p05v25c 11.690624
+U20                       IBUFFX16_RVT    saed32rvt_tt1p05v25c 6.607744
+U21                       INVX16_LVT      saed32lvt_tt1p05v25c 5.082880
+U22                       INVX4_LVT       saed32lvt_tt1p05v25c 2.033152
+U23                       INVX8_RVT       saed32rvt_tt1p05v25c 3.049728
+U24                       IBUFFX32_LVT    saed32lvt_tt1p05v25c 11.690624
+U25                       INVX4_LVT       saed32lvt_tt1p05v25c 2.033152
+U26                       NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160
+U27                       NBUFFX2_RVT     saed32rvt_tt1p05v25c 2.033152
+U28                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440
+U29                       NBUFFX2_RVT     saed32rvt_tt1p05v25c 2.033152
+U30                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440
+U31                       NBUFFX2_RVT     saed32rvt_tt1p05v25c 2.033152
+U32                       NBUFFX2_RVT     saed32rvt_tt1p05v25c 2.033152
+U33                       NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160
+U34                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440
+U35                       NBUFFX2_RVT     saed32rvt_tt1p05v25c 2.033152
+U36                       NBUFFX2_RVT     saed32rvt_tt1p05v25c 2.033152
+U37                       NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U38                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440
+U39                       NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U40                       NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U41                       NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U42                       NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U43                       NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U44                       NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U45                       NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U46                       NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U47                       NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U48                       NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U49                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
+U50                       NBUFFX16_RVT    saed32rvt_tt1p05v25c 6.099456 so
+U51                       NBUFFX16_RVT    saed32rvt_tt1p05v25c 6.099456 so
+U52                       NBUFFX16_RVT    saed32rvt_tt1p05v25c 6.099456 so
+U53                       NBUFFX16_RVT    saed32rvt_tt1p05v25c 6.099456 so
+U54                       NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160 so
+U55                       NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160 so
+U56                       NBUFFX16_LVT    saed32lvt_tt1p05v25c 6.099456 so
+U57                       NBUFFX16_RVT    saed32rvt_tt1p05v25c 6.099456 so
+U58                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U59                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U60                       NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152 so
+U61                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U62                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U63                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U64                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U65                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U66                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U67                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U68                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U69                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U70                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U71                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U72                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U73                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U74                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U75                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U76                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U77                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U78                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U79                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U80                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U81                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U82                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U83                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U84                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U85                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U86                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U87                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U88                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U89                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U90                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U91                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U92                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U93                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U94                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U95                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U96                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U97                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U98                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U99                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U100                      NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U101                      NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U102                      NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160 so
+U103                      NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160 so
+U104                      NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U105                      NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
 U106                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
 U107                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
 U108                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
-U109                      NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440
+U109                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
 U110                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
-U111                      NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160
-U113                      NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U114                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U115                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U116                      INVX16_LVT      saed32lvt_tt1p05v25c 5.082880
-U117                      INVX4_LVT       saed32lvt_tt1p05v25c 2.033152
-U118                      NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U119                      NBUFFX32_HVT    saed32hvt_tt1p05v25c 10.674048
-U120                      NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U121                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U122                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U123                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U124                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U125                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U126                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U127                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U128                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U129                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U130                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U131                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U132                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U133                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U134                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U135                      NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160
-U136                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U137                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U138                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U139                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U140                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U141                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U142                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U143                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U144                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U145                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U146                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U147                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U148                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U149                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U150                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U151                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U152                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U153                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U154                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U155                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U156                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U157                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U158                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U159                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U160                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U161                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U162                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U163                      NBUFFX2_LVT     saed32lvt_tt1p05v25c 2.033152
-U164                      NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160
-U165                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
-ctrl                      ctrl                            458.221639 b, h, n
-dpathtotal                dpathtotal                      719568.087642 b, h, n
+U111                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U112                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U113                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U114                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U115                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U116                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U117                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U118                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U119                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U120                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U121                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U122                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U123                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U124                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U125                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U126                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U127                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U128                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U129                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U130                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U131                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U132                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U133                      NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160
+U134                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U135                      NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152
+U136                      NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160
+ctrl                      ctrl                            370.033669 b, h, n
+dpathtotal                dpathtotal                      500885.558623 b, h, n
 --------------------------------------------------------------------------------
-Total 162 cells                                           720534.343146
+Total 138 cells                                           501659.681257
 1

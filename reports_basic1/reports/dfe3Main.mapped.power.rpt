@@ -1,6 +1,7 @@
 Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
 Warning: Design has unannotated primary inputs. (PWR-414)
 Warning: Design has unannotated sequential cell outputs. (PWR-415)
+Warning: Design has unannotated black box outputs. (PWR-428)
  
 ****************************************
 Report : power
@@ -8,15 +9,15 @@ Report : power
         -analysis_effort low
 Design : dfe3Main
 Version: G-2012.06-SP3
-Date   : Tue Apr 25 20:31:07 2017
+Date   : Tue Apr 25 22:42:20 2017
 ****************************************
 
 
 Library(s) Used:
 
     saed32hvt_tt1p05v25c (File: /home/ff/cs250/stdcells/synopsys-32nm/multi_vt/db/cells_hvt.db)
-    saed32lvt_tt1p05v25c (File: /home/ff/cs250/stdcells/synopsys-32nm/multi_vt/db/cells_lvt.db)
     saed32rvt_tt1p05v25c (File: /home/ff/cs250/stdcells/synopsys-32nm/multi_vt/db/cells_rvt.db)
+    saed32lvt_tt1p05v25c (File: /home/ff/cs250/stdcells/synopsys-32nm/multi_vt/db/cells_lvt.db)
 
 
 Operating Conditions: tt1p05v25c   Library: saed32hvt_tt1p05v25c
@@ -36,10 +37,11 @@ Power-specific unit information :
                                        Switch   Int      Leak     Total
 Hierarchy                              Power    Power    Power    Power    %
 --------------------------------------------------------------------------------
-dfe3Main                               9.90e+03 3.66e+05 2.70e+11 6.46e+05 100.0
-  ctrl (ctrl)                           244.546  186.156 2.74e+08  704.347   0.1
-  dpathtotal (dpathtotal)              9.50e+03 3.66e+05 2.69e+11 6.44e+05  99.7
-    fir_feedback (fir_feedback)        3.85e+03 2.01e+05 2.44e+11 4.49e+05  69.4
-    decision_device (decision_device)     0.000 2.19e-02 5.63e+07   56.336   0.0
-    correlator (correlator)            5.01e+03 1.65e+05 2.41e+10 1.94e+05  30.0
+dfe3Main                               1.71e+04 1.89e+05 1.38e+11 3.44e+05 100.0
+  ctrl (ctrl)                               N/A  192.464 1.29e+08      N/A   N/A
+  dpathtotal (dpathtotal)              1.71e+04 1.88e+05 1.38e+11 3.43e+05  99.8
+    fir (fir)                          1.22e+04 2.62e+04 1.25e+11 1.63e+05  47.4
+      buffer_mem2 (buffer_mem2)        3.08e+03    0.000    0.000 3.08e+03   0.9
+    decision_device (decision_device)   636.643      N/A 5.90e+07  587.156   0.2
+    correlator (correlator)            3.65e+03 1.62e+05 1.14e+10 1.77e+05  51.5
 1

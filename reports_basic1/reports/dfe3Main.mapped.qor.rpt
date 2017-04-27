@@ -1,22 +1,406 @@
 Information: Updating design information... (UID-85)
-Warning: Design 'dfe3Main' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Warning: Design 'dfe3Main' contains 7 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Information: Timing loop detected. (OPT-150)
+	dpathtotal/fir/U13706/A1 dpathtotal/fir/U13706/Y dpathtotal/fir/U2741/A dpathtotal/fir/U2741/Y dpathtotal/fir/U2723/A dpathtotal/fir/U2723/Y dpathtotal/fir/U4842/A1 dpathtotal/fir/U4842/Y dpathtotal/fir/DP_OP_129J2_124_8704_U10442/A0 dpathtotal/fir/DP_OP_129J2_124_8704_U10442/C1 dpathtotal/fir/U6050/A dpathtotal/fir/U6050/Y dpathtotal/fir/DP_OP_129J2_124_8704_U9940/A2 dpathtotal/fir/DP_OP_129J2_124_8704_U9940/Y dpathtotal/fir/DP_OP_129J2_124_8704_U9478/A dpathtotal/fir/DP_OP_129J2_124_8704_U9478/S dpathtotal/fir/DP_OP_129J2_124_8704_U9473/A dpathtotal/fir/DP_OP_129J2_124_8704_U9473/S dpathtotal/fir/DP_OP_129J2_124_8704_U9470/A dpathtotal/fir/DP_OP_129J2_124_8704_U9470/S dpathtotal/fir/DP_OP_129J2_124_8704_U9468/A dpathtotal/fir/DP_OP_129J2_124_8704_U9468/S dpathtotal/fir/DP_OP_129J2_124_8704_U37/A dpathtotal/fir/DP_OP_129J2_124_8704_U37/CO dpathtotal/fir/DP_OP_129J2_124_8704_U33/A dpathtotal/fir/DP_OP_129J2_124_8704_U33/S dpathtotal/fir/U6203/A dpathtotal/fir/U6203/Y dpathtotal/fir/DP_OP_129J2_124_8704_U3/A dpathtotal/fir/DP_OP_129J2_124_8704_U3/S dpathtotal/fir/U20564/A2 dpathtotal/fir/U20564/Y dpathtotal/U265/A dpathtotal/U265/Y dpathtotal/sub_x_2_U15/A2 dpathtotal/sub_x_2_U15/Y dpathtotal/U372/A1 dpathtotal/U372/Y dpathtotal/U402/A1 dpathtotal/U402/Y dpathtotal/U401/A1 dpathtotal/U401/Y dpathtotal/decision_device/U11/A dpathtotal/decision_device/U11/Y dpathtotal/decision_device/U5/A1 dpathtotal/decision_device/U5/Y 
+Information: Timing loop detected. (OPT-150)
+	dpathtotal/fir/U16337/A5 dpathtotal/fir/U16337/Y dpathtotal/fir/U6221/A dpathtotal/fir/U6221/Y dpathtotal/fir/DP_OP_129J2_124_8704_U10442/B0 dpathtotal/fir/DP_OP_129J2_124_8704_U10442/C1 dpathtotal/fir/U6050/A dpathtotal/fir/U6050/Y dpathtotal/fir/DP_OP_129J2_124_8704_U9940/A2 dpathtotal/fir/DP_OP_129J2_124_8704_U9940/Y dpathtotal/fir/DP_OP_129J2_124_8704_U9478/A dpathtotal/fir/DP_OP_129J2_124_8704_U9478/S dpathtotal/fir/DP_OP_129J2_124_8704_U9473/A dpathtotal/fir/DP_OP_129J2_124_8704_U9473/S dpathtotal/fir/DP_OP_129J2_124_8704_U9470/A dpathtotal/fir/DP_OP_129J2_124_8704_U9470/S dpathtotal/fir/DP_OP_129J2_124_8704_U9468/A dpathtotal/fir/DP_OP_129J2_124_8704_U9468/S dpathtotal/fir/DP_OP_129J2_124_8704_U37/A dpathtotal/fir/DP_OP_129J2_124_8704_U37/CO dpathtotal/fir/DP_OP_129J2_124_8704_U33/A dpathtotal/fir/DP_OP_129J2_124_8704_U33/S dpathtotal/fir/U6203/A dpathtotal/fir/U6203/Y dpathtotal/fir/DP_OP_129J2_124_8704_U3/A dpathtotal/fir/DP_OP_129J2_124_8704_U3/S dpathtotal/fir/U20564/A2 dpathtotal/fir/U20564/Y dpathtotal/U265/A dpathtotal/U265/Y dpathtotal/sub_x_2_U15/A2 dpathtotal/sub_x_2_U15/Y dpathtotal/U372/A1 dpathtotal/U372/Y dpathtotal/U402/A1 dpathtotal/U402/Y dpathtotal/U401/A1 dpathtotal/U401/Y dpathtotal/decision_device/U11/A dpathtotal/decision_device/U11/Y dpathtotal/decision_device/U5/A1 dpathtotal/decision_device/U5/Y dpathtotal/fir/U26647/A1 dpathtotal/fir/U26647/Y dpathtotal/fir/U2724/A dpathtotal/fir/U2724/Y dpathtotal/fir/U3166/A dpathtotal/fir/U3166/Y dpathtotal/fir/U4903/A1 dpathtotal/fir/U4903/Y dpathtotal/fir/U6594/A dpathtotal/fir/U6594/Y dpathtotal/fir/DP_OP_129J2_124_8704_U6849/A1 dpathtotal/fir/DP_OP_129J2_124_8704_U6849/Y dpathtotal/fir/DP_OP_129J2_124_8704_U6825/A2 dpathtotal/fir/DP_OP_129J2_124_8704_U6825/Y dpathtotal/fir/DP_OP_129J2_124_8704_U6279/A dpathtotal/fir/DP_OP_129J2_124_8704_U6279/S dpathtotal/fir/DP_OP_129J2_124_8704_U6276/A dpathtotal/fir/DP_OP_129J2_124_8704_U6276/CO dpathtotal/fir/U6595/A1 dpathtotal/fir/U6595/Y dpathtotal/fir/U6133/A dpathtotal/fir/U6133/Y dpathtotal/fir/DP_OP_129J2_124_8704_U1735/A dpathtotal/fir/DP_OP_129J2_124_8704_U1735/CO dpathtotal/fir/DP_OP_129J2_124_8704_U1723/A dpathtotal/fir/DP_OP_129J2_124_8704_U1723/CO dpathtotal/fir/U882/A1 dpathtotal/fir/U882/Y dpathtotal/fir/U6665/A1 dpathtotal/fir/U6665/Y dpathtotal/fir/U6370/A1 dpathtotal/fir/U6370/Y dpathtotal/fir/U6369/A1 dpathtotal/fir/U6369/Y dpathtotal/fir/U2127/A1 dpathtotal/fir/U2127/Y dpathtotal/fir/U6322/A1 dpathtotal/fir/U6322/Y dpathtotal/fir/U2415/A dpathtotal/fir/U2415/Y dpathtotal/fir/U6775/A1 dpathtotal/fir/U6775/Y dpathtotal/fir/U8297/A1 dpathtotal/fir/U8297/Y dpathtotal/fir/U6776/A1 dpathtotal/fir/U6776/Y dpathtotal/fir/U8013/A1 dpathtotal/fir/U8013/Y dpathtotal/U443/A dpathtotal/U443/Y dpathtotal/U475/A1 dpathtotal/U475/Y dpathtotal/U17/A1 dpathtotal/U17/Y dpathtotal/U417/A1 dpathtotal/U417/Y dpathtotal/U33/A dpathtotal/U33/Y dpathtotal/sub_x_1_U8/A1 dpathtotal/sub_x_1_U8/Y dpathtotal/sub_x_1_U2/A1 dpathtotal/sub_x_1_U2/Y 
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20564'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20564'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20564'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20564'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20564'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20564'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20567'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20567'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20567'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20567'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20567'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20567'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20568'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20568'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20568'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20568'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20568'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20568'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20566'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20566'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20566'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20566'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20566'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20566'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20565'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20565'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20565'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20565'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20565'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20565'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20579'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20579'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20579'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20579'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20577'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20577'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20577'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20577'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20575'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20575'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20575'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20575'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20579'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20579'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20580'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20580'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20580'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20580'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20577'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20577'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20578'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20578'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20578'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20578'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20575'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20575'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20576'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20576'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20576'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20576'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20573'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20573'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20573'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20573'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20580'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20580'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20578'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20578'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20584'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20584'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20584'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20584'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20583'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20583'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20583'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20583'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20582'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20582'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20582'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20582'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20581'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20581'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20581'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20581'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20576'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20576'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20573'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20573'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20574'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20574'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20574'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20574'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20584'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20584'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20583'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20583'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20582'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20582'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20581'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20581'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20574'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20574'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20569'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20569'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20569'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20569'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20569'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20569'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20570'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20570'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20570'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20570'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20570'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20570'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20571'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20571'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20571'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20571'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20571'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20571'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20572'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20572'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20572'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20572'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20572'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U20572'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20563'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/fir/U20563'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U20563'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U20563'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20563'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A4' and 'Y' on cell 'dpathtotal/fir/U20563'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U16799'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U16799'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U17030'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U17030'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U17261'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U17261'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U17492'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U17492'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U16337'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U16337'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U16568'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U16568'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'dpathtotal/fir/U20544'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'dpathtotal/fir/U20544'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'dpathtotal/fir/U20546'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'dpathtotal/fir/U20546'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'dpathtotal/fir/U20543'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'dpathtotal/fir/U20543'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'dpathtotal/fir/U20545'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'dpathtotal/fir/U20545'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'dpathtotal/fir/U20542'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'dpathtotal/fir/U20542'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'dpathtotal/fir/U20541'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'dpathtotal/fir/U20541'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U16106'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U16106'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'dpathtotal/fir/U20540'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'dpathtotal/fir/U20540'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'dpathtotal/fir/U20539'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'dpathtotal/fir/U20539'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U15875'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U15875'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'dpathtotal/fir/U20538'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'dpathtotal/fir/U20538'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U15644'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A5' and 'Y' on cell 'dpathtotal/fir/U15644'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/decision_device/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/decision_device/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/decision_device/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Y' on cell 'dpathtotal/decision_device/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U6830'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U6830'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U7061'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U7061'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U7292'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U7292'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U5906'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U5906'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U6368'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U6368'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U6599'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U6599'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U6137'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U6137'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U5675'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U5675'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U5444'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A6' and 'Y' on cell 'dpathtotal/fir/U5444'
+         to break a timing loop. (OPT-314)
  
 ****************************************
 Report : qor
 Design : dfe3Main
 Version: G-2012.06-SP3
-Date   : Tue Apr 25 20:29:54 2017
+Date   : Tue Apr 25 22:41:39 2017
 ****************************************
 
 
   Timing Path Group 'FEEDTHROUGH'
   -----------------------------------
-  Levels of Logic:              47.00
-  Critical Path Length:          1.48
-  Critical Path Slack:          -0.97
+  Levels of Logic:              55.00
+  Critical Path Length:          5.31
+  Critical Path Slack:          -4.80
   Critical Path Clk Period:      0.75
-  Total Negative Slack:        -41.55
-  No. of Violating Paths:       44.00
+  Total Negative Slack:       -219.30
+  No. of Violating Paths:      229.00
   Worst Hold Violation:          0.00
   Total Hold Violation:          0.00
   No. of Hold Violations:        0.00
@@ -24,12 +408,12 @@ Date   : Tue Apr 25 20:29:54 2017
 
   Timing Path Group 'REGIN'
   -----------------------------------
-  Levels of Logic:              49.00
-  Critical Path Length:          1.61
-  Critical Path Slack:          -1.07
+  Levels of Logic:              52.00
+  Critical Path Length:          4.82
+  Critical Path Slack:          -4.94
   Critical Path Clk Period:      0.75
-  Total Negative Slack:       -188.93
-  No. of Violating Paths:      392.00
+  Total Negative Slack:     -23200.25
+  No. of Violating Paths:     5171.00
   Worst Hold Violation:          0.00
   Total Hold Violation:          0.00
   No. of Hold Violations:        0.00
@@ -37,12 +421,12 @@ Date   : Tue Apr 25 20:29:54 2017
 
   Timing Path Group 'REGOUT'
   -----------------------------------
-  Levels of Logic:              63.00
-  Critical Path Length:          2.03
-  Critical Path Slack:          -1.42
+  Levels of Logic:              58.00
+  Critical Path Length:          7.10
+  Critical Path Slack:          -6.49
   Critical Path Clk Period:      0.75
-  Total Negative Slack:       -116.37
-  No. of Violating Paths:       88.00
+  Total Negative Slack:       -528.81
+  No. of Violating Paths:      264.00
   Worst Hold Violation:          0.00
   Total Hold Violation:          0.00
   No. of Hold Violations:        0.00
@@ -50,12 +434,12 @@ Date   : Tue Apr 25 20:29:54 2017
 
   Timing Path Group 'clock'
   -----------------------------------
-  Levels of Logic:              63.00
-  Critical Path Length:          2.11
-  Critical Path Slack:          -1.42
+  Levels of Logic:              55.00
+  Critical Path Length:          6.60
+  Critical Path Slack:          -6.63
   Critical Path Clk Period:      0.75
-  Total Negative Slack:       -335.96
-  No. of Violating Paths:     2518.00
+  Total Negative Slack:     -57149.91
+  No. of Violating Paths:    23081.00
   Worst Hold Violation:          0.00
   Total Hold Violation:          0.00
   No. of Hold Violations:        0.00
@@ -64,38 +448,38 @@ Date   : Tue Apr 25 20:29:54 2017
 
   Cell Count
   -----------------------------------
-  Hierarchical Cell Count:         13
-  Hierarchical Port Count:       1223
-  Leaf Cell Count:             230975
-  Buf/Inv Cell Count:           38667
+  Hierarchical Cell Count:        527
+  Hierarchical Port Count:       3413
+  Leaf Cell Count:             119105
+  Buf/Inv Cell Count:            6440
   CT Buf/Inv Cell Count:            0
-  Combinational Cell Count:    185862
-  Sequential Cell Count:        45113
+  Combinational Cell Count:     73414
+  Sequential Cell Count:        45691
   Macro Count:                      0
   -----------------------------------
 
 
   Area
   -----------------------------------
-  Combinational Area:   421224.116049
+  Combinational Area:   199385.626664
   Noncombinational Area:
-                        299310.227097
-  Buf/Inv Area:          76316.647666
+                        302274.054594
+  Buf/Inv Area:          20143.961888
   Net Area:                  0.000000
-  Net XLength        :     3099664.25
-  Net YLength        :     3342926.00
+  Net XLength        :     1668758.12
+  Net YLength        :     1850165.75
   -----------------------------------
-  Cell Area:            720534.343146
-  Design Area:          720534.343146
-  Net Length        :      6442590.00
+  Cell Area:            501659.681257
+  Design Area:          501659.681257
+  Net Length        :      3518924.00
 
 
   Design Rules
   -----------------------------------
-  Total Number of Nets:        233580
-  Nets With Violations:          1377
-  Max Trans Violations:            66
-  Max Cap Violations:            1377
+  Total Number of Nets:        123158
+  Nets With Violations:           103
+  Max Trans Violations:            30
+  Max Cap Violations:              89
   -----------------------------------
 
 
@@ -103,11 +487,11 @@ Date   : Tue Apr 25 20:29:54 2017
 
   Compile CPU Statistics
   -----------------------------------------
-  Resource Sharing:                   66.59
-  Logic Optimization:               2734.70
-  Mapping Optimization:             8287.61
+  Resource Sharing:                  134.08
+  Logic Optimization:                540.46
+  Mapping Optimization:             2652.73
   -----------------------------------------
-  Overall Compile Time:            12533.60
-  Overall Compile Wall Clock Time:  5911.54
+  Overall Compile Time:             4046.56
+  Overall Compile Wall Clock Time:  2176.16
 
 1
