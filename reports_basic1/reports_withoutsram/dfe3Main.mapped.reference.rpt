@@ -1,0 +1,568 @@
+ 
+****************************************
+Report : reference
+Design : dfe3Main
+Version: G-2012.06-SP3
+Date   : Tue Apr 25 20:31:09 2017
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+INVX2_LVT          saed32lvt_tt1p05v25c     1.524864       2     3.049728
+INVX4_LVT          saed32lvt_tt1p05v25c     2.033152       1     2.033152
+INVX8_LVT          saed32lvt_tt1p05v25c     3.049728       2     6.099456
+INVX16_LVT         saed32lvt_tt1p05v25c     5.082880       2    10.165760
+INVX16_RVT         saed32rvt_tt1p05v25c     5.082880       1     5.082880
+NBUFFX2_HVT        saed32hvt_tt1p05v25c     2.033152       8    16.265217
+NBUFFX2_LVT        saed32lvt_tt1p05v25c     2.033152      57   115.889670
+NBUFFX4_HVT        saed32hvt_tt1p05v25c     2.541440      10    25.414400
+NBUFFX4_LVT        saed32lvt_tt1p05v25c     2.541440       2     5.082880
+NBUFFX4_RVT        saed32rvt_tt1p05v25c     2.541440       1     2.541440
+NBUFFX8_HVT        saed32hvt_tt1p05v25c     3.812160       3    11.436480
+NBUFFX8_LVT        saed32lvt_tt1p05v25c     3.812160      60   228.729601
+NBUFFX8_RVT        saed32rvt_tt1p05v25c     3.812160       4    15.248640
+NBUFFX16_LVT       saed32lvt_tt1p05v25c     6.099456       3    18.298368
+NBUFFX32_HVT       saed32hvt_tt1p05v25c    10.674048       4    42.696194
+ctrl                            458.221639       1    458.221639  b, h, n
+dpathtotal                    719568.087642       1 719568.087642 b, h, n
+-----------------------------------------------------------------------------
+Total 17 references                                 720534.343146
+
+****************************************
+Design: ctrl 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+AND2X1_LVT         saed32lvt_tt1p05v25c     2.033152       1     2.033152
+AND2X1_RVT         saed32rvt_tt1p05v25c     2.033152      13    26.430977
+AND2X4_LVT         saed32lvt_tt1p05v25c     2.795584      29    81.071935
+AND3X1_LVT         saed32lvt_tt1p05v25c     2.287296       1     2.287296
+AND3X1_RVT         saed32rvt_tt1p05v25c     2.287296       2     4.574592
+AND4X1_RVT         saed32rvt_tt1p05v25c     2.541440       1     2.541440
+AO21X1_HVT         saed32hvt_tt1p05v25c     2.541440       1     2.541440
+AO22X1_LVT         saed32lvt_tt1p05v25c     2.541440       1     2.541440
+AOI21X1_HVT        saed32hvt_tt1p05v25c     3.049728       1     3.049728
+DFFASX2_LVT        saed32lvt_tt1p05v25c     7.624320       1     7.624320 n
+DFFX1_HVT          saed32hvt_tt1p05v25c     6.607744      11    72.685186 n
+DFFX2_LVT          saed32lvt_tt1p05v25c     7.116032       2    14.232064 n
+HADDX1_RVT         saed32rvt_tt1p05v25c     3.303872      11    36.342593 r
+IBUFFX32_LVT       saed32lvt_tt1p05v25c    11.690624       1    11.690624
+INVX1_HVT          saed32hvt_tt1p05v25c     1.270720       3     3.812160
+INVX1_LVT          saed32lvt_tt1p05v25c     1.270720       1     1.270720
+INVX1_RVT          saed32rvt_tt1p05v25c     1.270720       6     7.624320
+INVX2_RVT          saed32rvt_tt1p05v25c     1.524864       1     1.524864
+INVX4_RVT          saed32rvt_tt1p05v25c     2.033152       1     2.033152
+NAND2X0_HVT        saed32hvt_tt1p05v25c     1.524864       1     1.524864
+NAND2X0_LVT        saed32lvt_tt1p05v25c     1.524864       3     4.574592
+NAND2X0_RVT        saed32rvt_tt1p05v25c     1.524864       3     4.574592
+NAND3X0_LVT        saed32lvt_tt1p05v25c     1.779008       1     1.779008
+NAND3X4_RVT        saed32rvt_tt1p05v25c     3.558016       1     3.558016
+NAND4X0_LVT        saed32lvt_tt1p05v25c     2.033152       4     8.132608
+NAND4X0_RVT        saed32rvt_tt1p05v25c     2.033152       2     4.066304
+NBUFFX2_LVT        saed32lvt_tt1p05v25c     2.033152       1     2.033152
+NBUFFX4_HVT        saed32hvt_tt1p05v25c     2.541440       2     5.082880
+NBUFFX8_HVT        saed32hvt_tt1p05v25c     3.812160       2     7.624320
+NBUFFX8_RVT        saed32rvt_tt1p05v25c     3.812160       2     7.624320
+NBUFFX16_LVT       saed32lvt_tt1p05v25c     6.099456       2    12.198912
+NBUFFX32_HVT       saed32hvt_tt1p05v25c    10.674048       5    53.370242
+NOR2X0_LVT         saed32lvt_tt1p05v25c     2.541440       1     2.541440
+NOR4X0_LVT         saed32lvt_tt1p05v25c     3.049728       7    21.348095
+OA21X1_RVT         saed32rvt_tt1p05v25c     2.541440       2     5.082880
+OAI21X1_RVT        saed32rvt_tt1p05v25c     3.049728       1     3.049728
+OAI22X1_LVT        saed32lvt_tt1p05v25c     3.049728       1     3.049728
+OR2X1_HVT          saed32hvt_tt1p05v25c     2.033152       1     2.033152
+OR2X1_RVT          saed32rvt_tt1p05v25c     2.033152       1     2.033152
+OR2X4_LVT          saed32lvt_tt1p05v25c     2.795584       1     2.795584
+OR3X1_HVT          saed32hvt_tt1p05v25c     2.287296       1     2.287296
+OR3X1_RVT          saed32rvt_tt1p05v25c     2.541440       1     2.541440
+OR4X1_LVT          saed32lvt_tt1p05v25c     3.558016       1     3.558016
+SNPS_CLOCK_GATE_HIGH_ctrl_0       5.845312       1      5.845312  b, h
+-----------------------------------------------------------------------------
+Total 44 references                                   458.221639
+
+****************************************
+Design: SNPS_CLOCK_GATE_HIGH_ctrl_0 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+CGLPPRX2_HVT       saed32hvt_tt1p05v25c     5.845312       1     5.845312 b
+-----------------------------------------------------------------------------
+Total 1 references                                      5.845312
+
+****************************************
+Design: dpathtotal 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+AND2X1_LVT         saed32lvt_tt1p05v25c     2.033152      13    26.430977
+AND2X1_RVT         saed32rvt_tt1p05v25c     2.033152       1     2.033152
+AND2X2_LVT         saed32lvt_tt1p05v25c     2.287296       6    13.723776
+AND2X4_LVT         saed32lvt_tt1p05v25c     2.795584       1     2.795584
+AND3X1_LVT         saed32lvt_tt1p05v25c     2.287296       3     6.861888
+AND4X1_LVT         saed32lvt_tt1p05v25c     2.541440       2     5.082880
+AO21X1_LVT         saed32lvt_tt1p05v25c     2.541440      31    78.784640
+AO22X1_LVT         saed32lvt_tt1p05v25c     2.541440       6    15.248640
+AOI21X1_LVT        saed32lvt_tt1p05v25c     3.049728       1     3.049728
+AOI22X1_LVT        saed32lvt_tt1p05v25c     3.049728       1     3.049728
+IBUFFX8_LVT        saed32lvt_tt1p05v25c     4.320448       2     8.640896
+IBUFFX16_RVT       saed32rvt_tt1p05v25c     6.607744       6    39.646465
+INVX1_HVT          saed32hvt_tt1p05v25c     1.270720      13    16.519360
+INVX1_LVT          saed32lvt_tt1p05v25c     1.270720      10    12.707200
+INVX1_RVT          saed32rvt_tt1p05v25c     1.270720      11    13.977920
+INVX2_HVT          saed32hvt_tt1p05v25c     1.524864       2     3.049728
+INVX2_LVT          saed32lvt_tt1p05v25c     1.524864       7    10.674048
+INVX2_RVT          saed32rvt_tt1p05v25c     1.524864      13    19.823231
+INVX4_LVT          saed32lvt_tt1p05v25c     2.033152       2     4.066304
+INVX4_RVT          saed32rvt_tt1p05v25c     2.033152       3     6.099456
+INVX8_LVT          saed32lvt_tt1p05v25c     3.049728       2     6.099456
+INVX16_LVT         saed32lvt_tt1p05v25c     5.082880       2    10.165760
+NAND2X0_HVT        saed32hvt_tt1p05v25c     1.524864       3     4.574592
+NAND2X0_LVT        saed32lvt_tt1p05v25c     1.524864      66   100.641021
+NAND2X0_RVT        saed32rvt_tt1p05v25c     1.524864       7    10.674048
+NAND2X4_HVT        saed32hvt_tt1p05v25c     3.303872      10    33.038721
+NAND2X4_LVT        saed32lvt_tt1p05v25c     3.303872       1     3.303872
+NAND3X0_LVT        saed32lvt_tt1p05v25c     1.779008      15    26.685120
+NAND4X0_LVT        saed32lvt_tt1p05v25c     2.033152      10    20.331521
+NBUFFX2_HVT        saed32hvt_tt1p05v25c     2.033152       4     8.132608
+NBUFFX2_LVT        saed32lvt_tt1p05v25c     2.033152       3     6.099456
+NBUFFX4_HVT        saed32hvt_tt1p05v25c     2.541440       9    22.872960
+NBUFFX4_RVT        saed32rvt_tt1p05v25c     2.541440       2     5.082880
+NBUFFX8_HVT        saed32hvt_tt1p05v25c     3.812160      75   285.912001
+NBUFFX8_LVT        saed32lvt_tt1p05v25c     3.812160       2     7.624320
+NBUFFX16_LVT       saed32lvt_tt1p05v25c     6.099456       5    30.497279
+NBUFFX16_RVT       saed32rvt_tt1p05v25c     6.099456       2    12.198912
+NBUFFX32_HVT       saed32hvt_tt1p05v25c    10.674048      12   128.088581
+NOR2X0_LVT         saed32lvt_tt1p05v25c     2.541440       1     2.541440
+OA21X1_LVT         saed32lvt_tt1p05v25c     2.541440       3     7.624320
+OA22X1_LVT         saed32lvt_tt1p05v25c     2.541440       8    20.331520
+OAI22X1_LVT        saed32lvt_tt1p05v25c     3.049728       5    15.248640
+OR2X1_HVT          saed32hvt_tt1p05v25c     2.033152       1     2.033152
+OR2X1_LVT          saed32lvt_tt1p05v25c     2.033152      15    30.497282
+OR2X1_RVT          saed32rvt_tt1p05v25c     2.033152       3     6.099456
+OR2X2_LVT          saed32lvt_tt1p05v25c     2.287296       3     6.861888
+OR2X2_RVT          saed32rvt_tt1p05v25c     2.287296       1     2.287296
+XOR3X2_LVT         saed32lvt_tt1p05v25c     7.370176       2    14.740352
+correlator                    209294.198355       1 209294.198355 b, h, n
+decision_device                  41.425472       1     41.425472  h
+fir_feedback                  509109.909757       1 509109.909757 b, h, n
+-----------------------------------------------------------------------------
+Total 51 references                                 719568.087642
+
+****************************************
+Design: correlator 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+AND2X1_HVT         saed32hvt_tt1p05v25c     2.033152     360   731.934757
+AND2X1_LVT         saed32lvt_tt1p05v25c     2.033152     484   984.045618
+AND2X1_RVT         saed32rvt_tt1p05v25c     2.033152   16363 33268.467868
+AND2X2_HVT         saed32hvt_tt1p05v25c     2.287296     260   594.696975
+AND2X2_LVT         saed32lvt_tt1p05v25c     2.287296     109   249.315270
+AND2X2_RVT         saed32rvt_tt1p05v25c     2.287296      70   160.110724
+AND2X4_HVT         saed32hvt_tt1p05v25c     2.795584     128   357.834747
+AND2X4_LVT         saed32lvt_tt1p05v25c     2.795584      21    58.707263
+AND2X4_RVT         saed32rvt_tt1p05v25c     2.795584      26    72.685183
+AND3X1_LVT         saed32lvt_tt1p05v25c     2.287296      61   139.525059
+AND3X1_RVT         saed32rvt_tt1p05v25c     2.287296       2     4.574592
+AND3X2_LVT         saed32lvt_tt1p05v25c     2.541440       9    22.872960
+AND3X4_LVT         saed32lvt_tt1p05v25c     3.049728       1     3.049728
+AND4X1_LVT         saed32lvt_tt1p05v25c     2.541440      11    27.955840
+AND4X4_LVT         saed32lvt_tt1p05v25c     4.320448       1     4.320448
+AO21X1_LVT         saed32lvt_tt1p05v25c     2.541440     125   317.680001
+AO21X1_RVT         saed32rvt_tt1p05v25c     2.541440      20    50.828800
+AO21X2_LVT         saed32lvt_tt1p05v25c     2.795584      20    55.911679
+AO22X1_LVT         saed32lvt_tt1p05v25c     2.541440     223   566.741122
+AO22X1_RVT         saed32rvt_tt1p05v25c     2.541440     138   350.718721
+AO22X2_LVT         saed32lvt_tt1p05v25c     2.795584      42   117.414526
+AO22X2_RVT         saed32rvt_tt1p05v25c     2.795584       1     2.795584
+AOI21X1_LVT        saed32lvt_tt1p05v25c     3.049728      24    73.193470
+AOI21X1_RVT        saed32rvt_tt1p05v25c     3.049728     210   640.442863
+AOI21X2_LVT        saed32lvt_tt1p05v25c     3.303872      10    33.038721
+AOI21X2_RVT        saed32rvt_tt1p05v25c     3.303872       8    26.430977
+AOI22X1_LVT        saed32lvt_tt1p05v25c     3.049728       3     9.149184
+AOI22X2_LVT        saed32lvt_tt1p05v25c     3.303872       2     6.607744
+DFFSSRX1_RVT       saed32rvt_tt1p05v25c     7.116032       1     7.116032 n
+DFFX1_HVT          saed32hvt_tt1p05v25c     6.607744   22057 145747.014193 n
+DFFX1_LVT          saed32lvt_tt1p05v25c     6.607744      41   270.917513 n
+DFFX1_RVT          saed32rvt_tt1p05v25c     6.607744      30   198.232327 n
+DFFX2_HVT          saed32hvt_tt1p05v25c     7.624320     286  2180.555529 n
+DFFX2_LVT          saed32lvt_tt1p05v25c     7.116032       3    21.348096 n
+DFFX2_RVT          saed32rvt_tt1p05v25c     7.116032      22   156.552707 n
+FADDX1_LVT         saed32lvt_tt1p05v25c     4.828736      64   309.039093 r
+FADDX1_RVT         saed32rvt_tt1p05v25c     4.828736     110   531.160941 r
+FADDX2_HVT         saed32hvt_tt1p05v25c     5.337024       3    16.011073 r
+FADDX2_LVT         saed32lvt_tt1p05v25c     5.337024       3    16.011073 r
+HADDX1_LVT         saed32lvt_tt1p05v25c     3.303872      36   118.939396 r
+HADDX1_RVT         saed32rvt_tt1p05v25c     3.303872     154   508.796305 r
+HADDX2_LVT         saed32lvt_tt1p05v25c     3.812160       6    22.872960 r
+IBUFFX8_LVT        saed32lvt_tt1p05v25c     4.320448       1     4.320448
+IBUFFX16_RVT       saed32rvt_tt1p05v25c     6.607744       2    13.215488
+IBUFFX32_LVT       saed32lvt_tt1p05v25c    11.690624       1    11.690624
+INVX1_HVT          saed32hvt_tt1p05v25c     1.270720      47    59.723840
+INVX1_LVT          saed32lvt_tt1p05v25c     1.270720     294   373.591681
+INVX1_RVT          saed32rvt_tt1p05v25c     1.270720    1417  1800.610247
+INVX2_HVT          saed32hvt_tt1p05v25c     1.524864       1     1.524864
+INVX2_LVT          saed32lvt_tt1p05v25c     1.524864     207   315.646839
+INVX2_RVT          saed32rvt_tt1p05v25c     1.524864     131   199.757179
+INVX4_LVT          saed32lvt_tt1p05v25c     2.033152      57   115.889670
+INVX4_RVT          saed32rvt_tt1p05v25c     2.033152      17    34.563586
+INVX8_LVT          saed32lvt_tt1p05v25c     3.049728      19    57.944830
+INVX8_RVT          saed32rvt_tt1p05v25c     3.049728       4    12.198912
+INVX16_LVT         saed32lvt_tt1p05v25c     5.082880       2    10.165760
+MUX21X1_LVT        saed32lvt_tt1p05v25c     3.303872       3     9.911616
+MUX21X2_LVT        saed32lvt_tt1p05v25c     3.558016       2     7.116032
+NAND2X0_HVT        saed32hvt_tt1p05v25c     1.524864       9    13.723776
+NAND2X0_LVT        saed32lvt_tt1p05v25c     1.524864     347   529.127794
+NAND2X0_RVT        saed32rvt_tt1p05v25c     1.524864     844  1286.985181
+NAND2X1_LVT        saed32lvt_tt1p05v25c     2.541440       2     5.082880
+NAND2X1_RVT        saed32rvt_tt1p05v25c     2.541440       1     2.541440
+NAND2X2_LVT        saed32lvt_tt1p05v25c     2.795584      42   117.414526
+NAND2X2_RVT        saed32rvt_tt1p05v25c     2.795584       7    19.569088
+NAND2X4_LVT        saed32lvt_tt1p05v25c     3.303872      40   132.154884
+NAND2X4_RVT        saed32rvt_tt1p05v25c     3.303872       2     6.607744
+NAND3X0_LVT        saed32lvt_tt1p05v25c     1.779008     233   414.508871
+NAND3X0_RVT        saed32rvt_tt1p05v25c     1.779008      13    23.127104
+NAND3X1_LVT        saed32lvt_tt1p05v25c     2.795584       1     2.795584
+NAND3X2_LVT        saed32lvt_tt1p05v25c     3.049728       3     9.149184
+NAND3X2_RVT        saed32rvt_tt1p05v25c     3.049728       1     3.049728
+NAND4X0_LVT        saed32lvt_tt1p05v25c     2.033152      55   111.823366
+NBUFFX2_HVT        saed32hvt_tt1p05v25c     2.033152       7    14.232065
+NBUFFX2_LVT        saed32lvt_tt1p05v25c     2.033152     128   260.243469
+NBUFFX2_RVT        saed32rvt_tt1p05v25c     2.033152      30    60.994563
+NBUFFX4_HVT        saed32hvt_tt1p05v25c     2.541440     272   691.271683
+NBUFFX4_LVT        saed32lvt_tt1p05v25c     2.541440       4    10.165760
+NBUFFX4_RVT        saed32rvt_tt1p05v25c     2.541440       3     7.624320
+NBUFFX8_HVT        saed32hvt_tt1p05v25c     3.812160     529  2016.632648
+NBUFFX8_LVT        saed32lvt_tt1p05v25c     3.812160      25    95.304000
+NBUFFX8_RVT        saed32rvt_tt1p05v25c     3.812160      13    49.558080
+NBUFFX16_LVT       saed32lvt_tt1p05v25c     6.099456       5    30.497279
+NBUFFX16_RVT       saed32rvt_tt1p05v25c     6.099456       8    48.795647
+NBUFFX32_HVT       saed32hvt_tt1p05v25c    10.674048      24   256.177162
+NOR2X0_LVT         saed32lvt_tt1p05v25c     2.541440      45   114.364800
+NOR2X0_RVT         saed32rvt_tt1p05v25c     2.541440     481  1222.432645
+NOR2X2_LVT         saed32lvt_tt1p05v25c     2.795584      11    30.751424
+NOR2X2_RVT         saed32rvt_tt1p05v25c     2.795584       5    13.977920
+NOR4X0_RVT         saed32rvt_tt1p05v25c     3.049728       1     3.049728
+OA21X1_LVT         saed32lvt_tt1p05v25c     2.541440     200   508.288002
+OA21X1_RVT         saed32rvt_tt1p05v25c     2.541440      33    83.867520
+OA21X2_LVT         saed32lvt_tt1p05v25c     2.795584      58   162.143870
+OA21X2_RVT         saed32rvt_tt1p05v25c     2.795584       1     2.795584
+OA22X1_LVT         saed32lvt_tt1p05v25c     2.541440      35    88.950400
+OA22X1_RVT         saed32rvt_tt1p05v25c     2.541440       7    17.790080
+OA22X2_LVT         saed32lvt_tt1p05v25c     2.795584      17    47.524927
+OAI21X1_LVT        saed32lvt_tt1p05v25c     3.049728     149   454.409460
+OAI21X1_RVT        saed32rvt_tt1p05v25c     3.049728       8    24.397823
+OAI21X2_LVT        saed32lvt_tt1p05v25c     3.303872      12    39.646465
+OAI21X2_RVT        saed32rvt_tt1p05v25c     3.303872     170   561.658258
+OAI22X1_LVT        saed32lvt_tt1p05v25c     3.049728       8    24.397823
+OAI22X1_RVT        saed32rvt_tt1p05v25c     3.049728       2     6.099456
+OAI22X2_LVT        saed32lvt_tt1p05v25c     3.303872       8    26.430977
+OR2X1_HVT          saed32hvt_tt1p05v25c     2.033152       4     8.132608
+OR2X1_LVT          saed32lvt_tt1p05v25c     2.033152     333   677.039650
+OR2X1_RVT          saed32rvt_tt1p05v25c     2.033152     173   351.735314
+OR2X2_LVT          saed32lvt_tt1p05v25c     2.287296     184   420.862474
+OR2X2_RVT          saed32rvt_tt1p05v25c     2.287296      32    73.193474
+OR3X1_LVT          saed32lvt_tt1p05v25c     2.287296      22    50.320513
+OR3X2_LVT          saed32lvt_tt1p05v25c     2.541440       2     5.082880
+SNPS_CLOCK_GATE_HIGH_correlator     5.845312       1     5.845312 b, h
+XNOR2X1_HVT        saed32hvt_tt1p05v25c     4.320448       2     8.640896
+XNOR2X1_LVT        saed32lvt_tt1p05v25c     4.320448     127   548.696886
+XNOR2X1_RVT        saed32rvt_tt1p05v25c     4.320448      12    51.845375
+XNOR2X2_LVT        saed32lvt_tt1p05v25c     4.574592      47   215.005829
+XNOR2X2_RVT        saed32rvt_tt1p05v25c     4.574592      58   265.326343
+XOR2X1_HVT         saed32hvt_tt1p05v25c     4.320448       1     4.320448
+XOR2X1_LVT         saed32lvt_tt1p05v25c     4.320448       5    21.602240
+XOR2X1_RVT         saed32rvt_tt1p05v25c     4.320448       2     8.640896
+XOR2X2_LVT         saed32lvt_tt1p05v25c     4.574592      49   224.155014
+XOR2X2_RVT         saed32rvt_tt1p05v25c     4.574592     160   731.934738
+XOR3X2_LVT         saed32lvt_tt1p05v25c     7.370176     422  3110.214204
+XOR3X2_RVT         saed32rvt_tt1p05v25c     7.370176     108   795.978991
+-----------------------------------------------------------------------------
+Total 124 references                                209294.198355
+
+****************************************
+Design: SNPS_CLOCK_GATE_HIGH_correlator 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+CGLPPRX2_HVT       saed32hvt_tt1p05v25c     5.845312       1     5.845312 b
+-----------------------------------------------------------------------------
+Total 1 references                                      5.845312
+
+****************************************
+Design: decision_device 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+AND2X4_HVT         saed32hvt_tt1p05v25c     2.795584       1     2.795584
+AND2X4_LVT         saed32lvt_tt1p05v25c     2.795584       1     2.795584
+INVX1_HVT          saed32hvt_tt1p05v25c     1.270720      16    20.331520
+INVX2_RVT          saed32rvt_tt1p05v25c     1.524864       1     1.524864
+INVX4_HVT          saed32hvt_tt1p05v25c     2.033152       1     2.033152
+INVX8_LVT          saed32lvt_tt1p05v25c     3.049728       1     3.049728
+NAND2X4_LVT        saed32lvt_tt1p05v25c     3.303872       1     3.303872
+OR2X4_LVT          saed32lvt_tt1p05v25c     2.795584       2     5.591168
+-----------------------------------------------------------------------------
+Total 8 references                                     41.425472
+
+****************************************
+Design: fir_feedback 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+AND2X1_HVT         saed32hvt_tt1p05v25c     2.033152     312   634.343456
+AND2X1_LVT         saed32lvt_tt1p05v25c     2.033152     910  1850.168414
+AND2X1_RVT         saed32rvt_tt1p05v25c     2.033152   22321 45381.988101
+AND2X2_HVT         saed32hvt_tt1p05v25c     2.287296     659  1507.328101
+AND2X2_LVT         saed32lvt_tt1p05v25c     2.287296     253   578.685902
+AND2X2_RVT         saed32rvt_tt1p05v25c     2.287296     647  1479.880549
+AND2X4_HVT         saed32hvt_tt1p05v25c     2.795584      91   254.398141
+AND2X4_LVT         saed32lvt_tt1p05v25c     2.795584     468  1308.333295
+AND2X4_RVT         saed32rvt_tt1p05v25c     2.795584     242   676.531319
+AND3X1_HVT         saed32hvt_tt1p05v25c     2.287296       1     2.287296
+AND3X1_LVT         saed32lvt_tt1p05v25c     2.287296     931  2129.472629
+AND3X1_RVT         saed32rvt_tt1p05v25c     2.287296     814  1861.858990
+AND3X2_LVT         saed32lvt_tt1p05v25c     2.541440     227   576.906882
+AND3X2_RVT         saed32rvt_tt1p05v25c     2.541440      63   160.110721
+AND3X4_LVT         saed32lvt_tt1p05v25c     3.049728     168   512.354290
+AND3X4_RVT         saed32rvt_tt1p05v25c     3.049728      46   140.287484
+AND4X1_LVT         saed32lvt_tt1p05v25c     2.541440    1440  3659.673615
+AND4X1_RVT         saed32rvt_tt1p05v25c     2.541440    1462  3715.585295
+AND4X2_LVT         saed32lvt_tt1p05v25c     3.812160      15    57.182400
+AND4X2_RVT         saed32rvt_tt1p05v25c     3.812160      36   137.237761
+AND4X4_LVT         saed32lvt_tt1p05v25c     4.320448     214   924.575855
+AND4X4_RVT         saed32rvt_tt1p05v25c     4.320448      26   112.331646
+AO21X1_HVT         saed32hvt_tt1p05v25c     2.541440       2     5.082880
+AO21X1_LVT         saed32lvt_tt1p05v25c     2.541440     839  2132.268168
+AO21X1_RVT         saed32rvt_tt1p05v25c     2.541440     730  1855.251207
+AO21X2_HVT         saed32hvt_tt1p05v25c     2.795584       4    11.182336
+AO21X2_LVT         saed32lvt_tt1p05v25c     2.795584     266   743.625334
+AO21X2_RVT         saed32rvt_tt1p05v25c     2.795584      33    92.254271
+AO22X1_HVT         saed32hvt_tt1p05v25c     2.541440       3     7.624320
+AO22X1_LVT         saed32lvt_tt1p05v25c     2.541440    2583  6564.539546
+AO22X1_RVT         saed32rvt_tt1p05v25c     2.541440    6827 17350.410949
+AO22X2_HVT         saed32hvt_tt1p05v25c     2.795584       6    16.773504
+AO22X2_LVT         saed32lvt_tt1p05v25c     2.795584     306   855.448693
+AO22X2_RVT         saed32rvt_tt1p05v25c     2.795584     444  1241.239280
+AOI21X1_LVT        saed32lvt_tt1p05v25c     3.049728      99   301.923064
+AOI21X1_RVT        saed32rvt_tt1p05v25c     3.049728      25    76.243198
+AOI21X2_LVT        saed32lvt_tt1p05v25c     3.303872      95   313.867850
+AOI21X2_RVT        saed32rvt_tt1p05v25c     3.303872       5    16.519361
+AOI22X1_LVT        saed32lvt_tt1p05v25c     3.049728     136   414.762997
+AOI22X1_RVT        saed32rvt_tt1p05v25c     3.049728     489  1491.316951
+AOI22X2_LVT        saed32lvt_tt1p05v25c     3.303872      41   135.458756
+AOI22X2_RVT        saed32rvt_tt1p05v25c     3.303872      23    75.989058
+DFFASX1_LVT        saed32lvt_tt1p05v25c     7.116032       2    14.232064 n
+DFFASX2_LVT        saed32lvt_tt1p05v25c     7.624320     118   899.669764 n
+DFFSSRX2_LVT       saed32lvt_tt1p05v25c     7.878464       1     7.878464 n
+DFFX1_HVT          saed32hvt_tt1p05v25c     6.607744   21623 142879.253202 n
+DFFX1_LVT          saed32lvt_tt1p05v25c     6.607744      17   112.331652 n
+DFFX1_RVT          saed32rvt_tt1p05v25c     6.607744      17   112.331652 n
+DFFX2_HVT          saed32hvt_tt1p05v25c     7.624320     687  5237.907861 n
+DFFX2_LVT          saed32lvt_tt1p05v25c     7.116032     156  1110.101011 n
+DFFX2_RVT          saed32rvt_tt1p05v25c     7.116032      30   213.480964 n
+FADDX1_LVT         saed32lvt_tt1p05v25c     4.828736    1500  7243.103743 r
+FADDX1_RVT         saed32rvt_tt1p05v25c     4.828736     188   907.802336 r
+FADDX2_LVT         saed32lvt_tt1p05v25c     5.337024     115   613.757784 r
+FADDX2_RVT         saed32rvt_tt1p05v25c     5.337024       1     5.337024 r
+HADDX1_LVT         saed32lvt_tt1p05v25c     3.303872      69   227.967175 r
+HADDX1_RVT         saed32rvt_tt1p05v25c     3.303872      35   115.635524 r
+HADDX2_LVT         saed32lvt_tt1p05v25c     3.812160      14    53.370240 r
+IBUFFX8_LVT        saed32lvt_tt1p05v25c     4.320448     101   436.365240
+IBUFFX16_RVT       saed32rvt_tt1p05v25c     6.607744      36   237.878792
+IBUFFX32_LVT       saed32lvt_tt1p05v25c    11.690624     150  1753.593636
+INVX1_HVT          saed32hvt_tt1p05v25c     1.270720    1227  1559.173446
+INVX1_LVT          saed32lvt_tt1p05v25c     1.270720    1525  1937.848008
+INVX1_RVT          saed32rvt_tt1p05v25c     1.270720   20190 25655.836902
+INVX2_HVT          saed32hvt_tt1p05v25c     1.524864      93   141.812348
+INVX2_LVT          saed32lvt_tt1p05v25c     1.524864     813  1239.714398
+INVX2_RVT          saed32rvt_tt1p05v25c     1.524864    1814  2766.103220
+INVX4_HVT          saed32hvt_tt1p05v25c     2.033152      17    34.563586
+INVX4_LVT          saed32lvt_tt1p05v25c     2.033152    1140  2317.793398
+INVX4_RVT          saed32rvt_tt1p05v25c     2.033152     449   912.885294
+INVX8_HVT          saed32hvt_tt1p05v25c     3.049728      10    30.497279
+INVX8_LVT          saed32lvt_tt1p05v25c     3.049728    1354  4129.331599
+INVX8_RVT          saed32rvt_tt1p05v25c     3.049728     292   890.520552
+INVX16_LVT         saed32lvt_tt1p05v25c     5.082880     644  3273.374733
+INVX16_RVT         saed32rvt_tt1p05v25c     5.082880     123   625.194242
+MUX21X1_LVT        saed32lvt_tt1p05v25c     3.303872       1     3.303872
+NAND2X0_HVT        saed32hvt_tt1p05v25c     1.524864       5     7.624320
+NAND2X0_LVT        saed32lvt_tt1p05v25c     1.524864    1706  2601.417913
+NAND2X0_RVT        saed32rvt_tt1p05v25c     1.524864   16834 25669.559875
+NAND2X1_LVT        saed32lvt_tt1p05v25c     2.541440      17    43.204480
+NAND2X1_RVT        saed32rvt_tt1p05v25c     2.541440       6    15.248640
+NAND2X2_HVT        saed32hvt_tt1p05v25c     2.795584      46   128.596862
+NAND2X2_LVT        saed32lvt_tt1p05v25c     2.795584     422  1179.736433
+NAND2X2_RVT        saed32rvt_tt1p05v25c     2.795584    1246  3483.297618
+NAND2X4_HVT        saed32hvt_tt1p05v25c     3.303872      81   267.613641
+NAND2X4_LVT        saed32lvt_tt1p05v25c     3.303872     612  2021.969730
+NAND2X4_RVT        saed32rvt_tt1p05v25c     3.303872     192   634.343445
+NAND3X0_LVT        saed32lvt_tt1p05v25c     1.779008    1386  2465.705131
+NAND3X0_RVT        saed32rvt_tt1p05v25c     1.779008    2370  4216.249033
+NAND3X1_LVT        saed32lvt_tt1p05v25c     2.795584      36   100.641023
+NAND3X1_RVT        saed32rvt_tt1p05v25c     2.795584      12    33.547008
+NAND3X2_LVT        saed32lvt_tt1p05v25c     3.049728     252   768.531435
+NAND3X2_RVT        saed32rvt_tt1p05v25c     3.049728     105   320.221431
+NAND3X4_LVT        saed32lvt_tt1p05v25c     3.558016      98   348.685574
+NAND3X4_RVT        saed32rvt_tt1p05v25c     3.558016      25    88.950402
+NAND4X0_HVT        saed32hvt_tt1p05v25c     2.033152      26    52.861955
+NAND4X0_LVT        saed32lvt_tt1p05v25c     2.033152    4636  9425.693151
+NAND4X0_RVT        saed32rvt_tt1p05v25c     2.033152    6898 14024.683209
+NAND4X1_HVT        saed32hvt_tt1p05v25c     3.049728       2     6.099456
+NAND4X1_LVT        saed32lvt_tt1p05v25c     3.049728     354  1079.603683
+NAND4X1_RVT        saed32rvt_tt1p05v25c     3.049728      94   286.674424
+NBUFFX2_HVT        saed32hvt_tt1p05v25c     2.033152     213   433.061398
+NBUFFX2_LVT        saed32lvt_tt1p05v25c     2.033152     377   766.498343
+NBUFFX2_RVT        saed32rvt_tt1p05v25c     2.033152      24    48.795650
+NBUFFX4_HVT        saed32hvt_tt1p05v25c     2.541440     482  1224.974085
+NBUFFX4_LVT        saed32lvt_tt1p05v25c     2.541440     214   543.868162
+NBUFFX4_RVT        saed32rvt_tt1p05v25c     2.541440     106   269.392641
+NBUFFX8_HVT        saed32hvt_tt1p05v25c     3.812160     829  3160.280653
+NBUFFX8_LVT        saed32lvt_tt1p05v25c     3.812160     829  3160.280653
+NBUFFX8_RVT        saed32rvt_tt1p05v25c     3.812160     612  2333.041929
+NBUFFX16_LVT       saed32lvt_tt1p05v25c     6.099456    1022  6233.643862
+NBUFFX16_RVT       saed32rvt_tt1p05v25c     6.099456     282  1720.046545
+NBUFFX32_HVT       saed32hvt_tt1p05v25c    10.674048      58   619.094809
+NOR2X0_LVT         saed32lvt_tt1p05v25c     2.541440     238   604.862722
+NOR2X0_RVT         saed32rvt_tt1p05v25c     2.541440     229   581.989762
+NOR2X2_LVT         saed32lvt_tt1p05v25c     2.795584      85   237.624637
+NOR2X2_RVT         saed32rvt_tt1p05v25c     2.795584      79   220.851133
+NOR2X4_LVT         saed32lvt_tt1p05v25c     3.303872      29    95.812291
+NOR2X4_RVT         saed32rvt_tt1p05v25c     3.303872       8    26.430977
+NOR3X0_LVT         saed32lvt_tt1p05v25c     2.795584     232   648.575480
+NOR3X0_RVT         saed32rvt_tt1p05v25c     2.795584      40   111.823359
+NOR3X2_LVT         saed32lvt_tt1p05v25c     3.049728      90   274.475513
+NOR3X2_RVT         saed32rvt_tt1p05v25c     3.049728      32    97.591293
+NOR3X4_LVT         saed32lvt_tt1p05v25c     3.558016      31   110.298498
+NOR3X4_RVT         saed32rvt_tt1p05v25c     3.558016       4    14.232064
+NOR4X0_HVT         saed32hvt_tt1p05v25c     3.049728       1     3.049728
+NOR4X0_LVT         saed32lvt_tt1p05v25c     3.049728    2956  9014.995722
+NOR4X0_RVT         saed32rvt_tt1p05v25c     3.049728     187   570.299120
+OA21X1_HVT         saed32hvt_tt1p05v25c     2.541440       1     2.541440
+OA21X1_LVT         saed32lvt_tt1p05v25c     2.541440     900  2287.296009
+OA21X1_RVT         saed32rvt_tt1p05v25c     2.541440     845  2147.516809
+OA21X2_LVT         saed32lvt_tt1p05v25c     2.795584     438  1224.465776
+OA21X2_RVT         saed32rvt_tt1p05v25c     2.795584     457  1277.581871
+OA22X1_HVT         saed32hvt_tt1p05v25c     2.541440       8    20.331520
+OA22X1_LVT         saed32lvt_tt1p05v25c     2.541440    1431  3636.800654
+OA22X1_RVT         saed32rvt_tt1p05v25c     2.541440    8209 20862.681043
+OA22X2_HVT         saed32hvt_tt1p05v25c     2.795584       6    16.773504
+OA22X2_LVT         saed32lvt_tt1p05v25c     2.795584     224   626.210808
+OA22X2_RVT         saed32rvt_tt1p05v25c     2.795584    1546  4321.972807
+OA222X1_LVT        saed32lvt_tt1p05v25c     3.303872       2     6.607744
+OAI21X1_LVT        saed32lvt_tt1p05v25c     3.049728      57   173.834491
+OAI21X1_RVT        saed32rvt_tt1p05v25c     3.049728      10    30.497279
+OAI21X2_LVT        saed32lvt_tt1p05v25c     3.303872      53   175.105222
+OAI21X2_RVT        saed32rvt_tt1p05v25c     3.303872      47   155.281989
+OAI22X1_LVT        saed32lvt_tt1p05v25c     3.049728    1370  4178.127246
+OAI22X1_RVT        saed32rvt_tt1p05v25c     3.049728    1053  3211.363496
+OAI22X2_LVT        saed32lvt_tt1p05v25c     3.303872     255   842.487388
+OAI22X2_RVT        saed32rvt_tt1p05v25c     3.303872     172   568.266003
+OR2X1_HVT          saed32hvt_tt1p05v25c     2.033152       1     2.033152
+OR2X1_LVT          saed32lvt_tt1p05v25c     2.033152    2081  4230.989527
+OR2X1_RVT          saed32rvt_tt1p05v25c     2.033152    5979 12156.216426
+OR2X2_HVT          saed32hvt_tt1p05v25c     2.287296     121   276.762823
+OR2X2_LVT          saed32lvt_tt1p05v25c     2.287296     528  1207.692318
+OR2X2_RVT          saed32rvt_tt1p05v25c     2.287296    3319  7591.535612
+OR2X4_HVT          saed32hvt_tt1p05v25c     2.795584      22    61.502847
+OR2X4_LVT          saed32lvt_tt1p05v25c     2.795584     950  2655.804765
+OR2X4_RVT          saed32rvt_tt1p05v25c     2.795584     272   760.398838
+OR3X1_HVT          saed32hvt_tt1p05v25c     2.287296       5    11.436480
+OR3X1_LVT          saed32lvt_tt1p05v25c     2.287296     578  1322.057121
+OR3X1_RVT          saed32rvt_tt1p05v25c     2.541440     541  1374.919045
+OR3X2_HVT          saed32hvt_tt1p05v25c     2.541440      58   147.403521
+OR3X2_LVT          saed32lvt_tt1p05v25c     2.541440     397  1008.951684
+OR3X2_RVT          saed32rvt_tt1p05v25c     2.541440     325   825.968003
+OR4X1_LVT          saed32lvt_tt1p05v25c     3.558016      71   252.619140
+OR4X2_LVT          saed32lvt_tt1p05v25c     3.812160      24    91.491840
+OR4X2_RVT          saed32rvt_tt1p05v25c     3.812160       4    15.248640
+OR4X4_LVT          saed32lvt_tt1p05v25c     4.320448      17    73.447615
+OR4X4_RVT          saed32rvt_tt1p05v25c     4.320448       2     8.640896
+SNPS_CLOCK_GATE_HIGH_fir_feedback_0     5.845312       1     5.845312 b, h
+SNPS_CLOCK_GATE_HIGH_fir_feedback_0_1     5.845312       1     5.845312 b, h
+SNPS_CLOCK_GATE_HIGH_fir_feedback_1     5.845312       1     5.845312 b, h
+SNPS_CLOCK_GATE_HIGH_fir_feedback_1_2     5.845312       1     5.845312 b, h
+SNPS_CLOCK_GATE_HIGH_fir_feedback_2     5.845312       1     5.845312 b, h
+SNPS_CLOCK_GATE_HIGH_fir_feedback_2_3     5.845312       1     5.845312 b, h
+XNOR2X1_HVT        saed32hvt_tt1p05v25c     4.320448       1     4.320448
+XNOR2X1_LVT        saed32lvt_tt1p05v25c     4.320448     159   686.951220
+XNOR2X1_RVT        saed32rvt_tt1p05v25c     4.320448     160   691.271667
+XNOR2X2_HVT        saed32hvt_tt1p05v25c     4.574592       3    13.723776
+XNOR2X2_LVT        saed32lvt_tt1p05v25c     4.574592     423  1935.052464
+XNOR2X2_RVT        saed32rvt_tt1p05v25c     4.574592     123   562.674830
+XNOR3X2_LVT        saed32lvt_tt1p05v25c     6.353600       3    19.060800
+XOR2X1_HVT         saed32hvt_tt1p05v25c     4.320448       1     4.320448
+XOR2X1_LVT         saed32lvt_tt1p05v25c     4.320448      10    43.204479
+XOR2X1_RVT         saed32rvt_tt1p05v25c     4.320448       5    21.602240
+XOR2X2_LVT         saed32lvt_tt1p05v25c     4.574592     197   901.194646
+XOR2X2_RVT         saed32rvt_tt1p05v25c     4.574592      79   361.392777
+XOR3X2_LVT         saed32lvt_tt1p05v25c     7.370176    1681 12389.265584
+XOR3X2_RVT         saed32rvt_tt1p05v25c     7.370176      19   140.033341
+-----------------------------------------------------------------------------
+Total 188 references                                509109.909757
+
+****************************************
+Design: SNPS_CLOCK_GATE_HIGH_fir_feedback_0 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+CGLPPRX2_HVT       saed32hvt_tt1p05v25c     5.845312       1     5.845312 b
+-----------------------------------------------------------------------------
+Total 1 references                                      5.845312
+
+****************************************
+Design: SNPS_CLOCK_GATE_HIGH_fir_feedback_0_1 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+CGLPPRX2_HVT       saed32hvt_tt1p05v25c     5.845312       1     5.845312 b
+-----------------------------------------------------------------------------
+Total 1 references                                      5.845312
+
+****************************************
+Design: SNPS_CLOCK_GATE_HIGH_fir_feedback_1 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+CGLPPRX2_HVT       saed32hvt_tt1p05v25c     5.845312       1     5.845312 b
+-----------------------------------------------------------------------------
+Total 1 references                                      5.845312
+
+****************************************
+Design: SNPS_CLOCK_GATE_HIGH_fir_feedback_1_2 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+CGLPPRX2_HVT       saed32hvt_tt1p05v25c     5.845312       1     5.845312 b
+-----------------------------------------------------------------------------
+Total 1 references                                      5.845312
+
+****************************************
+Design: SNPS_CLOCK_GATE_HIGH_fir_feedback_2 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+CGLPPRX2_HVT       saed32hvt_tt1p05v25c     5.845312       1     5.845312 b
+-----------------------------------------------------------------------------
+Total 1 references                                      5.845312
+
+****************************************
+Design: SNPS_CLOCK_GATE_HIGH_fir_feedback_2_3 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+CGLPPRX2_HVT       saed32hvt_tt1p05v25c     5.845312       1     5.845312 b
+-----------------------------------------------------------------------------
+Total 1 references                                      5.845312
+1
