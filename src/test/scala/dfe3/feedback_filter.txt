@@ -18,8 +18,8 @@ import breeze.signal._
 class feedbackfirTests[T <: Data:RealBits](c: fir_feedback[T]) extends DspTester(c) {
   //var len = Random.nextInt(2000)
   var len = 6
-  //val real = Array.fill(len)(Random.nextDouble*2-1)
-  //val img = Array.fill(len)(Random.nextDouble*2-1)
+ // val real = Array.fill(len)(Random.nextDouble*2-1)
+ // val img = Array.fill(len)(Random.nextDouble*2-1)
   val real = Array(1.0,1.0,1.0,1.0,1.0,1.0)   //0.1,0.2,0.3,0.4,0.5,0.6,0.7)
   val img = Array(1.0,1.0,1.0,1.0,1.0,1.0)
 
@@ -34,16 +34,22 @@ class feedbackfirTests[T <: Data:RealBits](c: fir_feedback[T]) extends DspTester
   val (expect_real,expect_img) = fir_filter(real, img, tap_real, tap_img,
                                       len, size)
 
+   poke (c.io.lms_en, false)
+   poke (c.io.coef_en, false)
+   poke (c.io.rst, true)
+   step(1)
+
   for (i <- 0 until len) {
    poke (c.io.lms_en, false)
    poke (c.io.coef_en, false)
+   poke (c.io.rst, false)
    poke (c.io.input_complex.real,real(i))
    poke (c.io.input_complex.imag, img(i))
    if (i<size) {
        poke(c.io.coef_en, true)
        poke (c.io.tap_coeff_complex.real,tap_real(i))
        poke (c.io.tap_coeff_complex.imag, tap_img(i)) 
-       poke (c.io.tap_index, i)
+       poke (c.io.tap_index, i+1)
        poke(c.io.lms_en, false)
        //poke(c.io.error.real, tap_real(i)/10)
        //poke(c.io.error.imag, tap_real(i)/10)

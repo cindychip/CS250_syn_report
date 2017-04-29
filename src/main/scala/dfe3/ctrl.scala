@@ -22,9 +22,9 @@ class ctrlIo[T <: Data:RealBits](gen: T) extends Bundle {
   val reset = Input(Bool())
   val stage = Output(UInt(2.W))
   val count = Output(UInt(12.W))
-  val fbf_coeff = Input(DspComplex(gen.cloneType, gen.cloneType))
+  val fbf_coeff = Input(DspComplex(FixedPoint(22.W, 12.BP) ))
   //val ga_coeff = Input(Bool()) //might needed
-  val coeff_output = Output(DspComplex(gen.cloneType, gen.cloneType))
+  val coeff_output = Output(DspComplex(FixedPoint(22.W, 12.BP) ))
   val tap_en = Output(Bool())
   val lms_en = Output(Bool())
 }
@@ -57,7 +57,7 @@ class ctrl[T <: Data:RealBits](gen: T) extends Module {
       count := count + 1.U
       stage := s_dfe_bpsk
       io.tap_en := true.B
-      io.coeff_output := DspComplex[T](Complex(0.0,0.0))
+      io.coeff_output := DspComplex(0.F(22.W,12.BP),0.F(22.W,12.BP))
     }
    }
   }

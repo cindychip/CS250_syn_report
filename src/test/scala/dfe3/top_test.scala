@@ -16,13 +16,14 @@ import breeze.signal._
 import scala.io.Source  // Added
 
 class dfeTests[T <: Data:RealBits](c: dfe3Main[T]) extends DspTester(c) {
-val real = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/testing/filter_real_15.txt").getLines.toArray.map(x => x.toDouble)
-val imag = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/testing/filter_imag_15.txt").getLines.toArray.map(x => x.toDouble)
-val test_real = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/testing/test_real_15.txt").getLines.toArray.map(x => x.toDouble)
-val test_imag = Source.fromFile("/scratch/cs250-aac/dfe/src/test/scala/dfe3/testing/test_imag_15.txt").getLines.toArray.map(x => x.toDouble)
+val real = Source.fromFile("/scratch/cs250-aab/dsp/src/test/scala/dfe3/testing/filter_real_15.txt").getLines.toArray.map(x => x.toDouble)
+val imag = Source.fromFile("/scratch/cs250-aab/dsp/src/test/scala/dfe3/testing/filter_imag_15.txt").getLines.toArray.map(x => x.toDouble)
+val test_real = Source.fromFile("/scratch/cs250-aab/dsp/src/test/scala/dfe3/testing/test_real_15.txt").getLines.toArray.map(x => x.toDouble)
+val test_imag = Source.fromFile("/scratch/cs250-aab/dsp/src/test/scala/dfe3/testing/test_imag_15.txt").getLines.toArray.map(x => x.toDouble)
 
 val n = real.length
-    
+
+for (j <- 0 until 2) {    
 poke (c.io.reset, true)
 step(1)
 poke (c.io.enable, true)
@@ -34,12 +35,12 @@ for (i<-0 until n) {
     poke (c.io.signal_in.imag, imag(i))
     poke (c.io.enable, true)
     poke (c.io.reset, false)
-    peek (c.io.debug)
-    peek (c.io.output_debug1)
-    peek (c.io.output_debug2)
-    peek (c.io.output_debug3)
-    peek (c.io.output_debug4)
-    peek (c.io.output_debug5)
+  //  peek (c.io.debug)
+  //  peek (c.io.output_debug1)
+  //  peek (c.io.output_debug2)
+  //  peek (c.io.output_debug3)
+  //  peek (c.io.output_debug4)
+  //  peek (c.io.output_debug5)
 
 
     if(i > 255) { ///correct
@@ -49,7 +50,7 @@ for (i<-0 until n) {
     step(1)
     }
 }
-
+}
 // Scala style testing
 class dfeSpec extends FlatSpec with Matchers {
 

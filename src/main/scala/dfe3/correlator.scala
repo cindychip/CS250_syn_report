@@ -15,9 +15,9 @@ import breeze.math.Complex
 import dsptools.numbers._
 
 class correlatorIo[T <: Data:RealBits](gen: T) extends Bundle {
-  val input_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
-  val output_complex = Output(DspComplex(gen.cloneType, gen.cloneType))
-  val output_coefficient = Output(DspComplex(gen.cloneType, gen.cloneType))
+  val input_complex = Input(DspComplex(FixedPoint(16.W, 12.BP),FixedPoint(16.W, 12.BP) ))
+  val output_complex = Output(DspComplex(FixedPoint(16.W, 12.BP),FixedPoint(16.W, 12.BP) ))
+  val output_coefficient = Output(DspComplex(FixedPoint(22.W, 12.BP),FixedPoint(16.W, 12.BP) ))
   //val ra_out = Output(DspComplex(gen.cloneType, gen.cloneType))
   //val rb_out = Output(DspComplex(gen.cloneType, gen.cloneType))
   //val ga_bool = Output(Bool())
@@ -32,57 +32,57 @@ val delay_size = 128
 val n = 7
 val W = Array(-1, -1, -1, -1, 1, -1, -1)
 val Dk = Array(1, 8, 2, 4, 16, 32, 64)
-val output = Reg(Vec(128+128, DspComplex(gen, gen)))
-val D1 = Reg(Vec(Dk(0), DspComplex(gen, gen)))
-val D2 = Reg(Vec(Dk(1), DspComplex(gen, gen)))
-val D3 = Reg(Vec(Dk(2), DspComplex(gen, gen)))
-val D4 = Reg(Vec(Dk(3), DspComplex(gen, gen)))
-val D5 = Reg(Vec(Dk(4), DspComplex(gen, gen)))
-val D6 = Reg(Vec(Dk(5), DspComplex(gen, gen)))
-val D7 = Reg(Vec(Dk(6), DspComplex(gen, gen)))
-val DW = Wire(Vec(n, DspComplex(gen, gen)))
-val ra  = Wire(Vec(n, DspComplex(gen, gen)))
-val rb  = Wire(Vec(n, DspComplex(gen, gen)))
-val delays = Reg(Vec(delay_size, DspComplex(gen, gen)))
+val output = Reg(Vec(128+128, DspComplex(FixedPoint(16.W, 12.BP),FixedPoint(16.W, 12.BP) )))
+val D1 = Reg(Vec(Dk(0), DspComplex(FixedPoint(22.W, 12.BP),FixedPoint(22.W, 12.BP) )))
+val D2 = Reg(Vec(Dk(1), DspComplex(FixedPoint(22.W, 12.BP),FixedPoint(22.W, 12.BP) )))
+val D3 = Reg(Vec(Dk(2), DspComplex(FixedPoint(22.W, 12.BP),FixedPoint(22.W, 12.BP) )))
+val D4 = Reg(Vec(Dk(3), DspComplex(FixedPoint(22.W, 12.BP),FixedPoint(22.W, 12.BP) )))
+val D5 = Reg(Vec(Dk(4), DspComplex(FixedPoint(22.W, 12.BP),FixedPoint(22.W, 12.BP) )))
+val D6 = Reg(Vec(Dk(5), DspComplex(FixedPoint(22.W, 12.BP),FixedPoint(22.W, 12.BP) )))
+val D7 = Reg(Vec(Dk(6), DspComplex(FixedPoint(22.W, 12.BP),FixedPoint(22.W, 12.BP) )))
+val DW = Wire(Vec(n, DspComplex(FixedPoint(22.W, 12.BP) ,FixedPoint(22.W, 12.BP) )))
+val ra  = Wire(Vec(n, DspComplex(FixedPoint(22.W, 12.BP),FixedPoint(22.W, 12.BP) )))
+val rb  = Wire(Vec(n, DspComplex(FixedPoint(22.W, 12.BP),FixedPoint(22.W, 12.BP) )))
+val delays = Reg(Vec(delay_size, DspComplex(FixedPoint(22.W, 12.BP) ,FixedPoint(22.W, 12.BP))))
 
 
 
 when(io.rst){
   for (i <-0 until 127) {
-    output(i) := DspComplex[T](Complex(0.0, 0.0))
+    output(i) := DspComplex(0.0.F(16.W,12.BP), 0.0.F(16.W,12.BP))
   }
   for (i <-0 until Dk(0)){
-    D1(i) := DspComplex[T](Complex(0.0, 0.0))
+    D1(i) := DspComplex(0.0.F(16.W,12.BP), 0.0.F(16.W,12.BP))
   }
   for (i <-0 until Dk(1)){
-    D2(i) := DspComplex[T](Complex(0.0, 0.0))
+    D2(i) := DspComplex(0.0.F(16.W,12.BP), 0.0.F(16.W,12.BP))
   }
   for (i <-0 until Dk(2)){
-    D3(i) := DspComplex[T](Complex(0.0, 0.0))
+    D3(i) := DspComplex(0.0.F(16.W,12.BP), 0.0.F(16.W,12.BP))
   }
   for (i <-0 until Dk(3)){
-    D4(i) := DspComplex[T](Complex(0.0, 0.0))
+    D4(i) := DspComplex(0.0.F(16.W,12.BP), 0.0.F(16.W,12.BP))
   }
   for (i <-0 until Dk(4)){
-    D5(i) := DspComplex[T](Complex(0.0, 0.0))
+    D5(i) := DspComplex(0.0.F(16.W,12.BP), 0.0.F(16.W,12.BP))
   }
   for (i <-0 until Dk(5)){
-    D6(i) := DspComplex[T](Complex(0.0, 0.0))
+    D6(i) := DspComplex(0.0.F(16.W,12.BP), 0.0.F(16.W,12.BP))
   }
   for (i <-0 until Dk(6)){
-    D7(i) := DspComplex[T](Complex(0.0, 0.0))
+    D7(i) := DspComplex(0.0.F(16.W,12.BP), 0.0.F(16.W,12.BP))
   }
   for (i <-0 until n){
-    DW(i) := DspComplex[T](Complex(0.0, 0.0))
+    DW(i) := DspComplex(0.0.F(16.W,12.BP), 0.0.F(16.W,12.BP))
   }
   for (i <-0 until n){
-    ra(i) := DspComplex[T](Complex(0.0, 0.0))
+    ra(i) := DspComplex(0.0.F(16.W,12.BP), 0.0.F(16.W,12.BP))
   }
   for (i <-0 until n){
-    rb(i) := DspComplex[T](Complex(0.0, 0.0))
+    rb(i) := DspComplex(0.0.F(16.W,12.BP), 0.0.F(16.W,12.BP))
   }
   for (i <-0 until delay_size){
-    delays(i) := DspComplex[T](Complex(0.0, 0.0))
+    delays(i) := DspComplex(0.0.F(16.W,12.BP), 0.0.F(16.W,12.BP))
   }
 
 
@@ -105,12 +105,12 @@ for (i <- 1 until delay_size) {
 val temp1 = (delays(127)+rb(6)).real>>8
 val temp2 = (delays(127)+rb(6)).imag>>8
 
-when (((temp1*temp1+temp2*temp2)>>10) >0) { //could not compare in dsp. so I right shift from 12 bits to only 2 bits left.
+when (((temp1*temp1+temp2*temp2)>>18) >0) { //could not compare in dsp. so I right shift from 12 bits to only 2 bits left.
   io.output_coefficient.real := temp1
   io.output_coefficient.imag := temp2
 }
 .otherwise {
-  io.output_coefficient := DspComplex[T](Complex(0.0,0.0))
+  io.output_coefficient := DspComplex(0.0.F(22.W,12.BP), 0.0.F(22.W,12.BP))
 }
 // Set up ShiftRegister for delay
 //D1

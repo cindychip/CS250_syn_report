@@ -14,7 +14,11 @@ set_fp_pin_constraints \
   -keep_buses_together on
 
 create_floorplan \
+<<<<<<< HEAD
         -control_type width_and_height -core_width 630 -core_height 630 \
+=======
+        -control_type width_and_height -core_width 800 -core_height 800 \
+>>>>>>> d576bce50595872cd9d242e4270f65a0dc4885f0
         -flip_first_row \
         -start_first_row \
         -left_io2core 5 \

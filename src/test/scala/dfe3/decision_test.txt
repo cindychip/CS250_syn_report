@@ -55,7 +55,7 @@ class decision_deviceSpec extends FlatSpec with Matchers {
   behavior of "decision_device module"
 
   it should "properly add fixed point types" in {
-dsptools.Driver.execute(() => new decision_device(FixedPoint(32.W, 12.BP)), testOptions) { c =>      
+dsptools.Driver.execute(() => new decision_device(FixedPoint(16.W, 12.BP)), testOptions) { c =>      
   new decision_deviceTests(c)
     } should be (true)
   }
