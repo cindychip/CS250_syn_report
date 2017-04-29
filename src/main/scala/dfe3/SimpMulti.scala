@@ -14,11 +14,9 @@ import dsptools.numbers.{RealBits}
 import breeze.math.Complex
 
 class SimpMultiIo[T <: Data:RealBits](gen: T) extends Bundle {
-  val input_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
-  //val DecisionOut_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
+  val input_complex = Input(DspComplex(FixedPoint(16.W, 12.BP),FixedPoint(16.W, 12.BP) ))  
   val sign = Input(UInt(3.W))
-  val output_complex = Output(DspComplex(gen.cloneType, gen.cloneType))
-
+  val output_complex = Output(DspComplex(FixedPoint(16.W, 12.BP),FixedPoint(16.W, 12.BP) ))
   override def cloneType: this.type = new SimpMultiIo(gen).asInstanceOf[this.type]
 }
 

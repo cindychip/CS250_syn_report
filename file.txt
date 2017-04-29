@@ -1,2 +1,4 @@
 [0m[[0minfo[0m] [0mLoading project definition from /scratch/cs250-aab/dsp/project[0m
 [0m[[0minfo[0m] [0mSet current project to cs250-lab3 (in build file:/scratch/cs250-aab/dsp/)[0m
+[[35minfo[0m] [0.004] Elaborating design...
+[[35minfo[0m] [1.351] Done elaborating.

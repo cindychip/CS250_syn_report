@@ -23,7 +23,6 @@ val test_imag = Source.fromFile("/scratch/cs250-aab/dsp/src/test/scala/dfe3/test
 
 val n = real.length
 
-for (j <- 0 until 2) {    
 poke (c.io.reset, true)
 step(1)
 poke (c.io.enable, true)
@@ -49,7 +48,6 @@ for (i<-0 until n) {
     }
     step(1)
     }
-}
 }
 // Scala style testing
 class dfeSpec extends FlatSpec with Matchers {

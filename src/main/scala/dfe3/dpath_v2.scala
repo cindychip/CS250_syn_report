@@ -37,7 +37,7 @@ class dpathtotal[T <: Data:RealBits](gen: T) extends Module {
  //import submodule 
  val corr = Module(new correlator(gen)).io
  val dec = Module(new decision_device(FixedPoint(16, 12))).io
- val fbf = Module(new fir_feedback(gen,window_size,step_size)).io
+ val fbf = Module(new firFeedbackNoMulti(gen,window_size,step_size)).io
  
  // io.output_debug1 := fbf.output_debug1
  // io.output_debug2 := fbf.output_debug2
@@ -77,6 +77,7 @@ class dpathtotal[T <: Data:RealBits](gen: T) extends Module {
   fbf.coef_en := io.tap_en
   io.signal_out := dec.output_complex
   dec.qpsk_en := false.B
+  fbf.qpsk_en := false.B
  }
 
   when (io.stage === 3.U) {
@@ -92,7 +93,7 @@ class dpathtotal[T <: Data:RealBits](gen: T) extends Module {
   fbf.coef_en := io.tap_en
   io.signal_out := dec.output_complex
   dec.qpsk_en := true.B
-
+ fbf.qpsk_en := true.B
  }
  io.coeff_out := corr.output_coefficient
 
