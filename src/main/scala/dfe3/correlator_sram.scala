@@ -22,6 +22,8 @@ class correlatorIo[T <: Data:RealBits](gen: T) extends Bundle {
   //val rb_out = Output(DspComplex(gen.cloneType, gen.cloneType))
   //val ga_bool = Output(Bool())
   val rst = Input(Bool())
+  val counter_debug = Input(UInt(12.W))
+  val corr_debug = Output(DspComplex(gen.cloneType,gen.cloneType))
   override def cloneType: this.type = new correlatorIo(gen).asInstanceOf[this.type]
 }
 
@@ -45,7 +47,21 @@ val ra  = Wire(Vec(n, DspComplex(gen, gen)))
 val rb  = Wire(Vec(n, DspComplex(gen, gen)))
 val delays = Reg(Vec(delay_size, DspComplex(gen, gen)))
 
+// instantiate the sram
+val sram_depth = 512
+val buffer_mem = SyncReadMem(DspComplex(gen.cloneType, gen.cloneType), 512)
+val buffer_wen = Wire(Bool()); buffer_wen := true.B //Default value  
+val buffer_raddr = Wire(UInt(log2Ceil(sram_depth).W)); buffer_raddr := 0.U
+val buffer_waddr = Wire(UInt(log2Ceil(sram_depth).W)); buffer_waddr := 0.U
+val buffer_wdata = Wire(DspComplex(gen.cloneType, gen.cloneType)); 
+val buffer_rdata = Wire(DspComplex(gen.cloneType, gen.cloneType)); 
+val buffer_tmp = Reg(DspComplex(gen,gen))
+val buffer_delay =Reg(DspComplex(gen,gen))
+val counter = Reg(UInt(12.W))
 
+when(buffer_wen) {
+  buffer_mem.write(buffer_waddr, buffer_wdata)
+}
 
 when(io.rst){
   for (i <-0 until 127) {
@@ -84,17 +100,23 @@ when(io.rst){
   for (i <-0 until delay_size){
     delays(i) := DspComplex[T](Complex(0.0, 0.0))
   }
-
-
+  buffer_tmp := DspComplex[T](Complex(0.0,0.0))
+  buffer_delay := DspComplex[T](Complex(0.0,0.0))
+  counter := 0.U
 }
 .otherwise {
-//set up ShiftRegister for output Complex
-output(0) := io.input_complex
-for (i<-1 until 128+128){
-  output(i) := output(i-1)
+counter := counter +1.U
+buffer_waddr := (counter-1.U)%512.U  //io.counter_debug % 512.U
+buffer_wdata := io.input_complex
+
+when(io.counter_debug < 256.U){
+   buffer_rdata := DspComplex[T](Complex(0.0, 0.0))
 }
-io.output_complex := output(255)
-//output the correct complex coefficient
+.otherwise{
+   buffer_rdata := buffer_mem((counter-256.U)%512.U)  //buffer_mem((io.counter_debug-255.U)%512.U)
+}
+io.output_complex := buffer_rdata
+io.corr_debug := buffer_rdata
 
 //delay modules 
 delays(0) := ra(6) 
