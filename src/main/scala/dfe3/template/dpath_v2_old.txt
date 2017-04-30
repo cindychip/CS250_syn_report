@@ -12,11 +12,11 @@ import org.scalatest.{Matchers, FlatSpec}
 import spire.algebra.Ring
 import dsptools.numbers.{RealBits}
 
-class dpathtotalIo[T <: Data:RealBits](gen: T, var S_w: Int, var C_w: Int, var bp: Int) extends Bundle {
-  val signal_in = Input(DspComplex(FixedPoint(S_w, bp) ))
-  val signal_out = Output(DspComplex(FixedPoint(S_w, bp) ))
-  val coeff_in = Input(DspComplex(FixedPoint(C_w, bp) ))
-  val coeff_out = Output(DspComplex(FixedPoint(C_w, bp) ))
+class dpathtotalIo[T <: Data:RealBits](gen: T) extends Bundle {
+  val signal_in = Input(DspComplex(FixedPoint(16.W, 12.BP) ))
+  val signal_out = Output(DspComplex(FixedPoint(16.W, 12.BP) ))
+  val coeff_in = Input(DspComplex(FixedPoint(22.W, 12.BP) ))
+  val coeff_out = Output(DspComplex(FixedPoint(22.W, 12.BP) ))
   val stage = Input(UInt(2.W))
   val count = Input(UInt(12.W))
   val lms_en = Input(Bool())
@@ -26,19 +26,18 @@ class dpathtotalIo[T <: Data:RealBits](gen: T, var S_w: Int, var C_w: Int, var b
  // val output_debug3 = Output(DspComplex(gen.cloneType, gen.cloneType))
  // val output_debug4 = Output(UInt(2.W))
 
-  override def cloneType: this.type = new dpathtotalIo(gen, S_w, C_w, bp).asInstanceOf[this.type]
+  override def cloneType: this.type = new dpathtotalIo(gen).asInstanceOf[this.type]
 }
 
-//S_w=16, C_w=22, bp = 12
 
-class dpathtotal[T <: Data:RealBits](gen: T,var S_w: Int, var C_w: Int, var bp: Int) extends Module {
- val io = IO(new dpathtotalIo(gen, S_w, C_w, bp))
+class dpathtotal[T <: Data:RealBits](gen: T) extends Module {
+ val io = IO(new dpathtotalIo(gen))
  val window_size = 512
  val step_size = 5
  //import submodule 
- val corr = Module(new correlator(gen, S_w, C_w, bp)).io
- val dec = Module(new decision_device(FixedPoint(S_w, bp))).io
- val fbf = Module(new firFeedbackNoMulti(gen,window_size,step_size, S_w, C_w, bp)).io
+ val corr = Module(new correlator(gen)).io
+ val dec = Module(new decision_device(FixedPoint(16, 12))).io
+ val fbf = Module(new firFeedbackNoMulti(gen,window_size,step_size)).io
  
  // io.output_debug1 := fbf.output_debug1
  // io.output_debug2 := fbf.output_debug2

@@ -51,7 +51,9 @@ for (i<-0 until n) {
 }
 // Scala style testing
 class dfeSpec extends FlatSpec with Matchers {
-
+  var S_w = 16 
+  var C_w = 22 
+  var bp = 12
   val testOptions = new DspTesterOptionsManager {
     dspTesterOptions = DspTesterOptions(
         fixTolLSBs = 1,
@@ -66,7 +68,7 @@ class dfeSpec extends FlatSpec with Matchers {
   behavior of "correlator module"
 
   it should "properly add fixed point types" in {
-dsptools.Driver.execute(() => new dfe3Main(FixedPoint(22, 12)), testOptions) { c =>      
+dsptools.Driver.execute(() => new dfe3Main(FixedPoint(22, 12), S_w, C_w, bp), testOptions) { c =>      
   new dfeTests(c)
     } should be (true)
   }
@@ -74,11 +76,14 @@ dsptools.Driver.execute(() => new dfe3Main(FixedPoint(22, 12)), testOptions) { c
 
 
 object dfeTester extends App {
+  var S_w = 16 
+  var C_w = 22 
+  var bp = 12
   //We pass in some positional arguments to make things easier
   //This should be integrated with the CLI flags at some point
   //but is how rocket-chip accomplishes this
   //val paramsFromConfig = Sha3AccelMain.getParamsFromConfig(projectName = args(0), topModuleName = args(1), configClassName = args(2))
-  Driver.execute(args.drop(3),() => new dfe3Main(FixedPoint(22, 12))){ c => new dfeTests(c) }
+  Driver.execute(args.drop(3),() => new dfe3Main(FixedPoint(22, 12), S_w, C_w, bp)){ c => new dfeTests(c) }
 }
 
 

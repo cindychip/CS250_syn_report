@@ -15,15 +15,15 @@ import breeze.math.Complex
 import spire.math.{ConvertableTo}
 
 
-class SimpMultiIo[T <: Data:RealBits](gen: T) extends Bundle {
-  val input_complex = Input(DspComplex(FixedPoint(16.W, 12.BP),FixedPoint(16.W, 12.BP) ))  
+class SimpMultiIo[T <: Data:RealBits](gen: T, var S_w: Int, var bp: Int) extends Bundle {
+  val input_complex = Input(DspComplex(FixedPoint(S_w, bp),FixedPoint(S_w, bp) ))  
   val sign = Input(UInt(3.W))
-  val output_complex = Output(DspComplex(FixedPoint(16.W, 12.BP),FixedPoint(16.W, 12.BP) ))
-  override def cloneType: this.type = new SimpMultiIo(gen).asInstanceOf[this.type]
+  val output_complex = Output(DspComplex(FixedPoint(S_w, bp),FixedPoint(S_w, bp) ))
+  override def cloneType: this.type = new SimpMultiIo(gen, S_w, bp).asInstanceOf[this.type]
 }
 
-class SimpMulti[T <: Data:RealBits](gen: T) extends Module {
-  val io = IO(new SimpMultiIo(gen))
+class SimpMulti[T <: Data:RealBits](gen: T, var S_w: Int, var bp: Int) extends Module {
+  val io = IO(new SimpMultiIo(gen, S_w, bp))
 
   //BPSK
   when (io.sign(2) === 0.U){
