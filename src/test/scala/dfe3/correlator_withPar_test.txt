@@ -60,7 +60,7 @@ class correlatorSpec extends FlatSpec with Matchers {
   behavior of "correlator module"
 
   it should "properly add fixed point types" in {
-dsptools.Driver.execute(() => new correlator(FixedPoint(32.W, 12.BP)), testOptions) { c =>      
+dsptools.Driver.execute(() => new correlator(FixedPoint(32.W, 12.BP),16,22,12), testOptions) { c =>      
   new correlatorTests(c)
     } should be (true)
   }

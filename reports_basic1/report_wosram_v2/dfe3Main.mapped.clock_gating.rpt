@@ -1,0 +1,25 @@
+ 
+****************************************
+Report : clock_gating
+        -nosplit
+Design : dfe3Main
+Version: G-2012.06-SP3
+Date   : Sat Apr 29 00:16:07 2017
+****************************************
+
+
+
+                             Clock Gating Summary
+          ------------------------------------------------------------
+          |    Number of Clock gating elements    |        8         |
+          |                                       |                  |
+          |    Number of Gated registers          |  4299 (11.97%)   |
+          |                                       |                  |
+          |    Number of Ungated registers        |  31628 (88.03%)  |
+          |                                       |                  |
+          |    Total number of registers          |    35927         |
+          ------------------------------------------------------------
+
+
+
+1

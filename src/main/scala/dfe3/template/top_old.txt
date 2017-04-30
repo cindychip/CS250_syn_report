@@ -13,9 +13,9 @@ import spire.algebra.Ring
 import dsptools.numbers.{RealBits}
 
 
-class dfe3Io[T <: Data:RealBits](gen: T, var S_w: Int, var C_w: Int, var bp: Int) extends Bundle {
-  val signal_in = Input(DspComplex(FixedPoint(S_w, bp) ))
-  val signal_out = Output(DspComplex(FixedPoint(S_w, bp) ))
+class dfe3Io[T <: Data:RealBits](gen: T) extends Bundle {
+  val signal_in = Input(DspComplex(FixedPoint(16.W, 12.BP) ))
+  val signal_out = Output(DspComplex(FixedPoint(16.W, 12.BP) ))
   val enable = Input(Bool())
   val reset = Input(Bool())
  // val debug = Output(DspComplex(gen.cloneType, gen.cloneType))
@@ -29,11 +29,11 @@ class dfe3Io[T <: Data:RealBits](gen: T, var S_w: Int, var C_w: Int, var bp: Int
 
 }
 
-class dfe3Main[T <: Data:RealBits](gen: T, var S_w: Int, var C_w: Int, var bp: Int) extends Module {
- val io = IO(new dfe3Io(gen, S_w, C_w, bp))
+class dfe3Main[T <: Data:RealBits](gen: T) extends Module {
+ val io = IO(new dfe3Io(gen))
  
- val dpath = Module(new dpathtotal(gen, S_w, C_w, bp)).io
- val ctrl = Module(new ctrl(gen, C_w, bp)).io
+ val dpath = Module(new dpathtotal(gen)).io
+ val ctrl = Module(new ctrl(gen)).io
 
  ctrl.enable := io.enable
  ctrl.reset := io.reset  
@@ -59,10 +59,7 @@ class dfe3Main[T <: Data:RealBits](gen: T, var S_w: Int, var C_w: Int, var bp: I
 
 
 object dfe3MainTest extends App {
-  var S_w = 16 
-  var C_w = 22 
-  var bp = 12
   
-  Driver.execute(args.drop(3), () => new dfe3Main(FixedPoint(22, 12), S_w, C_w, bp))
+  Driver.execute(args.drop(3), () => new dfe3Main(FixedPoint(22, 12)))
 
 }

@@ -1,0 +1,2525 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : dfe3Main
+Version: G-2012.06-SP3
+Date   : Sat Apr 29 00:16:08 2017
+****************************************
+
+
+   max_delay/setup ('REGIN' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   dpathtotal/fir_feedback/clk_gate_buffer_complex_2_real_reg/latch/EN
+                                1.39           1.79 f        -0.40  (VIOLATED)
+   dpathtotal/fir_feedback/clk_gate_buffer_complex_0_imag_reg/latch/EN
+                                1.39           1.79 f        -0.40  (VIOLATED)
+   dpathtotal/fir_feedback/clk_gate_index_1_reg/latch/EN
+                                1.38           1.78 f        -0.40  (VIOLATED)
+   dpathtotal/fir_feedback/clk_gate_buffer_complex_1_real_reg/latch/EN
+                                1.39           1.78 f        -0.39  (VIOLATED)
+   dpathtotal/fir_feedback/index_count_reg_0_/D
+                                1.44           1.83 f        -0.39  (VIOLATED)
+   dpathtotal/fir_feedback/clk_gate_index_2_reg/latch/EN
+                                1.39           1.77 f        -0.38  (VIOLATED)
+   dpathtotal/fir_feedback/clk_gate_index_0_reg/latch/EN
+                                1.39           1.77 f        -0.38  (VIOLATED)
+   dpathtotal/fir_feedback/index_count_reg_1_/D
+                                1.44           1.80 r        -0.36  (VIOLATED)
+   ctrl/clk_gate_count_reg/latch/EN
+                                1.39           1.74 f        -0.35  (VIOLATED)
+   ctrl/stage_reg_1_/D          1.44           1.79 r        -0.35  (VIOLATED)
+   ctrl/count_reg_0_/D          1.44           1.79 r        -0.35  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_5_/D
+                                1.42           1.75 r        -0.33  (VIOLATED)
+   ctrl/stage_reg_0_/D          1.45           1.77 f        -0.32  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_5_/D
+                                1.42           1.75 r        -0.32  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_5_/D
+                                1.42           1.75 r        -0.32  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_16_/D
+                                1.42           1.74 r        -0.32  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_15_/D
+                                1.42           1.74 r        -0.32  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_16_/D
+                                1.42           1.74 r        -0.32  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_15_/D
+                                1.42           1.74 r        -0.32  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_16_/D
+                                1.42           1.74 r        -0.32  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_15_/D
+                                1.42           1.74 r        -0.32  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_19_/D
+                                1.42           1.74 r        -0.32  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_19_/D
+                                1.42           1.74 r        -0.32  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_20_/D
+                                1.42           1.74 r        -0.32  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_20_/D
+                                1.42           1.74 r        -0.31  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_19_/D
+                                1.42           1.74 r        -0.31  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_13_/D
+                                1.42           1.74 r        -0.31  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_2_/D
+                                1.42           1.74 r        -0.31  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_13_/D
+                                1.42           1.74 r        -0.31  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_20_/D
+                                1.42           1.74 r        -0.31  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_13_/D
+                                1.42           1.73 r        -0.31  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_2_/D
+                                1.42           1.73 r        -0.31  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_2_/D
+                                1.42           1.73 r        -0.31  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_4_/D
+                                1.42           1.73 r        -0.31  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_4_/D
+                                1.42           1.73 r        -0.31  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_9_/D
+                                1.39           1.69 r        -0.31  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_3_/D
+                                1.42           1.73 r        -0.31  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_4_/D
+                                1.42           1.73 r        -0.31  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_17_/D
+                                1.42           1.73 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_12_/D
+                                1.42           1.73 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_3_/D
+                                1.42           1.73 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_18_/D
+                                1.42           1.73 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_12_/D
+                                1.42           1.72 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_17_/D
+                                1.42           1.73 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_18_/D
+                                1.42           1.72 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_14_/D
+                                1.42           1.73 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_3_/D
+                                1.42           1.72 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_18_/D
+                                1.42           1.73 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_17_/D
+                                1.42           1.72 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_1_/D
+                                1.42           1.72 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_12_/D
+                                1.42           1.72 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_14_/D
+                                1.42           1.72 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_8_/D
+                                1.42           1.72 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_1_/D
+                                1.42           1.72 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_8_/D
+                                1.42           1.72 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_1_/D
+                                1.42           1.72 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_8_/D
+                                1.42           1.72 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_7_/D
+                                1.42           1.72 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_4_/D
+                                1.42           1.72 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_12_/D
+                                1.42           1.72 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_1_/D
+                                1.42           1.72 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_7_/D
+                                1.42           1.72 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_3_/D
+                                1.42           1.72 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_10_/D
+                                1.42           1.72 r        -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_1_/D
+                                1.42           1.72 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_12_/D
+                                1.42           1.72 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_6_/D
+                                1.42           1.72 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_4_/D
+                                1.42           1.72 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_12_/D
+                                1.42           1.72 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_3_/D
+                                1.42           1.72 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_10_/D
+                                1.42           1.71 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_3_/D
+                                1.42           1.72 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_11_/D
+                                1.42           1.72 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_11_/D
+                                1.42           1.71 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_10_/D
+                                1.42           1.72 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_10_/D
+                                1.42           1.72 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_17_/D
+                                1.42           1.71 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_16_/D
+                                1.42           1.71 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_13_/D
+                                1.42           1.71 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_6_/D
+                                1.42           1.71 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_13_/D
+                                1.42           1.71 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_16_/D
+                                1.42           1.71 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_17_/D
+                                1.42           1.71 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_16_/D
+                                1.42           1.71 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_17_/D
+                                1.42           1.71 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_6_/D
+                                1.42           1.71 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_0_/D
+                                1.42           1.71 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_11_/D
+                                1.42           1.71 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_0_/D
+                                1.42           1.71 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_13_/D
+                                1.42           1.71 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_7_/D
+                                1.42           1.71 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_11_/D
+                                1.42           1.71 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_11_/D
+                                1.42           1.71 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_20_/D
+                                1.42           1.71 f        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_19_/D
+                                1.42           1.71 f        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_14_/D
+                                1.44           1.73 r        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_18_/D
+                                1.42           1.71 f        -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_20_/D
+                                1.42           1.70 f        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_19_/D
+                                1.42           1.70 f        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_9_/D
+                                1.42           1.71 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_18_/D
+                                1.42           1.70 f        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_21_/D
+                                1.42           1.70 f        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_18_/D
+                                1.42           1.70 f        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_20_/D
+                                1.42           1.70 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_9_/D
+                                1.42           1.71 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_19_/D
+                                1.42           1.70 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_9_/D
+                                1.42           1.70 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_21_/D
+                                1.42           1.70 f        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_21_/D
+                                1.42           1.70 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_21_/D
+                                1.42           1.70 f        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_7_/D
+                                1.43           1.71 f        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_14_/D
+                                1.42           1.70 f        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_15_/D
+                                1.42           1.70 f        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_21_/D
+                                1.42           1.70 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_1_/D
+                                1.44           1.72 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_14_/D
+                                1.42           1.70 f        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_15_/D
+                                1.42           1.70 f        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_2_/D
+                                1.44           1.72 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_0_/D
+                                1.44           1.72 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_15_/D
+                                1.42           1.70 f        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_14_/D
+                                1.42           1.70 f        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_0_/D
+                                1.44           1.72 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_21_/D
+                                1.42           1.70 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_6_/D
+                                1.44           1.72 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_2_/D
+                                1.44           1.72 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_0_/D
+                                1.44           1.72 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_11_/D
+                                1.44           1.72 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_10_/D
+                                1.44           1.72 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_4_/D
+                                1.44           1.72 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_2_/D
+                                1.44           1.72 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_10_/D
+                                1.44           1.72 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_6_/D
+                                1.44           1.72 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_6_/D
+                                1.44           1.72 r        -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_0_/D
+                                1.44           1.71 r        -0.27  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_8_/D
+                                1.44           1.71 r        -0.27  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_9_/D
+                                1.42           1.70 r        -0.27  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_8_/D
+                                1.44           1.71 r        -0.27  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_5_/D
+                                1.43           1.70 r        -0.27  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_7_/D
+                                1.44           1.71 r        -0.27  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_8_/D
+                                1.44           1.71 r        -0.27  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_7_/D
+                                1.44           1.71 r        -0.27  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_5_/D
+                                1.44           1.70 r        -0.26  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_5_/D
+                                1.44           1.70 r        -0.26  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_9_/D
+                                1.44           1.70 r        -0.26  (VIOLATED)
+
+
+   max_delay/setup ('REGOUT' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   io_signal_out_real[5]        1.36           1.91 f        -0.55  (VIOLATED)
+   io_signal_out_real[0]        1.36           1.91 f        -0.55  (VIOLATED)
+   io_signal_out_imag[5]        1.36           1.91 f        -0.55  (VIOLATED)
+   io_signal_out_real[3]        1.36           1.91 f        -0.55  (VIOLATED)
+   io_signal_out_real[1]        1.36           1.91 f        -0.55  (VIOLATED)
+   io_signal_out_real[7]        1.36           1.91 f        -0.55  (VIOLATED)
+   io_signal_out_imag[13]       1.36           1.91 f        -0.55  (VIOLATED)
+   io_signal_out_real[2]        1.36           1.91 f        -0.55  (VIOLATED)
+   io_signal_out_real[10]       1.36           1.91 f        -0.55  (VIOLATED)
+   io_signal_out_imag[1]        1.36           1.91 f        -0.55  (VIOLATED)
+   io_signal_out_imag[10]       1.36           1.91 f        -0.55  (VIOLATED)
+   io_signal_out_imag[2]        1.36           1.91 f        -0.55  (VIOLATED)
+   io_signal_out_imag[7]        1.36           1.91 f        -0.55  (VIOLATED)
+   io_signal_out_imag[14]       1.36           1.91 f        -0.55  (VIOLATED)
+   io_signal_out_imag[15]       1.36           1.91 f        -0.55  (VIOLATED)
+   io_signal_out_imag[3]        1.36           1.91 f        -0.55  (VIOLATED)
+   io_signal_out_imag[12]       1.36           1.91 f        -0.55  (VIOLATED)
+   io_signal_out_imag[0]        1.36           1.91 f        -0.55  (VIOLATED)
+   io_signal_out_real[8]        1.36           1.90 f        -0.54  (VIOLATED)
+   io_signal_out_real[11]       1.36           1.90 f        -0.54  (VIOLATED)
+   io_signal_out_real[4]        1.36           1.90 f        -0.54  (VIOLATED)
+   io_signal_out_real[9]        1.36           1.90 f        -0.54  (VIOLATED)
+   io_signal_out_real[13]       1.36           1.90 r        -0.54  (VIOLATED)
+   io_signal_out_real[6]        1.36           1.90 f        -0.54  (VIOLATED)
+   io_signal_out_imag[4]        1.36           1.90 r        -0.54  (VIOLATED)
+   io_signal_out_imag[8]        1.36           1.90 r        -0.54  (VIOLATED)
+   io_signal_out_imag[11]       1.36           1.90 r        -0.54  (VIOLATED)
+   io_signal_out_real[12]       1.36           1.90 r        -0.54  (VIOLATED)
+   io_signal_out_imag[6]        1.36           1.90 f        -0.54  (VIOLATED)
+   io_signal_out_imag[9]        1.36           1.90 f        -0.54  (VIOLATED)
+   io_signal_out_real[15]       1.36           1.88 r        -0.52  (VIOLATED)
+   io_signal_out_real[14]       1.36           1.88 r        -0.52  (VIOLATED)
+
+
+   max_delay/setup ('clock' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   dpathtotal/fir_feedback/clk_gate_buffer_complex_2_real_reg/latch/EN
+                                1.39           1.93 f        -0.54  (VIOLATED)
+   dpathtotal/fir_feedback/clk_gate_buffer_complex_0_imag_reg/latch/EN
+                                1.39           1.92 f        -0.54  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_real_reg_3_/D
+                                1.43           1.96 r        -0.54  (VIOLATED)
+   dpathtotal/fir_feedback/clk_gate_index_1_reg/latch/EN
+                                1.38           1.92 f        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_real_reg_5_/D
+                                1.43           1.96 r        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_real_reg_7_/D
+                                1.43           1.96 r        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_imag_reg_5_/D
+                                1.43           1.96 r        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_real_reg_10_/D
+                                1.43           1.96 r        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_real_reg_0_/D
+                                1.43           1.96 r        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_imag_reg_10_/D
+                                1.43           1.96 r        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_imag_reg_7_/D
+                                1.43           1.96 r        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_imag_reg_2_/D
+                                1.43           1.96 r        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_imag_reg_3_/D
+                                1.43           1.96 r        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_imag_reg_12_/D
+                                1.43           1.96 r        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_imag_reg_1_/D
+                                1.43           1.96 r        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_imag_reg_0_/D
+                                1.43           1.96 r        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_imag_reg_15_/D
+                                1.43           1.96 r        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_imag_reg_14_/D
+                                1.43           1.96 r        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_imag_reg_13_/D
+                                1.43           1.96 r        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_real_reg_2_/D
+                                1.43           1.96 r        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_real_reg_11_/D
+                                1.45           1.97 f        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_real_reg_6_/D
+                                1.45           1.97 f        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_real_reg_4_/D
+                                1.45           1.97 f        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_real_reg_9_/D
+                                1.45           1.97 f        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_real_reg_8_/D
+                                1.45           1.97 f        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/clk_gate_buffer_complex_1_real_reg/latch/EN
+                                1.39           1.91 f        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/index_count_reg_0_/D
+                                1.44           1.97 f        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_real_reg_1_/D
+                                1.44           1.97 f        -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_real_reg_12_/D
+                                1.43           1.95 r        -0.52  (VIOLATED)
+   dpathtotal/fir_feedback/clk_gate_index_2_reg/latch/EN
+                                1.39           1.91 f        -0.52  (VIOLATED)
+   dpathtotal/fir_feedback/clk_gate_index_0_reg/latch/EN
+                                1.39           1.91 f        -0.52  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_imag_reg_4_/D
+                                1.43           1.93 r        -0.51  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_imag_reg_6_/D
+                                1.43           1.93 r        -0.51  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_imag_reg_11_/D
+                                1.43           1.93 r        -0.51  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_imag_reg_9_/D
+                                1.43           1.93 r        -0.51  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_imag_reg_8_/D
+                                1.43           1.93 r        -0.51  (VIOLATED)
+   dpathtotal/fir_feedback/index_count_reg_1_/D
+                                1.44           1.94 r        -0.50  (VIOLATED)
+   ctrl/clk_gate_count_reg/latch/EN
+                                1.39           1.88 f        -0.49  (VIOLATED)
+   ctrl/stage_reg_1_/D          1.44           1.93 r        -0.49  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_real_reg_14_/D
+                                1.43           1.91 r        -0.49  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_real_reg_13_/D
+                                1.43           1.91 r        -0.49  (VIOLATED)
+   dpathtotal/fir_feedback/delays_0_real_reg_15_/D
+                                1.43           1.91 r        -0.49  (VIOLATED)
+   ctrl/count_reg_0_/D          1.44           1.93 r        -0.48  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_5_/D
+                                1.42           1.88 r        -0.46  (VIOLATED)
+   ctrl/stage_reg_0_/D          1.45           1.91 f        -0.46  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_5_/D
+                                1.42           1.88 r        -0.46  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_5_/D
+                                1.42           1.88 r        -0.46  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_16_/D
+                                1.42           1.88 r        -0.46  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_15_/D
+                                1.42           1.88 r        -0.46  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_16_/D
+                                1.42           1.88 r        -0.46  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_15_/D
+                                1.42           1.88 r        -0.46  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_16_/D
+                                1.42           1.88 r        -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_15_/D
+                                1.42           1.88 r        -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_19_/D
+                                1.42           1.88 r        -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_19_/D
+                                1.42           1.88 r        -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_20_/D
+                                1.42           1.88 r        -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_20_/D
+                                1.42           1.88 r        -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_19_/D
+                                1.42           1.87 r        -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_13_/D
+                                1.42           1.87 r        -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_2_/D
+                                1.42           1.87 r        -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_13_/D
+                                1.42           1.87 r        -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_20_/D
+                                1.42           1.87 r        -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_13_/D
+                                1.42           1.87 r        -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_2_/D
+                                1.42           1.87 r        -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_2_/D
+                                1.42           1.87 r        -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_4_/D
+                                1.42           1.87 r        -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_4_/D
+                                1.42           1.87 r        -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_9_/D
+                                1.39           1.83 r        -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_3_/D
+                                1.42           1.86 r        -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_4_/D
+                                1.42           1.86 r        -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_17_/D
+                                1.42           1.87 r        -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_12_/D
+                                1.42           1.86 r        -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_3_/D
+                                1.42           1.86 r        -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_18_/D
+                                1.42           1.86 r        -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_12_/D
+                                1.42           1.86 r        -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_17_/D
+                                1.42           1.86 r        -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_18_/D
+                                1.42           1.86 r        -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_14_/D
+                                1.42           1.86 r        -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_3_/D
+                                1.42           1.86 r        -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_18_/D
+                                1.42           1.86 r        -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_17_/D
+                                1.42           1.86 r        -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_1_/D
+                                1.42           1.86 r        -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_12_/D
+                                1.42           1.86 r        -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_14_/D
+                                1.42           1.86 r        -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_8_/D
+                                1.42           1.86 r        -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_1_/D
+                                1.42           1.86 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_8_/D
+                                1.42           1.86 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_1_/D
+                                1.42           1.86 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_8_/D
+                                1.42           1.86 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_7_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_4_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_12_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_1_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_7_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_3_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_10_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_1_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_12_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_6_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_4_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_12_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_3_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_10_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_3_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_11_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_11_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_10_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_10_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_17_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_16_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_13_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_6_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_13_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_16_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_17_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_16_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_17_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_6_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_0_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_11_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_0_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_13_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_7_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_11_/D
+                                1.42           1.85 r        -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_11_/D
+                                1.42           1.85 r        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_20_/D
+                                1.42           1.84 f        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_19_/D
+                                1.42           1.84 f        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_14_/D
+                                1.44           1.86 r        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_18_/D
+                                1.42           1.84 f        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_20_/D
+                                1.42           1.84 f        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_19_/D
+                                1.42           1.84 f        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_9_/D
+                                1.42           1.84 r        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_18_/D
+                                1.42           1.84 f        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_21_/D
+                                1.42           1.84 f        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_18_/D
+                                1.42           1.84 f        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_20_/D
+                                1.42           1.84 r        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_9_/D
+                                1.42           1.84 r        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_19_/D
+                                1.42           1.84 r        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_9_/D
+                                1.42           1.84 r        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_21_/D
+                                1.42           1.84 r        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_21_/D
+                                1.42           1.84 f        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_21_/D
+                                1.42           1.84 f        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_7_/D
+                                1.43           1.85 f        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_14_/D
+                                1.42           1.84 f        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_15_/D
+                                1.42           1.84 f        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_21_/D
+                                1.42           1.84 r        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_1_/D
+                                1.44           1.86 r        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_14_/D
+                                1.42           1.84 f        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_15_/D
+                                1.42           1.84 f        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_2_/D
+                                1.44           1.86 r        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_0_/D
+                                1.44           1.85 r        -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_15_/D
+                                1.42           1.84 f        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_real_reg_14_/D
+                                1.42           1.84 f        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_0_/D
+                                1.44           1.85 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_21_/D
+                                1.42           1.84 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_6_/D
+                                1.44           1.85 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_2_/D
+                                1.44           1.85 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_0_/D
+                                1.44           1.85 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_11_/D
+                                1.44           1.85 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_10_/D
+                                1.44           1.85 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_4_/D
+                                1.44           1.85 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_2_/D
+                                1.44           1.85 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_real_reg_10_/D
+                                1.44           1.85 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_6_/D
+                                1.44           1.85 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_6_/D
+                                1.44           1.85 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_real_reg_0_/D
+                                1.44           1.85 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_8_/D
+                                1.44           1.85 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_9_/D
+                                1.42           1.83 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_8_/D
+                                1.44           1.85 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_5_/D
+                                1.43           1.84 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_7_/D
+                                1.44           1.85 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_8_/D
+                                1.44           1.85 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_7_/D
+                                1.44           1.85 r        -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_5_/D
+                                1.44           1.84 r        -0.40  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_0_imag_reg_5_/D
+                                1.44           1.84 r        -0.39  (VIOLATED)
+   dpathtotal/fir_feedback/buffer_complex_2_imag_reg_9_/D
+                                1.44           1.83 r        -0.39  (VIOLATED)
+   dpathtotal/correlator/D5_0_real_reg_21_/D
+                                1.40           1.41 r        -0.02  (VIOLATED)
+   dpathtotal/correlator/D7_0_real_reg_21_/D
+                                1.40           1.41 r        -0.02  (VIOLATED)
+   dpathtotal/correlator/D7_0_real_reg_20_/D
+                                1.43           1.44 f        -0.01  (VIOLATED)
+   dpathtotal/correlator/delays_0_real_reg_21_/D
+                                1.40           1.41 r        -0.01  (VIOLATED)
+   dpathtotal/correlator/D3_0_imag_reg_20_/D
+                                1.40           1.41 f        -0.01  (VIOLATED)
+   dpathtotal/correlator/D5_0_real_reg_20_/D
+                                1.43           1.43 f         0.00  (VIOLATED: increase significant digits)
+   dpathtotal/correlator/D4_0_real_reg_21_/D
+                                1.40           1.40 r         0.00  (VIOLATED: increase significant digits)
+   dpathtotal/correlator/D3_0_real_reg_21_/D
+                                1.40           1.40 r         0.00  (VIOLATED: increase significant digits)
+
+
+   max_transition
+
+                             Required        Actual
+   Net                      Transition     Transition        Slack
+   -----------------------------------------------------------------
+   dpathtotal/fir_feedback/n35714
+                                0.08           0.13          -0.05  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/U64702/Y
+                                0.08           0.13          -0.05  (VIOLATED)
+   dpathtotal/fir_feedback/n32232
+                                0.08           0.13          -0.05  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/U62641/Y
+                                0.08           0.13          -0.05  (VIOLATED)
+   dpathtotal/fir_feedback/n54841
+                                0.08           0.12          -0.04  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/U76052/Y
+                                0.08           0.12          -0.04  (VIOLATED)
+   dpathtotal/fir_feedback/n76678
+                                0.08           0.11          -0.03  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/U34109/Y
+                                0.08           0.11          -0.03  (VIOLATED)
+   dpathtotal/fir_feedback/n45023
+                                0.08           0.11          -0.03  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/U70356/Y
+                                0.08           0.11          -0.03  (VIOLATED)
+   dpathtotal/fir_feedback/delays_367_imag[7]
+                                0.10           0.12          -0.03  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/delays_367_imag_reg_7_/Q
+                                0.10           0.12          -0.03  (VIOLATED)
+   dpathtotal/fir_feedback/delays_366_imag[7]
+                                0.10           0.12          -0.03  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/delays_366_imag_reg_7_/Q
+                                0.10           0.12          -0.03  (VIOLATED)
+   dpathtotal/fir_feedback/delays_327_real[2]
+                                0.10           0.12          -0.03  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/delays_327_real_reg_2_/Q
+                                0.10           0.12          -0.03  (VIOLATED)
+   dpathtotal/fir_feedback/delays_323_real[2]
+                                0.10           0.12          -0.03  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/delays_323_real_reg_2_/Q
+                                0.10           0.12          -0.03  (VIOLATED)
+   dpathtotal/fir_feedback/delays_230_imag[3]
+                                0.10           0.12          -0.03  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/delays_230_imag_reg_3_/Q
+                                0.10           0.12          -0.03  (VIOLATED)
+   dpathtotal/correlator/delays_11_real[0]
+                                0.05           0.07          -0.02  (VIOLATED)
+       PIN :   dpathtotal/correlator/delays_11_real_reg_0_/Q
+                                0.05           0.07          -0.02  (VIOLATED)
+   dpathtotal/fir_feedback/n56557
+                                0.08           0.10          -0.02  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/U77287/Y
+                                0.08           0.10          -0.02  (VIOLATED)
+   dpathtotal/fir_feedback/n62850
+                                0.08           0.10          -0.02  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/U81672/Y
+                                0.08           0.10          -0.02  (VIOLATED)
+   dpathtotal/fir_feedback/n31431
+                                0.08           0.10          -0.02  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/U61940/Y
+                                0.08           0.10          -0.02  (VIOLATED)
+   dpathtotal/fir_feedback/n11328
+                                0.08           0.10          -0.02  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/U30131/Y
+                                0.08           0.10          -0.02  (VIOLATED)
+   dpathtotal/fir_feedback/delays_426_imag[4]
+                                0.05           0.06          -0.02  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/delays_426_imag_reg_4_/Q
+                                0.05           0.06          -0.02  (VIOLATED)
+   dpathtotal/fir_feedback/delays_425_imag[4]
+                                0.05           0.06          -0.02  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/delays_425_imag_reg_4_/Q
+                                0.05           0.06          -0.02  (VIOLATED)
+   dpathtotal/fir_feedback/delays_429_imag[1]
+                                0.10           0.11          -0.02  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/delays_429_imag_reg_1_/Q
+                                0.10           0.11          -0.02  (VIOLATED)
+   dpathtotal/fir_feedback/delays_297_imag[3]
+                                0.05           0.06          -0.01  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/delays_297_imag_reg_3_/Q
+                                0.05           0.06          -0.01  (VIOLATED)
+   dpathtotal/fir_feedback/delays_328_real[4]
+                                0.05           0.06          -0.01  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/delays_328_real_reg_4_/Q
+                                0.05           0.06          -0.01  (VIOLATED)
+   dpathtotal/correlator/delays_63_real[2]
+                                0.05           0.06          -0.01  (VIOLATED)
+       PIN :   dpathtotal/correlator/delays_63_real_reg_2_/Q
+                                0.05           0.06          -0.01  (VIOLATED)
+   dpathtotal/fir_feedback/index_count[0]
+                                0.05           0.06          -0.01  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/index_count_reg_0_/Q
+                                0.05           0.06          -0.01  (VIOLATED)
+   dpathtotal/fir_feedback/delays_296_imag[3]
+                                0.05           0.06          -0.01  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/delays_296_imag_reg_3_/Q
+                                0.05           0.06          -0.01  (VIOLATED)
+   dpathtotal/fir_feedback/delays_479_imag[5]
+                                0.10           0.10          -0.01  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/delays_479_imag_reg_5_/Q
+                                0.10           0.10          -0.01  (VIOLATED)
+   dpathtotal/fir_feedback/index_count[1]
+                                0.05           0.06          -0.01  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/index_count_reg_1_/Q
+                                0.05           0.06          -0.01  (VIOLATED)
+   dpathtotal/fir_feedback/delays_505_real[2]
+                                0.05           0.06          -0.01  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/delays_505_real_reg_2_/Q
+                                0.05           0.06          -0.01  (VIOLATED)
+   dpathtotal/correlator/delays_73_real[2]
+                                0.05           0.05          -0.01  (VIOLATED)
+       PIN :   dpathtotal/correlator/delays_73_real_reg_2_/Q
+                                0.05           0.05          -0.01  (VIOLATED)
+   dpathtotal/fir_feedback/delays_478_imag[5]
+                                0.10           0.10          -0.01  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/delays_478_imag_reg_5_/Q
+                                0.10           0.10          -0.01  (VIOLATED)
+   dpathtotal/fir_feedback/n59440
+                                0.08           0.09          -0.01  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/U79334/Y
+                                0.08           0.09          -0.01  (VIOLATED)
+   dpathtotal/correlator/delays_91_real[1]
+                                0.05           0.05          -0.01  (VIOLATED)
+       PIN :   dpathtotal/correlator/delays_91_real_reg_1_/Q
+                                0.05           0.05          -0.01  (VIOLATED)
+   dpathtotal/correlator/D7_5_imag[6]
+                                0.05           0.05          -0.01  (VIOLATED)
+       PIN :   dpathtotal/correlator/D7_5_imag_reg_6_/Q
+                                0.05           0.05          -0.01  (VIOLATED)
+   dpathtotal/fir_feedback/n_GEN_12[2]
+                                0.05           0.05          -0.01  (VIOLATED)
+       PIN :   dpathtotal/fir_feedback/buffer_complex_1_imag_reg_2_/Q
+                                0.05           0.05          -0.01  (VIOLATED)
+   dpathtotal/correlator/delays_2_real[2]
+                                0.05           0.05          -0.01  (VIOLATED)
+       PIN :   dpathtotal/correlator/delays_2_real_reg_2_/Q
+                                0.05           0.05          -0.01  (VIOLATED)
+   dpathtotal/fir_feedback/n50367
+                                0.08           0.08           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/fir_feedback/delays_510_real[2]
+                                0.05           0.05           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/fir_feedback/delays_459_imag[9]
+                                0.05           0.05           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/fir_feedback/n45519
+                                0.08           0.08           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/fir_feedback/delays_147_real[15]
+                                0.05           0.05           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/fir_feedback/n42190
+                                0.08           0.08           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/fir_feedback/delays_171_imag[3]
+                                0.05           0.05           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/fir_feedback/delays_413_real[3]
+                                0.05           0.05           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/fir_feedback/n54807
+                                0.08           0.08           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/correlator/D7_18_imag[6]
+                                0.05           0.05           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/fir_feedback/delays_435_real[4]
+                                0.05           0.05           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/fir_feedback/delays_389_real[3]
+                                0.05           0.05           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/fir_feedback/delays_136_real[15]
+                                0.05           0.05           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/fir_feedback/n_GEN_3[10]
+                                0.05           0.05           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/fir_feedback/delays_107_imag[6]
+                                0.05           0.05           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/fir_feedback/n_GEN_12[8]
+                                0.05           0.05           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/fir_feedback/delays_96_real[9]
+                                0.05           0.05           0.00  (VIOLATED: increase significant digits)
+
+   -----------------------------------------------------------------
+   Total                      50                 -0.65  
+
+   max_capacitance
+
+                             Required        Actual
+   Net                      Capacitance    Capacitance       Slack
+   -----------------------------------------------------------------
+   dpathtotal/fir_feedback/n76240
+                               82.00         114.79         -32.79  (VIOLATED)
+   dpathtotal/fir_feedback/n64164
+                               82.00         110.73         -28.73  (VIOLATED)
+   dpathtotal/fir_feedback/n10545
+                               82.00         109.45         -27.45  (VIOLATED)
+   dpathtotal/fir_feedback/n62941
+                               32.00          59.23         -27.23  (VIOLATED)
+   dpathtotal/fir_feedback/n24718
+                               32.00          56.40         -24.40  (VIOLATED)
+   dpathtotal/fir_feedback/n24274
+                               32.00          56.07         -24.07  (VIOLATED)
+   dpathtotal/fir_feedback/n62662
+                               32.00          55.87         -23.87  (VIOLATED)
+   dpathtotal/fir_feedback/n20719
+                               32.00          55.39         -23.39  (VIOLATED)
+   dpathtotal/fir_feedback/n24819
+                               32.00          55.26         -23.26  (VIOLATED)
+   dpathtotal/fir_feedback/n62226
+                               32.00          53.60         -21.60  (VIOLATED)
+   dpathtotal/fir_feedback/n78958
+                               82.00         101.95         -19.95  (VIOLATED)
+   dpathtotal/fir_feedback/n62933
+                               32.00          51.91         -19.91  (VIOLATED)
+   dpathtotal/fir_feedback/n77126
+                               82.00         101.46         -19.46  (VIOLATED)
+   dpathtotal/fir_feedback/n35714
+                                8.00          27.15         -19.15  (VIOLATED)
+   dpathtotal/fir_feedback/n64579
+                               82.00         101.05         -19.05  (VIOLATED)
+   dpathtotal/fir_feedback/n32232
+                                8.00          26.81         -18.81  (VIOLATED)
+   dpathtotal/fir_feedback/n54841
+                                8.00          25.54         -17.54  (VIOLATED)
+   dpathtotal/fir_feedback/n78924
+                               82.00          98.43         -16.43  (VIOLATED)
+   dpathtotal/fir_feedback/n7032
+                               32.00          48.38         -16.38  (VIOLATED)
+   dpathtotal/fir_feedback/n62265
+                               32.00          48.22         -16.22  (VIOLATED)
+   dpathtotal/fir_feedback/n25305
+                               32.00          47.86         -15.86  (VIOLATED)
+   dpathtotal/fir_feedback/n26890
+                               16.00          31.38         -15.38  (VIOLATED)
+   dpathtotal/fir_feedback/n76678
+                                8.00          23.23         -15.23  (VIOLATED)
+   dpathtotal/fir_feedback/n45023
+                                8.00          23.01         -15.01  (VIOLATED)
+   dpathtotal/fir_feedback/n62786
+                               32.00          46.56         -14.56  (VIOLATED)
+   dpathtotal/fir_feedback/n8806
+                               32.00          46.55         -14.55  (VIOLATED)
+   dpathtotal/fir_feedback/n64199
+                               82.00          96.30         -14.30  (VIOLATED)
+   dpathtotal/fir_feedback/n26891
+                               16.00          30.15         -14.15  (VIOLATED)
+   dpathtotal/fir_feedback/n24638
+                               32.00          46.00         -14.00  (VIOLATED)
+   dpathtotal/fir_feedback/n66731
+                               16.00          29.32         -13.32  (VIOLATED)
+   dpathtotal/fir_feedback/n_GEN_11_imag[14]
+                               32.00          45.32         -13.32  (VIOLATED)
+   dpathtotal/fir_feedback/n64082
+                               32.00          45.20         -13.20  (VIOLATED)
+   dpathtotal/fir_feedback/n25452
+                               32.00          45.17         -13.17  (VIOLATED)
+   dpathtotal/fir_feedback/n24798
+                               32.00          44.99         -12.99  (VIOLATED)
+   dpathtotal/fir_feedback/n62850
+                                8.00          20.82         -12.82  (VIOLATED)
+   dpathtotal/fir_feedback/n31431
+                                8.00          20.68         -12.68  (VIOLATED)
+   dpathtotal/fir_feedback/n56557
+                                8.00          20.67         -12.67  (VIOLATED)
+   dpathtotal/fir_feedback/n53342
+                               32.00          44.61         -12.61  (VIOLATED)
+   dpathtotal/fir_feedback/n68568
+                               16.00          28.59         -12.59  (VIOLATED)
+   dpathtotal/fir_feedback/n7021
+                               32.00          44.54         -12.54  (VIOLATED)
+   dpathtotal/fir_feedback/n25078
+                               32.00          44.32         -12.32  (VIOLATED)
+   dpathtotal/fir_feedback/n11328
+                                8.00          19.93         -11.93  (VIOLATED)
+   dpathtotal/fir_feedback/n66790
+                               16.00          27.88         -11.88  (VIOLATED)
+   dpathtotal/fir_feedback/n11672
+                               16.00          27.56         -11.56  (VIOLATED)
+   dpathtotal/fir_feedback/n35713
+                               16.00          27.00         -11.00  (VIOLATED)
+   dpathtotal/fir_feedback/n77460
+                               82.00          92.89         -10.89  (VIOLATED)
+   dpathtotal/fir_feedback/n24640
+                               32.00          42.74         -10.74  (VIOLATED)
+   dpathtotal/fir_feedback/n24628
+                               32.00          42.70         -10.70  (VIOLATED)
+   dpathtotal/fir_feedback/n67546
+                               16.00          26.69         -10.69  (VIOLATED)
+   dpathtotal/fir_feedback/n62679
+                               32.00          42.61         -10.61  (VIOLATED)
+   dpathtotal/fir_feedback/n15020
+                               16.00          26.53         -10.53  (VIOLATED)
+   dpathtotal/fir_feedback/n78963
+                               82.00          92.51         -10.51  (VIOLATED)
+   dpathtotal/fir_feedback/n62920
+                               32.00          42.44         -10.44  (VIOLATED)
+   dpathtotal/fir_feedback/n27530
+                               16.00          26.44         -10.44  (VIOLATED)
+   dpathtotal/fir_feedback/n53590
+                               32.00          42.30         -10.30  (VIOLATED)
+   dpathtotal/fir_feedback/n53476
+                               16.00          26.06         -10.06  (VIOLATED)
+   dpathtotal/fir_feedback/n24620
+                               32.00          41.86          -9.86  (VIOLATED)
+   dpathtotal/fir_feedback/n62449
+                               32.00          41.79          -9.79  (VIOLATED)
+   dpathtotal/fir_feedback/n62539
+                               32.00          41.78          -9.78  (VIOLATED)
+   dpathtotal/fir_feedback/n67717
+                               16.00          25.74          -9.74  (VIOLATED)
+   dpathtotal/fir_feedback/n59440
+                                8.00          17.72          -9.72  (VIOLATED)
+   dpathtotal/fir_feedback/n50252
+                               32.00          41.61          -9.61  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n8190
+                               16.00          25.49          -9.49  (VIOLATED)
+   dpathtotal/fir_feedback/n24074
+                               16.00          25.43          -9.43  (VIOLATED)
+   dpathtotal/fir_feedback/n63169
+                               32.00          41.42          -9.42  (VIOLATED)
+   dpathtotal/fir_feedback/n33638
+                               16.00          25.33          -9.33  (VIOLATED)
+   dpathtotal/fir_feedback/n36662
+                               16.00          25.33          -9.33  (VIOLATED)
+   dpathtotal/fir_feedback/n62172
+                               32.00          41.15          -9.15  (VIOLATED)
+   dpathtotal/fir_feedback/n50367
+                                8.00          17.14          -9.14  (VIOLATED)
+   dpathtotal/fir_feedback/n62924
+                               32.00          41.07          -9.07  (VIOLATED)
+   dpathtotal/fir_feedback/n45519
+                                8.00          16.78          -8.78  (VIOLATED)
+   dpathtotal/fir_feedback/n62974
+                               32.00          40.75          -8.75  (VIOLATED)
+   dpathtotal/fir_feedback/n62229
+                               32.00          40.75          -8.75  (VIOLATED)
+   dpathtotal/fir_feedback/n11187
+                               16.00          24.74          -8.74  (VIOLATED)
+   dpathtotal/fir_feedback/n62164
+                               32.00          40.70          -8.70  (VIOLATED)
+   dpathtotal/fir_feedback/n24164
+                               32.00          40.69          -8.69  (VIOLATED)
+   dpathtotal/fir_feedback/n42190
+                                8.00          16.63          -8.63  (VIOLATED)
+   dpathtotal/fir_feedback/n54807
+                                8.00          16.59          -8.59  (VIOLATED)
+   dpathtotal/fir_feedback/n75710
+                               82.00          90.52          -8.52  (VIOLATED)
+   dpathtotal/fir_feedback/n62191
+                               32.00          40.51          -8.51  (VIOLATED)
+   dpathtotal/fir_feedback/delays_426_imag[4]
+                               16.00          24.38          -8.38  (VIOLATED)
+   dpathtotal/fir_feedback/n24686
+                               32.00          40.36          -8.36  (VIOLATED)
+   dpathtotal/fir_feedback/n24627
+                               32.00          40.22          -8.22  (VIOLATED)
+   dpathtotal/fir_feedback/n24675
+                               32.00          40.17          -8.17  (VIOLATED)
+   dpathtotal/fir_feedback/n64626
+                               82.00          90.11          -8.11  (VIOLATED)
+   dpathtotal/fir_feedback/delays_425_imag[4]
+                               16.00          24.00          -8.00  (VIOLATED)
+   dpathtotal/fir_feedback/n62338
+                               32.00          39.99          -7.99  (VIOLATED)
+   dpathtotal/fir_feedback/n24725
+                               32.00          39.93          -7.93  (VIOLATED)
+   dpathtotal/fir_feedback/n46259
+                                8.00          15.88          -7.88  (VIOLATED)
+   dpathtotal/fir_feedback/n56982
+                                8.00          15.85          -7.85  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n8207
+                               16.00          23.82          -7.82  (VIOLATED)
+   dpathtotal/fir_feedback/n38397
+                                8.00          15.75          -7.75  (VIOLATED)
+   dpathtotal/fir_feedback/n55329
+                                8.00          15.73          -7.73  (VIOLATED)
+   dpathtotal/fir_feedback/n11689
+                                8.00          15.65          -7.65  (VIOLATED)
+   dpathtotal/fir_feedback/n28702
+                                8.00          15.60          -7.60  (VIOLATED)
+   dpathtotal/fir_feedback/n63082
+                               32.00          39.56          -7.56  (VIOLATED)
+   dpathtotal/fir_feedback/n33139
+                               16.00          23.55          -7.55  (VIOLATED)
+   dpathtotal/fir_feedback/n43310
+                               16.00          23.52          -7.52  (VIOLATED)
+   dpathtotal/fir_feedback/n20669
+                               16.00          23.51          -7.51  (VIOLATED)
+   dpathtotal/fir_feedback/n74217
+                                8.00          15.48          -7.48  (VIOLATED)
+   dpathtotal/fir_feedback/n57737
+                               32.00          39.48          -7.48  (VIOLATED)
+   dpathtotal/fir_feedback/n24998
+                               32.00          39.48          -7.48  (VIOLATED)
+   dpathtotal/fir_feedback/n31645
+                                8.00          15.46          -7.46  (VIOLATED)
+   dpathtotal/fir_feedback/n62228
+                               32.00          39.46          -7.46  (VIOLATED)
+   dpathtotal/fir_feedback/n70049
+                                8.00          15.46          -7.46  (VIOLATED)
+   dpathtotal/fir_feedback/n6274
+                               16.00          23.45          -7.45  (VIOLATED)
+   dpathtotal/fir_feedback/n62448
+                               32.00          39.37          -7.37  (VIOLATED)
+   dpathtotal/fir_feedback/n52695
+                               32.00          39.30          -7.30  (VIOLATED)
+   dpathtotal/fir_feedback/n62473
+                               32.00          39.28          -7.28  (VIOLATED)
+   dpathtotal/fir_feedback/n77936
+                                8.00          15.26          -7.26  (VIOLATED)
+   dpathtotal/fir_feedback/n29647
+                                8.00          15.26          -7.26  (VIOLATED)
+   dpathtotal/fir_feedback/n23260
+                               32.00          39.16          -7.16  (VIOLATED)
+   dpathtotal/fir_feedback/n24619
+                               32.00          39.15          -7.15  (VIOLATED)
+   dpathtotal/fir_feedback/n5617
+                               16.00          23.12          -7.12  (VIOLATED)
+   dpathtotal/fir_feedback/n62755
+                               32.00          39.09          -7.09  (VIOLATED)
+   dpathtotal/fir_feedback/n62211
+                               32.00          39.04          -7.04  (VIOLATED)
+   dpathtotal/fir_feedback/n62360
+                               32.00          39.03          -7.03  (VIOLATED)
+   dpathtotal/fir_feedback/n62834
+                               32.00          39.01          -7.01  (VIOLATED)
+   dpathtotal/fir_feedback/n62640
+                               32.00          38.98          -6.98  (VIOLATED)
+   dpathtotal/fir_feedback/n24776
+                               32.00          38.96          -6.96  (VIOLATED)
+   dpathtotal/fir_feedback/delays_297_imag[3]
+                               16.00          22.95          -6.95  (VIOLATED)
+   dpathtotal/fir_feedback/n52171
+                                8.00          14.95          -6.95  (VIOLATED)
+   dpathtotal/fir_feedback/n25167
+                               32.00          38.91          -6.91  (VIOLATED)
+   dpathtotal/fir_feedback/n25721
+                               16.00          22.88          -6.88  (VIOLATED)
+   dpathtotal/fir_feedback/n62095
+                               16.00          22.88          -6.88  (VIOLATED)
+   dpathtotal/fir_feedback/n62729
+                                8.00          14.85          -6.85  (VIOLATED)
+   dpathtotal/fir_feedback/n62340
+                               32.00          38.78          -6.78  (VIOLATED)
+   dpathtotal/fir_feedback/n10284
+                                8.00          14.71          -6.71  (VIOLATED)
+   dpathtotal/fir_feedback/n53465
+                               32.00          38.64          -6.64  (VIOLATED)
+   dpathtotal/fir_feedback/n18151
+                               16.00          22.60          -6.60  (VIOLATED)
+   dpathtotal/fir_feedback/n63189
+                               32.00          38.54          -6.54  (VIOLATED)
+   dpathtotal/fir_feedback/n32489
+                                8.00          14.53          -6.53  (VIOLATED)
+   dpathtotal/fir_feedback/n62349
+                               32.00          38.46          -6.46  (VIOLATED)
+   dpathtotal/fir_feedback/n54037
+                                8.00          14.44          -6.44  (VIOLATED)
+   dpathtotal/fir_feedback/n51087
+                               32.00          38.42          -6.42  (VIOLATED)
+   dpathtotal/fir_feedback/n51703
+                               32.00          38.40          -6.40  (VIOLATED)
+   dpathtotal/fir_feedback/n53885
+                                8.00          14.39          -6.39  (VIOLATED)
+   dpathtotal/fir_feedback/n45520
+                                8.00          14.37          -6.37  (VIOLATED)
+   dpathtotal/fir_feedback/n25343
+                               32.00          38.36          -6.36  (VIOLATED)
+   dpathtotal/fir_feedback/n43069
+                               16.00          22.36          -6.36  (VIOLATED)
+   dpathtotal/fir_feedback/n11001
+                               16.00          22.34          -6.34  (VIOLATED)
+   dpathtotal/fir_feedback/n62427
+                               32.00          38.33          -6.33  (VIOLATED)
+   dpathtotal/fir_feedback/n62972
+                               32.00          38.27          -6.27  (VIOLATED)
+   dpathtotal/fir_feedback/n62301
+                               32.00          38.27          -6.27  (VIOLATED)
+   dpathtotal/fir_feedback/n41642
+                               16.00          22.26          -6.26  (VIOLATED)
+   dpathtotal/fir_feedback/n63008
+                               32.00          38.25          -6.25  (VIOLATED)
+   dpathtotal/fir_feedback/n62335
+                               32.00          38.23          -6.23  (VIOLATED)
+   dpathtotal/fir_feedback/n49213
+                                8.00          14.20          -6.20  (VIOLATED)
+   dpathtotal/fir_feedback/n62880
+                               32.00          38.16          -6.16  (VIOLATED)
+   dpathtotal/fir_feedback/n24901
+                               32.00          38.15          -6.15  (VIOLATED)
+   dpathtotal/fir_feedback/n24903
+                               32.00          38.12          -6.12  (VIOLATED)
+   dpathtotal/fir_feedback/n25084
+                               32.00          38.10          -6.10  (VIOLATED)
+   dpathtotal/fir_feedback/n15608
+                                8.00          14.09          -6.09  (VIOLATED)
+   dpathtotal/fir_feedback/n63002
+                               32.00          38.07          -6.07  (VIOLATED)
+   dpathtotal/fir_feedback/n59241
+                                8.00          14.00          -6.00  (VIOLATED)
+   dpathtotal/fir_feedback/n54009
+                                8.00          13.99          -5.99  (VIOLATED)
+   dpathtotal/fir_feedback/n62142
+                                8.00          13.98          -5.98  (VIOLATED)
+   dpathtotal/fir_feedback/n49062
+                                8.00          13.98          -5.98  (VIOLATED)
+   dpathtotal/fir_feedback/n63001
+                               32.00          37.97          -5.97  (VIOLATED)
+   dpathtotal/fir_feedback/delays_328_real[4]
+                               16.00          21.96          -5.96  (VIOLATED)
+   dpathtotal/fir_feedback/n18778
+                               16.00          21.86          -5.86  (VIOLATED)
+   dpathtotal/fir_feedback/n62227
+                               32.00          37.84          -5.84  (VIOLATED)
+   dpathtotal/fir_feedback/n62996
+                               32.00          37.74          -5.74  (VIOLATED)
+   dpathtotal/fir_feedback/n25102
+                               32.00          37.73          -5.73  (VIOLATED)
+   dpathtotal/fir_feedback/n25034
+                               32.00          37.73          -5.73  (VIOLATED)
+   dpathtotal/fir_feedback/n60090
+                                8.00          13.71          -5.71  (VIOLATED)
+   dpathtotal/fir_feedback/n46289
+                                8.00          13.71          -5.71  (VIOLATED)
+   dpathtotal/fir_feedback/n18150
+                               16.00          21.68          -5.68  (VIOLATED)
+   dpathtotal/fir_feedback/n14090
+                               16.00          21.66          -5.66  (VIOLATED)
+   dpathtotal/fir_feedback/n24813
+                               32.00          37.59          -5.59  (VIOLATED)
+   dpathtotal/fir_feedback/n56710
+                               32.00          37.54          -5.54  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4350J1_125_2079_n1625
+                               32.00          37.54          -5.54  (VIOLATED)
+   dpathtotal/fir_feedback/n62867
+                               32.00          37.53          -5.53  (VIOLATED)
+   dpathtotal/fir_feedback/n19108
+                                8.00          13.51          -5.51  (VIOLATED)
+   dpathtotal/fir_feedback/n16467
+                                8.00          13.48          -5.48  (VIOLATED)
+   dpathtotal/fir_feedback/n59313
+                                8.00          13.47          -5.47  (VIOLATED)
+   dpathtotal/fir_feedback/n32218
+                                8.00          13.46          -5.46  (VIOLATED)
+   dpathtotal/fir_feedback/n50328
+                               32.00          37.44          -5.44  (VIOLATED)
+   dpathtotal/fir_feedback/n57196
+                                8.00          13.44          -5.44  (VIOLATED)
+   dpathtotal/correlator/delays_11_real[0]
+                                8.00          13.43          -5.43  (VIOLATED)
+   dpathtotal/fir_feedback/n62925
+                               32.00          37.42          -5.42  (VIOLATED)
+   dpathtotal/fir_feedback/n60702
+                               16.00          21.39          -5.39  (VIOLATED)
+   dpathtotal/fir_feedback/n63010
+                               32.00          37.37          -5.37  (VIOLATED)
+   dpathtotal/fir_feedback/n62934
+                               32.00          37.35          -5.35  (VIOLATED)
+   dpathtotal/fir_feedback/n19214
+                                8.00          13.33          -5.33  (VIOLATED)
+   dpathtotal/fir_feedback/n25302
+                               32.00          37.33          -5.33  (VIOLATED)
+   dpathtotal/fir_feedback/n67487
+                               16.00          21.32          -5.32  (VIOLATED)
+   dpathtotal/fir_feedback/n22078
+                                8.00          13.31          -5.31  (VIOLATED)
+   dpathtotal/fir_feedback/n54842
+                               32.00          37.28          -5.28  (VIOLATED)
+   dpathtotal/fir_feedback/n60695
+                               16.00          21.27          -5.27  (VIOLATED)
+   dpathtotal/fir_feedback/n7140
+                               32.00          37.26          -5.26  (VIOLATED)
+   dpathtotal/fir_feedback/n30416
+                                8.00          13.23          -5.23  (VIOLATED)
+   dpathtotal/fir_feedback/n62789
+                               32.00          37.21          -5.21  (VIOLATED)
+   dpathtotal/fir_feedback/n66992
+                               16.00          21.20          -5.20  (VIOLATED)
+   dpathtotal/fir_feedback/n64108
+                               82.00          87.20          -5.20  (VIOLATED)
+   dpathtotal/fir_feedback/n56406
+                                8.00          13.14          -5.14  (VIOLATED)
+   dpathtotal/fir_feedback/n66873
+                               16.00          21.13          -5.13  (VIOLATED)
+   dpathtotal/fir_feedback/n61057
+                                8.00          13.11          -5.11  (VIOLATED)
+   dpathtotal/fir_feedback/n26092
+                               32.00          37.10          -5.10  (VIOLATED)
+   dpathtotal/fir_feedback/n63166
+                               32.00          37.02          -5.02  (VIOLATED)
+   dpathtotal/fir_feedback/n62278
+                               32.00          37.02          -5.02  (VIOLATED)
+   dpathtotal/fir_feedback/n25411
+                               32.00          37.01          -5.01  (VIOLATED)
+   dpathtotal/fir_feedback/n25033
+                               32.00          36.98          -4.98  (VIOLATED)
+   dpathtotal/fir_feedback/n17912
+                               16.00          20.97          -4.97  (VIOLATED)
+   dpathtotal/fir_feedback/n27232
+                                8.00          12.97          -4.97  (VIOLATED)
+   dpathtotal/fir_feedback/n61721
+                               16.00          20.97          -4.97  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n607
+                               16.00          20.96          -4.96  (VIOLATED)
+   dpathtotal/fir_feedback/index_count[0]
+                               16.00          20.96          -4.96  (VIOLATED)
+   dpathtotal/fir_feedback/n64293
+                               82.00          86.95          -4.95  (VIOLATED)
+   dpathtotal/fir_feedback/n67049
+                               16.00          20.89          -4.89  (VIOLATED)
+   dpathtotal/fir_feedback/n53674
+                               16.00          20.87          -4.87  (VIOLATED)
+   dpathtotal/fir_feedback/delays_296_imag[3]
+                               16.00          20.85          -4.85  (VIOLATED)
+   dpathtotal/fir_feedback/n62745
+                               32.00          36.80          -4.80  (VIOLATED)
+   dpathtotal/fir_feedback/n25330
+                               32.00          36.80          -4.80  (VIOLATED)
+   dpathtotal/fir_feedback/n50365
+                                8.00          12.73          -4.73  (VIOLATED)
+   dpathtotal/fir_feedback/n52963
+                               32.00          36.73          -4.73  (VIOLATED)
+   dpathtotal/fir_feedback/n42191
+                                8.00          12.73          -4.73  (VIOLATED)
+   dpathtotal/fir_feedback/n64625
+                               82.00          86.72          -4.72  (VIOLATED)
+   dpathtotal/fir_feedback/n52182
+                               32.00          36.70          -4.70  (VIOLATED)
+   dpathtotal/fir_feedback/n62306
+                               32.00          36.68          -4.68  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n10393
+                               16.00          20.65          -4.65  (VIOLATED)
+   dpathtotal/fir_feedback/n42066
+                                8.00          12.63          -4.63  (VIOLATED)
+   dpathtotal/fir_feedback/n52130
+                               32.00          36.63          -4.63  (VIOLATED)
+   dpathtotal/fir_feedback/n42518
+                                8.00          12.60          -4.60  (VIOLATED)
+   dpathtotal/fir_feedback/n48805
+                               16.00          20.60          -4.60  (VIOLATED)
+   dpathtotal/fir_feedback/n8793
+                               32.00          36.56          -4.56  (VIOLATED)
+   dpathtotal/fir_feedback/n67781
+                               16.00          20.55          -4.55  (VIOLATED)
+   dpathtotal/fir_feedback/n24128
+                               32.00          36.53          -4.53  (VIOLATED)
+   dpathtotal/fir_feedback/index_count[1]
+                               16.00          20.49          -4.49  (VIOLATED)
+   dpathtotal/fir_feedback/n14151
+                                8.00          12.48          -4.48  (VIOLATED)
+   dpathtotal/fir_feedback/n73999
+                               32.00          36.44          -4.44  (VIOLATED)
+   dpathtotal/fir_feedback/n28193
+                               16.00          20.42          -4.42  (VIOLATED)
+   dpathtotal/fir_feedback/delays_505_real[2]
+                               16.00          20.40          -4.40  (VIOLATED)
+   dpathtotal/fir_feedback/n13652
+                               16.00          20.40          -4.40  (VIOLATED)
+   dpathtotal/fir_feedback/n59541
+                                8.00          12.31          -4.31  (VIOLATED)
+   dpathtotal/fir_feedback/n36728
+                                8.00          12.26          -4.26  (VIOLATED)
+   dpathtotal/fir_feedback/n40535
+                                8.00          12.25          -4.25  (VIOLATED)
+   dpathtotal/fir_feedback/n64185
+                               82.00          86.20          -4.20  (VIOLATED)
+   dpathtotal/fir_feedback/n17134
+                                8.00          12.19          -4.19  (VIOLATED)
+   dpathtotal/fir_feedback/n45251
+                                8.00          12.16          -4.16  (VIOLATED)
+   dpathtotal/fir_feedback/n62112
+                                8.00          12.15          -4.15  (VIOLATED)
+   dpathtotal/fir_feedback/n59312
+                                8.00          12.14          -4.14  (VIOLATED)
+   dpathtotal/fir_feedback/n52879
+                               32.00          36.12          -4.12  (VIOLATED)
+   dpathtotal/fir_feedback/n10760
+                               32.00          36.11          -4.11  (VIOLATED)
+   dpathtotal/fir_feedback/n52241
+                               32.00          36.08          -4.08  (VIOLATED)
+   dpathtotal/fir_feedback/n45156
+                               16.00          20.01          -4.01  (VIOLATED)
+   dpathtotal/fir_feedback/n78011
+                                8.00          12.00          -4.00  (VIOLATED)
+   dpathtotal/fir_feedback/n43028
+                                8.00          12.00          -4.00  (VIOLATED)
+   dpathtotal/fir_feedback/n24096
+                               32.00          35.99          -3.99  (VIOLATED)
+   dpathtotal/fir_feedback/n58693
+                                8.00          11.94          -3.94  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n10401
+                               16.00          19.91          -3.91  (VIOLATED)
+   dpathtotal/fir_feedback/n13080
+                                8.00          11.88          -3.88  (VIOLATED)
+   dpathtotal/fir_feedback/n13283
+                                8.00          11.88          -3.88  (VIOLATED)
+   dpathtotal/fir_feedback/n62808
+                               32.00          35.86          -3.86  (VIOLATED)
+   dpathtotal/fir_feedback/n24121
+                               32.00          35.86          -3.86  (VIOLATED)
+   dpathtotal/fir_feedback/n53439
+                               32.00          35.86          -3.86  (VIOLATED)
+   dpathtotal/fir_feedback/n50997
+                               32.00          35.84          -3.84  (VIOLATED)
+   dpathtotal/fir_feedback/n11250
+                                8.00          11.81          -3.81  (VIOLATED)
+   dpathtotal/fir_feedback/n61745
+                                8.00          11.79          -3.79  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n3598
+                               16.00          19.78          -3.78  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n10456
+                               16.00          19.77          -3.77  (VIOLATED)
+   dpathtotal/fir_feedback/n20723
+                               16.00          19.77          -3.77  (VIOLATED)
+   dpathtotal/fir_feedback/n14023
+                                8.00          11.77          -3.77  (VIOLATED)
+   dpathtotal/fir_feedback/n29603
+                                8.00          11.76          -3.76  (VIOLATED)
+   dpathtotal/fir_feedback/n52114
+                               32.00          35.76          -3.76  (VIOLATED)
+   dpathtotal/fir_feedback/n21445
+                               16.00          19.75          -3.75  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n3534
+                               16.00          19.75          -3.75  (VIOLATED)
+   dpathtotal/fir_feedback/n62193
+                               32.00          35.75          -3.75  (VIOLATED)
+   dpathtotal/fir_feedback/n6622
+                               16.00          19.74          -3.74  (VIOLATED)
+   dpathtotal/fir_feedback/n54028
+                                8.00          11.73          -3.73  (VIOLATED)
+   dpathtotal/fir_feedback/n36110
+                                8.00          11.73          -3.73  (VIOLATED)
+   dpathtotal/fir_feedback/n31694
+                                8.00          11.72          -3.72  (VIOLATED)
+   dpathtotal/fir_feedback/n52876
+                               32.00          35.69          -3.69  (VIOLATED)
+   dpathtotal/fir_feedback/n20729
+                               16.00          19.63          -3.63  (VIOLATED)
+   dpathtotal/fir_feedback/n25328
+                               32.00          35.60          -3.60  (VIOLATED)
+   dpathtotal/fir_feedback/n59548
+                                8.00          11.58          -3.58  (VIOLATED)
+   dpathtotal/fir_feedback/n30245
+                                8.00          11.54          -3.54  (VIOLATED)
+   dpathtotal/fir_feedback/n31434
+                                8.00          11.52          -3.52  (VIOLATED)
+   dpathtotal/fir_feedback/n75774
+                               82.00          85.47          -3.47  (VIOLATED)
+   dpathtotal/fir_feedback/n57984
+                               32.00          35.44          -3.44  (VIOLATED)
+   dpathtotal/fir_feedback/n51942
+                               32.00          35.43          -3.43  (VIOLATED)
+   dpathtotal/fir_feedback/n57316
+                               16.00          19.42          -3.42  (VIOLATED)
+   dpathtotal/fir_feedback/n57368
+                                8.00          11.42          -3.42  (VIOLATED)
+   dpathtotal/fir_feedback/n28788
+                                8.00          11.39          -3.39  (VIOLATED)
+   dpathtotal/fir_feedback/n27365
+                               16.00          19.39          -3.39  (VIOLATED)
+   dpathtotal/fir_feedback/n52172
+                                8.00          11.38          -3.38  (VIOLATED)
+   dpathtotal/fir_feedback/n57495
+                                8.00          11.37          -3.37  (VIOLATED)
+   dpathtotal/fir_feedback/n52690
+                               32.00          35.37          -3.37  (VIOLATED)
+   dpathtotal/fir_feedback/n50698
+                                8.00          11.37          -3.37  (VIOLATED)
+   dpathtotal/n107              8.00          11.34          -3.34  (VIOLATED)
+   dpathtotal/fir_feedback/n52820
+                               32.00          35.34          -3.34  (VIOLATED)
+   dpathtotal/fir_feedback/n15651
+                                8.00          11.34          -3.34  (VIOLATED)
+   dpathtotal/fir_feedback/n71998
+                                8.00          11.33          -3.33  (VIOLATED)
+   dpathtotal/fir_feedback/n30099
+                                8.00          11.32          -3.32  (VIOLATED)
+   dpathtotal/fir_feedback/n60604
+                               16.00          19.32          -3.32  (VIOLATED)
+   dpathtotal/fir_feedback/n78573
+                                8.00          11.31          -3.31  (VIOLATED)
+   dpathtotal/fir_feedback/n53331
+                               16.00          19.31          -3.31  (VIOLATED)
+   dpathtotal/fir_feedback/n71738
+                               16.00          19.30          -3.30  (VIOLATED)
+   dpathtotal/fir_feedback/n62084
+                               16.00          19.29          -3.29  (VIOLATED)
+   dpathtotal/fir_feedback/n67558
+                               16.00          19.29          -3.29  (VIOLATED)
+   dpathtotal/fir_feedback/n43839
+                                8.00          11.27          -3.27  (VIOLATED)
+   dpathtotal/fir_feedback/n24553
+                               32.00          35.26          -3.26  (VIOLATED)
+   dpathtotal/fir_feedback/n11184
+                                8.00          11.26          -3.26  (VIOLATED)
+   dpathtotal/fir_feedback/n39251
+                                8.00          11.25          -3.25  (VIOLATED)
+   dpathtotal/fir_feedback/n37845
+                                8.00          11.24          -3.24  (VIOLATED)
+   dpathtotal/fir_feedback/n47263
+                                8.00          11.20          -3.20  (VIOLATED)
+   dpathtotal/fir_feedback/n5995
+                               32.00          35.18          -3.18  (VIOLATED)
+   dpathtotal/fir_feedback/n40446
+                               16.00          19.16          -3.16  (VIOLATED)
+   dpathtotal/fir_feedback/n51282
+                               16.00          19.16          -3.16  (VIOLATED)
+   dpathtotal/fir_feedback/n12557
+                               16.00          19.14          -3.14  (VIOLATED)
+   dpathtotal/fir_feedback/n36497
+                               16.00          19.14          -3.14  (VIOLATED)
+   dpathtotal/fir_feedback/n43175
+                                8.00          11.11          -3.11  (VIOLATED)
+   dpathtotal/fir_feedback/n_GEN_12[2]
+                               16.00          19.09          -3.09  (VIOLATED)
+   dpathtotal/fir_feedback/n53535
+                               32.00          35.09          -3.09  (VIOLATED)
+   dpathtotal/fir_feedback/n47879
+                                8.00          11.05          -3.05  (VIOLATED)
+   dpathtotal/fir_feedback/n35083
+                                8.00          11.04          -3.04  (VIOLATED)
+   dpathtotal/fir_feedback/n42837
+                               16.00          19.03          -3.03  (VIOLATED)
+   dpathtotal/fir_feedback/n40411
+                                8.00          11.02          -3.02  (VIOLATED)
+   dpathtotal/fir_feedback/n58708
+                                8.00          11.02          -3.02  (VIOLATED)
+   dpathtotal/fir_feedback/n54537
+                                8.00          11.01          -3.01  (VIOLATED)
+   dpathtotal/fir_feedback/n31232
+                                8.00          11.00          -3.00  (VIOLATED)
+   dpathtotal/fir_feedback/n52052
+                               32.00          34.99          -2.99  (VIOLATED)
+   dpathtotal/fir_feedback/n40813
+                                8.00          10.97          -2.97  (VIOLATED)
+   dpathtotal/fir_feedback/delays_367_imag[7]
+                                8.00          10.97          -2.97  (VIOLATED)
+   dpathtotal/fir_feedback/n10770
+                               16.00          18.89          -2.89  (VIOLATED)
+   dpathtotal/fir_feedback/delays_366_imag[7]
+                                8.00          10.88          -2.88  (VIOLATED)
+   dpathtotal/fir_feedback/n43071
+                               16.00          18.87          -2.87  (VIOLATED)
+   dpathtotal/fir_feedback/n78259
+                                8.00          10.87          -2.87  (VIOLATED)
+   dpathtotal/fir_feedback/n31290
+                                8.00          10.87          -2.87  (VIOLATED)
+   dpathtotal/fir_feedback/n24255
+                               16.00          18.85          -2.85  (VIOLATED)
+   dpathtotal/fir_feedback/n36727
+                                8.00          10.83          -2.83  (VIOLATED)
+   dpathtotal/fir_feedback/n27719
+                               16.00          18.83          -2.83  (VIOLATED)
+   dpathtotal/fir_feedback/n28101
+                                8.00          10.82          -2.82  (VIOLATED)
+   dpathtotal/fir_feedback/n57831
+                               16.00          18.79          -2.79  (VIOLATED)
+   dpathtotal/fir_feedback/n22320
+                                8.00          10.76          -2.76  (VIOLATED)
+   dpathtotal/fir_feedback/n42021
+                                8.00          10.76          -2.76  (VIOLATED)
+   dpathtotal/fir_feedback/n53364
+                               32.00          34.74          -2.74  (VIOLATED)
+   dpathtotal/fir_feedback/n24241
+                               32.00          34.74          -2.74  (VIOLATED)
+   dpathtotal/fir_feedback/n59829
+                                8.00          10.74          -2.74  (VIOLATED)
+   dpathtotal/fir_feedback/delays_327_real[2]
+                                8.00          10.72          -2.72  (VIOLATED)
+   dpathtotal/fir_feedback/n40447
+                               16.00          18.71          -2.71  (VIOLATED)
+   dpathtotal/fir_feedback/n52919
+                               32.00          34.71          -2.71  (VIOLATED)
+   dpathtotal/fir_feedback/n24156
+                               16.00          18.71          -2.71  (VIOLATED)
+   dpathtotal/fir_feedback/n66705
+                               16.00          18.68          -2.68  (VIOLATED)
+   dpathtotal/fir_feedback/n52464
+                               32.00          34.68          -2.68  (VIOLATED)
+   dpathtotal/fir_feedback/delays_323_real[2]
+                                8.00          10.68          -2.68  (VIOLATED)
+   dpathtotal/fir_feedback/n24464
+                               32.00          34.65          -2.65  (VIOLATED)
+   dpathtotal/fir_feedback/n46927
+                                8.00          10.65          -2.65  (VIOLATED)
+   dpathtotal/fir_feedback/delays_230_imag[3]
+                                8.00          10.63          -2.63  (VIOLATED)
+   dpathtotal/fir_feedback/n24127
+                               32.00          34.62          -2.62  (VIOLATED)
+   dpathtotal/fir_feedback/n78247
+                               16.00          18.61          -2.61  (VIOLATED)
+   dpathtotal/fir_feedback/n28640
+                                8.00          10.60          -2.60  (VIOLATED)
+   dpathtotal/fir_feedback/n14109
+                                8.00          10.59          -2.59  (VIOLATED)
+   dpathtotal/fir_feedback/n21303
+                                8.00          10.58          -2.58  (VIOLATED)
+   dpathtotal/fir_feedback/n37960
+                               16.00          18.55          -2.55  (VIOLATED)
+   dpathtotal/fir_feedback/n15118
+                               16.00          18.55          -2.55  (VIOLATED)
+   dpathtotal/fir_feedback/n56142
+                               16.00          18.55          -2.55  (VIOLATED)
+   dpathtotal/fir_feedback/delays_510_real[2]
+                               16.00          18.54          -2.54  (VIOLATED)
+   dpathtotal/fir_feedback/n53157
+                               32.00          34.52          -2.52  (VIOLATED)
+   dpathtotal/fir_feedback/n24465
+                               32.00          34.50          -2.50  (VIOLATED)
+   dpathtotal/fir_feedback/n40906
+                                8.00          10.50          -2.50  (VIOLATED)
+   dpathtotal/fir_feedback/n52131
+                               32.00          34.49          -2.49  (VIOLATED)
+   dpathtotal/fir_feedback/n64144
+                               82.00          84.49          -2.49  (VIOLATED)
+   dpathtotal/fir_feedback/n30291
+                                8.00          10.47          -2.47  (VIOLATED)
+   dpathtotal/fir_feedback/n24882
+                               32.00          34.46          -2.46  (VIOLATED)
+   dpathtotal/fir_feedback/n52751
+                               32.00          34.45          -2.45  (VIOLATED)
+   dpathtotal/fir_feedback/n51257
+                               32.00          34.44          -2.44  (VIOLATED)
+   dpathtotal/fir_feedback/n50194
+                               32.00          34.43          -2.43  (VIOLATED)
+   dpathtotal/fir_feedback/n40448
+                               16.00          18.42          -2.42  (VIOLATED)
+   dpathtotal/fir_feedback/n59664
+                               16.00          18.41          -2.41  (VIOLATED)
+   dpathtotal/fir_feedback/n36809
+                               16.00          18.41          -2.41  (VIOLATED)
+   dpathtotal/fir_feedback/n40812
+                                8.00          10.36          -2.36  (VIOLATED)
+   dpathtotal/fir_feedback/n78209
+                                8.00          10.35          -2.35  (VIOLATED)
+   dpathtotal/fir_feedback/n33797
+                                8.00          10.35          -2.35  (VIOLATED)
+   dpathtotal/fir_feedback/n28831
+                                8.00          10.34          -2.34  (VIOLATED)
+   dpathtotal/correlator/delays_63_real[2]
+                                8.00          10.33          -2.33  (VIOLATED)
+   dpathtotal/fir_feedback/n60601
+                               16.00          18.33          -2.33  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n8188
+                               16.00          18.33          -2.33  (VIOLATED)
+   dpathtotal/fir_feedback/n28482
+                                8.00          10.33          -2.33  (VIOLATED)
+   dpathtotal/fir_feedback/n64286
+                               82.00          84.32          -2.32  (VIOLATED)
+   dpathtotal/fir_feedback/n18543
+                               16.00          18.32          -2.32  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n10450
+                               16.00          18.30          -2.30  (VIOLATED)
+   dpathtotal/fir_feedback/n32572
+                                8.00          10.29          -2.29  (VIOLATED)
+   dpathtotal/fir_feedback/n61592
+                                8.00          10.28          -2.28  (VIOLATED)
+   dpathtotal/fir_feedback/n28201
+                                8.00          10.28          -2.28  (VIOLATED)
+   dpathtotal/fir_feedback/n53474
+                               16.00          18.27          -2.27  (VIOLATED)
+   dpathtotal/fir_feedback/n25125
+                               32.00          34.26          -2.26  (VIOLATED)
+   dpathtotal/fir_feedback/delays_459_imag[9]
+                               16.00          18.26          -2.26  (VIOLATED)
+   dpathtotal/fir_feedback/n61864
+                                8.00          10.26          -2.26  (VIOLATED)
+   dpathtotal/fir_feedback/n20105
+                               16.00          18.26          -2.26  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n8247
+                               16.00          18.25          -2.25  (VIOLATED)
+   dpathtotal/fir_feedback/n50645
+                               32.00          34.24          -2.24  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n8203
+                               16.00          18.24          -2.24  (VIOLATED)
+   dpathtotal/fir_feedback/n60186
+                               16.00          18.22          -2.22  (VIOLATED)
+   dpathtotal/fir_feedback/n14145
+                               16.00          18.22          -2.22  (VIOLATED)
+   dpathtotal/fir_feedback/n14095
+                               16.00          18.21          -2.21  (VIOLATED)
+   dpathtotal/fir_feedback/n4569
+                               32.00          34.20          -2.20  (VIOLATED)
+   dpathtotal/fir_feedback/n21190
+                               32.00          34.19          -2.19  (VIOLATED)
+   dpathtotal/fir_feedback/n66633
+                                8.00          10.15          -2.15  (VIOLATED)
+   dpathtotal/fir_feedback/n9026
+                               32.00          34.14          -2.14  (VIOLATED)
+   dpathtotal/fir_feedback/n51600
+                                8.00          10.13          -2.13  (VIOLATED)
+   dpathtotal/fir_feedback/n44770
+                                8.00          10.13          -2.13  (VIOLATED)
+   dpathtotal/fir_feedback/n50075
+                                8.00          10.11          -2.11  (VIOLATED)
+   dpathtotal/fir_feedback/n53367
+                               32.00          34.10          -2.10  (VIOLATED)
+   dpathtotal/fir_feedback/n28481
+                                8.00          10.09          -2.09  (VIOLATED)
+   dpathtotal/fir_feedback/n41860
+                               16.00          18.07          -2.07  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n8253
+                               16.00          18.05          -2.05  (VIOLATED)
+   dpathtotal/fir_feedback/n56783
+                                8.00          10.04          -2.04  (VIOLATED)
+   dpathtotal/fir_feedback/n62049
+                               32.00          34.02          -2.02  (VIOLATED)
+   dpathtotal/fir_feedback/n54786
+                               16.00          18.01          -2.01  (VIOLATED)
+   dpathtotal/correlator/delays_73_real[2]
+                                8.00           9.99          -1.99  (VIOLATED)
+   dpathtotal/fir_feedback/delays_147_real[15]
+                               16.00          17.98          -1.98  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n600
+                               16.00          17.97          -1.97  (VIOLATED)
+   dpathtotal/fir_feedback/n61863
+                                8.00           9.94          -1.94  (VIOLATED)
+   dpathtotal/fir_feedback/n8788
+                               32.00          33.92          -1.92  (VIOLATED)
+   dpathtotal/fir_feedback/n43166
+                               16.00          17.92          -1.92  (VIOLATED)
+   dpathtotal/fir_feedback/n78152
+                               16.00          17.91          -1.91  (VIOLATED)
+   dpathtotal/fir_feedback/n47552
+                               16.00          17.91          -1.91  (VIOLATED)
+   dpathtotal/fir_feedback/n60911
+                               16.00          17.85          -1.85  (VIOLATED)
+   dpathtotal/fir_feedback/n16302
+                               16.00          17.84          -1.84  (VIOLATED)
+   dpathtotal/fir_feedback/n43633
+                               16.00          17.83          -1.83  (VIOLATED)
+   dpathtotal/fir_feedback/n61862
+                                8.00           9.82          -1.82  (VIOLATED)
+   dpathtotal/fir_feedback/n25386
+                               32.00          33.81          -1.81  (VIOLATED)
+   dpathtotal/fir_feedback/n53627
+                               32.00          33.80          -1.80  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n10498
+                               16.00          17.80          -1.80  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n5992
+                               16.00          17.78          -1.78  (VIOLATED)
+   dpathtotal/fir_feedback/n25348
+                               32.00          33.78          -1.78  (VIOLATED)
+   dpathtotal/fir_feedback/n42028
+                                8.00           9.77          -1.77  (VIOLATED)
+   dpathtotal/fir_feedback/n11716
+                                8.00           9.76          -1.76  (VIOLATED)
+   dpathtotal/fir_feedback/n48692
+                               16.00          17.74          -1.74  (VIOLATED)
+   dpathtotal/fir_feedback/n30603
+                                8.00           9.73          -1.73  (VIOLATED)
+   dpathtotal/fir_feedback/n78132
+                                8.00           9.73          -1.73  (VIOLATED)
+   dpathtotal/fir_feedback/delays_171_imag[3]
+                               16.00          17.73          -1.73  (VIOLATED)
+   dpathtotal/fir_feedback/n27617
+                                8.00           9.73          -1.73  (VIOLATED)
+   dpathtotal/fir_feedback/n21692
+                                8.00           9.73          -1.73  (VIOLATED)
+   dpathtotal/fir_feedback/n6644
+                               32.00          33.73          -1.73  (VIOLATED)
+   dpathtotal/fir_feedback/n18281
+                                8.00           9.71          -1.71  (VIOLATED)
+   dpathtotal/fir_feedback/n48003
+                               16.00          17.71          -1.71  (VIOLATED)
+   dpathtotal/fir_feedback/delays_413_real[3]
+                               16.00          17.70          -1.70  (VIOLATED)
+   dpathtotal/correlator/delays_91_real[1]
+                                8.00           9.69          -1.69  (VIOLATED)
+   dpathtotal/fir_feedback/n10719
+                               16.00          17.69          -1.69  (VIOLATED)
+   dpathtotal/fir_feedback/n32219
+                                8.00           9.68          -1.68  (VIOLATED)
+   dpathtotal/fir_feedback/n53088
+                               32.00          33.67          -1.67  (VIOLATED)
+   dpathtotal/fir_feedback/n28354
+                                8.00           9.63          -1.63  (VIOLATED)
+   dpathtotal/fir_feedback/n78293
+                                8.00           9.62          -1.62  (VIOLATED)
+   dpathtotal/fir_feedback/n62813
+                               32.00          33.62          -1.62  (VIOLATED)
+   dpathtotal/fir_feedback/n61491
+                                8.00           9.59          -1.59  (VIOLATED)
+   dpathtotal/fir_feedback/n51240
+                                8.00           9.58          -1.58  (VIOLATED)
+   dpathtotal/fir_feedback/n66948
+                               16.00          17.57          -1.57  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n5509
+                               16.00          17.57          -1.57  (VIOLATED)
+   dpathtotal/fir_feedback/n30601
+                                8.00           9.57          -1.57  (VIOLATED)
+   dpathtotal/fir_feedback/delays_429_imag[1]
+                                8.00           9.56          -1.56  (VIOLATED)
+   dpathtotal/correlator/D7_5_imag[6]
+                                8.00           9.56          -1.56  (VIOLATED)
+   dpathtotal/fir_feedback/n1492
+                                8.00           9.55          -1.55  (VIOLATED)
+   dpathtotal/fir_feedback/n48001
+                               16.00          17.54          -1.54  (VIOLATED)
+   dpathtotal/fir_feedback/n51935
+                               32.00          33.54          -1.54  (VIOLATED)
+   dpathtotal/fir_feedback/n21153
+                               32.00          33.53          -1.53  (VIOLATED)
+   dpathtotal/fir_feedback/n77561
+                                8.00           9.52          -1.52  (VIOLATED)
+   dpathtotal/fir_feedback/n52187
+                               32.00          33.51          -1.51  (VIOLATED)
+   dpathtotal/fir_feedback/n48528
+                               16.00          17.51          -1.51  (VIOLATED)
+   dpathtotal/fir_feedback/n78962
+                               82.00          83.50          -1.50  (VIOLATED)
+   dpathtotal/fir_feedback/n25091
+                               32.00          33.50          -1.50  (VIOLATED)
+   dpathtotal/fir_feedback/n61492
+                                8.00           9.49          -1.49  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n4936
+                               16.00          17.47          -1.47  (VIOLATED)
+   dpathtotal/fir_feedback/n55184
+                               16.00          17.46          -1.46  (VIOLATED)
+   dpathtotal/fir_feedback/n55069
+                                8.00           9.46          -1.46  (VIOLATED)
+   dpathtotal/fir_feedback/n24463
+                               32.00          33.45          -1.45  (VIOLATED)
+   dpathtotal/fir_feedback/delays_435_real[4]
+                               16.00          17.44          -1.44  (VIOLATED)
+   dpathtotal/fir_feedback/n23230
+                                8.00           9.44          -1.44  (VIOLATED)
+   dpathtotal/fir_feedback/n65026
+                               32.00          33.42          -1.42  (VIOLATED)
+   dpathtotal/fir_feedback/n61861
+                                8.00           9.42          -1.42  (VIOLATED)
+   dpathtotal/fir_feedback/n32486
+                                8.00           9.42          -1.42  (VIOLATED)
+   dpathtotal/fir_feedback/n25141
+                               32.00          33.42          -1.42  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n6058
+                               16.00          17.40          -1.40  (VIOLATED)
+   dpathtotal/fir_feedback/n8812
+                               32.00          33.39          -1.39  (VIOLATED)
+   dpathtotal/fir_feedback/n77552
+                                8.00           9.39          -1.39  (VIOLATED)
+   dpathtotal/fir_feedback/n50757
+                               32.00          33.38          -1.38  (VIOLATED)
+   dpathtotal/fir_feedback/n43311
+                               16.00          17.38          -1.38  (VIOLATED)
+   dpathtotal/fir_feedback/delays_389_real[3]
+                               16.00          17.38          -1.38  (VIOLATED)
+   dpathtotal/fir_feedback/n64897
+                               82.00          83.37          -1.37  (VIOLATED)
+   dpathtotal/fir_feedback/n48728
+                                8.00           9.37          -1.37  (VIOLATED)
+   dpathtotal/fir_feedback/n66969
+                               16.00          17.35          -1.35  (VIOLATED)
+   dpathtotal/correlator/delays_2_real[2]
+                                8.00           9.35          -1.35  (VIOLATED)
+   dpathtotal/fir_feedback/n45907
+                                8.00           9.34          -1.34  (VIOLATED)
+   dpathtotal/fir_feedback/delays_136_real[15]
+                               16.00          17.34          -1.34  (VIOLATED)
+   dpathtotal/fir_feedback/n60248
+                                8.00           9.33          -1.33  (VIOLATED)
+   dpathtotal/fir_feedback/n43631
+                               16.00          17.33          -1.33  (VIOLATED)
+   dpathtotal/fir_feedback/n22898
+                                8.00           9.33          -1.33  (VIOLATED)
+   dpathtotal/correlator/N13922
+                                8.00           9.32          -1.32  (VIOLATED)
+   dpathtotal/fir_feedback/n63179
+                               32.00          33.31          -1.31  (VIOLATED)
+   dpathtotal/fir_feedback/n_GEN_3[10]
+                               16.00          17.28          -1.28  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n8179
+                               16.00          17.28          -1.28  (VIOLATED)
+   dpathtotal/fir_feedback/n48002
+                               16.00          17.27          -1.27  (VIOLATED)
+   dpathtotal/fir_feedback/n41427
+                                8.00           9.25          -1.25  (VIOLATED)
+   dpathtotal/fir_feedback/n72454
+                                8.00           9.24          -1.24  (VIOLATED)
+   dpathtotal/fir_feedback/n52344
+                               32.00          33.19          -1.19  (VIOLATED)
+   dpathtotal/fir_feedback/n57497
+                                8.00           9.19          -1.19  (VIOLATED)
+   dpathtotal/fir_feedback/n78056
+                                8.00           9.18          -1.18  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n8182
+                               16.00          17.18          -1.18  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n8191
+                               16.00          17.17          -1.17  (VIOLATED)
+   dpathtotal/fir_feedback/n53651
+                               32.00          33.16          -1.16  (VIOLATED)
+   dpathtotal/fir_feedback/n78041
+                                8.00           9.15          -1.15  (VIOLATED)
+   dpathtotal/fir_feedback/n21189
+                               32.00          33.14          -1.14  (VIOLATED)
+   dpathtotal/fir_feedback/n78038
+                                8.00           9.12          -1.12  (VIOLATED)
+   dpathtotal/fir_feedback/n35084
+                                8.00           9.11          -1.11  (VIOLATED)
+   dpathtotal/fir_feedback/n56740
+                               16.00          17.10          -1.10  (VIOLATED)
+   dpathtotal/fir_feedback/n26237
+                                8.00           9.10          -1.10  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n5981
+                               16.00          17.09          -1.09  (VIOLATED)
+   dpathtotal/fir_feedback/n17817
+                                8.00           9.09          -1.09  (VIOLATED)
+   dpathtotal/fir_feedback/n22524
+                                8.00           9.08          -1.08  (VIOLATED)
+   dpathtotal/fir_feedback/n48134
+                                8.00           9.06          -1.06  (VIOLATED)
+   dpathtotal/fir_feedback/n78028
+                               16.00          17.05          -1.05  (VIOLATED)
+   dpathtotal/fir_feedback/n19854
+                               16.00          17.05          -1.05  (VIOLATED)
+   dpathtotal/fir_feedback/n34220
+                                8.00           9.03          -1.03  (VIOLATED)
+   dpathtotal/fir_feedback/n52336
+                               32.00          33.03          -1.03  (VIOLATED)
+   dpathtotal/fir_feedback/n25139
+                               32.00          33.02          -1.02  (VIOLATED)
+   dpathtotal/correlator/N12670
+                                8.00           9.00          -1.00  (VIOLATED)
+   dpathtotal/fir_feedback/n52089
+                               32.00          32.98          -0.98  (VIOLATED)
+   dpathtotal/fir_feedback/n51137
+                               32.00          32.97          -0.97  (VIOLATED)
+   dpathtotal/fir_feedback/n21827
+                               32.00          32.97          -0.97  (VIOLATED)
+   dpathtotal/fir_feedback/n56261
+                                8.00           8.96          -0.96  (VIOLATED)
+   dpathtotal/fir_feedback/n27393
+                               16.00          16.95          -0.95  (VIOLATED)
+   dpathtotal/fir_feedback/n41513
+                                8.00           8.95          -0.95  (VIOLATED)
+   dpathtotal/fir_feedback/n50259
+                               32.00          32.95          -0.95  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n8205
+                               16.00          16.95          -0.95  (VIOLATED)
+   dpathtotal/fir_feedback/n77964
+                                8.00           8.94          -0.94  (VIOLATED)
+   dpathtotal/fir_feedback/n16524
+                                8.00           8.94          -0.94  (VIOLATED)
+   dpathtotal/fir_feedback/n28956
+                                8.00           8.93          -0.93  (VIOLATED)
+   dpathtotal/fir_feedback/n15607
+                                8.00           8.93          -0.93  (VIOLATED)
+   dpathtotal/fir_feedback/n51931
+                               32.00          32.93          -0.93  (VIOLATED)
+   dpathtotal/fir_feedback/n34288
+                                8.00           8.93          -0.93  (VIOLATED)
+   dpathtotal/fir_feedback/n52873
+                               32.00          32.92          -0.92  (VIOLATED)
+   dpathtotal/fir_feedback/n77373
+                               16.00          16.92          -0.92  (VIOLATED)
+   dpathtotal/fir_feedback/n34287
+                                8.00           8.91          -0.91  (VIOLATED)
+   dpathtotal/fir_feedback/n5231
+                                8.00           8.90          -0.90  (VIOLATED)
+   dpathtotal/fir_feedback/n56236
+                               16.00          16.90          -0.90  (VIOLATED)
+   dpathtotal/fir_feedback/n22938
+                               16.00          16.89          -0.89  (VIOLATED)
+   dpathtotal/fir_feedback/n78004
+                               16.00          16.89          -0.89  (VIOLATED)
+   dpathtotal/fir_feedback/n50373
+                               32.00          32.89          -0.89  (VIOLATED)
+   dpathtotal/fir_feedback/n30072
+                                8.00           8.89          -0.89  (VIOLATED)
+   dpathtotal/fir_feedback/n46002
+                                8.00           8.89          -0.89  (VIOLATED)
+   dpathtotal/fir_feedback/n45305
+                                8.00           8.88          -0.88  (VIOLATED)
+   dpathtotal/fir_feedback/n62152
+                               32.00          32.87          -0.87  (VIOLATED)
+   dpathtotal/fir_feedback/delays_479_imag[5]
+                                8.00           8.87          -0.87  (VIOLATED)
+   dpathtotal/fir_feedback/n53340
+                               32.00          32.86          -0.86  (VIOLATED)
+   dpathtotal/fir_feedback/n58251
+                               16.00          16.85          -0.85  (VIOLATED)
+   dpathtotal/fir_feedback/n62715
+                               16.00          16.85          -0.85  (VIOLATED)
+   dpathtotal/fir_feedback/n27351
+                               16.00          16.84          -0.84  (VIOLATED)
+   dpathtotal/fir_feedback/n24948
+                               32.00          32.84          -0.84  (VIOLATED)
+   dpathtotal/fir_feedback/n54033
+                               16.00          16.83          -0.83  (VIOLATED)
+   dpathtotal/fir_feedback/n62999
+                               32.00          32.83          -0.83  (VIOLATED)
+   dpathtotal/fir_feedback/n40160
+                                8.00           8.83          -0.83  (VIOLATED)
+   dpathtotal/fir_feedback/n16958
+                               16.00          16.83          -0.83  (VIOLATED)
+   dpathtotal/fir_feedback/n30600
+                                8.00           8.83          -0.83  (VIOLATED)
+   dpathtotal/fir_feedback/n62891
+                               32.00          32.83          -0.83  (VIOLATED)
+   dpathtotal/fir_feedback/delays_107_imag[6]
+                               16.00          16.82          -0.82  (VIOLATED)
+   dpathtotal/fir_feedback/n39695
+                                8.00           8.81          -0.81  (VIOLATED)
+   dpathtotal/fir_feedback/n77993
+                                8.00           8.81          -0.81  (VIOLATED)
+   dpathtotal/fir_feedback/n78003
+                                8.00           8.81          -0.81  (VIOLATED)
+   dpathtotal/fir_feedback/n24386
+                               32.00          32.81          -0.81  (VIOLATED)
+   dpathtotal/fir_feedback/n56987
+                               16.00          16.80          -0.80  (VIOLATED)
+   dpathtotal/fir_feedback/n24440
+                               32.00          32.78          -0.78  (VIOLATED)
+   dpathtotal/fir_feedback/delays_478_imag[5]
+                                8.00           8.78          -0.78  (VIOLATED)
+   dpathtotal/fir_feedback/n_GEN_12[8]
+                               16.00          16.77          -0.77  (VIOLATED)
+   dpathtotal/fir_feedback/n67409
+                               16.00          16.77          -0.77  (VIOLATED)
+   dpathtotal/fir_feedback/n22719
+                                8.00           8.76          -0.76  (VIOLATED)
+   dpathtotal/fir_feedback/n47611
+                                8.00           8.76          -0.76  (VIOLATED)
+   dpathtotal/fir_feedback/n28027
+                               16.00          16.75          -0.75  (VIOLATED)
+   dpathtotal/fir_feedback/n62260
+                               32.00          32.74          -0.74  (VIOLATED)
+   dpathtotal/fir_feedback/n25454
+                               32.00          32.74          -0.74  (VIOLATED)
+   dpathtotal/fir_feedback/n52813
+                               32.00          32.73          -0.73  (VIOLATED)
+   dpathtotal/fir_feedback/n49063
+                                8.00           8.72          -0.72  (VIOLATED)
+   dpathtotal/fir_feedback/n14559
+                                8.00           8.71          -0.71  (VIOLATED)
+   dpathtotal/fir_feedback/n8741
+                               32.00          32.71          -0.71  (VIOLATED)
+   dpathtotal/fir_feedback/delays_96_real[9]
+                               16.00          16.70          -0.70  (VIOLATED)
+   dpathtotal/fir_feedback/n30089
+                               16.00          16.69          -0.69  (VIOLATED)
+   dpathtotal/fir_feedback/n38472
+                               16.00          16.69          -0.69  (VIOLATED)
+   dpathtotal/fir_feedback/n51690
+                               32.00          32.67          -0.67  (VIOLATED)
+   dpathtotal/fir_feedback/n1855
+                               32.00          32.67          -0.67  (VIOLATED)
+   dpathtotal/fir_feedback/n24538
+                               32.00          32.66          -0.66  (VIOLATED)
+   dpathtotal/fir_feedback/n53138
+                               32.00          32.66          -0.66  (VIOLATED)
+   dpathtotal/fir_feedback/n39253
+                                8.00           8.64          -0.64  (VIOLATED)
+   dpathtotal/fir_feedback/n62230
+                               32.00          32.64          -0.64  (VIOLATED)
+   dpathtotal/fir_feedback/n47780
+                               16.00          16.63          -0.63  (VIOLATED)
+   dpathtotal/correlator/D7_18_imag[6]
+                                8.00           8.62          -0.62  (VIOLATED)
+   dpathtotal/fir_feedback/n62967
+                               32.00          32.62          -0.62  (VIOLATED)
+   dpathtotal/fir_feedback/n25925
+                               16.00          16.61          -0.61  (VIOLATED)
+   dpathtotal/fir_feedback/n52763
+                               32.00          32.61          -0.61  (VIOLATED)
+   dpathtotal/fir_feedback/n45111
+                               16.00          16.61          -0.61  (VIOLATED)
+   dpathtotal/fir_feedback/n77938
+                                8.00           8.61          -0.61  (VIOLATED)
+   dpathtotal/fir_feedback/n23423
+                               32.00          32.59          -0.59  (VIOLATED)
+   dpathtotal/fir_feedback/n16484
+                                8.00           8.58          -0.58  (VIOLATED)
+   dpathtotal/fir_feedback/n8893
+                               32.00          32.57          -0.57  (VIOLATED)
+   dpathtotal/fir_feedback/n58884
+                                8.00           8.57          -0.57  (VIOLATED)
+   dpathtotal/fir_feedback/n52287
+                                8.00           8.56          -0.56  (VIOLATED)
+   dpathtotal/fir_feedback/n52189
+                               32.00          32.56          -0.56  (VIOLATED)
+   dpathtotal/fir_feedback/n62869
+                               32.00          32.55          -0.55  (VIOLATED)
+   dpathtotal/correlator/D7_48_imag[13]
+                               16.00          16.55          -0.55  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n6026
+                               16.00          16.55          -0.55  (VIOLATED)
+   dpathtotal/correlator/D6_4_real[4]
+                               16.00          16.54          -0.54  (VIOLATED)
+   dpathtotal/fir_feedback/n20922
+                                8.00           8.54          -0.54  (VIOLATED)
+   dpathtotal/fir_feedback/n77972
+                               32.00          32.54          -0.54  (VIOLATED)
+   dpathtotal/fir_feedback/n13362
+                                8.00           8.54          -0.54  (VIOLATED)
+   dpathtotal/fir_feedback/n60218
+                                8.00           8.54          -0.54  (VIOLATED)
+   dpathtotal/fir_feedback/n27724
+                                8.00           8.54          -0.54  (VIOLATED)
+   dpathtotal/fir_feedback/n34286
+                                8.00           8.54          -0.54  (VIOLATED)
+   dpathtotal/fir_feedback/n49693
+                               16.00          16.53          -0.53  (VIOLATED)
+   dpathtotal/fir_feedback/n17670
+                                8.00           8.53          -0.53  (VIOLATED)
+   dpathtotal/correlator/delays_9_real[7]
+                               16.00          16.52          -0.52  (VIOLATED)
+   dpathtotal/fir_feedback/n23094
+                                8.00           8.52          -0.52  (VIOLATED)
+   dpathtotal/correlator/output_2_imag[2]
+                               16.00          16.52          -0.52  (VIOLATED)
+   dpathtotal/fir_feedback/n35294
+                                8.00           8.52          -0.52  (VIOLATED)
+   dpathtotal/fir_feedback/n11005
+                               16.00          16.51          -0.51  (VIOLATED)
+   dpathtotal/correlator/N883
+                               32.00          32.51          -0.51  (VIOLATED)
+   dpathtotal/correlator/n_T_5143[18]
+                               16.00          16.50          -0.50  (VIOLATED)
+   dpathtotal/fir_feedback/n57465
+                               16.00          16.50          -0.50  (VIOLATED)
+   dpathtotal/fir_feedback/n34592
+                                8.00           8.50          -0.50  (VIOLATED)
+   dpathtotal/fir_feedback/n60151
+                                8.00           8.50          -0.50  (VIOLATED)
+   dpathtotal/fir_feedback/n62807
+                               32.00          32.50          -0.50  (VIOLATED)
+   dpathtotal/fir_feedback/n17425
+                               16.00          16.49          -0.49  (VIOLATED)
+   dpathtotal/fir_feedback/n4881
+                               16.00          16.48          -0.48  (VIOLATED)
+   dpathtotal/fir_feedback/n25070
+                               16.00          16.48          -0.48  (VIOLATED)
+   dpathtotal/fir_feedback/n43295
+                                8.00           8.48          -0.48  (VIOLATED)
+   dpathtotal/correlator/delays_93_real[18]
+                               16.00          16.48          -0.48  (VIOLATED)
+   dpathtotal/correlator/DP_OP_923J2_125_3606_n823
+                               16.00          16.47          -0.47  (VIOLATED)
+   dpathtotal/fir_feedback/n33918
+                                8.00           8.46          -0.46  (VIOLATED)
+   dpathtotal/fir_feedback/n32732
+                                8.00           8.46          -0.46  (VIOLATED)
+   dpathtotal/fir_feedback/n73039
+                                8.00           8.46          -0.46  (VIOLATED)
+   dpathtotal/fir_feedback/n20527
+                                8.00           8.46          -0.46  (VIOLATED)
+   dpathtotal/fir_feedback/n48072
+                                8.00           8.46          -0.46  (VIOLATED)
+   dpathtotal/fir_feedback/n39309
+                                8.00           8.45          -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/n27444
+                                8.00           8.45          -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/n24289
+                                8.00           8.45          -0.45  (VIOLATED)
+   dpathtotal/correlator/N15304
+                               32.00          32.45          -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/n59903
+                                8.00           8.45          -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/n38835
+                                8.00           8.45          -0.45  (VIOLATED)
+   dpathtotal/fir_feedback/n57484
+                               16.00          16.44          -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/n51616
+                               32.00          32.44          -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/n14699
+                                8.00           8.44          -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/n24583
+                               32.00          32.44          -0.44  (VIOLATED)
+   dpathtotal/fir_feedback/n62984
+                               32.00          32.43          -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/n25384
+                               32.00          32.43          -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/n53274
+                               32.00          32.43          -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/n48129
+                                8.00           8.43          -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/n41308
+                                8.00           8.43          -0.43  (VIOLATED)
+   dpathtotal/fir_feedback/n60934
+                               16.00          16.42          -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/n49029
+                                8.00           8.42          -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/n58208
+                                8.00           8.42          -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/n26058
+                               16.00          16.42          -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/n2415
+                                8.00           8.42          -0.42  (VIOLATED)
+   dpathtotal/fir_feedback/n17632
+                                8.00           8.41          -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/n29462
+                                8.00           8.41          -0.41  (VIOLATED)
+   dpathtotal/fir_feedback/delays_406_real[13]
+                               16.00          16.40          -0.40  (VIOLATED)
+   dpathtotal/fir_feedback/n52925
+                               32.00          32.39          -0.39  (VIOLATED)
+   dpathtotal/fir_feedback/n18931
+                                8.00           8.39          -0.39  (VIOLATED)
+   dpathtotal/fir_feedback/n35278
+                                8.00           8.39          -0.39  (VIOLATED)
+   dpathtotal/fir_feedback/n14377
+                                8.00           8.39          -0.39  (VIOLATED)
+   dpathtotal/fir_feedback/n13360
+                                8.00           8.39          -0.39  (VIOLATED)
+   dpathtotal/fir_feedback/n17714
+                                8.00           8.38          -0.38  (VIOLATED)
+   dpathtotal/fir_feedback/n53548
+                               16.00          16.38          -0.38  (VIOLATED)
+   dpathtotal/fir_feedback/n52875
+                               32.00          32.38          -0.38  (VIOLATED)
+   dpathtotal/fir_feedback/n10390
+                               16.00          16.37          -0.37  (VIOLATED)
+   dpathtotal/correlator/N11777
+                                8.00           8.37          -0.37  (VIOLATED)
+   dpathtotal/fir_feedback/n32081
+                                8.00           8.37          -0.37  (VIOLATED)
+   dpathtotal/fir_feedback/n35547
+                                8.00           8.37          -0.37  (VIOLATED)
+   dpathtotal/fir_feedback/n66238
+                                8.00           8.37          -0.37  (VIOLATED)
+   dpathtotal/fir_feedback/n24632
+                               32.00          32.36          -0.36  (VIOLATED)
+   dpathtotal/fir_feedback/n58532
+                                8.00           8.36          -0.36  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n6028
+                               16.00          16.36          -0.36  (VIOLATED)
+   dpathtotal/fir_feedback/n17326
+                                8.00           8.36          -0.36  (VIOLATED)
+   dpathtotal/fir_feedback/n43112
+                                8.00           8.36          -0.36  (VIOLATED)
+   dpathtotal/fir_feedback/n53787
+                                8.00           8.36          -0.36  (VIOLATED)
+   dpathtotal/fir_feedback/n46326
+                                8.00           8.36          -0.36  (VIOLATED)
+   dpathtotal/fir_feedback/n27948
+                                8.00           8.36          -0.36  (VIOLATED)
+   dpathtotal/fir_feedback/n16129
+                                8.00           8.35          -0.35  (VIOLATED)
+   dpathtotal/fir_feedback/n32573
+                                8.00           8.35          -0.35  (VIOLATED)
+   dpathtotal/fir_feedback/n67451
+                               16.00          16.35          -0.35  (VIOLATED)
+   dpathtotal/fir_feedback/n14510
+                                8.00           8.34          -0.34  (VIOLATED)
+   dpathtotal/fir_feedback/n40406
+                                8.00           8.34          -0.34  (VIOLATED)
+   dpathtotal/fir_feedback/n43921
+                               16.00          16.34          -0.34  (VIOLATED)
+   dpathtotal/fir_feedback/n10623
+                                8.00           8.34          -0.34  (VIOLATED)
+   dpathtotal/fir_feedback/n53010
+                               32.00          32.34          -0.34  (VIOLATED)
+   dpathtotal/fir_feedback/n57564
+                                8.00           8.33          -0.33  (VIOLATED)
+   dpathtotal/fir_feedback/n64154
+                               82.00          82.32          -0.32  (VIOLATED)
+   dpathtotal/fir_feedback/n_GEN_9[13]
+                               16.00          16.32          -0.32  (VIOLATED)
+   dpathtotal/fir_feedback/n30884
+                                8.00           8.31          -0.31  (VIOLATED)
+   dpathtotal/fir_feedback/n24102
+                               32.00          32.31          -0.31  (VIOLATED)
+   dpathtotal/fir_feedback/n36202
+                                8.00           8.30          -0.30  (VIOLATED)
+   dpathtotal/fir_feedback/n15913
+                                8.00           8.29          -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/n17041
+                                8.00           8.29          -0.29  (VIOLATED)
+   dpathtotal/fir_feedback/delays_351_real[2]
+                               16.00          16.28          -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/n16107
+                                8.00           8.28          -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/n28576
+                               16.00          16.28          -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/n45303
+                                8.00           8.28          -0.28  (VIOLATED)
+   dpathtotal/fir_feedback/n58376
+                                8.00           8.27          -0.27  (VIOLATED)
+   dpathtotal/fir_feedback/n53886
+                                8.00           8.27          -0.27  (VIOLATED)
+   dpathtotal/fir_feedback/n62195
+                               32.00          32.27          -0.27  (VIOLATED)
+   dpathtotal/fir_feedback/n58580
+                                8.00           8.27          -0.27  (VIOLATED)
+   dpathtotal/fir_feedback/n16959
+                               16.00          16.26          -0.26  (VIOLATED)
+   dpathtotal/fir_feedback/n27517
+                               16.00          16.25          -0.25  (VIOLATED)
+   dpathtotal/fir_feedback/n33619
+                                8.00           8.25          -0.25  (VIOLATED)
+   dpathtotal/fir_feedback/n24321
+                               32.00          32.25          -0.25  (VIOLATED)
+   dpathtotal/fir_feedback/n60130
+                               16.00          16.25          -0.25  (VIOLATED)
+   dpathtotal/fir_feedback/n55426
+                                8.00           8.25          -0.25  (VIOLATED)
+   dpathtotal/fir_feedback/n47612
+                                8.00           8.25          -0.25  (VIOLATED)
+   dpathtotal/fir_feedback/n_GEN_12[6]
+                               16.00          16.25          -0.25  (VIOLATED)
+   dpathtotal/fir_feedback/n6254
+                               16.00          16.24          -0.24  (VIOLATED)
+   dpathtotal/fir_feedback/n53300
+                               32.00          32.24          -0.24  (VIOLATED)
+   dpathtotal/fir_feedback/n7353
+                               32.00          32.23          -0.23  (VIOLATED)
+   dpathtotal/fir_feedback/n57987
+                               16.00          16.23          -0.23  (VIOLATED)
+   dpathtotal/fir_feedback/n41557
+                                8.00           8.23          -0.23  (VIOLATED)
+   dpathtotal/fir_feedback/n10612
+                                8.00           8.23          -0.23  (VIOLATED)
+   dpathtotal/fir_feedback/n62158
+                               32.00          32.23          -0.23  (VIOLATED)
+   dpathtotal/fir_feedback/n24155
+                                8.00           8.22          -0.22  (VIOLATED)
+   dpathtotal/fir_feedback/n27525
+                                8.00           8.22          -0.22  (VIOLATED)
+   dpathtotal/fir_feedback/n58782
+                               16.00          16.22          -0.22  (VIOLATED)
+   dpathtotal/fir_feedback/n18463
+                                8.00           8.22          -0.22  (VIOLATED)
+   dpathtotal/fir_feedback/n49418
+                                8.00           8.21          -0.21  (VIOLATED)
+   dpathtotal/fir_feedback/n30106
+                                8.00           8.20          -0.20  (VIOLATED)
+   dpathtotal/fir_feedback/n73673
+                               32.00          32.20          -0.20  (VIOLATED)
+   dpathtotal/fir_feedback/n30430
+                                8.00           8.20          -0.20  (VIOLATED)
+   dpathtotal/fir_feedback/n15021
+                               32.00          32.20          -0.20  (VIOLATED)
+   dpathtotal/fir_feedback/n14657
+                                8.00           8.19          -0.19  (VIOLATED)
+   dpathtotal/fir_feedback/n38846
+                                8.00           8.18          -0.18  (VIOLATED)
+   dpathtotal/fir_feedback/n32167
+                                8.00           8.17          -0.17  (VIOLATED)
+   dpathtotal/fir_feedback/n21517
+                                8.00           8.17          -0.17  (VIOLATED)
+   dpathtotal/fir_feedback/n54731
+                                8.00           8.17          -0.17  (VIOLATED)
+   dpathtotal/fir_feedback/n55085
+                                8.00           8.17          -0.17  (VIOLATED)
+   dpathtotal/fir_feedback/n10445
+                               16.00          16.17          -0.17  (VIOLATED)
+   dpathtotal/fir_feedback/n36475
+                                8.00           8.16          -0.16  (VIOLATED)
+   dpathtotal/fir_feedback/n_GEN_3[4]
+                               16.00          16.16          -0.16  (VIOLATED)
+   dpathtotal/fir_feedback/n31853
+                                8.00           8.15          -0.15  (VIOLATED)
+   dpathtotal/fir_feedback/n15536
+                                8.00           8.15          -0.15  (VIOLATED)
+   dpathtotal/fir_feedback/n24736
+                               32.00          32.15          -0.15  (VIOLATED)
+   dpathtotal/fir_feedback/n20948
+                                8.00           8.15          -0.15  (VIOLATED)
+   dpathtotal/fir_feedback/n27272
+                                8.00           8.14          -0.14  (VIOLATED)
+   dpathtotal/fir_feedback/n14389
+                                8.00           8.14          -0.14  (VIOLATED)
+   dpathtotal/fir_feedback/n19761
+                                8.00           8.14          -0.14  (VIOLATED)
+   dpathtotal/fir_feedback/n39990
+                                8.00           8.14          -0.14  (VIOLATED)
+   dpathtotal/fir_feedback/n25231
+                               32.00          32.14          -0.14  (VIOLATED)
+   dpathtotal/fir_feedback/n28928
+                                8.00           8.13          -0.13  (VIOLATED)
+   dpathtotal/fir_feedback/n58364
+                                8.00           8.13          -0.13  (VIOLATED)
+   dpathtotal/fir_feedback/n39097
+                                8.00           8.13          -0.13  (VIOLATED)
+   dpathtotal/fir_feedback/n77043
+                               16.00          16.13          -0.13  (VIOLATED)
+   dpathtotal/fir_feedback/n49692
+                               16.00          16.13          -0.13  (VIOLATED)
+   dpathtotal/fir_feedback/n28699
+                               16.00          16.12          -0.12  (VIOLATED)
+   dpathtotal/fir_feedback/n25181
+                               32.00          32.12          -0.12  (VIOLATED)
+   dpathtotal/fir_feedback/n55781
+                               16.00          16.12          -0.12  (VIOLATED)
+   dpathtotal/fir_feedback/n57020
+                                8.00           8.12          -0.12  (VIOLATED)
+   dpathtotal/fir_feedback/n67046
+                               16.00          16.11          -0.11  (VIOLATED)
+   dpathtotal/correlator/n6056
+                                8.00           8.11          -0.11  (VIOLATED)
+   dpathtotal/fir_feedback/n60831
+                                8.00           8.11          -0.11  (VIOLATED)
+   dpathtotal/fir_feedback/n26807
+                                8.00           8.11          -0.11  (VIOLATED)
+   dpathtotal/fir_feedback/n30490
+                               16.00          16.10          -0.10  (VIOLATED)
+   dpathtotal/fir_feedback/n52467
+                               32.00          32.10          -0.10  (VIOLATED)
+   dpathtotal/fir_feedback/n54902
+                                8.00           8.10          -0.10  (VIOLATED)
+   dpathtotal/fir_feedback/n44769
+                                8.00           8.10          -0.10  (VIOLATED)
+   dpathtotal/correlator/DW_3_real[4]
+                                8.00           8.09          -0.09  (VIOLATED)
+   dpathtotal/fir_feedback/n58221
+                                8.00           8.09          -0.09  (VIOLATED)
+   dpathtotal/fir_feedback/n40018
+                                8.00           8.09          -0.09  (VIOLATED)
+   dpathtotal/fir_feedback/n3251
+                               16.00          16.09          -0.09  (VIOLATED)
+   dpathtotal/fir_feedback/n28070
+                                8.00           8.08          -0.08  (VIOLATED)
+   dpathtotal/fir_feedback/n25326
+                               32.00          32.08          -0.08  (VIOLATED)
+   dpathtotal/fir_feedback/n57120
+                               16.00          16.08          -0.08  (VIOLATED)
+   dpathtotal/fir_feedback/n24389
+                               32.00          32.08          -0.08  (VIOLATED)
+   dpathtotal/fir_feedback/n24551
+                               32.00          32.08          -0.08  (VIOLATED)
+   dpathtotal/fir_feedback/n62997
+                               32.00          32.08          -0.08  (VIOLATED)
+   dpathtotal/correlator/delays_3_real[2]
+                                8.00           8.08          -0.08  (VIOLATED)
+   dpathtotal/fir_feedback/n59314
+                                8.00           8.07          -0.07  (VIOLATED)
+   dpathtotal/correlator/output_168_imag[12]
+                               16.00          16.07          -0.07  (VIOLATED)
+   dpathtotal/fir_feedback/delays_349_imag[9]
+                               16.00          16.07          -0.07  (VIOLATED)
+   dpathtotal/fir_feedback/n57565
+                                8.00           8.07          -0.07  (VIOLATED)
+   dpathtotal/fir_feedback/n77051
+                               32.00          32.07          -0.07  (VIOLATED)
+   dpathtotal/fir_feedback/n35209
+                                8.00           8.06          -0.06  (VIOLATED)
+   dpathtotal/fir_feedback/n24439
+                               32.00          32.06          -0.06  (VIOLATED)
+   dpathtotal/fir_feedback/n29560
+                                8.00           8.06          -0.06  (VIOLATED)
+   dpathtotal/fir_feedback/delays_276_imag[4]
+                               16.00          16.06          -0.06  (VIOLATED)
+   dpathtotal/fir_feedback/n15653
+                                8.00           8.06          -0.06  (VIOLATED)
+   dpathtotal/fir_feedback/n45065
+                               32.00          32.06          -0.06  (VIOLATED)
+   dpathtotal/fir_feedback/n18095
+                                8.00           8.06          -0.06  (VIOLATED)
+   dpathtotal/fir_feedback/n15524
+                                8.00           8.05          -0.05  (VIOLATED)
+   dpathtotal/fir_feedback/n24350
+                               32.00          32.05          -0.05  (VIOLATED)
+   dpathtotal/fir_feedback/n23194
+                               16.00          16.05          -0.05  (VIOLATED)
+   dpathtotal/fir_feedback/n14308
+                                8.00           8.05          -0.05  (VIOLATED)
+   dpathtotal/fir_feedback/n24648
+                               32.00          32.04          -0.04  (VIOLATED)
+   dpathtotal/fir_feedback/n14414
+                                8.00           8.04          -0.04  (VIOLATED)
+   dpathtotal/fir_feedback/n20977
+                                8.00           8.04          -0.04  (VIOLATED)
+   dpathtotal/fir_feedback/n55979
+                                8.00           8.04          -0.04  (VIOLATED)
+   dpathtotal/fir_feedback/n50624
+                               32.00          32.04          -0.04  (VIOLATED)
+   dpathtotal/fir_feedback/n14768
+                                8.00           8.04          -0.04  (VIOLATED)
+   dpathtotal/correlator/n_T_5143[20]
+                               16.00          16.04          -0.04  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n10468
+                               16.00          16.03          -0.03  (VIOLATED)
+   dpathtotal/fir_feedback/n48332
+                               16.00          16.03          -0.03  (VIOLATED)
+   dpathtotal/fir_feedback/n26763
+                                8.00           8.03          -0.03  (VIOLATED)
+   dpathtotal/correlator/delays_62_real[18]
+                               16.00          16.02          -0.02  (VIOLATED)
+   dpathtotal/fir_feedback/n9176
+                               32.00          32.02          -0.02  (VIOLATED)
+   dpathtotal/fir_feedback/n62868
+                               32.00          32.02          -0.02  (VIOLATED)
+   dpathtotal/fir_feedback/n56554
+                                8.00           8.02          -0.02  (VIOLATED)
+   dpathtotal/correlator/N3549
+                               32.00          32.02          -0.02  (VIOLATED)
+   dpathtotal/fir_feedback/n12762
+                                8.00           8.01          -0.01  (VIOLATED)
+   dpathtotal/fir_feedback/DP_OP_4424_135_7512_n8249
+                               16.00          16.01          -0.01  (VIOLATED)
+   dpathtotal/fir_feedback/n23129
+                               32.00          32.01          -0.01  (VIOLATED)
+   dpathtotal/fir_feedback/delays_288_real[13]
+                                8.00           8.01          -0.01  (VIOLATED)
+   dpathtotal/correlator/output_254_imag[10]
+                               16.00          16.01          -0.01  (VIOLATED)
+   dpathtotal/fir_feedback/delays_490_imag[6]
+                                8.00           8.01          -0.01  (VIOLATED)
+   dpathtotal/fir_feedback/n12083
+                                8.00           8.01          -0.01  (VIOLATED)
+   dpathtotal/fir_feedback/n11986
+                                8.00           8.01          -0.01  (VIOLATED)
+   dpathtotal/fir_feedback/n40661
+                                8.00           8.01          -0.01  (VIOLATED)
+   dpathtotal/fir_feedback/n24672
+                               32.00          32.01          -0.01  (VIOLATED)
+   dpathtotal/correlator/D7_10_imag[6]
+                                8.00           8.00           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/correlator/N7555
+                                8.00           8.00           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/fir_feedback/n58925
+                               16.00          16.00           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/fir_feedback/n62554
+                               16.00          16.00           0.00  (VIOLATED: increase significant digits)
+   dpathtotal/fir_feedback/n17452
+                               16.00          16.00           0.00  (VIOLATED: increase significant digits)
+
+   -----------------------------------------------------------------
+   Total                      814             -2850.22  
+
+1

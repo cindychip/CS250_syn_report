@@ -1,0 +1,57 @@
+ 
+****************************************
+Report : area
+Design : dfe3Main
+Version: G-2012.06-SP3
+Date   : Sat Apr 29 00:15:44 2017
+****************************************
+
+Library(s) Used:
+
+    saed32hvt_tt1p05v25c (File: /home/ff/cs250/stdcells/synopsys-32nm/multi_vt/db/cells_hvt.db)
+    saed32lvt_tt1p05v25c (File: /home/ff/cs250/stdcells/synopsys-32nm/multi_vt/db/cells_lvt.db)
+    saed32rvt_tt1p05v25c (File: /home/ff/cs250/stdcells/synopsys-32nm/multi_vt/db/cells_rvt.db)
+
+Number of ports:                           68
+Number of nets:                           236
+Number of cells:                           69
+Number of combinational cells:             67
+Number of sequential cells:                 0
+Number of macros:                           0
+Number of buf/inv:                         67
+Number of references:                       9
+
+Combinational area:       276539.680784
+Buf/Inv area:             47435.977653
+Noncombinational area:    238499.157104
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:          515038.837888
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area              Local cell area
+                                  --------------------  -------------------------------- 
+Hierarchical cell                 Absolute     Percent  Combi-       Noncombi-    Black
+                                  Total        Total    national     national     boxes   Design
+--------------------------------  -----------  -------  -----------  -----------  ------  -------------------------------------
+dfe3Main                          515038.8379    100.0     292.5197       0.0000  0.0000  dfe3Main
+ctrl                                 373.8458      0.1     273.9672      94.0333  0.0000  ctrl
+ctrl/clk_gate_count_reg                5.8453      0.0       0.0000       5.8453  0.0000  SNPS_CLOCK_GATE_HIGH_ctrl_0
+dpathtotal                        514372.4723     99.9     722.0231       0.0000  0.0000  dpathtotal
+dpathtotal/correlator             181967.8722     35.3   53760.3527  128201.6742  0.0000  correlator
+dpathtotal/correlator/clk_gate_output_254_imag_reg      5.8453     0.0      0.0000      5.8453 0.0000 SNPS_CLOCK_GATE_HIGH_correlator
+dpathtotal/decision_device            36.0884      0.0      36.0884       0.0000  0.0000  decision_device
+dpathtotal/fir_feedback           331646.4885     64.4  221454.7296  110156.6871  0.0000  fir_feedback
+dpathtotal/fir_feedback/clk_gate_buffer_complex_0_imag_reg      5.8453     0.0      0.0000      5.8453 0.0000 SNPS_CLOCK_GATE_HIGH_fir_feedback_2_3
+dpathtotal/fir_feedback/clk_gate_buffer_complex_1_real_reg      5.8453     0.0      0.0000      5.8453 0.0000 SNPS_CLOCK_GATE_HIGH_fir_feedback_1_2
+dpathtotal/fir_feedback/clk_gate_buffer_complex_2_real_reg      5.8453     0.0      0.0000      5.8453 0.0000 SNPS_CLOCK_GATE_HIGH_fir_feedback_0_1
+dpathtotal/fir_feedback/clk_gate_index_0_reg      5.8453     0.0      0.0000      5.8453 0.0000 SNPS_CLOCK_GATE_HIGH_fir_feedback_0
+dpathtotal/fir_feedback/clk_gate_index_1_reg      5.8453     0.0      0.0000      5.8453 0.0000 SNPS_CLOCK_GATE_HIGH_fir_feedback_2
+dpathtotal/fir_feedback/clk_gate_index_2_reg      5.8453     0.0      0.0000      5.8453 0.0000 SNPS_CLOCK_GATE_HIGH_fir_feedback_1
+--------------------------------  -----------  -------  -----------  -----------  ------  -------------------------------------
+Total                                                   276539.6808  238499.1571  0.0000
+
+1

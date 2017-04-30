@@ -16,21 +16,21 @@ import spire.algebra.Ring
 import chisel3.util._
 import breeze.math.Complex
 
-//C_w=22, bp = 12
-class ctrlIo[T <: Data:RealBits](gen: T, var C_w: Int, var bp: Int) extends Bundle {
+
+class ctrlIo[T <: Data:RealBits](gen: T) extends Bundle {
   val enable = Input(Bool())
   val reset = Input(Bool())
   val stage = Output(UInt(2.W))
   val count = Output(UInt(12.W))
-  val fbf_coeff = Input(DspComplex(FixedPoint(C_w, bp) ))
+  val fbf_coeff = Input(DspComplex(FixedPoint(22.W, 12.BP) ))
   //val ga_coeff = Input(Bool()) //might needed
-  val coeff_output = Output(DspComplex(FixedPoint(C_w, bp) ))
+  val coeff_output = Output(DspComplex(FixedPoint(22.W, 12.BP) ))
   val tap_en = Output(Bool())
   val lms_en = Output(Bool())
 }
 
-class ctrl[T <: Data:RealBits](gen: T, var C_w: Int, var bp: Int) extends Module {
- val io = IO(new ctrlIo(gen, C_w, bp))
+class ctrl[T <: Data:RealBits](gen: T) extends Module {
+ val io = IO(new ctrlIo(gen))
  
  //import submodule 
  val count = Reg(init = 0.U(12.W))
@@ -57,7 +57,7 @@ class ctrl[T <: Data:RealBits](gen: T, var C_w: Int, var bp: Int) extends Module
       count := count + 1.U
       stage := s_dfe_bpsk
       io.tap_en := true.B
-      io.coeff_output := DspComplex(0.F(C_w.W,bp.BP),0.F(C_w.W,bp.BP))
+      io.coeff_output := DspComplex(0.F(22.W,12.BP),0.F(22.W,12.BP))
     }
    }
   }

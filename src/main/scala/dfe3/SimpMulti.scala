@@ -12,18 +12,18 @@ import org.scalatest.{Matchers, FlatSpec}
 import spire.algebra.Ring
 import dsptools.numbers.{RealBits}
 import breeze.math.Complex
+import spire.math.{ConvertableTo}
 
-class SimpMultiIo[T <: Data:RealBits](gen: T) extends Bundle {
-  val input_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
-  //val DecisionOut_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
+
+class SimpMultiIo[T <: Data:RealBits](gen: T, var S_w: Int, var bp: Int) extends Bundle {
+  val input_complex = Input(DspComplex(FixedPoint(S_w, bp),FixedPoint(S_w, bp) ))  
   val sign = Input(UInt(3.W))
-  val output_complex = Output(DspComplex(gen.cloneType, gen.cloneType))
-
-  override def cloneType: this.type = new SimpMultiIo(gen).asInstanceOf[this.type]
+  val output_complex = Output(DspComplex(FixedPoint(S_w, bp),FixedPoint(S_w, bp) ))
+  override def cloneType: this.type = new SimpMultiIo(gen, S_w, bp).asInstanceOf[this.type]
 }
 
-class SimpMulti[T <: Data:RealBits](gen: T) extends Module {
-  val io = IO(new SimpMultiIo(gen))
+class SimpMulti[T <: Data:RealBits](gen: T, var S_w: Int, var bp: Int) extends Module {
+  val io = IO(new SimpMultiIo(gen, S_w, bp))
 
   //BPSK
   when (io.sign(2) === 0.U){
@@ -38,19 +38,19 @@ class SimpMulti[T <: Data:RealBits](gen: T) extends Module {
     //QPSK
     when(io.sign(1) === io.sign(0)){
       when (io.sign(1)=== 0.U){
-        io.output_complex.real :=  io.input_complex.real - io.input_complex.imag
-        io.output_complex.imag :=  io.input_complex.real + io.input_complex.imag
+        io.output_complex.real :=  (io.input_complex.real - io.input_complex.imag) * { ConvertableTo[FixedPoint].fromDouble(0.7071067811865475244) }
+        io.output_complex.imag :=  (io.input_complex.real + io.input_complex.imag) * { ConvertableTo[FixedPoint].fromDouble(0.7071067811865475244) } 
       } .otherwise{
-        io.output_complex.real :=  -io.input_complex.real + io.input_complex.imag
-        io.output_complex.imag :=  -io.input_complex.real - io.input_complex.imag
+        io.output_complex.real :=  (-io.input_complex.real + io.input_complex.imag) * { ConvertableTo[FixedPoint].fromDouble(0.7071067811865475244) }
+        io.output_complex.imag :=  (-io.input_complex.real - io.input_complex.imag) * { ConvertableTo[FixedPoint].fromDouble(0.7071067811865475244) }
       }
     } .otherwise{
       when (io.sign(1) === 0.U){
-        io.output_complex.real :=  io.input_complex.real + io.input_complex.imag
-        io.output_complex.imag :=  -io.input_complex.real + io.input_complex.imag
+        io.output_complex.real :=  (io.input_complex.real + io.input_complex.imag) * { ConvertableTo[FixedPoint].fromDouble(0.7071067811865475244) }
+        io.output_complex.imag :=  (-io.input_complex.real + io.input_complex.imag) * { ConvertableTo[FixedPoint].fromDouble(0.7071067811865475244) }
       } .otherwise{
-        io.output_complex.real :=  -io.input_complex.real - io.input_complex.imag
-        io.output_complex.imag :=  io.input_complex.real - io.input_complex.imag
+        io.output_complex.real :=  (-io.input_complex.real - io.input_complex.imag) * { ConvertableTo[FixedPoint].fromDouble(0.7071067811865475244) }
+        io.output_complex.imag :=  (io.input_complex.real - io.input_complex.imag) * { ConvertableTo[FixedPoint].fromDouble(0.7071067811865475244) }
       }
     }
   }
