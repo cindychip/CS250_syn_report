@@ -14,7 +14,6 @@ import spire.algebra.Ring
 import dsptools.numbers.{RealBits}
 import breeze.math.Complex
 import math._
-import spire.math.{ConvertableTo}
 
 class firFeedbackNoMultiIo[T <: Data:RealBits](gen: T) extends Bundle {
   val input_complex = Input(DspComplex(FixedPoint(16.W, 12.BP),FixedPoint(16.W, 12.BP) ))
@@ -28,7 +27,6 @@ class firFeedbackNoMultiIo[T <: Data:RealBits](gen: T) extends Bundle {
  // val output_debug2 = Output(DspComplex(gen.cloneType, gen.cloneType))
  // val output_debug3 = Output(DspComplex(gen.cloneType, gen.cloneType))
   val rst = Input(Bool())
-  val qpsk_en = Input(Bool())
  // val output_debug4 = Output(UInt(2.W))
 
   override def cloneType: this.type = new firFeedbackNoMultiIo(gen).asInstanceOf[this.type]
@@ -89,10 +87,10 @@ class firFeedbackNoMulti[T <: Data:RealBits](gen: T,var window_size: Int, var st
     delays(i) := delays(i-1)
   }
 //update non-zero coef while count the index
-  when (io.coef_en){ //&& (index_count < 3.U )) {
+  when ((io.coef_en) && (index_count < 3.U )) {
     when(io.tap_coeff_complex.imag > 0 || io.tap_coeff_complex.real > 0 ||
           io.tap_coeff_complex.imag < 0 || io.tap_coeff_complex.real < 0) {
-      index(index_count) := io.tap_index //-1.U
+      index(index_count) := io.tap_index -1.U
       buffer_complex(index_count) := io.tap_coeff_complex
       index_count := index_count + 1.U  
     }
@@ -124,21 +122,32 @@ class firFeedbackNoMulti[T <: Data:RealBits](gen: T,var window_size: Int, var st
     buffer_complex(2) := buffer_complex(2) - Multi_5.output_complex
 
 }
-
+/*
+when (index_count === 1.U ) {
 Multi_0.input_complex := buffer_complex(0) 
 Multi_0.sign := delays(index(0))
-
+io.output_complex := Multi_0.output_complex
+}
+.elsewhen (index_count === 2.U) {
+Multi_0.input_complex := buffer_complex(0) 
+Multi_0.sign := delays(index(0))
 Multi_1.input_complex := buffer_complex(1) 
-Multi_1.sign := delays(index(1))
-
+Multi_1.sign := delays(index(1)) 
+io.output_complex := Multi_0.output_complex + Multi_1.output_complex
+}
+.elsewhen (index_count === 3.U) {
+	*/
+Multi_0.input_complex := buffer_complex(0) 
+Multi_0.sign := delays(index(0))
+Multi_1.input_complex := buffer_complex(1) 
+Multi_1.sign := delays(index(1)) 
 Multi_2.input_complex := buffer_complex(2) 
 Multi_2.sign := delays(index(2))
-
-io.output_complex := (Multi_0.output_complex+Multi_1.output_complex+Multi_2.output_complex)
-when (io.qpsk_en){
-io.output_complex.real := io.output_complex.real * (DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(0.7071067811865475244) })
-io.output_complex.imag := io.output_complex.imag * (DspContext.withBinaryPoint(12) { ConvertableTo[FixedPoint].fromDouble(0.7071067811865475244) })
+io.output_complex := Multi_0.output_complex + Multi_1.output_complex + Multi_2.output_complex
+//}
+//.otherwise {
+//	io.output_complex := DspComplex(0.0.F(16.W,12.BP), 0.0.F(16.W,12.BP)) 
 }
 
 
-}
+//}

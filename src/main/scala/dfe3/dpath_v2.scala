@@ -77,7 +77,6 @@ class dpathtotal[T <: Data:RealBits](gen: T) extends Module {
   fbf.coef_en := io.tap_en
   io.signal_out := dec.output_complex
   dec.qpsk_en := false.B
-  fbf.qpsk_en := false.B
  }
 
   when (io.stage === 3.U) {
@@ -93,7 +92,6 @@ class dpathtotal[T <: Data:RealBits](gen: T) extends Module {
   fbf.coef_en := io.tap_en
   io.signal_out := dec.output_complex
   dec.qpsk_en := true.B
- fbf.qpsk_en := true.B
  }
  io.coeff_out := corr.output_coefficient
 

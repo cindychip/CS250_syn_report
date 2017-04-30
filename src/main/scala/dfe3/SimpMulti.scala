@@ -12,6 +12,8 @@ import org.scalatest.{Matchers, FlatSpec}
 import spire.algebra.Ring
 import dsptools.numbers.{RealBits}
 import breeze.math.Complex
+import spire.math.{ConvertableTo}
+
 
 class SimpMultiIo[T <: Data:RealBits](gen: T) extends Bundle {
   val input_complex = Input(DspComplex(FixedPoint(16.W, 12.BP),FixedPoint(16.W, 12.BP) ))  
@@ -36,19 +38,19 @@ class SimpMulti[T <: Data:RealBits](gen: T) extends Module {
     //QPSK
     when(io.sign(1) === io.sign(0)){
       when (io.sign(1)=== 0.U){
-        io.output_complex.real :=  io.input_complex.real - io.input_complex.imag
-        io.output_complex.imag :=  io.input_complex.real + io.input_complex.imag
+        io.output_complex.real :=  (io.input_complex.real - io.input_complex.imag) * { ConvertableTo[FixedPoint].fromDouble(0.7071067811865475244) }
+        io.output_complex.imag :=  (io.input_complex.real + io.input_complex.imag) * { ConvertableTo[FixedPoint].fromDouble(0.7071067811865475244) } 
       } .otherwise{
-        io.output_complex.real :=  -io.input_complex.real + io.input_complex.imag
-        io.output_complex.imag :=  -io.input_complex.real - io.input_complex.imag
+        io.output_complex.real :=  (-io.input_complex.real + io.input_complex.imag) * { ConvertableTo[FixedPoint].fromDouble(0.7071067811865475244) }
+        io.output_complex.imag :=  (-io.input_complex.real - io.input_complex.imag) * { ConvertableTo[FixedPoint].fromDouble(0.7071067811865475244) }
       }
     } .otherwise{
       when (io.sign(1) === 0.U){
-        io.output_complex.real :=  io.input_complex.real + io.input_complex.imag
-        io.output_complex.imag :=  -io.input_complex.real + io.input_complex.imag
+        io.output_complex.real :=  (io.input_complex.real + io.input_complex.imag) * { ConvertableTo[FixedPoint].fromDouble(0.7071067811865475244) }
+        io.output_complex.imag :=  (-io.input_complex.real + io.input_complex.imag) * { ConvertableTo[FixedPoint].fromDouble(0.7071067811865475244) }
       } .otherwise{
-        io.output_complex.real :=  -io.input_complex.real - io.input_complex.imag
-        io.output_complex.imag :=  io.input_complex.real - io.input_complex.imag
+        io.output_complex.real :=  (-io.input_complex.real - io.input_complex.imag) * { ConvertableTo[FixedPoint].fromDouble(0.7071067811865475244) }
+        io.output_complex.imag :=  (io.input_complex.real - io.input_complex.imag) * { ConvertableTo[FixedPoint].fromDouble(0.7071067811865475244) }
       }
     }
   }
