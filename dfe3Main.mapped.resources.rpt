@@ -1,0 +1,736 @@
+ 
+****************************************
+Report : resources
+Design : dfe3Main
+Version: G-2012.06-SP3
+Date   : Sat Apr 29 18:10:02 2017
+****************************************
+
+
+No resource sharing information to report.
+
+No implementations to report
+
+No multiplexors to report
+ 
+****************************************
+Design : ctrl
+****************************************
+
+Resource Report for this hierarchy in file
+        /scratch/cs250-aab/dsp/build/vlsi/generated-src/dfe3Main.DefaultConfig.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| gt_x_5         | DW_cmp         | width=22   | gt_29180                   |
+| gt_x_7         | DW_cmp         | width=22   | gt_29183                   |
+| add_x_9        | DW01_inc       | width=12   | add_29187                  |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| gt_x_5             | DW_cmp           | apparch (area)     |                |
+| gt_x_7             | DW_cmp           | apparch (area)     |                |
+| add_x_9            | DW01_inc         | apparch (area)     |                |
+===============================================================================
+
+
+No multiplexors to report
+ 
+****************************************
+Design : SNPS_CLOCK_GATE_HIGH_ctrl_0
+****************************************
+
+No resource sharing information to report.
+
+No implementations to report
+
+No multiplexors to report
+ 
+****************************************
+Design : dpathtotal
+****************************************
+
+Resource Report for this hierarchy in file
+        /scratch/cs250-aab/dsp/build/vlsi/generated-src/dfe3Main.DefaultConfig.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_1        | DW01_sub       | width=17   | sub_29070                  |
+| sub_x_2        | DW01_sub       | width=17   | sub_29071                  |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| sub_x_1            | DW01_sub         | pparch (area,speed)                 |
+| sub_x_2            | DW01_sub         | pparch (speed)     |                |
+===============================================================================
+
+
+No multiplexors to report
+ 
+****************************************
+Design : firFeedbackNoMulti
+****************************************
+
+Resource Report for this hierarchy in file
+        /scratch/cs250-aab/dsp/build/vlsi/generated-src/dfe3Main.DefaultConfig.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| gt_x_1         | DW_cmp         | width=16   | gt_20411                   |
+| gte_x_2        | DW_cmp         | width=16   | gte_20412                  |
+| lt_x_16        | DW_cmp         | width=2    | lt_20949                   |
+| gt_x_17        | DW_cmp         | width=22   | gt_20951                   |
+| gt_x_18        | DW_cmp         | width=22   | gt_20952                   |
+| sub_x_21       | DW01_dec       | width=9    | sub_20958                  |
+| add_x_28       | DW01_inc       | width=2    | add_20973                  |
+| sub_x_1580     | DW01_sub       | width=22   | sub_23074                  |
+| sub_x_1581     | DW01_sub       | width=22   | sub_23076                  |
+| sub_x_1582     | DW01_sub       | width=22   | sub_23080                  |
+| sub_x_1583     | DW01_sub       | width=22   | sub_23082                  |
+| sub_x_1584     | DW01_sub       | width=22   | sub_23086                  |
+| sub_x_1585     | DW01_sub       | width=22   | sub_23088                  |
+| DP_OP_2151J2_124_4853           |            |                            |
+|                | DP_OP_2151J2_124_4853 |     |                            |
+| DP_OP_2152J2_125_4853           |            |                            |
+|                | DP_OP_2152J2_125_4853 |     |                            |
+=============================================================================
+
+Datapath Report for DP_OP_2151J2_124_4853
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_2151J2_124_4853 | add_23100 add_23105                                |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Unsigned | 16    |                                          |
+| I2    | PI   | Unsigned | 16    |                                          |
+| I3    | PI   | Unsigned | 16    |                                          |
+| O1    | PO   | Unsigned | 16    | I1 + I2 + I3                             |
+==============================================================================
+
+Datapath Report for DP_OP_2152J2_125_4853
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_2152J2_125_4853 | add_23101 add_23107                                |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Unsigned | 16    |                                          |
+| I2    | PI   | Unsigned | 16    |                                          |
+| I3    | PI   | Unsigned | 16    |                                          |
+| O1    | PO   | Unsigned | 16    | I1 + I2 + I3                             |
+==============================================================================
+
+
+Resource Report for Ungrouped Hierarchy
+        dpathtotal/firFeedbackNoMulti/SimpMulti_3 in file
+        /scratch/cs250-aab/dsp/build/vlsi/generated-src/dfe3Main.DefaultConfig.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_1        | DW01_sub       | width=16   | sub_16484                  |
+| sub_x_4        | DW01_sub       | width=16   | sub_16492                  |
+| mult_x_5       | DW_mult_tc     | a_width=16 | mult_16495                 |
+|                |                | b_width=15 |                            |
+| add_x_6        | DW01_add       | width=16   | add_16496                  |
+| mult_x_7       | DW_mult_tc     | a_width=16 | mult_16499                 |
+|                |                | b_width=15 |                            |
+| mult_x_10      | DW_mult_tc     | a_width=16 | mult_16509                 |
+|                |                | b_width=15 |                            |
+| mult_x_11      | DW_mult_tc     | a_width=16 | mult_16513                 |
+|                |                | b_width=15 |                            |
+| DP_OP_31J3_124_9900             |            |                            |
+|                | DP_OP_31J3_124_9900 |       |                            |
+=============================================================================
+
+Datapath Report for DP_OP_31J3_124_9900
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_31J3_124_9900  | sub_16481 add_16506 sub_16510                       |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 16    |                                          |
+| I2    | PI   | Signed   | 16    |                                          |
+| O1    | PO   | Signed   | 16    | $signed(1'b0) - I1                       |
+| O2    | PO   | Unsigned | 16    | O1 + I2                                  |
+| O3    | PO   | Signed   | 16    | O1 - I2                                  |
+==============================================================================
+
+
+Resource Report for Ungrouped Hierarchy
+        dpathtotal/firFeedbackNoMulti/SimpMulti_4 in file
+        /scratch/cs250-aab/dsp/build/vlsi/generated-src/dfe3Main.DefaultConfig.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_1        | DW01_sub       | width=16   | sub_16484                  |
+| sub_x_4        | DW01_sub       | width=16   | sub_16492                  |
+| mult_x_5       | DW_mult_tc     | a_width=16 | mult_16495                 |
+|                |                | b_width=15 |                            |
+| add_x_6        | DW01_add       | width=16   | add_16496                  |
+| mult_x_7       | DW_mult_tc     | a_width=16 | mult_16499                 |
+|                |                | b_width=15 |                            |
+| mult_x_10      | DW_mult_tc     | a_width=16 | mult_16509                 |
+|                |                | b_width=15 |                            |
+| mult_x_11      | DW_mult_tc     | a_width=16 | mult_16513                 |
+|                |                | b_width=15 |                            |
+| DP_OP_31J3_124_9900             |            |                            |
+|                | DP_OP_31J3_124_9900 |       |                            |
+=============================================================================
+
+Datapath Report for DP_OP_31J3_124_9900
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_31J3_124_9900  | sub_16481 add_16506 sub_16510                       |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 16    |                                          |
+| I2    | PI   | Signed   | 16    |                                          |
+| O1    | PO   | Signed   | 16    | $signed(1'b0) - I1                       |
+| O2    | PO   | Unsigned | 16    | O1 + I2                                  |
+| O3    | PO   | Signed   | 16    | O1 - I2                                  |
+==============================================================================
+
+
+Resource Report for Ungrouped Hierarchy
+        dpathtotal/firFeedbackNoMulti/SimpMulti_5 in file
+        /scratch/cs250-aab/dsp/build/vlsi/generated-src/dfe3Main.DefaultConfig.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_1        | DW01_sub       | width=16   | sub_16484                  |
+| sub_x_4        | DW01_sub       | width=16   | sub_16492                  |
+| mult_x_5       | DW_mult_tc     | a_width=16 | mult_16495                 |
+|                |                | b_width=15 |                            |
+| add_x_6        | DW01_add       | width=16   | add_16496                  |
+| mult_x_7       | DW_mult_tc     | a_width=16 | mult_16499                 |
+|                |                | b_width=15 |                            |
+| mult_x_10      | DW_mult_tc     | a_width=16 | mult_16509                 |
+|                |                | b_width=15 |                            |
+| mult_x_11      | DW_mult_tc     | a_width=16 | mult_16513                 |
+|                |                | b_width=15 |                            |
+| DP_OP_31J3_124_9900             |            |                            |
+|                | DP_OP_31J3_124_9900 |       |                            |
+=============================================================================
+
+Datapath Report for DP_OP_31J3_124_9900
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_31J3_124_9900  | sub_16481 add_16506 sub_16510                       |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 16    |                                          |
+| I2    | PI   | Signed   | 16    |                                          |
+| O1    | PO   | Signed   | 16    | $signed(1'b0) - I1                       |
+| O2    | PO   | Unsigned | 16    | O1 + I2                                  |
+| O3    | PO   | Signed   | 16    | O1 - I2                                  |
+==============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| gt_x_1             | DW_cmp           | apparch (area)     |                |
+| gte_x_2            | DW_cmp           | apparch (area)     |                |
+| lt_x_16            | DW_cmp           | apparch (area)     |                |
+| gt_x_17            | DW_cmp           | apparch (area)     |                |
+| gt_x_18            | DW_cmp           | apparch (area)     |                |
+| sub_x_21           | DW01_dec         | apparch (area)     |                |
+| add_x_28           | DW01_inc         | apparch (area)     |                |
+| sub_x_1            | DW01_sub         | apparch (area)     |                |
+| sub_x_4            | DW01_sub         | apparch (area)     |                |
+| add_x_6            | DW01_add         | apparch (area)     |                |
+| sub_x_1            | DW01_sub         | apparch (area)     |                |
+| sub_x_4            | DW01_sub         | apparch (area)     |                |
+| add_x_6            | DW01_add         | apparch (area)     |                |
+| sub_x_1            | DW01_sub         | apparch (area)     |                |
+| sub_x_4            | DW01_sub         | apparch (area)     |                |
+| add_x_6            | DW01_add         | apparch (area)     |                |
+| DP_OP_2151J2_124_4853                 |                    |                |
+|                    | DP_OP_2151J2_124_4853 | str (area,speed)               |
+| DP_OP_2152J2_125_4853                 |                    |                |
+|                    | DP_OP_2152J2_125_4853 | str (area,speed)               |
+===============================================================================
+
+
+No multiplexors to report
+ 
+****************************************
+Design : SNPS_CLOCK_GATE_HIGH_firFeedbackNoMulti_2_3
+****************************************
+
+No resource sharing information to report.
+
+No implementations to report
+
+No multiplexors to report
+ 
+****************************************
+Design : SNPS_CLOCK_GATE_HIGH_firFeedbackNoMulti_1_2
+****************************************
+
+No resource sharing information to report.
+
+No implementations to report
+
+No multiplexors to report
+ 
+****************************************
+Design : SNPS_CLOCK_GATE_HIGH_firFeedbackNoMulti_0_1
+****************************************
+
+No resource sharing information to report.
+
+No implementations to report
+
+No multiplexors to report
+ 
+****************************************
+Design : SimpMulti_3
+****************************************
+
+Resource Report for this hierarchy in file
+        /scratch/cs250-aab/dsp/build/vlsi/generated-src/dfe3Main.DefaultConfig.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_1        | DW01_sub       | width=16   | sub_16484                  |
+| sub_x_4        | DW01_sub       | width=16   | sub_16492                  |
+| mult_x_5       | DW_mult_tc     | a_width=16 | mult_16495                 |
+|                |                | b_width=15 |                            |
+| add_x_6        | DW01_add       | width=16   | add_16496                  |
+| mult_x_7       | DW_mult_tc     | a_width=16 | mult_16499                 |
+|                |                | b_width=15 |                            |
+| mult_x_10      | DW_mult_tc     | a_width=16 | mult_16509                 |
+|                |                | b_width=15 |                            |
+| mult_x_11      | DW_mult_tc     | a_width=16 | mult_16513                 |
+|                |                | b_width=15 |                            |
+| DP_OP_31J3_124_9900             |            |                            |
+|                | DP_OP_31J3_124_9900 |       |                            |
+=============================================================================
+
+Datapath Report for DP_OP_31J3_124_9900
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_31J3_124_9900  | sub_16481 add_16506 sub_16510                       |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 16    |                                          |
+| I2    | PI   | Signed   | 16    |                                          |
+| O1    | PO   | Signed   | 16    | $signed(1'b0) - I1                       |
+| O2    | PO   | Unsigned | 16    | O1 + I2                                  |
+| O3    | PO   | Signed   | 16    | O1 - I2                                  |
+==============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| sub_x_1            | DW01_sub         | apparch (area)     |                |
+| sub_x_4            | DW01_sub         | pparch (area,speed)                 |
+| mult_x_5           | DW_mult_tc       | pparch (area,speed)                 |
+| add_x_6            | DW01_add         | pparch (area,speed)                 |
+| mult_x_7           | DW_mult_tc       | pparch (area,speed)                 |
+| mult_x_10          | DW_mult_tc       | pparch (area,speed)                 |
+| mult_x_11          | DW_mult_tc       | pparch (area,speed)                 |
+| DP_OP_31J3_124_9900                   |                    |                |
+|                    | DP_OP_31J3_124_9900 | str (area,speed)                 |
+===============================================================================
+
+
+No multiplexors to report
+ 
+****************************************
+Design : SimpMulti_4
+****************************************
+
+Resource Report for this hierarchy in file
+        /scratch/cs250-aab/dsp/build/vlsi/generated-src/dfe3Main.DefaultConfig.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_1        | DW01_sub       | width=16   | sub_16484                  |
+| sub_x_4        | DW01_sub       | width=16   | sub_16492                  |
+| mult_x_5       | DW_mult_tc     | a_width=16 | mult_16495                 |
+|                |                | b_width=15 |                            |
+| add_x_6        | DW01_add       | width=16   | add_16496                  |
+| mult_x_7       | DW_mult_tc     | a_width=16 | mult_16499                 |
+|                |                | b_width=15 |                            |
+| mult_x_10      | DW_mult_tc     | a_width=16 | mult_16509                 |
+|                |                | b_width=15 |                            |
+| mult_x_11      | DW_mult_tc     | a_width=16 | mult_16513                 |
+|                |                | b_width=15 |                            |
+| DP_OP_31J3_124_9900             |            |                            |
+|                | DP_OP_31J3_124_9900 |       |                            |
+=============================================================================
+
+Datapath Report for DP_OP_31J3_124_9900
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_31J3_124_9900  | sub_16481 add_16506 sub_16510                       |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 16    |                                          |
+| I2    | PI   | Signed   | 16    |                                          |
+| O1    | PO   | Signed   | 16    | $signed(1'b0) - I1                       |
+| O2    | PO   | Unsigned | 16    | O1 + I2                                  |
+| O3    | PO   | Signed   | 16    | O1 - I2                                  |
+==============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| sub_x_1            | DW01_sub         | apparch (area)     |                |
+| sub_x_4            | DW01_sub         | pparch (area,speed)                 |
+| mult_x_5           | DW_mult_tc       | pparch (area,speed)                 |
+| add_x_6            | DW01_add         | pparch (area,speed)                 |
+| mult_x_7           | DW_mult_tc       | pparch (area,speed)                 |
+| mult_x_10          | DW_mult_tc       | pparch (area,speed)                 |
+| mult_x_11          | DW_mult_tc       | pparch (area,speed)                 |
+| DP_OP_31J3_124_9900                   |                    |                |
+|                    | DP_OP_31J3_124_9900 | str (area,speed)                 |
+===============================================================================
+
+
+No multiplexors to report
+ 
+****************************************
+Design : SimpMulti_5
+****************************************
+
+Resource Report for this hierarchy in file
+        /scratch/cs250-aab/dsp/build/vlsi/generated-src/dfe3Main.DefaultConfig.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_1        | DW01_sub       | width=16   | sub_16484                  |
+| sub_x_4        | DW01_sub       | width=16   | sub_16492                  |
+| mult_x_5       | DW_mult_tc     | a_width=16 | mult_16495                 |
+|                |                | b_width=15 |                            |
+| add_x_6        | DW01_add       | width=16   | add_16496                  |
+| mult_x_7       | DW_mult_tc     | a_width=16 | mult_16499                 |
+|                |                | b_width=15 |                            |
+| mult_x_10      | DW_mult_tc     | a_width=16 | mult_16509                 |
+|                |                | b_width=15 |                            |
+| mult_x_11      | DW_mult_tc     | a_width=16 | mult_16513                 |
+|                |                | b_width=15 |                            |
+| DP_OP_31J3_124_9900             |            |                            |
+|                | DP_OP_31J3_124_9900 |       |                            |
+=============================================================================
+
+Datapath Report for DP_OP_31J3_124_9900
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_31J3_124_9900  | sub_16481 add_16506 sub_16510                       |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 16    |                                          |
+| I2    | PI   | Signed   | 16    |                                          |
+| O1    | PO   | Signed   | 16    | $signed(1'b0) - I1                       |
+| O2    | PO   | Unsigned | 16    | O1 + I2                                  |
+| O3    | PO   | Signed   | 16    | O1 - I2                                  |
+==============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| sub_x_1            | DW01_sub         | apparch (area)     |                |
+| sub_x_4            | DW01_sub         | pparch (area,speed)                 |
+| mult_x_5           | DW_mult_tc       | pparch (area,speed)                 |
+| add_x_6            | DW01_add         | pparch (area,speed)                 |
+| mult_x_7           | DW_mult_tc       | pparch (area,speed)                 |
+| mult_x_10          | DW_mult_tc       | pparch (area,speed)                 |
+| mult_x_11          | DW_mult_tc       | pparch (area,speed)                 |
+| DP_OP_31J3_124_9900                   |                    |                |
+|                    | DP_OP_31J3_124_9900 | str (area,speed)                 |
+===============================================================================
+
+
+No multiplexors to report
+ 
+****************************************
+Design : correlator
+****************************************
+
+Resource Report for this hierarchy in file
+        /scratch/cs250-aab/dsp/build/vlsi/generated-src/dfe3Main.DefaultConfig.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| gt_x_1         | DW_cmp         | width=12   | gt_4919                    |
+| DP_OP_922J1_124_8812            |            |                            |
+|                | DP_OP_922J1_124_8812 |      |                            |
+| DP_OP_923J1_125_3606            |            |                            |
+|                | DP_OP_923J1_125_3606 |      |                            |
+| DP_OP_924J1_126_8812            |            |                            |
+|                | DP_OP_924J1_126_8812 |      |                            |
+| DP_OP_925J1_127_7525            |            |                            |
+|                | DP_OP_925J1_127_7525 |      |                            |
+| DP_OP_926J1_128_7525            |            |                            |
+|                | DP_OP_926J1_128_7525 |      |                            |
+=============================================================================
+
+Datapath Report for DP_OP_922J1_124_8812
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_922J1_124_8812 | sub_4923 add_4928 sub_4933 sub_4997 add_4938        |
+|                      | sub_4943 sub_5003 add_4948 sub_4953 sub_5009        |
+|                      | add_4958 add_4963 sub_4967 sub_5019 add_4972        |
+|                      | sub_4977 sub_5025 add_4982 sub_5013                 |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 22    |                                          |
+| I2    | PI   | Signed   | 16    |                                          |
+| I3    | PI   | Unsigned | 1     |                                          |
+| I4    | PI   | Unsigned | 1     |                                          |
+| I5    | PI   | Signed   | 22    |                                          |
+| I6    | PI   | Signed   | 22    |                                          |
+| I7    | PI   | Signed   | 22    |                                          |
+| I8    | PI   | Signed   | 22    |                                          |
+| I9    | PI   | Signed   | 22    |                                          |
+| I10   | PI   | Signed   | 22    |                                          |
+| T906  | IFO  | Signed   | 22    | I1 - I2                                  |
+| T63   | IFO  | Signed   | 22    | { I3, I4 } ? T906 : $unsigned(1'b0)      |
+| T907  | IFO  | Signed   | 22    | I5 - T63                                 |
+| T65   | IFO  | Signed   | 22    | { I3, I4 } ? T907 : $unsigned(1'b0)      |
+| T908  | IFO  | Signed   | 22    | I6 - T65                                 |
+| T67   | IFO  | Signed   | 22    | { I3, I4 } ? T908 : $unsigned(1'b0)      |
+| T909  | IFO  | Signed   | 22    | I7 - T67                                 |
+| T69   | IFO  | Signed   | 22    | { I3, I4 } ? T909 : $unsigned(1'b0)      |
+| T24   | IFO  | Unsigned | 22    | T69 + I8                                 |
+| T71   | IFO  | Signed   | 22    | { I3, I4 } ? T24 : $unsigned(1'b0)       |
+| T910  | IFO  | Signed   | 22    | I9 - T71                                 |
+| T73   | IFO  | Signed   | 22    | { I3, I4 } ? T910 : $unsigned(1'b0)      |
+| O1    | PO   | Signed   | 22    | $signed(1'b0) - T63 - I5                 |
+| O2    | PO   | Signed   | 22    | $signed(1'b0) - T65 - I6                 |
+| O3    | PO   | Signed   | 22    | $signed(1'b0) - T67 - I7                 |
+| O4    | PO   | Signed   | 22    | $signed(1'b0) - T71 - I9                 |
+| O5    | PO   | Signed   | 22    | $signed(1'b0) - T73 - I10                |
+| O6    | PO   | Signed   | 22    | I10 - T73                                |
+| O7    | PO   | Signed   | 22    | T69 - I8                                 |
+==============================================================================
+
+Datapath Report for DP_OP_923J1_125_3606
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_923J1_125_3606 | add_4904 mult_4912 add_4914 mult_4913 add_4905      |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 22    |                                          |
+| I2    | PI   | Signed   | 22    |                                          |
+| I3    | PI   | Signed   | 22    |                                          |
+| I4    | PI   | Signed   | 22    |                                          |
+| T854  | IFO  | Signed   | 15    | O1[22:8]                                 |
+| T919  | IFO  | Signed   | 15    | O1[22:8]                                 |
+| T2    | IFO  | Signed   | 30    | T854 * T919                              |
+| T855  | IFO  | Signed   | 15    | O3[22:8]                                 |
+| T921  | IFO  | Signed   | 15    | O3[22:8]                                 |
+| T3    | IFO  | Signed   | 30    | T855 * T921                              |
+| O1    | PO   | Signed   | 23    | I1 + I2                                  |
+| O2    | PO   | Unsigned | 30    | T2 + T3                                  |
+| O3    | PO   | Signed   | 23    | I3 + I4                                  |
+==============================================================================
+
+Datapath Report for DP_OP_924J1_126_8812
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_924J1_126_8812 | sub_4924 add_4930 sub_4934 sub_4998 add_4940        |
+|                      | sub_4944 sub_5004 add_4950 sub_4954 sub_5010        |
+|                      | add_4960 add_4964 sub_4968 sub_5020 add_4974        |
+|                      | sub_4978 sub_5026 add_4984 sub_5014                 |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 22    |                                          |
+| I2    | PI   | Signed   | 16    |                                          |
+| I3    | PI   | Unsigned | 1     |                                          |
+| I4    | PI   | Unsigned | 1     |                                          |
+| I5    | PI   | Signed   | 22    |                                          |
+| I6    | PI   | Signed   | 22    |                                          |
+| I7    | PI   | Signed   | 22    |                                          |
+| I8    | PI   | Signed   | 22    |                                          |
+| I9    | PI   | Signed   | 22    |                                          |
+| I10   | PI   | Signed   | 22    |                                          |
+| T911  | IFO  | Signed   | 22    | I1 - I2                                  |
+| T62   | IFO  | Signed   | 22    | { I3, I4 } ? T911 : $unsigned(1'b0)      |
+| T912  | IFO  | Signed   | 22    | I5 - T62                                 |
+| T64   | IFO  | Signed   | 22    | { I3, I4 } ? T912 : $unsigned(1'b0)      |
+| T913  | IFO  | Signed   | 22    | I6 - T64                                 |
+| T66   | IFO  | Signed   | 22    | { I3, I4 } ? T913 : $unsigned(1'b0)      |
+| T914  | IFO  | Signed   | 22    | I7 - T66                                 |
+| T68   | IFO  | Signed   | 22    | { I3, I4 } ? T914 : $unsigned(1'b0)      |
+| T25   | IFO  | Unsigned | 22    | T68 + I8                                 |
+| T70   | IFO  | Signed   | 22    | { I3, I4 } ? T25 : $unsigned(1'b0)       |
+| T915  | IFO  | Signed   | 22    | I9 - T70                                 |
+| T72   | IFO  | Signed   | 22    | { I3, I4 } ? T915 : $unsigned(1'b0)      |
+| O1    | PO   | Signed   | 22    | $signed(1'b0) - T62 - I5                 |
+| O2    | PO   | Signed   | 22    | $signed(1'b0) - T64 - I6                 |
+| O3    | PO   | Signed   | 22    | $signed(1'b0) - T66 - I7                 |
+| O4    | PO   | Signed   | 22    | $signed(1'b0) - T70 - I9                 |
+| O5    | PO   | Signed   | 22    | $signed(1'b0) - T72 - I10                |
+| O6    | PO   | Signed   | 22    | I10 - T72                                |
+| O7    | PO   | Signed   | 22    | T68 - I8                                 |
+==============================================================================
+
+Datapath Report for DP_OP_925J1_127_7525
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_925J1_127_7525 | sub_4923 sub_4990                                   |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 16    |                                          |
+| I2    | PI   | Signed   | 22    |                                          |
+| O1    | PO   | Signed   | 22    | $signed(1'b0) - I1 - I2                  |
+==============================================================================
+
+Datapath Report for DP_OP_926J1_128_7525
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_926J1_128_7525 | sub_4924 sub_4992                                   |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 16    |                                          |
+| I2    | PI   | Signed   | 22    |                                          |
+| O1    | PO   | Signed   | 22    | $signed(1'b0) - I1 - I2                  |
+==============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| gt_x_1             | DW_cmp           | apparch (area)     |                |
+| DP_OP_922J1_124_8812                  |                    |                |
+|                    | DP_OP_922J1_124_8812 | str (area,speed)                |
+| DP_OP_923J1_125_3606                  |                    |                |
+|                    | DP_OP_923J1_125_3606 | str (area,speed)                |
+| DP_OP_924J1_126_8812                  |                    |                |
+|                    | DP_OP_924J1_126_8812 | str (area,speed)                |
+| DP_OP_925J1_127_7525                  |                    |                |
+|                    | DP_OP_925J1_127_7525 | str (area)     |                |
+| DP_OP_926J1_128_7525                  |                    |                |
+|                    | DP_OP_926J1_128_7525 | str (area)     |                |
+===============================================================================
+
+
+No multiplexors to report
+ 
+****************************************
+Design : SNPS_CLOCK_GATE_HIGH_correlator
+****************************************
+
+No resource sharing information to report.
+
+No implementations to report
+
+No multiplexors to report
+ 
+****************************************
+Design : decision_device
+****************************************
+
+Resource Report for this hierarchy in file
+        /scratch/cs250-aab/dsp/build/vlsi/generated-src/dfe3Main.DefaultConfig.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_14       | DW01_sub       | width=16   | sub_16401                  |
+| sub_x_15       | DW01_sub       | width=16   | sub_16402                  |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| sub_x_14           | DW01_sub         | apparch (area)     |                |
+| sub_x_15           | DW01_sub         | apparch (area)     |                |
+===============================================================================
+
+
+No multiplexors to report
+1

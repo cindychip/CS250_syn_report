@@ -1,0 +1,70 @@
+ 
+****************************************
+Report : cell
+Design : dfe3Main
+Version: G-2012.06-SP3
+Date   : Sat Apr 29 18:10:04 2017
+****************************************
+
+Attributes:
+    b - black box (unknown)
+    h - hierarchical
+    n - noncombinational
+    r - removable
+   so - sizing only
+    u - contains unmapped logic
+
+Cell                      Reference       Library             Area  Attributes
+--------------------------------------------------------------------------------
+U1                        NBUFFX16_RVT    saed32rvt_tt1p05v25c 6.099456 so
+U2                        NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160 so
+U3                        NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160 so
+U4                        NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160 so
+U5                        NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160 so
+U6                        NBUFFX16_RVT    saed32rvt_tt1p05v25c 6.099456 so
+U7                        NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160 so
+U8                        NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U9                        NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152 so
+U10                       NBUFFX4_RVT     saed32rvt_tt1p05v25c 2.541440 so
+U11                       NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160 so
+U12                       NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160 so
+U13                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
+U14                       NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160 so
+U15                       NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160 so
+U16                       NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160 so
+U17                       NBUFFX8_LVT     saed32lvt_tt1p05v25c 3.812160 so
+U18                       NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160 so
+U19                       NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160 so
+U20                       NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160 so
+U21                       NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160 so
+U22                       NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160 so
+U23                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U24                       NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160 so
+U25                       NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160 so
+U26                       NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160 so
+U27                       NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160 so
+U28                       NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160 so
+U29                       NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160 so
+U30                       NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160 so
+U31                       NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160 so
+U32                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U33                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U34                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440 so
+U35                       NBUFFX2_HVT     saed32hvt_tt1p05v25c 2.033152 so
+U37                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440
+U38                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440
+U39                       NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160
+U40                       NBUFFX8_RVT     saed32rvt_tt1p05v25c 3.812160
+U41                       NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160
+U42                       NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160
+U43                       NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160
+U44                       NBUFFX8_HVT     saed32hvt_tt1p05v25c 3.812160
+U45                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440
+U46                       INVX16_HVT      saed32hvt_tt1p05v25c 5.082880
+U47                       INVX16_RVT      saed32rvt_tt1p05v25c 5.082880
+U48                       NBUFFX4_HVT     saed32hvt_tt1p05v25c 2.541440
+ctrl                      ctrl                            376.895560 b, h, n
+dpathtotal                dpathtotal                      218803.758228 b, h, n
+--------------------------------------------------------------------------------
+Total 49 cells                                            219350.676124
+1
