@@ -1,0 +1,48 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : dfe3Main
+Version: G-2012.06-SP3
+Date   : Mon May  1 16:08:10 2017
+****************************************
+
+
+Library(s) Used:
+
+    saed32lvt_tt1p05v25c (File: /home/ff/cs250/stdcells/synopsys-32nm/multi_vt/db/cells_lvt.db)
+    saed32hvt_tt1p05v25c (File: /home/ff/cs250/stdcells/synopsys-32nm/multi_vt/db/cells_hvt.db)
+    saed32rvt_tt1p05v25c (File: /home/ff/cs250/stdcells/synopsys-32nm/multi_vt/db/cells_rvt.db)
+
+
+Operating Conditions: tt1p05v25c   Library: saed32hvt_tt1p05v25c
+Wire Load Model Mode: Inactive.
+
+
+Global Operating Voltage = 1.05 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+dfe3Main                               1.68e+03 5.40e+04 2.50e+10 8.07e+04 100.0
+  ctrl (ctrl)                             7.820   43.686 1.14e+08  165.688   0.2
+  dpathtotal (dpathtotal)              1.66e+03 5.40e+04 2.48e+10 8.04e+04  99.6
+    firFeedbackNoMulti (firFeedbackNoMulti)  120.270 5.40e+03 7.07e+09 1.26e+04  15.6
+      SimpMulti_2 (SimpMulti_3)        6.25e-02 9.91e-02 8.79e+08  878.841   1.1
+      SimpMulti_1 (SimpMulti_4)           0.161    0.299 9.51e+08  951.002   1.2
+      SimpMulti (SimpMulti_5)             0.302    0.649 8.90e+08  890.468   1.1
+    decision_device (decision_device)  9.95e-04 8.03e-04 1.96e+07   19.565   0.0
+    correlator (correlator)            1.48e+03 4.86e+04 1.74e+10 6.75e+04  83.6
+1
