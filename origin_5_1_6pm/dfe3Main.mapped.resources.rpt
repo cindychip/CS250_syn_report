@@ -1,0 +1,572 @@
+ 
+****************************************
+Report : resources
+Design : dfe3Main
+Version: G-2012.06-SP3
+Date   : Mon May  1 18:12:05 2017
+****************************************
+
+
+No resource sharing information to report.
+
+No implementations to report
+
+No multiplexors to report
+ 
+****************************************
+Design : ctrl
+****************************************
+
+Resource Report for this hierarchy in file
+        /scratch/cs250-aab/dsp/build/vlsi/generated-src/dfe3Main.DefaultConfig.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| gt_x_5         | DW_cmp         | width=22   | gt_40118                   |
+| gt_x_7         | DW_cmp         | width=22   | gt_40121                   |
+| add_x_9        | DW01_inc       | width=12   | add_40125                  |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| gt_x_5             | DW_cmp           | apparch (area)     |                |
+| gt_x_7             | DW_cmp           | apparch (area)     |                |
+| add_x_9            | DW01_inc         | apparch (area)     |                |
+===============================================================================
+
+
+No multiplexors to report
+ 
+****************************************
+Design : SNPS_CLOCK_GATE_HIGH_ctrl_0
+****************************************
+
+No resource sharing information to report.
+
+No implementations to report
+
+No multiplexors to report
+ 
+****************************************
+Design : dpathtotal
+****************************************
+
+Resource Report for this hierarchy in file
+        /scratch/cs250-aab/dsp/build/vlsi/generated-src/dfe3Main.DefaultConfig.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_1        | DW01_sub       | width=17   | sub_40008                  |
+| sub_x_2        | DW01_sub       | width=17   | sub_40009                  |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| sub_x_1            | DW01_sub         | pparch (speed)     |                |
+| sub_x_2            | DW01_sub         | pparch (speed)     |                |
+===============================================================================
+
+
+No multiplexors to report
+ 
+****************************************
+Design : fir_feedback
+****************************************
+
+Resource Report for this hierarchy in file
+        /scratch/cs250-aab/dsp/build/vlsi/generated-src/dfe3Main.DefaultConfig.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| lt_x_7         | DW_cmp         | width=2    | lt_23998                   |
+| gt_x_8         | DW_cmp         | width=22   | gt_24000                   |
+| gt_x_9         | DW_cmp         | width=22   | gt_24001                   |
+| sub_x_12       | DW01_dec       | width=9    | sub_24007                  |
+| add_x_19       | DW01_inc       | width=2    | add_24022                  |
+| sub_x_1060     | DW01_sub       | width=34   | sub_26113                  |
+| sub_x_1061     | DW01_sub       | width=34   | sub_26129                  |
+| sub_x_2084     | DW01_sub       | width=34   | sub_27168                  |
+| sub_x_2085     | DW01_sub       | width=34   | sub_27184                  |
+| sub_x_3108     | DW01_sub       | width=34   | sub_28223                  |
+| sub_x_3109     | DW01_sub       | width=34   | sub_28239                  |
+| DP_OP_4363J1_124_2079           |            |                            |
+|                | DP_OP_4363J1_124_2079 |     |                            |
+| DP_OP_4364J1_125_2079           |            |                            |
+|                | DP_OP_4364J1_125_2079 |     |                            |
+| DP_OP_4365J1_126_4461           |            |                            |
+|                | DP_OP_4365J1_126_4461 |     |                            |
+| DP_OP_4366J1_127_4461           |            |                            |
+|                | DP_OP_4366J1_127_4461 |     |                            |
+| DP_OP_4438_135_2382             |            |                            |
+|                | DP_OP_4438_135_2382 |       |                            |
+=============================================================================
+
+Datapath Report for DP_OP_4363J1_124_2079
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_4363J1_124_2079 | mult_26103 add_26107 mult_26106                    |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 16    |                                          |
+| I2    | PI   | Signed   | 16    |                                          |
+| I3    | PI   | Signed   | 16    |                                          |
+| I4    | PI   | Signed   | 16    |                                          |
+| T1059 | IFO  | Signed   | 32    | I1 * I2                                  |
+| T1060 | IFO  | Signed   | 32    | I3 * I4                                  |
+| O1    | PO   | Unsigned | 32    | T1059 + T1060                            |
+==============================================================================
+
+Datapath Report for DP_OP_4364J1_125_2079
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_4364J1_125_2079 | mult_26119 sub_26123 mult_26122                    |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 16    |                                          |
+| I2    | PI   | Signed   | 16    |                                          |
+| I3    | PI   | Signed   | 16    |                                          |
+| I4    | PI   | Signed   | 16    |                                          |
+| T1063 | IFO  | Signed   | 32    | I1 * I2                                  |
+| T1064 | IFO  | Signed   | 32    | I3 * I4                                  |
+| O1    | PO   | Signed   | 32    | T1063 - T1064                            |
+==============================================================================
+
+Datapath Report for DP_OP_4365J1_126_4461
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_4365J1_126_4461 | mult_27158 add_27162 mult_27161 mult_27174         |
+|                      | sub_27178 mult_27177                                |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 16    |                                          |
+| I2    | PI   | Signed   | 16    |                                          |
+| I3    | PI   | Signed   | 16    |                                          |
+| I4    | PI   | Signed   | 16    |                                          |
+| T2089 | IFO  | Signed   | 32    | I1 * I2                                  |
+| T2090 | IFO  | Signed   | 32    | I3 * I4                                  |
+| T2094 | IFO  | Signed   | 32    | I1 * I4                                  |
+| O1    | PO   | Unsigned | 32    | T2089 + T2090                            |
+| O2    | PO   | Signed   | 32    | T2090 - T2094                            |
+==============================================================================
+
+Datapath Report for DP_OP_4366J1_127_4461
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_4366J1_127_4461 | mult_28213 add_28217 mult_28216 mult_28229         |
+|                      | sub_28233 mult_28232                                |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 16    |                                          |
+| I2    | PI   | Signed   | 16    |                                          |
+| I3    | PI   | Signed   | 16    |                                          |
+| I4    | PI   | Signed   | 16    |                                          |
+| T3119 | IFO  | Signed   | 32    | I1 * I2                                  |
+| T3120 | IFO  | Signed   | 32    | I3 * I4                                  |
+| T3124 | IFO  | Signed   | 32    | I1 * I4                                  |
+| O1    | PO   | Unsigned | 32    | T3119 + T3120                            |
+| O2    | PO   | Signed   | 32    | T3120 - T3124                            |
+==============================================================================
+
+Datapath Report for DP_OP_4438_135_2382
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_4438_135_2382  | sub_28269 sub_28300 sub_28359 mult_28279 mult_28310 |
+|                      | mult_28369 add_28427 add_28397 add_28372 add_28401  |
+|                      | add_28433 add_28339 add_28313 add_28343 add_28339   |
+|                      | add_28313 add_28343 add_28427 add_28397 add_28372   |
+|                      | add_28401 add_28433 add_28282 mult_28273 mult_28304 |
+|                      | mult_28363 add_28259 sub_28426 sub_28396 sub_28371  |
+|                      | add_28400 add_28431 add_28427 add_28397 add_28372   |
+|                      | add_28401 add_28433 sub_28338 sub_28312 add_28342   |
+|                      | add_28339 add_28313 add_28343 mult_28330 mult_28388 |
+|                      | add_28316 sub_28426 sub_28396 sub_28371 add_28400   |
+|                      | add_28431 add_28427 add_28397 add_28372 add_28401   |
+|                      | add_28433 mult_28418 add_28404 mult_28424 sub_28414 |
+|                      | mult_28336 mult_28394 sub_28326 sub_28384 sub_28426 |
+|                      | sub_28396 sub_28371 add_28400 add_28431 sub_28338   |
+|                      | sub_28312 add_28342 sub_28426 sub_28396 sub_28371   |
+|                      | add_28400 add_28431 mult_28421 add_28409 sub_28338  |
+|                      | sub_28312 add_28342 mult_28333 mult_28391 add_28321 |
+|                      | add_28379 sub_28281 mult_28276 mult_28307           |
+|                      | mult_28366 add_28264 add_28295 add_28354            |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 16    |                                          |
+| I2    | PI   | Signed   | 16    |                                          |
+| I3    | PI   | Signed   | 22    |                                          |
+| I4    | PI   | Unsigned | 1     |                                          |
+| I5    | PI   | Unsigned | 1     |                                          |
+| I6    | PI   | Signed   | 22    |                                          |
+| I7    | PI   | Signed   | 16    |                                          |
+| I8    | PI   | Signed   | 22    |                                          |
+| I9    | PI   | Signed   | 22    |                                          |
+| I10   | PI   | Signed   | 16    |                                          |
+| I11   | PI   | Signed   | 22    |                                          |
+| I12   | PI   | Signed   | 22    |                                          |
+| I13   | PI   | Signed   | 16    |                                          |
+| I14   | PI   | Unsigned | 1     |                                          |
+| I15   | PI   | Unsigned | 1     |                                          |
+| I16   | PI   | Signed   | 16    |                                          |
+| I17   | PI   | Unsigned | 1     |                                          |
+| I18   | PI   | Unsigned | 1     |                                          |
+| I19   | PI   | Unsigned | 1     |                                          |
+| T3135 | IFO  | Signed   | 17    | I1 - I2                                  |
+| T3138 | IFO  | Signed   | 28    | T3135 * I3                               |
+| T4383 | IFO  | Signed   | 17    | T3138[27:11]                             |
+| T3133 | IFO  | Signed   | 23    | I3 + I6                                  |
+| T3136 | IFO  | Signed   | 28    | I2 * T3133                               |
+| T4258 | IFO  | Signed   | 17    | T3136[27:11]                             |
+| T3152 | IFO  | Signed   | 17    | I16 - I7                                 |
+| T3155 | IFO  | Signed   | 28    | T3152 * I8                               |
+| T4397 | IFO  | Signed   | 17    | T3155[27:11]                             |
+| T3150 | IFO  | Signed   | 23    | I8 + I9                                  |
+| T3153 | IFO  | Signed   | 28    | I7 * T3150                               |
+| T4266 | IFO  | Signed   | 17    | T3153[27:11]                             |
+| T4343 | IFO  | Unsigned | 17    | T4258 + T4266                            |
+| T3180 | IFO  | Signed   | 17    | I13 - I10                                |
+| T3183 | IFO  | Signed   | 28    | T3180 * I11                              |
+| T4279 | IFO  | Signed   | 17    | T3183[27:11]                             |
+| T3178 | IFO  | Signed   | 23    | I11 + I12                                |
+| T3181 | IFO  | Signed   | 28    | I10 * T3178                              |
+| T4277 | IFO  | Signed   | 17    | T3181[27:11]                             |
+| T4341 | IFO  | Unsigned | 17    | T4277 + T4343                            |
+| T4389 | IFO  | Unsigned | 17    | T4279 + T4341                            |
+| T4394 | IFO  | Unsigned | 17    | { I14, I15 } ? T4343 : T4389             |
+| T4392 | IFO  | Unsigned | 17    | T4397 + T4394                            |
+| T4385 | IFO  | Unsigned | 17    | { I4, I5 } ? T4258 : T4392               |
+| T3179 | IFO  | Signed   | 17    | I10 + I13                                |
+| T3182 | IFO  | Signed   | 28    | T3179 * I12                              |
+| T4278 | IFO  | Signed   | 17    | T3182[27:11]                             |
+| T4428 | IFO  | Signed   | 17    | T4341 - T4278                            |
+| T4432 | IFO  | Signed   | 17    | { I17, I15 } ? T4343 : T4428             |
+| T3151 | IFO  | Signed   | 17    | I7 + I16                                 |
+| T3154 | IFO  | Signed   | 28    | T3151 * I9                               |
+| T4436 | IFO  | Signed   | 17    | T3154[27:11]                             |
+| T4431 | IFO  | Signed   | 17    | T4432 - T4436                            |
+| T4422 | IFO  | Signed   | 17    | { I18, I19 } ? T4258 : T4431             |
+| T3134 | IFO  | Signed   | 17    | I2 + I1                                  |
+| T3137 | IFO  | Signed   | 28    | T3134 * I6                               |
+| T4425 | IFO  | Signed   | 17    | T3137[27:11]                             |
+| O1    | PO   | Unsigned | 17    | T4383 + T4385                            |
+| O2    | PO   | Signed   | 17    | T4422 - T4425                            |
+==============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| lt_x_7             | DW_cmp           | apparch (area)     |                |
+| gt_x_8             | DW_cmp           | apparch (area)     |                |
+| gt_x_9             | DW_cmp           | apparch (area)     |                |
+| sub_x_12           | DW01_dec         | apparch (area)     |                |
+| add_x_19           | DW01_inc         | apparch (area)     |                |
+| sub_x_1060         | DW01_sub         | apparch (area)     |                |
+| sub_x_1061         | DW01_sub         | apparch (area)     |                |
+| sub_x_2084         | DW01_sub         | apparch (area)     |                |
+| sub_x_2085         | DW01_sub         | apparch (area)     |                |
+| DP_OP_4363J1_124_2079                 |                    |                |
+|                    | DP_OP_4363J1_124_2079 | str (area)    |                |
+| DP_OP_4364J1_125_2079                 |                    |                |
+|                    | DP_OP_4364J1_125_2079 | str (area)    |                |
+| DP_OP_4365J1_126_4461                 |                    |                |
+|                    | DP_OP_4365J1_126_4461 | str (area)    |                |
+| DP_OP_4438_135_2382                   |                    |                |
+|                    | DP_OP_4438_135_2382 | str (area,speed)                 |
+===============================================================================
+
+
+No multiplexors to report
+ 
+****************************************
+Design : SNPS_CLOCK_GATE_HIGH_fir_feedback_2_3
+****************************************
+
+No resource sharing information to report.
+
+No implementations to report
+
+No multiplexors to report
+ 
+****************************************
+Design : SNPS_CLOCK_GATE_HIGH_fir_feedback_1_2
+****************************************
+
+No resource sharing information to report.
+
+No implementations to report
+
+No multiplexors to report
+ 
+****************************************
+Design : SNPS_CLOCK_GATE_HIGH_fir_feedback_0_1
+****************************************
+
+No resource sharing information to report.
+
+No implementations to report
+
+No multiplexors to report
+ 
+****************************************
+Design : correlator
+****************************************
+
+Resource Report for this hierarchy in file
+        /scratch/cs250-aab/dsp/build/vlsi/generated-src/dfe3Main.DefaultConfig.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| gt_x_1         | DW_cmp         | width=12   | gt_5429                    |
+| DP_OP_1176J2_124_8812           |            |                            |
+|                | DP_OP_1176J2_124_8812 |     |                            |
+| DP_OP_1177J2_125_3606           |            |                            |
+|                | DP_OP_1177J2_125_3606 |     |                            |
+| DP_OP_1178J2_126_8812           |            |                            |
+|                | DP_OP_1178J2_126_8812 |     |                            |
+| DP_OP_1179J2_127_7525           |            |                            |
+|                | DP_OP_1179J2_127_7525 |     |                            |
+| DP_OP_1180J2_128_7525           |            |                            |
+|                | DP_OP_1180J2_128_7525 |     |                            |
+=============================================================================
+
+Datapath Report for DP_OP_1176J2_124_8812
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_1176J2_124_8812 | sub_5433 add_5438 sub_5443 sub_5507 add_5448       |
+|                      | sub_5453 sub_5513 add_5458 sub_5463 sub_5519        |
+|                      | add_5468 add_5473 sub_5477 sub_5529 add_5482        |
+|                      | sub_5487 sub_5535 add_5492 sub_5523                 |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 22    |                                          |
+| I2    | PI   | Signed   | 16    |                                          |
+| I3    | PI   | Unsigned | 1     |                                          |
+| I4    | PI   | Unsigned | 1     |                                          |
+| I5    | PI   | Signed   | 22    |                                          |
+| I6    | PI   | Signed   | 22    |                                          |
+| I7    | PI   | Signed   | 22    |                                          |
+| I8    | PI   | Signed   | 22    |                                          |
+| I9    | PI   | Signed   | 22    |                                          |
+| I10   | PI   | Signed   | 22    |                                          |
+| T1160 | IFO  | Signed   | 22    | I1 - I2                                  |
+| T317  | IFO  | Signed   | 22    | { I3, I4 } ? T1160 : $unsigned(1'b0)     |
+| T1161 | IFO  | Signed   | 22    | I5 - T317                                |
+| T319  | IFO  | Signed   | 22    | { I3, I4 } ? T1161 : $unsigned(1'b0)     |
+| T1162 | IFO  | Signed   | 22    | I6 - T319                                |
+| T321  | IFO  | Signed   | 22    | { I3, I4 } ? T1162 : $unsigned(1'b0)     |
+| T1163 | IFO  | Signed   | 22    | I7 - T321                                |
+| T323  | IFO  | Signed   | 22    | { I3, I4 } ? T1163 : $unsigned(1'b0)     |
+| T24   | IFO  | Unsigned | 22    | T323 + I8                                |
+| T325  | IFO  | Signed   | 22    | { I3, I4 } ? T24 : $unsigned(1'b0)       |
+| T1164 | IFO  | Signed   | 22    | I9 - T325                                |
+| T327  | IFO  | Signed   | 22    | { I3, I4 } ? T1164 : $unsigned(1'b0)     |
+| O1    | PO   | Signed   | 22    | $signed(1'b0) - T317 - I5                |
+| O2    | PO   | Signed   | 22    | $signed(1'b0) - T319 - I6                |
+| O3    | PO   | Signed   | 22    | $signed(1'b0) - T321 - I7                |
+| O4    | PO   | Signed   | 22    | $signed(1'b0) - T325 - I9                |
+| O5    | PO   | Signed   | 22    | $signed(1'b0) - T327 - I10               |
+| O6    | PO   | Signed   | 22    | I10 - T327                               |
+| O7    | PO   | Signed   | 22    | T323 - I8                                |
+==============================================================================
+
+Datapath Report for DP_OP_1177J2_125_3606
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_1177J2_125_3606 | add_5414 mult_5422 add_5424 mult_5423 add_5415     |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 22    |                                          |
+| I2    | PI   | Signed   | 22    |                                          |
+| I3    | PI   | Signed   | 22    |                                          |
+| I4    | PI   | Signed   | 22    |                                          |
+| T854  | IFO  | Signed   | 15    | O1[22:8]                                 |
+| T1173 | IFO  | Signed   | 15    | O1[22:8]                                 |
+| T2    | IFO  | Signed   | 30    | T854 * T1173                             |
+| T855  | IFO  | Signed   | 15    | O3[22:8]                                 |
+| T1175 | IFO  | Signed   | 15    | O3[22:8]                                 |
+| T3    | IFO  | Signed   | 30    | T855 * T1175                             |
+| O1    | PO   | Signed   | 23    | I1 + I2                                  |
+| O2    | PO   | Unsigned | 30    | T2 + T3                                  |
+| O3    | PO   | Signed   | 23    | I3 + I4                                  |
+==============================================================================
+
+Datapath Report for DP_OP_1178J2_126_8812
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_1178J2_126_8812 | sub_5434 add_5440 sub_5444 sub_5508 add_5450       |
+|                      | sub_5454 sub_5514 add_5460 sub_5464 sub_5520        |
+|                      | add_5470 add_5474 sub_5478 sub_5530 add_5484        |
+|                      | sub_5488 sub_5536 add_5494 sub_5524                 |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 22    |                                          |
+| I2    | PI   | Signed   | 16    |                                          |
+| I3    | PI   | Unsigned | 1     |                                          |
+| I4    | PI   | Unsigned | 1     |                                          |
+| I5    | PI   | Signed   | 22    |                                          |
+| I6    | PI   | Signed   | 22    |                                          |
+| I7    | PI   | Signed   | 22    |                                          |
+| I8    | PI   | Signed   | 22    |                                          |
+| I9    | PI   | Signed   | 22    |                                          |
+| I10   | PI   | Signed   | 22    |                                          |
+| T1165 | IFO  | Signed   | 22    | I1 - I2                                  |
+| T316  | IFO  | Signed   | 22    | { I3, I4 } ? T1165 : $unsigned(1'b0)     |
+| T1166 | IFO  | Signed   | 22    | I5 - T316                                |
+| T318  | IFO  | Signed   | 22    | { I3, I4 } ? T1166 : $unsigned(1'b0)     |
+| T1167 | IFO  | Signed   | 22    | I6 - T318                                |
+| T320  | IFO  | Signed   | 22    | { I3, I4 } ? T1167 : $unsigned(1'b0)     |
+| T1168 | IFO  | Signed   | 22    | I7 - T320                                |
+| T322  | IFO  | Signed   | 22    | { I3, I4 } ? T1168 : $unsigned(1'b0)     |
+| T25   | IFO  | Unsigned | 22    | T322 + I8                                |
+| T324  | IFO  | Signed   | 22    | { I3, I4 } ? T25 : $unsigned(1'b0)       |
+| T1169 | IFO  | Signed   | 22    | I9 - T324                                |
+| T326  | IFO  | Signed   | 22    | { I3, I4 } ? T1169 : $unsigned(1'b0)     |
+| O1    | PO   | Signed   | 22    | $signed(1'b0) - T316 - I5                |
+| O2    | PO   | Signed   | 22    | $signed(1'b0) - T318 - I6                |
+| O3    | PO   | Signed   | 22    | $signed(1'b0) - T320 - I7                |
+| O4    | PO   | Signed   | 22    | $signed(1'b0) - T324 - I9                |
+| O5    | PO   | Signed   | 22    | $signed(1'b0) - T326 - I10               |
+| O6    | PO   | Signed   | 22    | I10 - T326                               |
+| O7    | PO   | Signed   | 22    | T322 - I8                                |
+==============================================================================
+
+Datapath Report for DP_OP_1179J2_127_7525
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_1179J2_127_7525 | sub_5433 sub_5500                                  |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 16    |                                          |
+| I2    | PI   | Signed   | 22    |                                          |
+| O1    | PO   | Signed   | 22    | $signed(1'b0) - I1 - I2                  |
+==============================================================================
+
+Datapath Report for DP_OP_1180J2_128_7525
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_1180J2_128_7525 | sub_5434 sub_5502                                  |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 16    |                                          |
+| I2    | PI   | Signed   | 22    |                                          |
+| O1    | PO   | Signed   | 22    | $signed(1'b0) - I1 - I2                  |
+==============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| gt_x_1             | DW_cmp           | apparch (area)     |                |
+| DP_OP_1176J2_124_8812                 |                    |                |
+|                    | DP_OP_1176J2_124_8812 | str (area,speed)               |
+| DP_OP_1177J2_125_3606                 |                    |                |
+|                    | DP_OP_1177J2_125_3606 | str (area,speed)               |
+| DP_OP_1178J2_126_8812                 |                    |                |
+|                    | DP_OP_1178J2_126_8812 | str (area,speed)               |
+| DP_OP_1179J2_127_7525                 |                    |                |
+|                    | DP_OP_1179J2_127_7525 | str (area)    |                |
+| DP_OP_1180J2_128_7525                 |                    |                |
+|                    | DP_OP_1180J2_128_7525 | str (area)    |                |
+===============================================================================
+
+
+No multiplexors to report
+ 
+****************************************
+Design : SNPS_CLOCK_GATE_HIGH_correlator
+****************************************
+
+No resource sharing information to report.
+
+No implementations to report
+
+No multiplexors to report
+ 
+****************************************
+Design : decision_device
+****************************************
+
+Resource Report for this hierarchy in file
+        /scratch/cs250-aab/dsp/build/vlsi/generated-src/dfe3Main.DefaultConfig.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_14       | DW01_sub       | width=16   | sub_15389                  |
+| sub_x_15       | DW01_sub       | width=16   | sub_15390                  |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| sub_x_14           | DW01_sub         | apparch (area)     |                |
+| sub_x_15           | DW01_sub         | apparch (area)     |                |
+===============================================================================
+
+
+No multiplexors to report
+1

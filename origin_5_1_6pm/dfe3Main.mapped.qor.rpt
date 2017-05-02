@@ -1,0 +1,100 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'dfe3Main' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : qor
+Design : dfe3Main
+Version: G-2012.06-SP3
+Date   : Mon May  1 18:11:28 2017
+****************************************
+
+
+  Timing Path Group 'REGIN'
+  -----------------------------------
+  Levels of Logic:              57.00
+  Critical Path Length:          1.78
+  Critical Path Slack:           0.06
+  Critical Path Clk Period:      2.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'REGOUT'
+  -----------------------------------
+  Levels of Logic:              54.00
+  Critical Path Length:          1.86
+  Critical Path Slack:           0.00
+  Critical Path Clk Period:      2.00
+  Total Negative Slack:         -0.01
+  No. of Violating Paths:       12.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'clock'
+  -----------------------------------
+  Levels of Logic:              61.00
+  Critical Path Length:          1.96
+  Critical Path Slack:          -0.02
+  Critical Path Clk Period:      2.00
+  Total Negative Slack:         -0.52
+  No. of Violating Paths:       38.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:         10
+  Hierarchical Port Count:        728
+  Leaf Cell Count:             152087
+  Buf/Inv Cell Count:           28365
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:    119215
+  Sequential Cell Count:        32872
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:   278601.043283
+  Noncombinational Area:
+                        229602.843637
+  Buf/Inv Area:          55566.552907
+  Net Area:                  0.000000
+  Net XLength        :     2576820.75
+  Net YLength        :     2678619.00
+  -----------------------------------
+  Cell Area:            508203.886921
+  Design Area:          508203.886921
+  Net Length        :      5255440.00
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:        154172
+  Nets With Violations:           740
+  Max Trans Violations:            75
+  Max Cap Violations:             740
+  -----------------------------------
+
+
+  Hostname: hpse-10.EECS.Berkeley.EDU
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                   48.40
+  Logic Optimization:               3419.84
+  Mapping Optimization:             5769.19
+  -----------------------------------------
+  Overall Compile Time:            10169.27
+  Overall Compile Wall Clock Time:  4648.07
+
+1
