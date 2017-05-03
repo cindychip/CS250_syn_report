@@ -1,0 +1,45 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : dfe3Main
+Version: G-2012.06-SP3
+Date   : Tue May  2 18:04:04 2017
+****************************************
+
+
+Library(s) Used:
+
+    saed32hvt_tt1p05v25c (File: /home/ff/cs250/stdcells/synopsys-32nm/multi_vt/db/cells_hvt.db)
+    saed32rvt_tt1p05v25c (File: /home/ff/cs250/stdcells/synopsys-32nm/multi_vt/db/cells_rvt.db)
+    saed32lvt_tt1p05v25c (File: /home/ff/cs250/stdcells/synopsys-32nm/multi_vt/db/cells_lvt.db)
+
+
+Operating Conditions: tt1p05v25c   Library: saed32hvt_tt1p05v25c
+Wire Load Model Mode: Inactive.
+
+
+Global Operating Voltage = 1.05 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+dfe3Main                               1.67e+03 6.42e+04 3.30e+10 9.88e+04 100.0
+  ctrl (ctrl)                             8.126   42.401 1.08e+08  158.858   0.2
+  dpathtotal (dpathtotal)              1.65e+03 6.41e+04 3.28e+10 9.85e+04  99.7
+    fir_feedback (fir_feedback)         242.504 8.82e+03 1.71e+10 2.62e+04  26.5
+    decision_device (decision_device)  9.62e-04 2.45e-03 3.11e+07   31.136   0.0
+    correlator (correlator)            1.33e+03 5.52e+04 1.52e+10 7.18e+04  72.7
+1
