@@ -33,6 +33,7 @@ class dpathtotal[T <: Data:RealBits](gen: T,var S_w: Int, var C_w: Int, var bp: 
  val step_size = 5
  
  val corr = Module(new correlator(gen, S_w, C_w, bp)).io
+ //val corr = Module(new correlator(gen)).io
  val dec = Module(new decision_device(FixedPoint(S_w, bp))).io
 // val fbf = Module(new fir_feedback(gen,window_size,step_size)).io //fir_feedback
  val fbf = Module(new firFeedbackNoMulti(gen,window_size,step_size, S_w, C_w, bp)).io

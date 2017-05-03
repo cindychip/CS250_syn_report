@@ -48,12 +48,12 @@ val delays = Reg(Vec(delay_size, DspComplex(gen, gen)))
 
 // instantiate the sram
 val sram_depth = 256
-val buffer_mem = SyncReadMem(DspComplex(gen.cloneType, gen.cloneType), 256)
+val buffer_mem = SyncReadMem(DspComplex(FixedPoint(10.W, 6.BP),FixedPoint(10.W, 6.BP)), 256)
 val buffer_wen = Wire(Bool()); buffer_wen := true.B //Default value  
 val buffer_raddr = Wire(UInt(log2Ceil(sram_depth).W)); buffer_raddr := 0.U
 val buffer_waddr = Wire(UInt(log2Ceil(sram_depth).W)); buffer_waddr := 0.U
-val buffer_wdata = Wire(DspComplex(gen.cloneType, gen.cloneType)); 
-val buffer_rdata = Wire(DspComplex(gen.cloneType, gen.cloneType)); 
+val buffer_wdata = Wire(DspComplex(FixedPoint(10.W, 6.BP),FixedPoint(10.W, 6.BP))); 
+val buffer_rdata = Wire(DspComplex(FixedPoint(10.W, 6.BP),FixedPoint(10.W, 6.BP))); 
 val counter = Reg(UInt(12.W))
 
 when(buffer_wen) {
@@ -102,7 +102,7 @@ buffer_waddr := (counter-1.U)%256.U  //io.counter_debug % 512.U
 buffer_wdata := io.input_complex
 
 when(counter-1.U < 256.U){
-   buffer_rdata := DspComplex[T](Complex(0.0, 0.0))
+   buffer_rdata := DspComplex(0.0.F(10.W, 6.BP),0.0.F(10.W, 6.BP))
 }
 .otherwise{
    buffer_rdata := buffer_mem((counter-256.U)%256.U)  //buffer_mem((io.counter_debug-255.U)%512.U)
@@ -124,7 +124,7 @@ when (((temp1*temp1+temp2*temp2)>>10) >0) { //could not compare in dsp. so I rig
   io.output_coefficient.imag := temp2
 }
 .otherwise {
-  io.output_coefficient := DspComplex[T](Complex(0.0,0.0))
+  io.output_coefficient := DspComplex(0.0.F(10.W, 6.BP),0.0.F(10.W, 6.BP))
 }
 // Set up ShiftRegister for delay
 //D1

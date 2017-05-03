@@ -30,11 +30,11 @@ class correlatorIo[T <: Data:RealBits](gen: T, var S_w: Int, var C_w: Int, var b
 class correlator[T <: Data:RealBits](gen: T,var S_w: Int, var C_w: Int, var bp: Int) extends Module {
 val io = IO(new correlatorIo(gen, S_w, C_w, bp))
 //Set up constant 
-val delay_size = 255
+val delay_size = 128
 val n = 7
 val W = Array(-1, -1, -1, -1, 1, -1, -1)
 val Dk = Array(1, 8, 2, 4, 16, 32, 64)
-val output = Reg(Vec(delay_size+1, DspComplex(FixedPoint(10, 6),FixedPoint(10, 6) )))  //S_w.W bp.BP
+val output = Reg(Vec(256, DspComplex(FixedPoint(10, 6),FixedPoint(10, 6) )))  //S_w.W bp.BP
 val D1 = Reg(Vec(Dk(0), DspComplex(FixedPoint(C_w, bp),FixedPoint(C_w, bp) )))
 val D2 = Reg(Vec(Dk(1), DspComplex(FixedPoint(C_w, bp),FixedPoint(C_w, bp) )))
 val D3 = Reg(Vec(Dk(2), DspComplex(FixedPoint(C_w, bp),FixedPoint(C_w, bp) )))
@@ -50,7 +50,7 @@ val delays = Reg(Vec(delay_size, DspComplex(FixedPoint(C_w, bp) ,FixedPoint(C_w,
 
 
 when(io.rst){
-  for (i <-0 until delay_size) {
+  for (i <-0 until 255) {
     output(i) := DspComplex(0.0.F(10.W,6.BP), 0.0.F(10.W,6.BP))
   }
   for (i <-0 until Dk(0)){
