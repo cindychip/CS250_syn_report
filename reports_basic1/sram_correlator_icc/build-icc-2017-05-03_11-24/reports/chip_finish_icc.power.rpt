@@ -1,0 +1,53 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : dfe3Main
+Version: G-2012.06-ICC-SP3
+Date   : Wed May  3 12:18:01 2017
+****************************************
+
+
+Library(s) Used:
+
+    saed32hvt_tt1p05v25c (File: /home/ff/cs250/stdcells/synopsys-32nm/multi_vt/db/cells_hvt.db)
+    saed32rvt_tt1p05v25c (File: /home/ff/cs250/stdcells/synopsys-32nm/multi_vt/db/cells_rvt.db)
+    saed32lvt_tt1p05v25c (File: /home/ff/cs250/stdcells/synopsys-32nm/multi_vt/db/cells_lvt.db)
+
+
+Operating Conditions: tt1p05v25c   Library: saed32hvt_tt1p05v25c
+Wire Load Model Mode: top
+
+Design        Wire Load Model            Library
+------------------------------------------------
+dfe3Main               ForQA             saed32hvt_tt1p05v25c
+
+
+Global Operating Voltage = 1.05 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+dfe3Main                               9.05e+03 4.07e+04 2.89e+10 7.86e+04 100.0
+  dpathtotal (dpathtotal)              8.87e+03 4.05e+04 2.84e+10 7.78e+04  99.0
+    correlator (correlator)            8.12e+03 3.88e+04 1.87e+10 6.56e+04  83.5
+      buffer_mem (buffer_mem)             0.000    0.000 6.55e+04 6.55e-02   0.0
+    decision_device (decision_device)     0.000 1.40e-04 6.97e+06    6.969   0.0
+    firFeedbackNoMulti (firFeedbackNoMulti)  145.914 1.66e+03 8.91e+09 1.07e+04  13.6
+      SimpMulti (SimpMulti_5)             0.641    1.259 1.42e+09 1.42e+03   1.8
+      SimpMulti_1 (SimpMulti_4)           0.757    1.473 1.53e+09 1.53e+03   1.9
+      SimpMulti_2 (SimpMulti_3)           0.809    1.531 1.61e+09 1.61e+03   2.1
+  ctrl (ctrl)                            11.239   53.308 1.63e+08  227.180   0.3
+1

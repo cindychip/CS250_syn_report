@@ -1,0 +1,4 @@
+LIBRARY    dfe3Main_LIB
+  REFERENCE    /home/ff/cs250/stdcells/synopsys-32nm/multi_vt/mw/cells_hvt.mw
+  REFERENCE    /home/ff/cs250/stdcells/synopsys-32nm/multi_vt/mw/cells_rvt.mw
+  REFERENCE    /home/ff/cs250/stdcells/synopsys-32nm/multi_vt/mw/cells_lvt.mw

@@ -1,0 +1,21 @@
+ 
+****************************************
+Report : clock timing
+        -type skew
+        -nworst 1
+        -setup
+Design : dfe3Main
+Version: G-2012.06-ICC-SP3
+Date   : Wed May  3 12:17:55 2017
+****************************************
+
+  Clock: clock
+  Clock Pin                              Latency    CRP      Skew
+----------------------------------------------------------------------------
+  dpathtotal/correlator/D6_31_imag_reg_1_/CLK
+                                         0.31                          wrp-+
+  dpathtotal/firFeedbackNoMulti/buffer_complex_0_imag_reg_10_/CLK
+                                         0.29      -0.00     0.02      wrp-+
+----------------------------------------------------------------------------
+
+1

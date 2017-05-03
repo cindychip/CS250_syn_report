@@ -1,0 +1,97 @@
+ 
+****************************************
+Report : qor
+Design : dfe3Main
+Version: G-2012.06-ICC-SP3
+Date   : Wed May  3 12:17:55 2017
+****************************************
+
+
+  Timing Path Group 'REGIN'
+  -----------------------------------
+  Levels of Logic:              57.00
+  Critical Path Length:          1.91
+  Critical Path Slack:           0.03
+  Critical Path Clk Period:      2.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'REGOUT'
+  -----------------------------------
+  Levels of Logic:              72.00
+  Critical Path Length:          1.85
+  Critical Path Slack:          -0.29
+  Critical Path Clk Period:      2.00
+  Total Negative Slack:         -8.59
+  No. of Violating Paths:       32.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'clock'
+  -----------------------------------
+  Levels of Logic:              60.00
+  Critical Path Length:          1.88
+  Critical Path Slack:          -0.15
+  Critical Path Clk Period:      2.00
+  Total Negative Slack:         -0.68
+  No. of Violating Paths:       21.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:         13
+  Hierarchical Port Count:       1026
+  Leaf Cell Count:              38882
+  Buf/Inv Cell Count:            4358
+  CT Buf/Inv Cell Count:          164
+  Combinational Cell Count:     27141
+  Sequential Cell Count:        11741
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:    65159.219022
+  Noncombinational Area: 77658.022180
+  Buf/Inv Area:           9782.765108
+  Net Area:              66710.375554
+  Net XLength        :      263589.00
+  Net YLength        :      277110.16
+  -----------------------------------
+  Cell Area:            142817.241202
+  Design Area:          209527.616755
+  Net Length        :       540699.12
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:         40773
+  Nets With Violations:             3
+  Max Trans Violations:             0
+  Max Cap Violations:               3
+  -----------------------------------
+
+
+  Hostname: hpse-11.EECS.Berkeley.EDU
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    9.87
+  Logic Optimization:                118.67
+  Mapping Optimization:             2944.88
+  -----------------------------------------
+  Overall Compile Time:             3232.56
+  Overall Compile Wall Clock Time:  2668.94
+
+1

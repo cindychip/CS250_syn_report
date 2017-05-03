@@ -1,0 +1,12 @@
+set_user_match   -inverted   $svf_ref/dfe3Main/ctrl/io_coeff_output_real[21]   $svf_impl/dfe3Main/ctrl/io_coeff_output_real[21]
+set_user_match   -inverted   $svf_ref/dfe3Main/dpathtotal/io_coeff_in_real[21]   $svf_impl/dfe3Main/dpathtotal/io_coeff_in_real[21]
+set_user_match   -inverted   $svf_ref/dfe3Main/dpathtotal/firFeedbackNoMulti/io_tap_coeff_complex_real[21]   $svf_impl/dfe3Main/dpathtotal/firFeedbackNoMulti/io_tap_coeff_complex_real[21]
+set_user_match   -inverted   $svf_ref/dfe3Main/dpathtotal/correlator/IN16   $svf_impl/dfe3Main/dpathtotal/correlator/IN16
+set_user_match   -inverted   $svf_ref/dfe3Main/dpathtotal/firFeedbackNoMulti/IN16   $svf_impl/dfe3Main/dpathtotal/firFeedbackNoMulti/IN16
+guide_constraints -body { ctrl } -equivalent { ctrl/IN1  ~ ctrl/IN2 }
+set_user_match   -inverted   $svf_ref/dfe3Main/dpathtotal/reset   $svf_impl/dfe3Main/dpathtotal/reset
+set_user_match   -inverted   $svf_ref/dfe3Main/dpathtotal/firFeedbackNoMulti/reset   $svf_impl/dfe3Main/dpathtotal/firFeedbackNoMulti/reset
+set_user_match   -inverted   $svf_ref/dfe3Main/ctrl/reset   $svf_impl/dfe3Main/ctrl/reset
+
+#-------------------------------------------------------------------
+
