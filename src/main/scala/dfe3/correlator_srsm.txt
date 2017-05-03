@@ -16,14 +16,14 @@ import dsptools.numbers._
 
 class correlatorIo[T <: Data:RealBits](gen: T) extends Bundle {
   val input_complex = Input(DspComplex(gen.cloneType, gen.cloneType))
-  val output_complex = Output(DspComplex(gen.cloneType, gen.cloneType))
+  val output_complex = Output(DspComplex(FixedPoint(16.W, 12.BP),FixedPoint(16.W, 12.BP)))
   val output_coefficient = Output(DspComplex(gen.cloneType, gen.cloneType))
   //val ra_out = Output(DspComplex(gen.cloneType, gen.cloneType))
   //val rb_out = Output(DspComplex(gen.cloneType, gen.cloneType))
   //val ga_bool = Output(Bool())
   val rst = Input(Bool())
-  val counter_debug = Input(UInt(12.W))
-  val corr_debug = Output(DspComplex(gen.cloneType,gen.cloneType))
+  //val counter_debug = Input(UInt(12.W))
+  //val corr_debug = Output(DspComplex(gen.cloneType,gen.cloneType))
   override def cloneType: this.type = new correlatorIo(gen).asInstanceOf[this.type]
 }
 
@@ -34,7 +34,6 @@ val delay_size = 128
 val n = 7
 val W = Array(-1, -1, -1, -1, 1, -1, -1)
 val Dk = Array(1, 8, 2, 4, 16, 32, 64)
-val output = Reg(Vec(128+128, DspComplex(gen, gen)))
 val D1 = Reg(Vec(Dk(0), DspComplex(gen, gen)))
 val D2 = Reg(Vec(Dk(1), DspComplex(gen, gen)))
 val D3 = Reg(Vec(Dk(2), DspComplex(gen, gen)))
@@ -48,15 +47,13 @@ val rb  = Wire(Vec(n, DspComplex(gen, gen)))
 val delays = Reg(Vec(delay_size, DspComplex(gen, gen)))
 
 // instantiate the sram
-val sram_depth = 512
-val buffer_mem = SyncReadMem(DspComplex(gen.cloneType, gen.cloneType), 512)
+val sram_depth = 256
+val buffer_mem = SyncReadMem(DspComplex(gen.cloneType, gen.cloneType), 256)
 val buffer_wen = Wire(Bool()); buffer_wen := true.B //Default value  
 val buffer_raddr = Wire(UInt(log2Ceil(sram_depth).W)); buffer_raddr := 0.U
 val buffer_waddr = Wire(UInt(log2Ceil(sram_depth).W)); buffer_waddr := 0.U
 val buffer_wdata = Wire(DspComplex(gen.cloneType, gen.cloneType)); 
 val buffer_rdata = Wire(DspComplex(gen.cloneType, gen.cloneType)); 
-val buffer_tmp = Reg(DspComplex(gen,gen))
-val buffer_delay =Reg(DspComplex(gen,gen))
 val counter = Reg(UInt(12.W))
 
 when(buffer_wen) {
@@ -64,9 +61,6 @@ when(buffer_wen) {
 }
 
 when(io.rst){
-  for (i <-0 until 127) {
-    output(i) := DspComplex[T](Complex(0.0, 0.0))
-  }
   for (i <-0 until Dk(0)){
     D1(i) := DspComplex[T](Complex(0.0, 0.0))
   }
@@ -100,23 +94,21 @@ when(io.rst){
   for (i <-0 until delay_size){
     delays(i) := DspComplex[T](Complex(0.0, 0.0))
   }
-  buffer_tmp := DspComplex[T](Complex(0.0,0.0))
-  buffer_delay := DspComplex[T](Complex(0.0,0.0))
   counter := 0.U
 }
 .otherwise {
 counter := counter +1.U
-buffer_waddr := (counter-1.U)%512.U  //io.counter_debug % 512.U
+buffer_waddr := (counter-1.U)%256.U  //io.counter_debug % 512.U
 buffer_wdata := io.input_complex
 
-when(io.counter_debug < 256.U){
+when(counter-1.U < 256.U){
    buffer_rdata := DspComplex[T](Complex(0.0, 0.0))
 }
 .otherwise{
-   buffer_rdata := buffer_mem((counter-256.U)%512.U)  //buffer_mem((io.counter_debug-255.U)%512.U)
+   buffer_rdata := buffer_mem((counter-256.U)%256.U)  //buffer_mem((io.counter_debug-255.U)%512.U)
 }
 io.output_complex := buffer_rdata
-io.corr_debug := buffer_rdata
+//io.corr_debug := buffer_rdata
 
 //delay modules 
 delays(0) := ra(6) 

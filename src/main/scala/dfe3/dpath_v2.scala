@@ -1,3 +1,4 @@
+
 package dfe3
 
 import chisel3._
@@ -21,32 +22,23 @@ class dpathtotalIo[T <: Data:RealBits](gen: T, var S_w: Int, var C_w: Int, var b
   val count = Input(UInt(12.W))
   val lms_en = Input(Bool())
   val tap_en = Input(Bool())
- // val output_debug1 = Output(DspComplex(gen.cloneType, gen.cloneType))
- // val output_debug2 = Output(DspComplex(gen.cloneType, gen.cloneType))
- // val output_debug3 = Output(DspComplex(gen.cloneType, gen.cloneType))
- // val output_debug4 = Output(UInt(2.W))
 
   override def cloneType: this.type = new dpathtotalIo(gen, S_w, C_w, bp).asInstanceOf[this.type]
 }
 
-//S_w=16, C_w=22, bp = 12
 
 class dpathtotal[T <: Data:RealBits](gen: T,var S_w: Int, var C_w: Int, var bp: Int) extends Module {
  val io = IO(new dpathtotalIo(gen, S_w, C_w, bp))
- val window_size = 512
+ val window_size = 128
  val step_size = 5
- //import submodule 
+ 
  val corr = Module(new correlator(gen, S_w, C_w, bp)).io
  val dec = Module(new decision_device(FixedPoint(S_w, bp))).io
+// val fbf = Module(new fir_feedback(gen,window_size,step_size)).io //fir_feedback
  val fbf = Module(new firFeedbackNoMulti(gen,window_size,step_size, S_w, C_w, bp)).io
- 
- // io.output_debug1 := fbf.output_debug1
- // io.output_debug2 := fbf.output_debug2
- // io.output_debug3 := fbf.output_debug3
- // io.output_debug4 := fbf.output_debug4
+
 
  when (io.stage === 0.U) {
-    //IDLE state
     fbf.rst := true.B
     corr.rst := true.B
  }
@@ -57,11 +49,6 @@ class dpathtotal[T <: Data:RealBits](gen: T,var S_w: Int, var C_w: Int, var bp: 
     dec.qpsk_en := false.B
     corr.input_complex := io.signal_in
     io.signal_out := corr.output_complex
-    //dec.input_complex := corr.output_complex
-    //io.signal_out := dec.output_complex
-   //when (io.tap_en) {
-   //fbf.input_complex <> dec.output_complex
-   //}
  }
 
  //dfe is working

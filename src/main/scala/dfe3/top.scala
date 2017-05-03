@@ -18,15 +18,6 @@ class dfe3Io[T <: Data:RealBits](gen: T, var S_w: Int, var C_w: Int, var bp: Int
   val signal_out = Output(DspComplex(FixedPoint(S_w, bp) ))
   val enable = Input(Bool())
   val reset = Input(Bool())
- // val debug = Output(DspComplex(gen.cloneType, gen.cloneType))
-  //val count = Output(UInt(12.W)) //debugging output
- // val output_debug1 = Output(DspComplex(gen.cloneType, gen.cloneType))
- // val output_debug2 = Output(DspComplex(gen.cloneType, gen.cloneType))
- // val output_debug3 = Output(DspComplex(gen.cloneType, gen.cloneType))
- // val output_debug4 = Output(UInt(2.W))
- // val output_debug5 = Output(UInt(2.W))
-
-
 }
 
 class dfe3Main[T <: Data:RealBits](gen: T, var S_w: Int, var C_w: Int, var bp: Int) extends Module {
@@ -37,14 +28,7 @@ class dfe3Main[T <: Data:RealBits](gen: T, var S_w: Int, var C_w: Int, var bp: I
 
  ctrl.enable := io.enable
  ctrl.reset := io.reset  
-// io.debug := dpath.coeff_out
- // io.output_debug1 := dpath.output_debug1
- // io.output_debug2 := dpath.output_debug2
- // io.output_debug3 := dpath.output_debug3 
- // io.output_debug4 := dpath.output_debug4
- // io.output_debug5 := ctrl.stage
 
- // input and output connection
  dpath.signal_in := io.signal_in
  io.signal_out := dpath.signal_out
 
@@ -59,7 +43,7 @@ class dfe3Main[T <: Data:RealBits](gen: T, var S_w: Int, var C_w: Int, var bp: I
 
 
 object dfe3MainTest extends App {
-  var S_w = 16 
+  var S_w = 16 //22 
   var C_w = 22 
   var bp = 12
   
